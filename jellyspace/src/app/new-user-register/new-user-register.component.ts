@@ -7,42 +7,44 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-user-register.component.css'],
 })
 export class NewUserRegisterComponent implements OnInit {
-  constructor(private router: Router) {}
+  radiocheck = false;
+  isSpace = false;
+  isAvionics = false;
+  isOthers = false;
 
-  onRadioValue: any;
-  radiocheck: boolean = false;
-  isFreelance: boolean = false;
-  isCompany: boolean = false;
-  isBigCompany: boolean = false;
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     const userType = localStorage.getItem('newuser');
-    switch (userType) {
-      case 'freelancer':
-        this.isFreelance = true;
-        this.radiocheck = true;
-        break;
-      case 'organization':
-        this.isBigCompany = true;
-        this.radiocheck = true;
-        break;
-      case 'company':
-        this.isCompany = true;
-        this.radiocheck = true;
-        break;
-      default:
-        break;
+    if (userType === 'space') {
+      this.isSpace = true;
+      this.radiocheck = true;
+    } else if (userType === 'avionics') {
+      this.isAvionics = true;
+      this.radiocheck = true;
+    } else if (userType === 'others') {
+      this.isOthers = true;
+      this.radiocheck = true;
     }
   }
 
-  onChnageValue(val: any, event: any) {
-    this.radiocheck = event.target.checked;
-    this.onRadioValue = val;
+  onChangeValue(val: string, event: Event): void {
+    this.radiocheck = (event.target as HTMLInputElement).checked;
     localStorage.setItem('accountType', val);
+    this.updateUserType(val);
   }
 
-  startFreeTrial() {
-    // Redirect to company listing or desired page
+  private updateUserType(type: string): void {
+    this.isSpace = type === 'space';
+    this.isAvionics = type === 'avionics';
+    this.isOthers = type === 'others';
+  }
+
+  startFreeTrial(): void {
     this.router.navigate(['company-list']);
+  }
+
+  completeRegistration(): void {
+    // Complete registration logic
   }
 }

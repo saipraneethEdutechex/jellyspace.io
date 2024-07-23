@@ -8,91 +8,85 @@
         </div>
 
         <!-- Registration Options -->
-        <div class="col-md-7">
-          <div class="registration-options" style="padding-bottom: 35px">
-            <!-- Option 1: Organization -->
+        <div class="col-md-12 text-center">
+          <div class="registration-options mb-4">
+            <!-- Option 1: Space -->
             <div
-              class="option d-flex align-items-start mb-4 p-3 border rounded"
+              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
+              style="max-width: 400px"
             >
               <img
                 src="../../assets/org-icon.png"
                 width="65"
-                alt="Organization Icon"
+                alt="Space Icon"
                 class="me-3"
               />
               <div class="form-check">
                 <input
                   type="radio"
-                  (change)="onChnageValue('organization', $event)"
-                  [checked]="isBigCompany"
+                  (change)="onChangeValue('space', $event)"
+                  [checked]="isSpace"
                   class="form-check-input"
                   id="radio1"
                   name="optradio"
-                  value="option1"
+                  value="space"
                 />
-                <label class="form-check-label" for="radio1">
-                  I am an Organization looking to Post (or) Acquire Contracts |
-                  Projects | Tender Funding
-                </label>
+                <label class="form-check-label" for="radio1">Space</label>
               </div>
             </div>
 
-            <!-- Option 2: Client -->
+            <!-- Option 2: Avionics -->
             <div
-              class="option d-flex align-items-start mb-4 p-3 border rounded"
+              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
+              style="max-width: 400px"
             >
               <img
                 src="../../assets/client-icon.png"
                 width="65"
-                alt="Client Icon"
+                alt="Avionics Icon"
                 class="me-3"
               />
               <div class="form-check">
                 <input
                   type="radio"
-                  (change)="onChnageValue('client', $event)"
-                  [checked]="isCompany"
+                  (change)="onChangeValue('avionics', $event)"
+                  [checked]="isAvionics"
                   class="form-check-input"
                   id="radio2"
                   name="optradio"
-                  value="option1"
+                  value="avionics"
                 />
-                <label class="form-check-label" for="radio2">
-                  I am a Client looking to hire expertise for a project
-                </label>
+                <label class="form-check-label" for="radio2">Avionics</label>
               </div>
             </div>
 
-            <!-- Option 3: Freelancer -->
+            <!-- Option 3: Others -->
             <div
-              class="option d-flex align-items-start mb-4 p-3 border rounded"
+              class="option d-flex align-items-center mb-4 p-3 border rounded shadow-sm mx-auto"
+              style="max-width: 400px"
             >
               <img
                 src="../../assets/freelancer-icon.png"
                 width="65"
-                alt="Freelancer Icon"
+                alt="Others Icon"
                 class="me-3"
               />
               <div class="form-check">
                 <input
                   type="radio"
-                  (change)="onChnageValue('freelancer', $event)"
-                  [checked]="isFreelance"
+                  (change)="onChangeValue('others', $event)"
+                  [checked]="isOthers"
                   class="form-check-input"
                   id="radio3"
                   name="optradio"
-                  value="option1"
+                  value="others"
                 />
-                <label class="form-check-label" for="radio3">
-                  I am a Freelancer | Technical Expert Looking For Work
-                </label>
+                <label class="form-check-label" for="radio3">Others</label>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Registration Actions and Information -->
-        <div class="col-md-5 text-center">
+          <!-- Registration Actions -->
           <div class="form-group mb-4">
             <button
               type="button"
@@ -112,30 +106,29 @@
             </button>
           </div>
 
-          <div class="info-text text-start mb-4">
-            <p>
-              <strong>Start Free Trial:</strong> Experience our platform with no
-              commitment. This will give you access to basic features.
-            </p>
-            <p>
-              <strong>Complete Registration:</strong> Unlock AI Tokens in a few
-              weeks and enjoy a free 6-month access. After 6 months, you can
-              switch to a basic version to keep using it for free.
-            </p>
-            <p>
-              At the end of both registration options, before OTP is sent, you
-              can choose to become a paid customer by paying €5. This nominal
-              charge will extend your access to the platform with complete AI
-              features for 12 months.
-            </p>
-          </div>
-
-          <div class="signin text-start">
+          <!-- Sign-in Link -->
+          <div class="signin text-center mb-4">
             <p class="mb-0">
               <span>Already have an account?</span>
               <a href="signin" routerLink="/signin" class="sign-in-link">
                 Sign In
               </a>
+            </p>
+          </div>
+
+          <!-- Information Text -->
+          <div class="info-text text-start mb-4">
+            <p>
+              <strong>Start Free Trial:</strong> Try our platform with basic
+              features.
+            </p>
+            <p>
+              <strong>Complete Registration:</strong> Get full access for 6
+              months, then switch to the free version or opt for a paid plan.
+            </p>
+            <p>
+              Upgrade to the premium plan for €5 to enjoy complete AI features
+              for 12 months.
             </p>
           </div>
         </div>
