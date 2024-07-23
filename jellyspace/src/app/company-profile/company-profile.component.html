@@ -1,0 +1,97 @@
+<div class="w-100 m-0 p-0">
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-9 m-0 p-0">
+      <span><img class="company-logo" (error)="setDefault()" [src]="image" alt="user" width="auto" height="140px" class="rounded-circle"></span>
+    </div>
+    <div class="col-2 m-0 p-0 mt-4">
+      <a class="btn btn-primary" (click)="editProfile()">Edit Profile</a>
+      <a class="btn" style="margin: 5px; background-color:black; color: white;" (click)="close()">close</a>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Overview</label>
+      <div class="col-12 m-0 p-0">
+        <input type="text" *ngIf="editData" [(ngModel)]="overViewData" class="form-control" id="title" placeholder="">
+      </div>
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        Space)Sdesigns, manufactures and launches the world's most advanced rockets and spacecraft. The company was founded A 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multi-planetary. SpaceX has
+        gained worldwide attention for a series of historic milestones. It is the only private company ever to return a spacecraft from low-Earth orbit, which it first accomplished in December 2010. The company made history again in May 2012 when its
+        Dragon spacecraft attached to the International Space Station, exchanged cargo payloads, and returned safely to Earth — a technically challenging feat previously accomplished only by governments. Since then Dragon has delivered cargo to and
+        from the space station multiple times, providing regular cargo resupply missions for NASA.
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Website</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="websiteData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        <p><a href="https://www.w3schools.com/">http://www.spacex.com</a></p>
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Industry</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="industryData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        Aviation and Aerospace Component Manufacturing
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Company Size</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="companyData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        1,001 - 5,000 employees
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Headquarters</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="headqutrData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        Hawthorne, California
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Founded</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="foundedData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        2002
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Specialities</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="specialData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        Advance Rockets and Spacecraft , high performance heat shield material, and Satellite Development
+      </label>
+    </div>
+  </div>
+  <div class="row m-0 p-0">
+    <div class="col-1 m-0 p-0"></div>
+    <div class="col-10 m-0 p-0">
+      <label class="m-0 p-0 over-style w-100" for="">Products ( View on <a href="">Marketplace</a> )</label>
+      <input type="text" *ngIf="editData" [(ngModel)]="productData" class="form-control" id="title" placeholder="">
+      <label class="m-0 p-0 over-style1" *ngIf="normalData" for="">
+        Falcon 9 and Falcon Heavy Rockets, Dragon Cargo and Crew Spacecraft, Merlin Rocket Engines, Draco and SuperDraco Thrusters, PICA-X
+      </label>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JELLYSPACE 2 - Inventory</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="/src/app/WowDAO/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Custom styles for this template -->
+    <link href="/src/app/WowDAO/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="/src/app/WowDAO/vendor/datatables/dataSystem Integrators.bootstrap4.min.css" rel="stylesheet">
+  </head>
+
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
+          <div class="sidebar-brand-icon rotate-n-15">
+
+          </div>
+          <div class="sidebar-brand-text mx-3">JELLYSPACE </div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Home -->
+        <li class="nav-item active">
+          <a class="nav-link" href="home">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Home</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Nav Item - Connect -->
+        <!--  <li class="nav-item">
+          <a class="nav-link" href="charts.html" style="font-weight: bolder;">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Connect</span></a>
+        </li> -->
+
+        <!-- Nav Item - System Integrators -->
+        <li class="nav-item">
+          <a class="nav-link" href="tables">
+            <i class="bi bi-box"></i>
+            <span>Inventory</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="predictions">
+            <i class="bi bi-graph-up-arrow"></i>
+            <span>Demand</span></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="reports">
+            <i class="bi bi-journals"></i>
+            <span>Reports</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+              </button>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+              <!-- Nav Item - User Information -->
+
+            </ul>
+
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+
+            <!-- Page Heading -->
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Company</th>
+                        <th>Production</th>
+                        <th>Location</th>
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <th>Company</th>
+                        <th>Production</th>
+                        <th>Location</th>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr>
+                        <td><a href="predictions">Starlink</a></td>
+                        <td>Nano and Micro Satellite Buses</td>
+                        <td>USA</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Orbital Machines AS</a></td>
+                        <td>Electric propellant pumps for launch vehicles and spacecraft</td>
+                        <td>Norway and Germany</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Endurosat</a></td>
+                        <td>Supplier of Reaction wheels, Momentum wheels, Electric thrusters, Chemical thrusters, Solar sails,<br> Gyroscope, Star trackers, Sun sensors, Earth sensors, Magnetorquers, Trackers and sensors.</td>
+                        <td>USA, Itlay</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Comat</a></td>
+                        <td>Space Equipment mechanism expert, from design to MAIT (Manufacturing, Assembly, Integration, Test).<br>
+                          SmallSat off-the-shelf solutions including ADCS (reaction wheels range), SADM, deployable structure and electric propulsion (Plasma Jet Pack)</td>
+                        <td>France</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Astro- und Feinwerktechnik Adlershof GmbH</a></td>
+                        <td> Design, Manufacturing, Assembly, Integration and Verification of small satellite buses (TET-1, launched July 2012) and components.<br> Attitude control components (reaction wheels, gyro system, GPS receiver, magnetometer)
+                          Supplier of space systems and ISS payload NightPod</td>
+                        <td>Germany</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Kongsberg Defence & Aerospace</a></td>
+                        <td>Kongsberg Adaptive Rotational Mechanism Assembly [KARMA] in configuration as Solar Array Drive Mechanism (SADM), used on Rosetta (spacecraft), Mars Express, Venus Express, Sentinel 1, Sentinel 3 and BepiColombo MTM.<br>
+                          Drive electronics for Sentinel 1 and BepiColombo MTM. Booster attachment struts, including separation function, for Ariane 5.</td>
+                        <td>Norway</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Clyde Space</a></td>
+                        <td>Power System Electronics, Batteries, Solar Panels, Attitude Control Systems</td>
+                        <td>UK</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Solar MEMS Technologies</a></td>
+                        <td>Sun Sensors for Satellites</td>
+                        <td>Spain</td>
+                      </tr>
+                      <tr>
+                        <td><a href="predictions">Howco Additive Manufacturing</a></td>
+                        <td>3D Printing Aerospace Components in In718 and Titanium</td>
+                        <td>Houston, Texas, United States</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; JELLYSPACE 2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+
+  </body>
+
+</html>
