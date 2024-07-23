@@ -1,123 +1,145 @@
-<!-- <section class="ftco-section"> -->
 <section class="w-100 m-0 p-0">
-    <!-- <div class="container"> -->
-  <div class="main" style="margin-top: 120px;">
-        <!-- <div class="row justify-content-center wrap" style="height: 520px;"> -->
-    <div class="row">
-        <div class="rp" >
-          <div class="w-100" style="text-align: center;">
-            <h4 class="mb-2 p-3 user-head">New User Registration</h4>
+  <div class="main" style="margin-top: 120px">
+    <div class="container">
+      <div class="row">
+        <!-- Registration Header -->
+        <div class="col-12 text-center mb-4">
+          <h4 class="user-head mb-4">New User Registration</h4>
         </div>
-        </div>
+
+        <!-- Registration Options -->
         <div class="col-md-7">
-            <div style="margin-left: 15px; padding-bottom: 35px;">
-              <img src="../../assets/org-icon.png" width="65px;">
-              <div class="form-check font-style-family" style="margin-left: 70px; margin-top:-54px;width: 620px;">
-                I am an Organization looking to Post (or) Acquire Contracts | Projects | Tender Funding
+          <div class="registration-options" style="padding-bottom: 35px">
+            <!-- Option 1: Organization -->
+            <div
+              class="option d-flex align-items-start mb-4 p-3 border rounded"
+            >
+              <img
+                src="../../assets/org-icon.png"
+                width="65"
+                alt="Organization Icon"
+                class="me-3"
+              />
+              <div class="form-check">
+                <input
+                  type="radio"
+                  (change)="onChnageValue('organization', $event)"
+                  [checked]="isBigCompany"
+                  class="form-check-input"
+                  id="radio1"
+                  name="optradio"
+                  value="option1"
+                />
+                <label class="form-check-label" for="radio1">
+                  I am an Organization looking to Post (or) Acquire Contracts |
+                  Projects | Tender Funding
+                </label>
+              </div>
             </div>
-            <input type="radio" style="margin-left: 720px; margin-top:-40px;" (change)="onChnageValue('organization',$event)" [checked]="isBigCompany"  class="form-check-input" id="radio1"
-            name="optradio" value="option1">
-            <!-- <input type="radio" style="margin-left: 750px; margin-top:-30px;" (change)="onChnageValue('organization',$event)" [checked]="isBigCompany"  class="form-check-input" id="radio1"
-                        name="optradio" value="option1"> -->
-            <label class="form-check-label" for="radio1"></label>
+
+            <!-- Option 2: Client -->
+            <div
+              class="option d-flex align-items-start mb-4 p-3 border rounded"
+            >
+              <img
+                src="../../assets/client-icon.png"
+                width="65"
+                alt="Client Icon"
+                class="me-3"
+              />
+              <div class="form-check">
+                <input
+                  type="radio"
+                  (change)="onChnageValue('client', $event)"
+                  [checked]="isCompany"
+                  class="form-check-input"
+                  id="radio2"
+                  name="optradio"
+                  value="option1"
+                />
+                <label class="form-check-label" for="radio2">
+                  I am a Client looking to hire expertise for a project
+                </label>
+              </div>
             </div>
-            <div style="margin-left: 15px; padding-bottom: 65px;">
-              <img src="../../assets/client-icon.png" width="65px;">
-              <div class="form-check font-style-family" style="margin-left: 70px; margin-top:-54px;width: 620px;">
-                I am a Client looking to hire expertise for a project
+
+            <!-- Option 3: Freelancer -->
+            <div
+              class="option d-flex align-items-start mb-4 p-3 border rounded"
+            >
+              <img
+                src="../../assets/freelancer-icon.png"
+                width="65"
+                alt="Freelancer Icon"
+                class="me-3"
+              />
+              <div class="form-check">
+                <input
+                  type="radio"
+                  (change)="onChnageValue('freelancer', $event)"
+                  [checked]="isFreelance"
+                  class="form-check-input"
+                  id="radio3"
+                  name="optradio"
+                  value="option1"
+                />
+                <label class="form-check-label" for="radio3">
+                  I am a Freelancer | Technical Expert Looking For Work
+                </label>
+              </div>
             </div>
-            <input type="radio" style="margin-left: 720px; margin-top:-20px;" (change)="onChnageValue('client',$event)" [checked]="isCompany"  class="form-check-input" id="radio2"
-            name="optradio" value="option1">
-            <label class="form-check-label" for="radio1"></label>
-            </div>
-            <div style="margin-left: 15px; padding-bottom: 35px;">
-              <img src="../../assets/freelancer-icon.png" width="65px;">
-              <div class="form-check font-style-family" style="margin-left: 70px; margin-top:-54px;width: 620px;">
-                I am a Freelancer | Technical Expert Looking For Work
-            </div>
-            <div>
-            <input type="radio" style="margin-left: 720px; margin-top:-20px;" (change)="onChnageValue('freelancer',$event)" [checked]="isFreelance"  class="form-check-input" id="radio3"
-            name="optradio" value="option1">
-            <label class="form-check-label" for="radio1"></label>
           </div>
-            </div>
         </div>
-        <div class="col-md-5" style="text-align: center;">
-              <div class="form-group" style="    margin-top: 90px;
-              margin-left: 120px;">
-                  <button type="submit" [disabled]="!radiocheck" class="btn btn-primary font-style-family"
-                      (click)="JoinJellySpace()">
-                      Join JELLYSPACE
-                  </button>
-              </div>
-              <div class="signin" style="
-              margin-left: 120px;">
-                <a data-toggle="tab" class="font-style-family" style="white-space: nowrap;">
-                    Already have an account? <a data-toggle="tab" class="font-style-family" href="signin" routerLink='/signin'
-                        style="cursor: pointer; color: #4CAF50;">Sign In</a>
-                </a>
-              </div>
+
+        <!-- Registration Actions and Information -->
+        <div class="col-md-5 text-center">
+          <div class="form-group mb-4">
+            <button
+              type="button"
+              [disabled]="!radiocheck"
+              class="btn btn-secondary me-2"
+              (click)="startFreeTrial()"
+            >
+              Start Free Trial
+            </button>
+            <button
+              type="button"
+              [disabled]="!radiocheck"
+              class="btn btn-primary"
+              (click)="startFreeTrial()"
+            >
+              Complete Registration
+            </button>
+          </div>
+
+          <div class="info-text text-start mb-4">
+            <p>
+              <strong>Start Free Trial:</strong> Experience our platform with no
+              commitment. This will give you access to basic features.
+            </p>
+            <p>
+              <strong>Complete Registration:</strong> Unlock AI Tokens in a few
+              weeks and enjoy a free 6-month access. After 6 months, you can
+              switch to a basic version to keep using it for free.
+            </p>
+            <p>
+              At the end of both registration options, before OTP is sent, you
+              can choose to become a paid customer by paying €5. This nominal
+              charge will extend your access to the platform with complete AI
+              features for 12 months.
+            </p>
+          </div>
+
+          <div class="signin text-start">
+            <p class="mb-0">
+              <span>Already have an account?</span>
+              <a href="signin" routerLink="/signin" class="sign-in-link">
+                Sign In
+              </a>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
   </div>
 </section>
-
-
-
-
-
-            <!-- <div class="row m-0 p-0">
-                <div class="col-4"></div>
-                <div class="col-4">
-                    <div class="d-flex">
-
-                    </div>
-                </div>
-                <div class="col-3"></div>
-            </div> -->
-            <!-- <div class="row">
-                <div class="col-2"></div>
-                <div class="col-1"><img src="../../assets/org-icon.png" width="65px;"></div>
-                <div class="col-5">
-                    <div class="form-check font-style-family">
-                        I am an Organization looking to Post (or) Acquire Contracts | Projects | Tender Funding
-                    </div>
-                </div>
-                <div class="col-1">
-                    <input type="radio" (change)="onChnageValue('organization',$event)" [checked]="isBigCompany"  class="form-check-input" id="radio1"
-                        name="optradio" value="option1">
-                    <label class="form-check-label" for="radio1"></label>
-                </div>
-            </div> -->
-            <!-- <div class="row mt-3">
-
-                <div class="col-2"></div>
-                <div class="col-1"><img src="../../assets/client-icon.png" width="65px;"></div>
-                <div class="col-5 mt-3">
-                    <div class="form-check font-style-family">
-                        I am a Client looking to hire expertise for a project
-                    </div>
-                </div>
-                <div class="col-1 ml-1 mt-3">
-                    <input type="radio" (change)="onChnageValue('client',$event)" [checked]="isCompany"  class="form-check-input" id="radio2"
-                        name="optradio" value="option1">
-                    <label class="form-check-label" for="radio1"></label>
-                </div>
-
-            </div> -->
-            <!-- <div class="row mt-3 mb-3">
-                <div class="col-2"></div>
-                <div class="col-1"><img src="../../assets/freelancer-icon.png" width="65px;"></div>
-                <div class="col-5">
-                    <div class="form-check font-style-family">
-                        I am a Freelancer | Technical Expert Looking For Work
-                    </div>
-                </div>
-                <div class="col-1 ml-2">
-                    <input type="radio" (change)="onChnageValue('freelancer',$event)" [checked]="isFreelance"  class="form-check-input" id="radio3"
-                        name="optradio" value="option1">
-                    <label class="form-check-label" for="radio1"></label>
-                </div>
-
-            </div> -->
-        <!-- </div> -->
