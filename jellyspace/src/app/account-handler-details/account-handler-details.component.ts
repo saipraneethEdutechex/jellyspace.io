@@ -1,40 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { S3 } from 'aws-sdk';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-account-handler-details',
   templateUrl: './account-handler-details.component.html',
-  styleUrls: ['./account-handler-details.component.css']
+  styleUrls: ['./account-handler-details.component.css'],
 })
 export class AccountHandlerDetailsComponent implements OnInit {
-
-
   selectedFiles!: FileList;
   imagePath: any;
-  fileData:any;
-  url:any;
-  images = [];
-  imgShow:boolean=true;
-
+  fileData: any;
+  url: any;
+  imgShow: boolean = true;
+  uploading: boolean = false; // New flag to track upload status
 
   constructor(
-    private service:AppService,
-    private router: Router
-  ) { }
+    private service: AppService,
+    private router: Router,
+    private storage: AngularFireStorage
+  ) {}
+
   public fieldTextType: boolean = false;
   managerList: any = [];
   bidFlag: boolean = false;
-  collabratorFlag:boolean = false;
+  collabratorFlag: boolean = false;
 
-  public fName:any;
-  public lName:any;
-  public eMail:any;
-  public mobileNo:any;
-  public title:any;
-  public pWord:any;
-  public file:any;
+  public fName: any;
+  public lName: any;
+  public eMail: any;
+  public mobileNo: any;
+  public title: any;
+  public pWord: any;
+  public file: any;
 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
@@ -49,95 +48,97 @@ export class AccountHandlerDetailsComponent implements OnInit {
     this.pWord = localStorage.getItem('otherPWord');
     this.file = localStorage.getItem('imagepath');
     this.managerList = [
-      {label:'Yes' , value:'0'},
-      {label:'No' , value:'1'},
-    ]
+      { label: 'Yes', value: '0' },
+      { label: 'No', value: '1' },
+    ];
   }
 
-  selectBidManager(item:any) {
-    if(item === 'Yes') {
-      this.collabratorFlag = true;
-    } else {
-      this.collabratorFlag = false;
-    }
+  selectBidManager(item: any) {
+    this.collabratorFlag = item === 'Yes';
   }
 
-  onChangeCollabrator(eve:any) {
-    console.log(eve.target.checked)
-    if(eve.target.checked) {
-      this.bidFlag = true;
-    } else {
-      this.bidFlag = false;
-    }
+  onChangeCollabrator(eve: any) {
+    this.bidFlag = eve.target.checked;
   }
-  selectImage(event:any){
-    console.log("image upload")
-    this.imgShow = false;
-    const files = event.target.files;
-    if (files.length === 0)
-        return;
-    const reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
+
+  selectImage(event: any) {
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      this.uploading = true; // Set the flag to true while uploading
+      const filePath = `companyImages/${selectedFile.name}`;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, selectedFile);
+
+      // Monitor the upload process
+      task.snapshotChanges().subscribe(
+        (snapshot) => {
+          // Check if the upload is complete
+          if (snapshot?.state === 'success') {
+            // Get the download URL once the upload is complete
+            fileRef.getDownloadURL().subscribe(
+              (downloadURL) => {
+                this.url = downloadURL;
+                console.log('Image URL after successful upload:', this.url); // Log the image URL
+                this.imgShow = false;
+                this.uploading = false; // Reset the flag after upload
+              },
+              (error) => {
+                console.error('Error getting download URL:', error); // Log any error getting download URL
+                this.uploading = false; // Reset the flag on error
+              }
+            );
+          }
+        },
+        (error) => {
+          console.error('Error uploading file:', error); // Log any error during upload
+          this.uploading = false; // Reset the flag on error
+        }
+      );
+
+      // For displaying image preview
+      const reader = new FileReader();
+      reader.onload = (_event) => {
         this.url = reader.result;
+      };
+      reader.readAsDataURL(selectedFile);
+      this.fileData = selectedFile;
     }
-    this.fileData= event.target.files[0];
-
   }
 
   nextClick() {
-    const contentType = this.fileData.type;
-    const bucket = new S3(
-          {
-              accessKeyId: 'AKIA2DXB2VTKA7BN2YXP',
-              secretAccessKey: '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',
-              region: 'us-east-1'
-          }
-      );
-      const file = this.fileData;
-      const companyMailId = this.eMail;
-      const folderName = 'Companies';
-      const fileName = file.name;
-      localStorage.setItem('nameOTP', this.fName +' ' + this.lName);
-      const params = {
-        email: this.eMail,
-        name: this.fName + ' ' + this.lName,
+    if (this.uploading) {
+      // If uploading is still in progress, do not proceed
+      alert('Please wait until the image upload is complete.');
+      return;
+    }
 
-        Bucket: 'jellyspace-public',
-          Key:  `company/${companyMailId}/${folderName}/${fileName}`,
-          Body: file,
-          ACL: 'public-read',
-          ContentType: contentType
-      };
-      localStorage.setItem('otherFName', this.fName);
-      localStorage.setItem('otherLName', this.lName);
-      localStorage.setItem('othereMail', this.eMail);
-      localStorage.setItem('registerEmail', this.eMail);
-      localStorage.setItem('otherPWord', this.pWord);
-      localStorage.setItem('otherTitle', this.title);
-      localStorage.setItem('otherMobileNo', this.mobileNo);
-      bucket.upload(params, function (err:any,  data:any) {
-          if (err) {
-              console.log('There was an error uploading your file: ', err);
-              return false;
-          }
-          console.log('Successfully uploaded file.', data);
-          localStorage.setItem('otherImage', data.Location);
-          console.log('Successfully uploaded file.', data);
-          return true;
-      });
+    if (!this.fileData) {
+      console.error('No file selected');
+      return;
+    }
 
-    // const params ={
+    const params = {
+      email: this.eMail,
+      name: `${this.fName} ${this.lName}`,
+      fileUrl: this.url,
+    };
 
-    // }
+    localStorage.setItem('nameOTP', `${this.fName} ${this.lName}`);
+    localStorage.setItem('otherFName', this.fName);
+    localStorage.setItem('otherLName', this.lName);
+    localStorage.setItem('othereMail', this.eMail);
+    localStorage.setItem('registerEmail', this.eMail);
+    localStorage.setItem('otherPWord', this.pWord);
+    localStorage.setItem('otherTitle', this.title);
+    localStorage.setItem('otherMobileNo', this.mobileNo);
+    localStorage.setItem('otherImage', this.url);
+
     this.service.sendOTP(params).subscribe((data: any) => {
-      if(data.status === true) {
+      if (data.status === true) {
         this.router.navigate(['email-verification']);
       } else {
         alert(data.message);
       }
-    })
+    });
   }
-
 }

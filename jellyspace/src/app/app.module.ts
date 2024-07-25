@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { QuillModule } from 'ngx-quill'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuillModule } from 'ngx-quill';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +41,9 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,19 +77,20 @@ import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.compo
     MediumSizeCompanyComponent,
     LargeSizeCompanyComponent,
     ViewProfileComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
     NgbModule,
     QuillModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     // {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
