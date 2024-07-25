@@ -1,275 +1,229 @@
-<div class="w-100 m-0 p-0">
-    <div class="w-100 m-0 p-0">
-        <div class="row m-0 p-0">
-            <div class="m-0 p-0" style="width: 6%;"></div>
-            <div class="m-0 p-0 mt-5 pr-4" style="width: 68%;">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row m-0 p-0">
-                            <div class="col-4 m-0 p-0">
-                                <div class="card">
-                                    <img [src]="image != null ? image: dummyImage" style="height: 250px;width: 250px;" alt="profile simage">
-                                </div>
-                                <div class="row m-0 p-0 mt-3">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="fa fa-circle pl-1 dot-color"></span>
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style2">I'm Online !</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="fa fa-usd pt-1 dollar-style1"></span>
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style3">$2 USD / hour</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-1 m-0 p-0">
-                                        <img src="../../assets/us.png" style="height: 13px;width: 20px;">
-                                        <!-- <span class="fa fa-usd pl-1 dot-color"></span> -->
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 prefer-style">NewYork, USA</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="fa fa-clock-o pl-1 dot-color1"></span>
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 prefer-style">It's currently 2:15 PM here</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="fa fa-compass pl-1 dot-color1"></span>
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 prefer-style">Joined February 2, 2017</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="fa fa-thumbs-o-up pl-1 dot-color1"></span>
-                                    </div>
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 prefer-style">0 Recommendations</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-8 m-0 p-0 pl-4">
-                                <div class="row m-0 p-0">
-                                    <div class="col-8 m-0 p-0">
-                                        <label class="m-0 p-0 font-profile" for="">{{fname}} {{lname}}</label>
-                                        <span class="m-0 p-0 pl-2 mail-font">{{email}}</span>
-                                        <label class="w-100 m-0 p-0" for=""></label>
-                                    </div>
-                                    <div class="col-4 m-0 p-0">
-                                        <a class="btn btn-primary" (click)="editProfile()">Edit Profile</a>
-                                        <a class="btn" style="margin: 5px; background-color:black; color: white;"  (click)="close()">X</a>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0">
-                                    <div class="col-12 m-0 p-0">
-                                        <input type="text" *ngIf="editData" [(ngModel)]="descriptionData" class="form-control" id="title"
-                                        placeholder="">
-                                    </div>
-                                    <!-- <textarea class="form-control" id="description" rows="2"
-                                    placeholder="I have good knowledge for html,css,ajax, javascript,bootstrap,jquery,json,php,
-                                    mysql-webdesining" disabled></textarea> -->
-                                    <h2 class="m-0 p-0 pl-2 body-font" *ngIf="normalData">I have good knowledge for html,css,ajax, javascript,bootstrap,jquery</h2>
-                                </div>
-                                <div class="row m-0 p-0 mt-1">
-                                    <div class="col-5 m-0 p-0 pl-1">
-                                        <span class="fa fa-star checked pl-1 star-color"></span>
-                                        <span class="fa fa-star checked pl-1 star-color"></span>
-                                        <span class="fa fa-star checked pl-1 star-color"></span>
-                                        <span class="fa fa-star pl-1 star-color"></span>
-                                        <span class="fa fa-star pl-1 star-color"></span>
-                                        <span class="m-0 p-0 pl-2 review-style">0.0</span>
-                                        <span class="m-0 p-0 pl-1 review-style">(0 reviews)</span>
-                                    </div>
-                                    <div class="col-5 m-0 p-0 pl-1">
-                                        <span class="fa fa-usd dollar-style"></span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="pl-1 bar-style">|</span>
-                                        <span class="m-0 p-0 pl-2 review-style">0.0</span>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-2">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="m-0 p-0 pl-1 na-style">N/A</span>
-                                    </div>
-                                    <div class="col-3 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style">Jobs Completed</label>
-                                    </div>
-                                    <div class="col-3 m-0 p-0"></div>
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="m-0 p-0 pl-1 na-style">N/A</span>
-                                    </div>
-                                    <div class="col-3 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style">On Budget</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-2">
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="m-0 p-0 pl-1 na-style">N/A</span>
-                                    </div>
-                                    <div class="col-3 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style">On Time</label>
-                                    </div>
-                                    <div class="col-3 m-0 p-0"></div>
-                                    <div class="col-1 m-0 p-0">
-                                        <span class="m-0 p-0 pl-1 na-style">N/A</span>
-                                    </div>
-                                    <div class="col-3 m-0 p-0">
-                                        <label class="m-0 p-0 pl-1 label-style">Repeat Hire Rate</label>
-                                    </div>
-                                </div>
-                                <div class="row m-0 p-0 mt-2">
-                                    <label class="m-0 p-0 pl-1 label-style1">I am siva krishna i have completed my b.tech2016 in Bvsr Engineering college 72% and i have good web designing.My hobbies is playing cricket,playing video games</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-10 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Portfolio Items</label>
-                        </div>
-                        <div class="col-2 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-1">Manage</a>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-4 pb-4">
-                        <span class="text-center pt-5 pb-3"><img src="../../assets/illustration.svg" alt=""></span>
-                        <span class="m-0 p-0 pl-2 prefer-style1 text-center pt-3">No portfolio items have been added yet</span>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-12 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Reviews</label>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-4 pb-4">
-                        <span class="text-center pt-5 pb-3"><img src="../../assets/reviews1.png" alt=""></span>
-                        <span class="m-0 p-0 pl-2 prefer-style1 text-center pt-3">No reviews to see here!</span>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-10 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Experience</label>
-                        </div>
-                        <div class="col-2 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-1">Add Experience</a>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-2 pb-2">
-                        <span class="m-0 p-0 pl-3 prefer-style1" style="font-style: italic;">No experiences have been added.</span>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-10 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Education</label>
-                        </div>
-                        <div class="col-2 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-1">Add Education</a>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-2 pb-2">
-                        <span class="m-0 p-0 pl-3 prefer-style1" style="font-style: italic;">No education information has been added.</span>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-10 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Qualifications</label>
-                        </div>
-                        <div class="col-2 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-1">Add Qualification</a>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-2 pb-2">
-                        <span class="m-0 p-0 pl-3 prefer-style1" style="font-style: italic;">No qualifications have been added.</span>
-                    </div>
-                  </div>
-                  <div class="card mt-3">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-10 m-0 p-0">
-                            <label class="m-0 p-0 ver-style1" for="">Publications</label>
-                        </div>
-                        <div class="col-2 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-1">Add Publication</a>
-                        </div>
-                    </div>
-                    <div class="row m-0 p-0 pt-2 pb-2">
-                        <span class="m-0 p-0 pl-3 prefer-style1" style="font-style: italic;">No publications have been added.</span>
-                    </div>
-                  </div>
+<div class="container">
+  <div class="row">
+    <!-- Main Content Area -->
+    <div class="col-md-8">
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="profile-image">
+                <img
+                  [src]="image != null ? image : dummyImage"
+                  alt="Profile Image"
+                />
+              </div>
+              <div class="status mt-3">
+                <span class="fa fa-circle dot-color"></span>
+                <span class="status-text">I'm Online!</span>
+              </div>
+              <div class="rate mt-1">
+                <span class="fa fa-usd dollar-style"></span>
+                <span class="rate-text">$2 USD / hour</span>
+              </div>
+              <div class="location mt-1">
+                <img src="../../assets/us.png" alt="Location Flag" />
+                <span class="location-text">New York, USA</span>
+              </div>
+              <div class="time mt-1">
+                <span class="fa fa-clock-o dot-color1"></span>
+                <span class="time-text">It's currently 2:15 PM here</span>
+              </div>
+              <div class="join-date mt-1">
+                <span class="fa fa-compass dot-color1"></span>
+                <span class="join-date-text">Joined February 2, 2017</span>
+              </div>
+              <div class="recommendations mt-1">
+                <span class="fa fa-thumbs-o-up dot-color1"></span>
+                <span class="recommendations-text">0 Recommendations</span>
+              </div>
             </div>
-            <div class="m-0 p-0 mt-5 pt-3" style="width: 20%;">
-                <div class="card">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-12 m-0 p-0">
-                            <label class="m-0 p-0 ver-style" for="">Verifications</label>
-                        </div>
-                    </div>
-                        <div class="row m-0 p-0 pt-2 pb-2" *ngFor="let item of verificationList">
-                            <div class="col-1 m-0 p-0 pl-1">
-                                <span class="{{item.icon}} pl-1 icon-color"></span>
-                            </div>
-                            <div class="col-10 m-0 p-0 pl-2">
-                                <span class="m-0 p-0 pl-2 prefer-style">{{item.title}}</span>
-                            </div>
-                        </div>
+            <div class="col-md-8">
+              <div class="profile-info">
+                <div class="profile-header">
+                  <h2>{{ fname }} {{ lname }}</h2>
+                  <div class="actions">
+                    <a class="btn btn-primary" (click)="editProfile()"
+                      >Edit Profile</a
+                    >
+                    <a class="btn ml-4 btn-secondary" (click)="close()">
+                      <span class="fa mb-1 fa-times"></span>
+                    </a>
                   </div>
-                  <div class="card mt-2">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-12 m-0 p-0">
-                            <label class="m-0 p-0 ver-style" for="">Certifications</label>
-                        </div>
-                    </div>
-                        <div class="row m-0 p-0 pt-2 pb-2">
-                            <span class="text-center"><img src="../../assets/certifications.svg" alt=""></span>
-                            <span class="m-0 p-0 pl-2 prefer-style">You don't have any certifications yet.</span>
-                            <a class="btn btn-primary m-0 p-0 ml-3 mt-2" style="width: 235px;">Get Certified</a>
-                        </div>
+                </div>
+                <span class="email">{{ email }}</span>
+                <div class="about mt-3">
+                  <input
+                    type="text"
+                    *ngIf="editData"
+                    [(ngModel)]="descriptionData"
+                    class="form-control"
+                    placeholder="Describe yourself"
+                  />
+                  <h2 *ngIf="normalData">
+                    I have good knowledge of HTML, CSS, AJAX, JavaScript,
+                    Bootstrap, jQuery.
+                  </h2>
+                </div>
+                <div class="ratings mt-3">
+                  <div class="stars">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="review-score">0.0</span>
+                    <span class="review-count">(0 reviews)</span>
                   </div>
-                  <div class="card mt-2">
-                    <div class="row m-0 p-0 pt-2 pl-2 pb-2" style="border-bottom: 1px solid #dfdbdb;">
-                        <div class="col-8 m-0 p-0">
-                            <label class="m-0 p-0 ver-style" for="">Top Skills</label>
-                        </div>
-                        <div class="col-4 m-0 p-0">
-                            <a class="btn btn-primary m-0 p-0 pl-1 pr-1">Edit Skills</a>
-                        </div>
+                  <div class="metrics mt-2">
+                    <span class="metric">$0.0</span>
+                  </div>
+                </div>
+                <div class="stats mt-3">
+                  <div class="row">
+                    <div class="col-6">
+                      <span class="na-style">N/A</span>
+                      <label class="label-style">Jobs Completed</label>
                     </div>
-                    <div class="row m-0 p-0 pt-2 pb-2" *ngFor="let item of skillsList">
-                        <!-- <div class="col-1 m-0 p-0 pl-1">
-                            <span class="{{item.icon}} pl-1 icon-color"></span>
-                        </div> -->
-                        <div class="col-10 m-0 p-0 pl-2">
-                            <span class="m-0 p-0 pl-2 prefer-style">{{item}}</span>
-                        </div>
+                    <div class="col-6">
+                      <span class="na-style">N/A</span>
+                      <label class="label-style">On Budget</label>
                     </div>
                   </div>
+                  <div class="row mt-2">
+                    <div class="col-6">
+                      <span class="na-style">N/A</span>
+                      <label class="label-style">On Time</label>
+                    </div>
+                    <div class="col-6">
+                      <span class="na-style">N/A</span>
+                      <label class="label-style">Repeat Hire Rate</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="about-text mt-3">
+                  <p>
+                    I am Siva Krishna. I completed my B.Tech in 2016 from BVSR
+                    Engineering College with 72%. I have good web designing
+                    skills. My hobbies include playing cricket and video games.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col-1 m-0 p-0"></div>
+          </div>
         </div>
+      </div>
+
+      <!-- Portfolio, Reviews, Experience, Education, Qualifications, Publications -->
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Portfolio Items</label>
+          <a class="btn btn-primary">Manage</a>
+        </div>
+        <div class="card-body text-center">
+          <img src="../../assets/illustration.svg" alt="No Portfolio" />
+          <p class="prefer-style1">No portfolio items have been added yet</p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header">
+          <label class="ver-style">Reviews</label>
+        </div>
+        <div class="card-body text-center">
+          <img src="../../assets/reviews1.png" alt="No Reviews" />
+          <p class="prefer-style1">No reviews to see here!</p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Experience</label>
+          <a class="btn btn-primary">Add Experience</a>
+        </div>
+        <div class="card-body">
+          <p class="prefer-style1">No experiences have been added.</p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Education</label>
+          <a class="btn btn-primary">Add Education</a>
+        </div>
+        <div class="card-body">
+          <p class="prefer-style1">No education information has been added.</p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Qualifications</label>
+          <a class="btn btn-primary">Add Qualification</a>
+        </div>
+        <div class="card-body">
+          <p class="prefer-style1">No qualifications have been added.</p>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Publications</label>
+          <a class="btn btn-primary">Add Publication</a>
+        </div>
+        <div class="card-body">
+          <p class="prefer-style1">No publications have been added.</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Sidebar -->
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <label class="ver-style">Verifications</label>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let item of verificationList" class="verification-item">
+            <span class="{{ item.icon }} icon-color"></span>
+            <span class="verification-text">{{ item.title }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-header">
+          <label class="ver-style">Certifications</label>
+        </div>
+        <div class="card-body text-center">
+          <img src="../../assets/certifications.svg" alt="No Certifications" />
+          <p class="prefer-style">You don't have any certifications yet.</p>
+          <a class="btn btn-primary mt-2">Get Certified</a>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
+          <label class="ver-style">Top Skills</label>
+          <a class="btn btn-primary">Edit Skills</a>
+        </div>
+        <div class="card-body">
+          <div *ngFor="let item of skillsList" class="skill-item">
+            <span class="skill-text">{{ item }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
