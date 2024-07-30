@@ -1,611 +1,721 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>JELLYSPACE 2 - Demand</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!-- Custom fonts for this template -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- Custom styles for this template -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/custom-style.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+      }
 
-    <title>JELLYSPACE 2 - Tabs</title>
+      .sidebar {
+        background-color: #343a40;
+        color: white;
+        min-width: 250px;
+      }
 
-    <!-- Custom fonts for this template-->
-    <link href="/src/app/WowDAO/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+      .sidebar-brand {
+        padding: 1rem;
+        text-align: center;
+      }
 
-    <!-- Custom styles for this template-->
-    <link href="/src/app/WowDAO/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="/src/app/WowDAO/css/sb-admin-2.css" rel="stylesheet">
+      .sidebar-brand .sidebar-brand-icon {
+        font-size: 1.5rem;
+      }
 
+      .sidebar-brand .sidebar-brand-text {
+        font-size: 1.25rem;
+        margin-left: 0.5rem;
+      }
+
+      .sidebar .nav-item .nav-link {
+        color: white;
+      }
+
+      .sidebar .nav-item .nav-link.active {
+        background-color: #495057;
+      }
+
+      .sidebar .nav-item .nav-link i {
+        margin-right: 0.5rem;
+      }
+
+      .content-wrapper {
+        flex-grow: 1;
+      }
+
+      .topbar {
+        background-color: #f8f9fc;
+      }
+
+      .footer {
+        background-color: #f8f9fc;
+      }
+
+      .table thead th {
+        background-color: #343a40;
+        color: white;
+      }
+
+      .table tfoot th {
+        background-color: #e9ecef;
+      }
+    </style>
   </head>
 
-  <body id="page-top" style="overflow-y: auto;">
-
+  <body id="page-top">
     <!-- Page Wrapper -->
-    <div id="wrapper">
-
+    <div id="wrapper" class="d-flex">
       <!-- Sidebar -->
-      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
+      <nav
+        class="sidebar bg-gradient-primary text-white d-flex flex-column vh-100 p-3"
+      >
+        <a
+          class="sidebar-brand d-flex align-items-center mb-4 text-white text-decoration-none"
+          href="home"
+        >
           <div class="sidebar-brand-icon rotate-n-15">
-
+            <i class="fas fa-space-shuttle"></i>
           </div>
-          <div class="sidebar-brand-text mx-3">JELLYSPACE </div>
+          <div class="sidebar-brand-text mx-3">JELLYSPACE</div>
         </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Home -->
-        <li class="nav-item active">
-          <a class="nav-link" href="home">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Home</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Nav Item - Connect -->
-        <!--  <li class="nav-item">
-          <a class="nav-link" href="charts.html" style="font-weight: bolder;">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Connect</span></a>
-        </li> -->
-
-        <!-- Nav Item - System Integrators -->
-        <li class="nav-item">
-          <a class="nav-link" href="tables">
-            <i class="bi bi-box"></i>
-            <span>Inventory</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="predictions">
-            <i class="bi bi-graph-up-arrow"></i>
-            <span>Demand</span></a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="reports">
-            <i class="bi bi-journals"></i>
-            <span>Reports</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-
-      </ul>
+        <hr class="sidebar-divider my-2 text-white" />
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="home">
+              <i class="fas fa-tachometer-alt"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="tables">
+              <i class="bi bi-box"></i> Inventory
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="predictions">
+              <i class="bi bi-graph-up-arrow"></i> Demand
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="reports">
+              <i class="bi bi-journals"></i> Reports
+            </a>
+          </li>
+        </ul>
+      </nav>
       <!-- End of Sidebar -->
+
       <!-- Content Wrapper -->
-      <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-          <!-- Topbar -->
-          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-            <!-- Sidebar Toggle (Topbar) -->
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-              <i class="fa fa-bars"></i>
+      <div id="content-wrapper" class="flex-grow-1 d-flex flex-column">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light topbar border-bottom">
+          <button class="btn btn-primary d-md-none" id="sidebarToggleTop">
+            <i class="fas fa-bars"></i>
+          </button>
+          <form class="d-flex ms-auto me-3 my-2 my-md-0">
+            <input
+              type="text"
+              class="form-control me-2"
+              placeholder="Search for..."
+            />
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
             </button>
+          </form>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="userDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user"></i>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="userDropdown"
+              >
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- End of Topbar -->
 
-            <!-- Topbar Navbar -->
-            <ul class="navbar-nav ml-auto">
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <h1 class="h5 mb-4 text-gray-800">Inventory Planning by Month</h1>
 
-
-              <div class="topbar-divider d-none d-sm-block"></div>
-
-              <!-- Nav Item - User Information -->
-
-            </ul>
-
-          </nav>
-          <!-- End of Topbar -->
-
-          <!-- Begin Page Content -->
-          <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <h1 class="h5 mb-4 text-gray-800">Inventory Planning by Month</h1>
-
-            <div style="overflow-x:auto;">
-              <table>
-                <tr>
-                  <th style="width:10%"></th>
-                  <th>Dec 2021</th>
-                  <th>Jan 2022</th>
-                  <th>Feb 2022</th>
-                  <th>Mar 2022</th>
-                  <th>Apr 2022</th>
-                  <th>May 2022</th>
-                  <th>June 2022</th>
-                  <th>July 2022</th>
-                  <th>Aug 2022</th>
-                  <th>Sep 2022</th>
-                  <th>Oct 2022</th>
-                  <th>Nov 2022</th>
-                  <th>Dec 2022</th>
-                  <th>Jan 2023</th>
-                  <th>Feb 2023</th>
-                  <th>Mar 2023</th>
-                  <th>Apr 2023</th>
-                  <th>May 2023</th>
-                  <th>June 2023</th>
-                  <th>July 2023</th>
-                  <th>Aug 2023</th>
-                  <th>Sep 2023</th>
-                  <th>Oct 2023</th>
-                  <th>Nov 2023</th>
-                  <th>Dec 2023</th>
-                </tr>
-                <tr>
-                  <td>Actual sales</td>
-                  <td>28,560</td>
-                  <td>27,528</td>
-                  <td>30,360</td>
-                  <td>34,534</td>
-                  <td>22,431.6</td>
-                  <td>24,228</td>
-                  <td>18,872.81</td>
-                  <td>600</td>
-                  <td>5,084</td>
-                  <td>13,516</td>
-                  <td>31,696</td>
-                  <td>25,172</td>
-                  <td>24,600</td>
-                  <td>31,200</td>
-                  <td>36,828</td>
-                  <td>31,372</td>
-                  <td>36,828</td>
-                  <td>18,290</td>
-                  <td>,890</td>
-                  <td>24,908</td>
-                  <td>51,456</td>
-                  <td>38,765</td>
-                  <td>43,560.7</td>
-                  <td>31,234.7</td>
-                  <td>25,084</td>
-                </tr>
-                <tr>
-                  <td>Statistical forecast</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>20,270</td>
-                  <td>15,940</td>
-                  <td>11,453</td>
-                  <td>17,867</td>
-                  <td>13,456</td>
-                  <td>20,270</td>
-                  <td>15,699</td>
-                  <td>34,908</td>
-                  <td>20,900</td>
-                  <td>45,078</td>
-                  <td>32,090</td>
-                  <td>15,678</td>
-                </tr>
-                <tr>
-                  <td>Final forecast override</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Average sales price</td>
-                  <td>14.26</td>
-                  <td>14.30</td>
-                  <td>16.36</td>
-                  <td>14.35</td>
-                  <td>14.04</td>
-                  <td>14.60</td>
-                  <td>13.76</td>
-                  <td>14.12</td>
-                  <td>14.59</td>
-                  <td>14.46</td>
-                  <td>13.76</td>
-                  <td>14.12</td>
-                  <td>14.59</td>
-                  <td>14.46</td>
-                  <td>18.59</td>
-                  <td>18.59</td>
-                  <td>14.85</td>
-                  <td>14.26</td>
-                  <td>14.57</td>
-                  <td>14.61</td>
-                  <td>14.48</td>
-                  <td>13.88</td>
-                  <td>13.99</td>
-                  <td>14.56</td>
-                  <td>15.13</td>
-                </tr>
-                <tr>
-                  <td>Revenue</td>
-                  <td>377,232.5</td>
-                  <td>209,140.76</td>
-                  <td>409,754.41</td>
-                  <td>386,530.31</td>
-                  <td>443,216.41</td>
-                  <td>475,033.45</td>
-                  <td>316,831.28</td>
-                  <td>353,457.71</td>
-                  <td>272,933.68</td>
-                  <td>11,154</td>
-                  <td>94,511.56</td>
-                  <td>200,670.44</td>
-                  <td>452,140.63</td>
-                  <td>366,763.48</td>
-                  <td>359,394</td>
-                  <td>433,127.99</td>
-                  <td>515,149.31</td>
-                  <td>456,725.48</td>
-                  <td>409,645.80</td>
-                  <td>276,771.10</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>92,231.70</td>
-                  <td>292,434.70</td>
-                  <td>15,564.9</td>
-                </tr>
-                <tr>
-                  <td>On hand</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>41,814</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Stockout days</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td>0</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>Project inventory levels</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>64,470</td>
-                  <td>26,418</td>
-                  <td>67,9960</td>
-                  <td>35,114</td>
-                  <td>89,430</td>
-                  <td>49,554</td>
-                  <td>68,876</td>
-                  <td>57,132</td>
-                  <td>23,182</td>
-                  <td>30,430</td>
-                  <td>15,846</td>
-                  <td>17,482</td>
-                </tr>
-                <tr>
-                  <td>Project days of supply</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>63</td>
-                  <td>33</td>
-                  <td>62</td>
-                  <td>31</td>
-                  <td>62</td>
-                  <td>31</td>
-                  <td>60</td>
-                  <td>62</td>
-                  <td>31</td>
-                  <td>62</td>
-                  <td>31</td>
-                  <td>60</td>
-                </tr>
-                <tr>
-                  <td>Ordering plan</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>47,720</td>
-                  <td>30,310</td>
-                  <td>25,070</td>
-                  <td>38,860</td>
-                  <td>49,260</td>
-                  <td>34,120</td>
-                  <td>33,620</td>
-                  <td>23,540</td>
-                  <td>14,110</td>
-                  <td>15,840</td>
-                  <td>28,800</td>
-                  <td>43,710</td>
-                </tr>
-                <tr>
-                  <td>To receive</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>To ship</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </table>
-            </div>
-
-            <br>
-          </div>
-          <!-- /.container-fluid -->
-
-          <button class="tablink" onclick="openPage('Home', this, 'grey')" id="defaultOpen">Risk | Opportunities | Threats</button>
-          <button class="tablink" onclick="openPage('Supply and Demand Forecasting', this, 'grey')">Sales | Demand Forecasting</button>
-          <button class="tablink" onclick="openPage('Inventory Management', this, 'grey')">Inventory Management</button>
-          <button class="tablink" onclick="openPage('Quality Control', this, 'grey')">Quality Control</button>
-          <button class="tablink" onclick="openPage('Logistics Optimization', this, 'grey')">Logistics Optimization</button>
-          <button class="tablink" onclick="openPage('Supplier Management', this, 'grey')">Predictive maintenance | Asset Management</button>
-
-          <div id="Supplier Management" class="tabcontent">
-            <h3>Supplier Management</h3>
-            <p></p>
+          <div style="overflow-x: auto">
+            <table>
+              <tr>
+                <th style="width: 10%"></th>
+                <th>Dec 2021</th>
+                <th>Jan 2022</th>
+                <th>Feb 2022</th>
+                <th>Mar 2022</th>
+                <th>Apr 2022</th>
+                <th>May 2022</th>
+                <th>June 2022</th>
+                <th>July 2022</th>
+                <th>Aug 2022</th>
+                <th>Sep 2022</th>
+                <th>Oct 2022</th>
+                <th>Nov 2022</th>
+                <th>Dec 2022</th>
+                <th>Jan 2023</th>
+                <th>Feb 2023</th>
+                <th>Mar 2023</th>
+                <th>Apr 2023</th>
+                <th>May 2023</th>
+                <th>June 2023</th>
+                <th>July 2023</th>
+                <th>Aug 2023</th>
+                <th>Sep 2023</th>
+                <th>Oct 2023</th>
+                <th>Nov 2023</th>
+                <th>Dec 2023</th>
+              </tr>
+              <tr>
+                <td>Actual sales</td>
+                <td>28,560</td>
+                <td>27,528</td>
+                <td>30,360</td>
+                <td>34,534</td>
+                <td>22,431.6</td>
+                <td>24,228</td>
+                <td>18,872.81</td>
+                <td>600</td>
+                <td>5,084</td>
+                <td>13,516</td>
+                <td>31,696</td>
+                <td>25,172</td>
+                <td>24,600</td>
+                <td>31,200</td>
+                <td>36,828</td>
+                <td>31,372</td>
+                <td>36,828</td>
+                <td>18,290</td>
+                <td>,890</td>
+                <td>24,908</td>
+                <td>51,456</td>
+                <td>38,765</td>
+                <td>43,560.7</td>
+                <td>31,234.7</td>
+                <td>25,084</td>
+              </tr>
+              <tr>
+                <td>Statistical forecast</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>20,270</td>
+                <td>15,940</td>
+                <td>11,453</td>
+                <td>17,867</td>
+                <td>13,456</td>
+                <td>20,270</td>
+                <td>15,699</td>
+                <td>34,908</td>
+                <td>20,900</td>
+                <td>45,078</td>
+                <td>32,090</td>
+                <td>15,678</td>
+              </tr>
+              <tr>
+                <td>Final forecast override</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Average sales price</td>
+                <td>14.26</td>
+                <td>14.30</td>
+                <td>16.36</td>
+                <td>14.35</td>
+                <td>14.04</td>
+                <td>14.60</td>
+                <td>13.76</td>
+                <td>14.12</td>
+                <td>14.59</td>
+                <td>14.46</td>
+                <td>13.76</td>
+                <td>14.12</td>
+                <td>14.59</td>
+                <td>14.46</td>
+                <td>18.59</td>
+                <td>18.59</td>
+                <td>14.85</td>
+                <td>14.26</td>
+                <td>14.57</td>
+                <td>14.61</td>
+                <td>14.48</td>
+                <td>13.88</td>
+                <td>13.99</td>
+                <td>14.56</td>
+                <td>15.13</td>
+              </tr>
+              <tr>
+                <td>Revenue</td>
+                <td>377,232.5</td>
+                <td>209,140.76</td>
+                <td>409,754.41</td>
+                <td>386,530.31</td>
+                <td>443,216.41</td>
+                <td>475,033.45</td>
+                <td>316,831.28</td>
+                <td>353,457.71</td>
+                <td>272,933.68</td>
+                <td>11,154</td>
+                <td>94,511.56</td>
+                <td>200,670.44</td>
+                <td>452,140.63</td>
+                <td>366,763.48</td>
+                <td>359,394</td>
+                <td>433,127.99</td>
+                <td>515,149.31</td>
+                <td>456,725.48</td>
+                <td>409,645.80</td>
+                <td>276,771.10</td>
+                <td>0</td>
+                <td>0</td>
+                <td>92,231.70</td>
+                <td>292,434.70</td>
+                <td>15,564.9</td>
+              </tr>
+              <tr>
+                <td>On hand</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>41,814</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Stockout days</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Project inventory levels</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>64,470</td>
+                <td>26,418</td>
+                <td>67,9960</td>
+                <td>35,114</td>
+                <td>89,430</td>
+                <td>49,554</td>
+                <td>68,876</td>
+                <td>57,132</td>
+                <td>23,182</td>
+                <td>30,430</td>
+                <td>15,846</td>
+                <td>17,482</td>
+              </tr>
+              <tr>
+                <td>Project days of supply</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>63</td>
+                <td>33</td>
+                <td>62</td>
+                <td>31</td>
+                <td>62</td>
+                <td>31</td>
+                <td>60</td>
+                <td>62</td>
+                <td>31</td>
+                <td>62</td>
+                <td>31</td>
+                <td>60</td>
+              </tr>
+              <tr>
+                <td>Ordering plan</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>47,720</td>
+                <td>30,310</td>
+                <td>25,070</td>
+                <td>38,860</td>
+                <td>49,260</td>
+                <td>34,120</td>
+                <td>33,620</td>
+                <td>23,540</td>
+                <td>14,110</td>
+                <td>15,840</td>
+                <td>28,800</td>
+                <td>43,710</td>
+              </tr>
+              <tr>
+                <td>To receive</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>To ship</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
 
-          <div id="Inventory Management" class="tabcontent">
-            <h3>Inventory Management</h3>
-            <div class="container-fluid">
-              <canvas id="inventoryLineChart" style="max-width: 1800px"></canvas>
-            </div>
-            <p></p>
-          </div>
-
-          <div id="Quality Control" class="tabcontent">
-            <h3>Quality Control</h3>
-            <p></p>
-          </div>
-
-          <div id="Supply and Demand Forecasting" class="tabcontent">
-            <h3>Sales and Demand Forecasting</h3>
-            <div class="container-fluid">
-              <canvas id="lineChart" style="max-width: 1800px"></canvas>
-            </div>
-            <p></p>
-          </div>
-
-          <div id="Logistics Optimization" class="tabcontent">
-            <h3>Logistics Optimization</h3>
-            <p></p>
-          </div>
-
-          <div id="Home" class="tabcontent">
-            <div class="row">
-              <div class="col-6 col-md-4">
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Risk Assessment</h6>
-                  </div>
-                  <div class="card-body">
-                    <div id="cool-chart" style="color: #858796;"></div>
-                    <br>
-                    <hr>
-
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-6 col-md-4">
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Opportunities</h6>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-bar">
-                      <canvas id="marksChart" style="max-width: 800px; height:130px;"></canvas>
-                    </div>
-                    <br>
-                    <br>
-                    <hr>
-                  </div>
-                </div>
-              </div>
-              <div class="col-6 col-md-4">
-                <!-- Bar Chart -->
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Threats</h6>
-                  </div>
-                  <div class="card-body">
-                    <div class="chart-bar">
-                      <canvas id="myBarChart"></canvas>
-                    </div>
-                    <br>
-                    <br>
-                    <hr>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-4">
-                <h3> ROT</h3>
-                <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" onclick="typeWriter()">Generate Report</button>
-                <br>
-                <br>
-                <p class="m-0 font-weight-300" id="demo"></p>
-              </div>
-
-            </div>
-          </div>
-
+          <br />
         </div>
-        <!-- End of Main Content -->
+        <!-- /.container-fluid -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <!--  <span>Copyright &copy; JELLYSPACE 2023</span> -->
+        <button
+          class="tablink"
+          onclick="openPage('Home', this, 'grey')"
+          id="defaultOpen"
+        >
+          Risk | Opportunities | Threats
+        </button>
+        <button
+          class="tablink"
+          onclick="openPage('Supply and Demand Forecasting', this, 'grey')"
+        >
+          Sales | Demand Forecasting
+        </button>
+        <button
+          class="tablink"
+          onclick="openPage('Inventory Management', this, 'grey')"
+        >
+          Inventory Management
+        </button>
+        <button
+          class="tablink"
+          onclick="openPage('Quality Control', this, 'grey')"
+        >
+          Quality Control
+        </button>
+        <button
+          class="tablink"
+          onclick="openPage('Logistics Optimization', this, 'grey')"
+        >
+          Logistics Optimization
+        </button>
+        <button
+          class="tablink"
+          onclick="openPage('Supplier Management', this, 'grey')"
+        >
+          Predictive maintenance | Asset Management
+        </button>
+
+        <div id="Supplier Management" class="tabcontent">
+          <h3>Supplier Management</h3>
+          <p></p>
+        </div>
+
+        <div id="Inventory Management" class="tabcontent">
+          <h3>Inventory Management</h3>
+          <div class="container-fluid">
+            <canvas id="inventoryLineChart" style="max-width: 1800px"></canvas>
+          </div>
+          <p></p>
+        </div>
+
+        <div id="Quality Control" class="tabcontent">
+          <h3>Quality Control</h3>
+          <p></p>
+        </div>
+
+        <div id="Supply and Demand Forecasting" class="tabcontent">
+          <h3>Sales and Demand Forecasting</h3>
+          <div class="container-fluid">
+            <canvas id="lineChart" style="max-width: 1800px"></canvas>
+          </div>
+          <p></p>
+        </div>
+
+        <div id="Logistics Optimization" class="tabcontent">
+          <h3>Logistics Optimization</h3>
+          <p></p>
+        </div>
+
+        <div id="Home" class="tabcontent">
+          <div class="row">
+            <div class="col-6 col-md-4">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    Risk Assessment
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div id="cool-chart" style="color: #858796"></div>
+                  <br />
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">
+                    Opportunities
+                  </h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <canvas
+                      id="marksChart"
+                      style="max-width: 800px; height: 130px"
+                    ></canvas>
+                  </div>
+                  <br />
+                  <br />
+                  <hr />
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <!-- Bar Chart -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Threats</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <canvas id="myBarChart"></canvas>
+                  </div>
+                  <br />
+                  <br />
+                  <hr />
+                </div>
+              </div>
             </div>
           </div>
-        </footer>
-        <!-- End of Footer -->
 
+          <div class="row">
+            <div class="col-4">
+              <h3>ROT</h3>
+              <button
+                class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"
+                onclick="typeWriter()"
+              >
+                Generate Report
+              </button>
+              <br />
+              <br />
+              <p class="m-0 font-weight-300" id="demo"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- End of Main Content -->
       </div>
       <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <div class="d-flex justify-content-between small">
+          <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
+          <div>
+            <a href="#">Privacy Policy</a> &middot;
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -614,287 +724,1277 @@
 
     <script type="text/javascript">
       var canvas = document.getElementById("lineChart");
-      var ctx = canvas.getContext('2d');
+      var ctx = canvas.getContext("2d");
 
       // Global Options:
-      Chart.defaults.global.defaultFontColor = 'black';
+      Chart.defaults.global.defaultFontColor = "black";
       Chart.defaults.global.defaultFontSize = 16;
 
       var data = {
-        labels: ["2010-01-31", "2010-02-28", "2010-03-31", "2010-04-30", "2010-05-31", "2010-06-30", "2010-07-31", "2010-08-31", "2010-09-30", "2010-10-31", "2010-11-30", "2010-12-31", "2011-01-31", "2011-02-28", "2011-03-31", "2011-04-30",
-          "2011-05-31", "2011-06-30", "2011-07-31", "2011-08-31", "2011-09-30", "2011-10-31", "2011-11-30", "2011-12-31", "2012-01-31", "2012-02-29", "2012-03-31", "2012-04-30", "2012-05-31", "2012-06-30", "2012-07-31", "2012-08-31",
+        labels: [
+          "2010-01-31",
+          "2010-02-28",
+          "2010-03-31",
+          "2010-04-30",
+          "2010-05-31",
+          "2010-06-30",
+          "2010-07-31",
+          "2010-08-31",
+          "2010-09-30",
+          "2010-10-31",
+          "2010-11-30",
+          "2010-12-31",
+          "2011-01-31",
+          "2011-02-28",
+          "2011-03-31",
+          "2011-04-30",
+          "2011-05-31",
+          "2011-06-30",
+          "2011-07-31",
+          "2011-08-31",
+          "2011-09-30",
+          "2011-10-31",
+          "2011-11-30",
+          "2011-12-31",
+          "2012-01-31",
+          "2012-02-29",
+          "2012-03-31",
+          "2012-04-30",
+          "2012-05-31",
+          "2012-06-30",
+          "2012-07-31",
+          "2012-08-31",
           "2012-09-30",
-          "2012-10-31", "2012-11-30", "2012-12-31", "2013-01-31", "2013-02-28", "2013-03-31", "2013-04-30", "2013-05-31", "2013-06-30", "2013-07-31", "2013-08-31", "2013-09-30", "2013-10-31", "2013-11-30", "2013-12-31", "2014-01-31",
+          "2012-10-31",
+          "2012-11-30",
+          "2012-12-31",
+          "2013-01-31",
+          "2013-02-28",
+          "2013-03-31",
+          "2013-04-30",
+          "2013-05-31",
+          "2013-06-30",
+          "2013-07-31",
+          "2013-08-31",
+          "2013-09-30",
+          "2013-10-31",
+          "2013-11-30",
+          "2013-12-31",
+          "2014-01-31",
           "2014-02-28",
-          "2014-03-31", "2014-04-30", "2014-05-31", "2014-06-30", "2014-07-31", "2014-08-31", "2014-09-30", "2014-10-31", "2014-11-30", "2014-12-31", "2015-01-31", "2015-02-28", "2015-03-31", "2015-04-30", "2015-05-31", "2015-06-30",
+          "2014-03-31",
+          "2014-04-30",
+          "2014-05-31",
+          "2014-06-30",
+          "2014-07-31",
+          "2014-08-31",
+          "2014-09-30",
+          "2014-10-31",
+          "2014-11-30",
+          "2014-12-31",
+          "2015-01-31",
+          "2015-02-28",
+          "2015-03-31",
+          "2015-04-30",
+          "2015-05-31",
+          "2015-06-30",
           "2015-07-31",
-          "2015-08-31", "2015-09-30", "2015-10-31", "2015-11-30", "2015-12-31", "2016-01-31", "2016-02-29", "2016-03-31", "2016-04-30", "2016-05-31", "2016-06-30", "2016-07-31", "2016-08-31", "2016-09-30", "2016-10-31", "2016-11-30",
+          "2015-08-31",
+          "2015-09-30",
+          "2015-10-31",
+          "2015-11-30",
+          "2015-12-31",
+          "2016-01-31",
+          "2016-02-29",
+          "2016-03-31",
+          "2016-04-30",
+          "2016-05-31",
+          "2016-06-30",
+          "2016-07-31",
+          "2016-08-31",
+          "2016-09-30",
+          "2016-10-31",
+          "2016-11-30",
           "2016-12-31",
-          "2017-01-31", "2017-02-28", "2017-03-31", "2017-04-30", "2017-05-31", "2017-06-30", "2017-07-31", "2017-08-31", "2017-09-30", "2017-10-31", "2017-11-30", "2017-12-31", "2018-01-31", "2018-02-28", "2018-03-31", "2018-04-30",
+          "2017-01-31",
+          "2017-02-28",
+          "2017-03-31",
+          "2017-04-30",
+          "2017-05-31",
+          "2017-06-30",
+          "2017-07-31",
+          "2017-08-31",
+          "2017-09-30",
+          "2017-10-31",
+          "2017-11-30",
+          "2017-12-31",
+          "2018-01-31",
+          "2018-02-28",
+          "2018-03-31",
+          "2018-04-30",
           "2018-05-31",
-          "2018-06-30", "2018-07-31", "2018-08-31", "2018-09-30", "2018-10-31", "2018-11-30", "2018-12-31", "2019-01-31", "2019-02-28", "2019-03-31", "2019-04-30", "2019-05-31", "2019-06-30", "2019-07-31", "2019-08-31", "2019-09-30",
+          "2018-06-30",
+          "2018-07-31",
+          "2018-08-31",
+          "2018-09-30",
+          "2018-10-31",
+          "2018-11-30",
+          "2018-12-31",
+          "2019-01-31",
+          "2019-02-28",
+          "2019-03-31",
+          "2019-04-30",
+          "2019-05-31",
+          "2019-06-30",
+          "2019-07-31",
+          "2019-08-31",
+          "2019-09-30",
           "2019-10-31",
-          "2019-11-30", "2019-12-31", "2020-01-31", "2020-02-29", "2020-03-31", "2020-04-30", "2020-05-31", "2020-06-30", "2020-07-31", "2020-08-31", "2020-09-30", "2020-10-31", "2020-11-30", "2020-12-31", "2021-01-31", "2021-02-28",
+          "2019-11-30",
+          "2019-12-31",
+          "2020-01-31",
+          "2020-02-29",
+          "2020-03-31",
+          "2020-04-30",
+          "2020-05-31",
+          "2020-06-30",
+          "2020-07-31",
+          "2020-08-31",
+          "2020-09-30",
+          "2020-10-31",
+          "2020-11-30",
+          "2020-12-31",
+          "2021-01-31",
+          "2021-02-28",
           "2021-03-31",
-          "2021-04-30", "2021-05-31", "2021-06-30", "2021-07-31", "2021-08-31", "2021-09-30", "2021-10-31", "2021-11-30", "2021-12-31", "2022-01-31", "2022-02-28", "2022-03-31", "2022-04-30", "2022-05-31", "2022-06-30", "2022-07-31",
+          "2021-04-30",
+          "2021-05-31",
+          "2021-06-30",
+          "2021-07-31",
+          "2021-08-31",
+          "2021-09-30",
+          "2021-10-31",
+          "2021-11-30",
+          "2021-12-31",
+          "2022-01-31",
+          "2022-02-28",
+          "2022-03-31",
+          "2022-04-30",
+          "2022-05-31",
+          "2022-06-30",
+          "2022-07-31",
           "2022-08-31",
-          "2022-09-30", "2022-10-31", "2022-11-30", "2022-12-31", "2023-01-31", "2023-02-28", "2023-03-31", "2023-04-30", "2023-05-31", "2023-06-30", "2023-07-31", "2023-08-31", "2023-09-30", "2023-10-31", "2023-11-30", "2023-12-31",
+          "2022-09-30",
+          "2022-10-31",
+          "2022-11-30",
+          "2022-12-31",
+          "2023-01-31",
+          "2023-02-28",
+          "2023-03-31",
+          "2023-04-30",
+          "2023-05-31",
+          "2023-06-30",
+          "2023-07-31",
+          "2023-08-31",
+          "2023-09-30",
+          "2023-10-31",
+          "2023-11-30",
+          "2023-12-31",
           "2024-01-31",
-          "2024-02-29", "2024-03-31", "2024-04-30", "2024-05-31", "2024-06-30"
+          "2024-02-29",
+          "2024-03-31",
+          "2024-04-30",
+          "2024-05-31",
+          "2024-06-30",
         ],
-        datasets: [{
-          label: "Synthetic",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgba(225,0,0,0.4)",
-          borderColor: "red", // The main line color
-          borderCapStyle: 'square',
-          borderDash: [], // try [5, 15] for instance
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "black",
-          pointBackgroundColor: "white",
-          pointBorderWidth: 1,
-          pointHoverRadius: 8,
-          pointHoverBackgroundColor: "yellow",
-          pointHoverBorderColor: "red",
-          pointHoverBorderWidth: 2,
-          pointRadius: 2,
-          pointHitRadius: 10,
-          // notice the gap in the data and the spanGaps: true
-          data: [100, 64, 65, 69, 59, 79, 65, 70, 59, 53, 48, 67, 46, 42, 94, 78, 70, 77, 44, 49, 60, 74, 56, 98, 73, 82, 52, 56, 64, 38, 34, 49, 48, 79, 73, 43, 65, 64, 70, 49, 51, 53, , 63, 65, 62, 45, 66, 63, 64, 62, 63, 59, 37, 42, 68,
-            68,
-            67, 56, 49, 46, 57, 45, 65, 55, 55, 59, 56, 65, 62, 67, 48, 44, 65, 39, 52, 41, 38, 46, 32, 71, 55, 49, 63, 58, 63, 43, 56, 58, 41, 37, 45, 72, 70, 65, 51, 61, 65, 54, 53, 40, 30, , 55, 52, , 58, 38, 66, 59, , 48, 33, 51,
-            48,
-            40, 35, 52, 49, 46, 79, 41, 42, 49, 43, 40, 42, 55, , 41, 38, 34, 39, 34, 36, 35, 23, 49, 39, 32, 46, 42, 56, 47, 54, 35, 51, 53, 59, 36, 43, 36, 47, 53, , 35, 60, 65, 40, 33, 42, 43, null, null, null, null, null, null, null,
-            null, null, null, null, null
-          ],
-          spanGaps: true,
-          borderWidth: 1,
-        }, {
-          label: "Predictions",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgb(65,105,225,0.4)",
-          borderColor: "blue",
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "white",
-          pointBackgroundColor: "black",
-          pointBorderWidth: 1,
-          pointHoverRadius: 8,
-          pointHoverBackgroundColor: "brown",
-          pointHoverBorderColor: "yellow",
-          pointHoverBorderWidth: 2,
-          pointRadius: 3,
-          pointHitRadius: 10,
-          // notice the gap in the data and the spanGaps: false
-          data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "56.31010818481445", "54.985103607177734", "54.937726713867", "54.742156982421875",
-            "54.49875259399414", "56.7841911315918", "58.57160568237305", "56.68049240112305", "55.70790100097656", "55.332313537597656", "55.038909912109375", "55.086639404296875", "54.772090911865234", "55.879669189453",
-            "55.01621627807617", "55.235233306884766", "55.606536865234375", "55.553375244140625", "54.36674118041992", "54.880828857421875", "54.4977912902832", "56.90713882446289", "54.230316162109375", "52.848114013671875",
-            "55.87253189086914", "56.660865783691406", "58.301239013671875", "59.03417205810547", "56.721031188964844", "56.1740608215332", "54.43339157104492", "55.19965744018555", "57.53043746948242", "59.527008056640625",
-            "60.088871002197266", "55.97400665283203", "54.70392608642578", "57.86484909057617", "59.31377410888672", "59.8679313659668", "60.12482452392578", "60.42927932739258", "60.645935859375", "60.53292465209961", "60.379177093586",
-            "59.60761260986328", "60.258304595947266", "60.007259368896484", "59.29383087158203", "57.87075424194336", "56.7575569152832", "57.85481262207031", "58.39295959472656", "58.28857421875", "57.44623947143555", "58.07952117919922",
-            "58.43355941772461", "54.14998245239258", "56.230821972656", "56.57902908325195", "56.46429443359375", "58.10934066772461", "58.15776062011719", "58.1241340637207", "55.879536743164", "56.808712005615234", "57.09674072265625",
-            "57.34127426147461", "55.77133560180664", "55.412540435791016", "54.6751823425293", "53.667572021484375", "53.766090393066406", "56.41395568847656", "58.20924377441406", "58.68229765625", "56.184772491458",
-            "54.772865295410156",
-            "53.590518951416016", "54.0128173828125", "56.82758712768555", "57.856571220703", "59.174766540527344", "59.1863899230957", "59.67179489135742", "59.722137451171875", "59.785518646240234", "59.73027038574219",
-            "59.26860046386719",
-            "59.678855895996094", "59.369529724121094", "59.008033752441406", "57.59028244018555", "56.39980697631836", "57.55146408081055", "58.08757019042969", "58.00516128540039", "57.248451232910156", "57.70429611206055",
-            "58.07545471191406", "54.09998321533203", "56.03403854370117", "56.36068344116211", "55.71784591674805", "55.58391571044922", "55.55827713012695", "55.55857849121094", "55.56390380859375", "55.569828033447266", "55.5746955871582",
-            "55.58422088623047", "55.602760314941406", "55.620723724365234", "55.63619613647461"
-          ],
-          spanGaps: false,
-          borderWidth: 1,
-        }]
+        datasets: [
+          {
+            label: "Synthetic",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(225,0,0,0.4)",
+            borderColor: "red", // The main line color
+            borderCapStyle: "square",
+            borderDash: [], // try [5, 15] for instance
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "black",
+            pointBackgroundColor: "white",
+            pointBorderWidth: 1,
+            pointHoverRadius: 8,
+            pointHoverBackgroundColor: "yellow",
+            pointHoverBorderColor: "red",
+            pointHoverBorderWidth: 2,
+            pointRadius: 2,
+            pointHitRadius: 10,
+            // notice the gap in the data and the spanGaps: true
+            data: [
+              100,
+              64,
+              65,
+              69,
+              59,
+              79,
+              65,
+              70,
+              59,
+              53,
+              48,
+              67,
+              46,
+              42,
+              94,
+              78,
+              70,
+              77,
+              44,
+              49,
+              60,
+              74,
+              56,
+              98,
+              73,
+              82,
+              52,
+              56,
+              64,
+              38,
+              34,
+              49,
+              48,
+              79,
+              73,
+              43,
+              65,
+              64,
+              70,
+              49,
+              51,
+              53,
+              ,
+              63,
+              65,
+              62,
+              45,
+              66,
+              63,
+              64,
+              62,
+              63,
+              59,
+              37,
+              42,
+              68,
+              68,
+              67,
+              56,
+              49,
+              46,
+              57,
+              45,
+              65,
+              55,
+              55,
+              59,
+              56,
+              65,
+              62,
+              67,
+              48,
+              44,
+              65,
+              39,
+              52,
+              41,
+              38,
+              46,
+              32,
+              71,
+              55,
+              49,
+              63,
+              58,
+              63,
+              43,
+              56,
+              58,
+              41,
+              37,
+              45,
+              72,
+              70,
+              65,
+              51,
+              61,
+              65,
+              54,
+              53,
+              40,
+              30,
+              ,
+              55,
+              52,
+              ,
+              58,
+              38,
+              66,
+              59,
+              ,
+              48,
+              33,
+              51,
+              48,
+              40,
+              35,
+              52,
+              49,
+              46,
+              79,
+              41,
+              42,
+              49,
+              43,
+              40,
+              42,
+              55,
+              ,
+              41,
+              38,
+              34,
+              39,
+              34,
+              36,
+              35,
+              23,
+              49,
+              39,
+              32,
+              46,
+              42,
+              56,
+              47,
+              54,
+              35,
+              51,
+              53,
+              59,
+              36,
+              43,
+              36,
+              47,
+              53,
+              ,
+              35,
+              60,
+              65,
+              40,
+              33,
+              42,
+              43,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+            ],
+            spanGaps: true,
+            borderWidth: 1,
+          },
+          {
+            label: "Predictions",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgb(65,105,225,0.4)",
+            borderColor: "blue",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "white",
+            pointBackgroundColor: "black",
+            pointBorderWidth: 1,
+            pointHoverRadius: 8,
+            pointHoverBackgroundColor: "brown",
+            pointHoverBorderColor: "yellow",
+            pointHoverBorderWidth: 2,
+            pointRadius: 3,
+            pointHitRadius: 10,
+            // notice the gap in the data and the spanGaps: false
+            data: [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "56.31010818481445",
+              "54.985103607177734",
+              "54.937726713867",
+              "54.742156982421875",
+              "54.49875259399414",
+              "56.7841911315918",
+              "58.57160568237305",
+              "56.68049240112305",
+              "55.70790100097656",
+              "55.332313537597656",
+              "55.038909912109375",
+              "55.086639404296875",
+              "54.772090911865234",
+              "55.879669189453",
+              "55.01621627807617",
+              "55.235233306884766",
+              "55.606536865234375",
+              "55.553375244140625",
+              "54.36674118041992",
+              "54.880828857421875",
+              "54.4977912902832",
+              "56.90713882446289",
+              "54.230316162109375",
+              "52.848114013671875",
+              "55.87253189086914",
+              "56.660865783691406",
+              "58.301239013671875",
+              "59.03417205810547",
+              "56.721031188964844",
+              "56.1740608215332",
+              "54.43339157104492",
+              "55.19965744018555",
+              "57.53043746948242",
+              "59.527008056640625",
+              "60.088871002197266",
+              "55.97400665283203",
+              "54.70392608642578",
+              "57.86484909057617",
+              "59.31377410888672",
+              "59.8679313659668",
+              "60.12482452392578",
+              "60.42927932739258",
+              "60.645935859375",
+              "60.53292465209961",
+              "60.379177093586",
+              "59.60761260986328",
+              "60.258304595947266",
+              "60.007259368896484",
+              "59.29383087158203",
+              "57.87075424194336",
+              "56.7575569152832",
+              "57.85481262207031",
+              "58.39295959472656",
+              "58.28857421875",
+              "57.44623947143555",
+              "58.07952117919922",
+              "58.43355941772461",
+              "54.14998245239258",
+              "56.230821972656",
+              "56.57902908325195",
+              "56.46429443359375",
+              "58.10934066772461",
+              "58.15776062011719",
+              "58.1241340637207",
+              "55.879536743164",
+              "56.808712005615234",
+              "57.09674072265625",
+              "57.34127426147461",
+              "55.77133560180664",
+              "55.412540435791016",
+              "54.6751823425293",
+              "53.667572021484375",
+              "53.766090393066406",
+              "56.41395568847656",
+              "58.20924377441406",
+              "58.68229765625",
+              "56.184772491458",
+              "54.772865295410156",
+              "53.590518951416016",
+              "54.0128173828125",
+              "56.82758712768555",
+              "57.856571220703",
+              "59.174766540527344",
+              "59.1863899230957",
+              "59.67179489135742",
+              "59.722137451171875",
+              "59.785518646240234",
+              "59.73027038574219",
+              "59.26860046386719",
+              "59.678855895996094",
+              "59.369529724121094",
+              "59.008033752441406",
+              "57.59028244018555",
+              "56.39980697631836",
+              "57.55146408081055",
+              "58.08757019042969",
+              "58.00516128540039",
+              "57.248451232910156",
+              "57.70429611206055",
+              "58.07545471191406",
+              "54.09998321533203",
+              "56.03403854370117",
+              "56.36068344116211",
+              "55.71784591674805",
+              "55.58391571044922",
+              "55.55827713012695",
+              "55.55857849121094",
+              "55.56390380859375",
+              "55.569828033447266",
+              "55.5746955871582",
+              "55.58422088623047",
+              "55.602760314941406",
+              "55.620723724365234",
+              "55.63619613647461",
+            ],
+            spanGaps: false,
+            borderWidth: 1,
+          },
+        ],
       };
 
       // Notice the scaleLabel at the same level as Ticks
       var options = {
         scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Year',
-              fontSize: 20
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Year",
+                fontSize: 20,
+              },
+              ticks: {
+                maxTicksLimit: 14,
+              },
             },
-            ticks: {
-              maxTicksLimit: 14
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Detectors Demand Turnover",
+                fontSize: 20,
+              },
             },
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            },
-            scaleLabel: {
-              display: true,
-              labelString: 'Detectors Demand Turnover',
-              fontSize: 20
-            }
-          }]
-        }
+          ],
+        },
       };
 
       // Chart declaration:
       var myBarChart = new Chart(ctx, {
-        type: 'line',
+        type: "line",
         data: data,
-        options: options
+        options: options,
       });
 
       var canvas = document.getElementById("inventoryLineChart");
-      var ctx = canvas.getContext('2d');
+      var ctx = canvas.getContext("2d");
 
       // Global Options:
-      Chart.defaults.global.defaultFontColor = 'black';
+      Chart.defaults.global.defaultFontColor = "black";
       Chart.defaults.global.defaultFontSize = 16;
 
       var data = {
-        labels: ["2010-01-31", "2010-02-28", "2010-03-31", "2010-04-30", "2010-05-31", "2010-06-30", "2010-07-31", "2010-08-31", "2010-09-30", "2010-10-31", "2010-11-30", "2010-12-31", "2011-01-31", "2011-02-28", "2011-03-31", "2011-04-30",
-          "2011-05-31", "2011-06-30", "2011-07-31", "2011-08-31", "2011-09-30", "2011-10-31", "2011-11-30", "2011-12-31", "2012-01-31", "2012-02-29", "2012-03-31", "2012-04-30", "2012-05-31", "2012-06-30", "2012-07-31", "2012-08-31",
-          "2012-09-30", "2012-10-31", "2012-11-30", "2012-12-31", "2013-01-31", "2013-02-28", "2013-03-31", "2013-04-30", "2013-05-31", "2013-06-30", "2013-07-31", "2013-08-31", "2013-09-30", "2013-10-31", "2013-11-30", "2013-12-31",
-          "2014-01-31", "2014-02-28", "2014-03-31", "2014-04-30", "2014-05-31", "2014-06-30", "2014-07-31", "2014-08-31", "2014-09-30", "2014-10-31", "2014-11-30", "2014-12-31", "2015-01-31", "2015-02-28", "2015-03-31", "2015-04-30",
-          "2015-05-31", "2015-06-30", "2015-07-31", "2015-08-31", "2015-09-30", "2015-10-31", "2015-11-30", "2015-12-31", "2016-01-31", "2016-02-29", "2016-03-31", "2016-04-30", "2016-05-31", "2016-06-30", "2016-07-31", "2016-08-31",
-          "2016-09-30", "2016-10-31", "2016-11-30", "2016-12-31", "2017-01-31", "2017-02-28", "2017-03-31", "2017-04-30", "2017-05-31", "2017-06-30", "2017-07-31", "2017-08-31", "2017-09-30", "2017-10-31", "2017-11-30", "2017-12-31",
-          "2018-01-31", "2018-02-28", "2018-03-31", "2018-04-30", "2018-05-31", "2018-06-30", "2018-07-31", "2018-08-31", "2018-09-30", "2018-10-31", "2018-11-30", "2018-12-31", "2019-01-31", "2019-02-28", "2019-03-31", "2019-04-30",
-          "2019-05-31", "2019-06-30", "2019-07-31", "2019-08-31", "2019-09-30", "2019-10-31", "2019-11-30", "2019-12-31", "2020-01-31", "2020-02-29", "2020-03-31", "2020-04-30", "2020-05-31", "2020-06-30", "2020-07-31", "2020-08-31",
-          "2020-09-30", "2020-10-31", "2020-11-30", "2020-12-31", "2021-01-31", "2021-02-28", "2021-03-31", "2021-04-30", "2021-05-31", "2021-06-30", "2021-07-31", "2021-08-31", "2021-09-30", "2021-10-31", "2021-11-30", "2021-12-31",
-          "2022-01-31", "2022-02-28", "2022-03-31", "2022-04-30", "2022-05-31", "2022-06-30", "2022-07-31", "2022-08-31", "2022-09-30", "2022-10-31", "2022-11-30", "2022-12-31", "2023-01-31", "2023-02-28", "2023-03-31", "2023-04-30",
-          "2023-05-31", "2023-06-30", "2023-07-31", "2023-08-31", "2023-09-30", "2023-10-31", "2023-11-30", "2023-12-31", "2024-01-31", "2024-02-29", "2024-03-31", "2024-04-30", "2024-05-31", "2024-06-30"
+        labels: [
+          "2010-01-31",
+          "2010-02-28",
+          "2010-03-31",
+          "2010-04-30",
+          "2010-05-31",
+          "2010-06-30",
+          "2010-07-31",
+          "2010-08-31",
+          "2010-09-30",
+          "2010-10-31",
+          "2010-11-30",
+          "2010-12-31",
+          "2011-01-31",
+          "2011-02-28",
+          "2011-03-31",
+          "2011-04-30",
+          "2011-05-31",
+          "2011-06-30",
+          "2011-07-31",
+          "2011-08-31",
+          "2011-09-30",
+          "2011-10-31",
+          "2011-11-30",
+          "2011-12-31",
+          "2012-01-31",
+          "2012-02-29",
+          "2012-03-31",
+          "2012-04-30",
+          "2012-05-31",
+          "2012-06-30",
+          "2012-07-31",
+          "2012-08-31",
+          "2012-09-30",
+          "2012-10-31",
+          "2012-11-30",
+          "2012-12-31",
+          "2013-01-31",
+          "2013-02-28",
+          "2013-03-31",
+          "2013-04-30",
+          "2013-05-31",
+          "2013-06-30",
+          "2013-07-31",
+          "2013-08-31",
+          "2013-09-30",
+          "2013-10-31",
+          "2013-11-30",
+          "2013-12-31",
+          "2014-01-31",
+          "2014-02-28",
+          "2014-03-31",
+          "2014-04-30",
+          "2014-05-31",
+          "2014-06-30",
+          "2014-07-31",
+          "2014-08-31",
+          "2014-09-30",
+          "2014-10-31",
+          "2014-11-30",
+          "2014-12-31",
+          "2015-01-31",
+          "2015-02-28",
+          "2015-03-31",
+          "2015-04-30",
+          "2015-05-31",
+          "2015-06-30",
+          "2015-07-31",
+          "2015-08-31",
+          "2015-09-30",
+          "2015-10-31",
+          "2015-11-30",
+          "2015-12-31",
+          "2016-01-31",
+          "2016-02-29",
+          "2016-03-31",
+          "2016-04-30",
+          "2016-05-31",
+          "2016-06-30",
+          "2016-07-31",
+          "2016-08-31",
+          "2016-09-30",
+          "2016-10-31",
+          "2016-11-30",
+          "2016-12-31",
+          "2017-01-31",
+          "2017-02-28",
+          "2017-03-31",
+          "2017-04-30",
+          "2017-05-31",
+          "2017-06-30",
+          "2017-07-31",
+          "2017-08-31",
+          "2017-09-30",
+          "2017-10-31",
+          "2017-11-30",
+          "2017-12-31",
+          "2018-01-31",
+          "2018-02-28",
+          "2018-03-31",
+          "2018-04-30",
+          "2018-05-31",
+          "2018-06-30",
+          "2018-07-31",
+          "2018-08-31",
+          "2018-09-30",
+          "2018-10-31",
+          "2018-11-30",
+          "2018-12-31",
+          "2019-01-31",
+          "2019-02-28",
+          "2019-03-31",
+          "2019-04-30",
+          "2019-05-31",
+          "2019-06-30",
+          "2019-07-31",
+          "2019-08-31",
+          "2019-09-30",
+          "2019-10-31",
+          "2019-11-30",
+          "2019-12-31",
+          "2020-01-31",
+          "2020-02-29",
+          "2020-03-31",
+          "2020-04-30",
+          "2020-05-31",
+          "2020-06-30",
+          "2020-07-31",
+          "2020-08-31",
+          "2020-09-30",
+          "2020-10-31",
+          "2020-11-30",
+          "2020-12-31",
+          "2021-01-31",
+          "2021-02-28",
+          "2021-03-31",
+          "2021-04-30",
+          "2021-05-31",
+          "2021-06-30",
+          "2021-07-31",
+          "2021-08-31",
+          "2021-09-30",
+          "2021-10-31",
+          "2021-11-30",
+          "2021-12-31",
+          "2022-01-31",
+          "2022-02-28",
+          "2022-03-31",
+          "2022-04-30",
+          "2022-05-31",
+          "2022-06-30",
+          "2022-07-31",
+          "2022-08-31",
+          "2022-09-30",
+          "2022-10-31",
+          "2022-11-30",
+          "2022-12-31",
+          "2023-01-31",
+          "2023-02-28",
+          "2023-03-31",
+          "2023-04-30",
+          "2023-05-31",
+          "2023-06-30",
+          "2023-07-31",
+          "2023-08-31",
+          "2023-09-30",
+          "2023-10-31",
+          "2023-11-30",
+          "2023-12-31",
+          "2024-01-31",
+          "2024-02-29",
+          "2024-03-31",
+          "2024-04-30",
+          "2024-05-31",
+          "2024-06-30",
         ],
-        datasets: [{
-          label: "Synthetic",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgb(70,194,124,0.4)",
-          borderColor: "green", // The main line color
-          borderCapStyle: 'square',
-          borderDash: [], // try [5, 15] for instance
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "black",
-          pointBackgroundColor: "white",
-          pointBorderWidth: 1,
-          pointHoverRadius: 8,
-          pointHoverBackgroundColor: "yellow",
-          pointHoverBorderColor: "red",
-          pointHoverBorderWidth: 2,
-          pointRadius: 2,
-          pointHitRadius: 10,
-          // notice the gap in the data and the spanGaps: true
-          data: [48.92042, 52.14498, 67.21832, 61.73142, 44.548286, 37.184364, 37.489838, 53.98379, 65.826225, 65.2989, 54.55244, 42.132893, 47.22143, 61.906242, 62.267105, 51.37893, 39.101913, 46.0764, 53.096577, 53.193687, 47.462513,
-            41.11745, 45.47276, 48.7496, 41.195816, 54.301327, 69.421425, 61.619896, 44.164474, 38.223366, 35.061413, 51.042973, 66.93024, 63.762352, 38.342724, 51.678413, 61.833336, 62.94908, 53.937946, 38.38539, 46.090134, 53.387173,
-            52.748257, 47.639862, 42.435253, 45.51082, 47.939396, 48.942924, 23.045345, 27.481846, 30.4325, 22.825294, 16.585499, 23.779043, 25.817417, 24.935312, 21.6313, 21.161629, 20.565483, 24.43368, 18.365393, 26.14632, 22.191431,
-            21.188688, 21.540773, 21.129536, 24.042103, 22.352186, 21.924215, 22.653294, 18.210058, 21.402328, 46.04422, 53.989807, 68.56732, 61.964733, 44.314598, 38.636795, 35.588863, 51.033062, 66.72631, 63.471916, 37.915173, 51.17856,
-            62.27313, 62.87782, 53.572765, 38.08462, 46.034542, 53.35133, 52.739, 47.898, 42.097347, 45.5489, 48.19296, 48.996674, 23.187096, 27.056572, 30.581964, 22.572828, 16.559578, 23.690697, 25.902079, 24.833424, 21.563011, 21.055855,
-            20.468994, 24.569233, 18.395424, 26.082909, 22.13688, 21.04494, 21.576586, 21.062988, 24.061575, 22.23759, 21.96819, 22.62218, 18.26104, 21.254093, 70.91938, 83.2157, 74.54516, 59.39478, 40.019463, 76.22626, 81.0405, 75.59683,
-            57.2934, 43.572487, 45.81337, 58.18392, 65.989555, 59.917908, 39.796345, 44.999603, 58.86977, 58.152523, .546703, 40.157867, 43.166847, 49.488014, 51.047844, 48.158566, 15.816568, 23.761707, 28.941565, 27.528584, 23.696484,
-            17.722527, 23.678062, 24.457157, 24.736723, 21.233913, 20.761984, 20.035648, 25.10731, 17.833725, 26.34004, 21.466846, 22.328598, 19.897055, null, null, null, null, null, null, null, null, null, null, null, null
-          ],
-          spanGaps: true,
-          borderWidth: 1,
-        }, {
-          label: "Predictions",
-          fill: false,
-          lineTension: 0.1,
-          backgroundColor: "rgb(2,6,4,0.4)",
-          borderColor: "black",
-          borderCapStyle: 'butt',
-          borderDash: [],
-          borderDashOffset: 0.0,
-          borderJoinStyle: 'miter',
-          pointBorderColor: "white",
-          pointBackgroundColor: "black",
-          pointBorderWidth: 1,
-          pointHoverRadius: 8,
-          pointHoverBackgroundColor: "brown",
-          pointHoverBorderColor: "yellow",
-          pointHoverBorderWidth: 2,
-          pointRadius: 3,
-          pointHitRadius: 10,
-          // notice the gap in the data and the spanGaps: false
-          data: [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "22.435798641953", "19.849660873413086", "22.9041009155273", "21.564346313476562",
-            "20.854677200317383", "20.80563735961914", "20.52271270751953", "21.760292053222656", "21.192947387695312", "20.894460678100586", "21.159414291381836", "19.208606719970703", "20.17026138305664", "32.31272888183594",
-            "39.85736846923828", "46.212284088134766", "48.01564025878906", "46.130638122558594", "43.98395538330078", "41.67285919189453", "46.3268928527832", "49.69461441040039", ".224048614195", "45.606513977078",
-            "48.20371627807617", ".121514892578", ".58684158325195", "49.7276725769043", "45.92548370361328", "47.281280517578125", "48.956520080566406", "49.172889709472656", "48.25140380859375", "46.512348174883",
-            "46.96874237060547", "47.648597717285156", "47.986934661865234", "36.951956176758", "34.390769958496094", "33.87060546875", "27.93427085876465", "22.481021881103516", "24.040395736694336", "24.824748992919922",
-            "24.146875381469727", "22.21480369567871", "21.4148006439209", "20.78403663635254", "22.41676902770996", "19.784034729003906", "22.779834747314453", "21.429916381835938", "20.672996520996094", "20.70198631286621",
-            "20.4002628326416", "21.686588287353516", "21.0833435859375", "20.862775802612305", "21.1197045898438", "19.213422775268555", "20.095623016357422", "38.97774887084961", "45.71980667114258", "48.08790969848633",
-            "48.587833404541016", "45.515419006347656", ".10907745361328", ".70315170288086", ".79340744018555", ".04854965209961", "47.8317985534668", "47.88218307495117", "49.90966796875", ".88983154296875", ".5786018371582",
-            "46.88166046142578", "47.44570541381836", "49.923545837402344", ".22001647949219", "49.24972152709961", "46.47234344482422", "46.5328254699707", "48.01319378418", "48.61648941040039", "48.1574821472168", "33.24365997314453",
-            "31.730844497680664", "31.97748374938965", "29.92854118347168", "26.4367733001709", "21.98884391784668", "23.415572746582", "23.602933883666992", "23.5701847076416", "21.743396759033203", "21.038434982299805",
-            "20.400863647460938", "22.496028544922", "19.484525680541992", "22.79456329345703", "21.080041885375977", "21.163787841796875", "20.020896911621094", "19.7943630218586", "19.561416625976562", "19.349519729614258",
-            "19.16659164428711", "19.008686065673828", "18.8725299835208", "18.755189895629883", "18.656147003173828", "18.571725845336914", "18.49860191345215", "18.43451499938965"
-          ],
-          spanGaps: false,
-          borderWidth: 1,
-        }]
+        datasets: [
+          {
+            label: "Synthetic",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgb(70,194,124,0.4)",
+            borderColor: "green", // The main line color
+            borderCapStyle: "square",
+            borderDash: [], // try [5, 15] for instance
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "black",
+            pointBackgroundColor: "white",
+            pointBorderWidth: 1,
+            pointHoverRadius: 8,
+            pointHoverBackgroundColor: "yellow",
+            pointHoverBorderColor: "red",
+            pointHoverBorderWidth: 2,
+            pointRadius: 2,
+            pointHitRadius: 10,
+            // notice the gap in the data and the spanGaps: true
+            data: [
+              48.92042,
+              52.14498,
+              67.21832,
+              61.73142,
+              44.548286,
+              37.184364,
+              37.489838,
+              53.98379,
+              65.826225,
+              65.2989,
+              54.55244,
+              42.132893,
+              47.22143,
+              61.906242,
+              62.267105,
+              51.37893,
+              39.101913,
+              46.0764,
+              53.096577,
+              53.193687,
+              47.462513,
+              41.11745,
+              45.47276,
+              48.7496,
+              41.195816,
+              54.301327,
+              69.421425,
+              61.619896,
+              44.164474,
+              38.223366,
+              35.061413,
+              51.042973,
+              66.93024,
+              63.762352,
+              38.342724,
+              51.678413,
+              61.833336,
+              62.94908,
+              53.937946,
+              38.38539,
+              46.090134,
+              53.387173,
+              52.748257,
+              47.639862,
+              42.435253,
+              45.51082,
+              47.939396,
+              48.942924,
+              23.045345,
+              27.481846,
+              30.4325,
+              22.825294,
+              16.585499,
+              23.779043,
+              25.817417,
+              24.935312,
+              21.6313,
+              21.161629,
+              20.565483,
+              24.43368,
+              18.365393,
+              26.14632,
+              22.191431,
+              21.188688,
+              21.540773,
+              21.129536,
+              24.042103,
+              22.352186,
+              21.924215,
+              22.653294,
+              18.210058,
+              21.402328,
+              46.04422,
+              53.989807,
+              68.56732,
+              61.964733,
+              44.314598,
+              38.636795,
+              35.588863,
+              51.033062,
+              66.72631,
+              63.471916,
+              37.915173,
+              51.17856,
+              62.27313,
+              62.87782,
+              53.572765,
+              38.08462,
+              46.034542,
+              53.35133,
+              52.739,
+              47.898,
+              42.097347,
+              45.5489,
+              48.19296,
+              48.996674,
+              23.187096,
+              27.056572,
+              30.581964,
+              22.572828,
+              16.559578,
+              23.690697,
+              25.902079,
+              24.833424,
+              21.563011,
+              21.055855,
+              20.468994,
+              24.569233,
+              18.395424,
+              26.082909,
+              22.13688,
+              21.04494,
+              21.576586,
+              21.062988,
+              24.061575,
+              22.23759,
+              21.96819,
+              22.62218,
+              18.26104,
+              21.254093,
+              70.91938,
+              83.2157,
+              74.54516,
+              59.39478,
+              40.019463,
+              76.22626,
+              81.0405,
+              75.59683,
+              57.2934,
+              43.572487,
+              45.81337,
+              58.18392,
+              65.989555,
+              59.917908,
+              39.796345,
+              44.999603,
+              58.86977,
+              58.152523,
+              0.546703,
+              40.157867,
+              43.166847,
+              49.488014,
+              51.047844,
+              48.158566,
+              15.816568,
+              23.761707,
+              28.941565,
+              27.528584,
+              23.696484,
+              17.722527,
+              23.678062,
+              24.457157,
+              24.736723,
+              21.233913,
+              20.761984,
+              20.035648,
+              25.10731,
+              17.833725,
+              26.34004,
+              21.466846,
+              22.328598,
+              19.897055,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+            ],
+            spanGaps: true,
+            borderWidth: 1,
+          },
+          {
+            label: "Predictions",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgb(2,6,4,0.4)",
+            borderColor: "black",
+            borderCapStyle: "butt",
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: "miter",
+            pointBorderColor: "white",
+            pointBackgroundColor: "black",
+            pointBorderWidth: 1,
+            pointHoverRadius: 8,
+            pointHoverBackgroundColor: "brown",
+            pointHoverBorderColor: "yellow",
+            pointHoverBorderWidth: 2,
+            pointRadius: 3,
+            pointHitRadius: 10,
+            // notice the gap in the data and the spanGaps: false
+            data: [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              "22.435798641953",
+              "19.849660873413086",
+              "22.9041009155273",
+              "21.564346313476562",
+              "20.854677200317383",
+              "20.80563735961914",
+              "20.52271270751953",
+              "21.760292053222656",
+              "21.192947387695312",
+              "20.894460678100586",
+              "21.159414291381836",
+              "19.208606719970703",
+              "20.17026138305664",
+              "32.31272888183594",
+              "39.85736846923828",
+              "46.212284088134766",
+              "48.01564025878906",
+              "46.130638122558594",
+              "43.98395538330078",
+              "41.67285919189453",
+              "46.3268928527832",
+              "49.69461441040039",
+              ".224048614195",
+              "45.606513977078",
+              "48.20371627807617",
+              ".121514892578",
+              ".58684158325195",
+              "49.7276725769043",
+              "45.92548370361328",
+              "47.281280517578125",
+              "48.956520080566406",
+              "49.172889709472656",
+              "48.25140380859375",
+              "46.512348174883",
+              "46.96874237060547",
+              "47.648597717285156",
+              "47.986934661865234",
+              "36.951956176758",
+              "34.390769958496094",
+              "33.87060546875",
+              "27.93427085876465",
+              "22.481021881103516",
+              "24.040395736694336",
+              "24.824748992919922",
+              "24.146875381469727",
+              "22.21480369567871",
+              "21.4148006439209",
+              "20.78403663635254",
+              "22.41676902770996",
+              "19.784034729003906",
+              "22.779834747314453",
+              "21.429916381835938",
+              "20.672996520996094",
+              "20.70198631286621",
+              "20.4002628326416",
+              "21.686588287353516",
+              "21.0833435859375",
+              "20.862775802612305",
+              "21.1197045898438",
+              "19.213422775268555",
+              "20.095623016357422",
+              "38.97774887084961",
+              "45.71980667114258",
+              "48.08790969848633",
+              "48.587833404541016",
+              "45.515419006347656",
+              ".10907745361328",
+              ".70315170288086",
+              ".79340744018555",
+              ".04854965209961",
+              "47.8317985534668",
+              "47.88218307495117",
+              "49.90966796875",
+              ".88983154296875",
+              ".5786018371582",
+              "46.88166046142578",
+              "47.44570541381836",
+              "49.923545837402344",
+              ".22001647949219",
+              "49.24972152709961",
+              "46.47234344482422",
+              "46.5328254699707",
+              "48.01319378418",
+              "48.61648941040039",
+              "48.1574821472168",
+              "33.24365997314453",
+              "31.730844497680664",
+              "31.97748374938965",
+              "29.92854118347168",
+              "26.4367733001709",
+              "21.98884391784668",
+              "23.415572746582",
+              "23.602933883666992",
+              "23.5701847076416",
+              "21.743396759033203",
+              "21.038434982299805",
+              "20.400863647460938",
+              "22.496028544922",
+              "19.484525680541992",
+              "22.79456329345703",
+              "21.080041885375977",
+              "21.163787841796875",
+              "20.020896911621094",
+              "19.7943630218586",
+              "19.561416625976562",
+              "19.349519729614258",
+              "19.16659164428711",
+              "19.008686065673828",
+              "18.8725299835208",
+              "18.755189895629883",
+              "18.656147003173828",
+              "18.571725845336914",
+              "18.49860191345215",
+              "18.43451499938965",
+            ],
+            spanGaps: false,
+            borderWidth: 1,
+          },
+        ],
       };
 
       // Notice the scaleLabel at the same level as Ticks
       var options = {
         scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Year',
-              fontSize: 20
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Year",
+                fontSize: 20,
+              },
+              ticks: {
+                maxTicksLimit: 14,
+              },
             },
-            ticks: {
-              maxTicksLimit: 14
+          ],
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "Detectors Inventory Turnover",
+                fontSize: 20,
+              },
             },
-          }],
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            },
-            scaleLabel: {
-              display: true,
-              labelString: 'Detectors Inventory Turnover',
-              fontSize: 20
-            }
-          }]
-        }
+          ],
+        },
       };
 
       // Chart declaration:
       var myBarChart = new Chart(ctx, {
-        type: 'line',
+        type: "line",
         data: data,
-        options: options
+        options: options,
       });
 
-      var p = document.getElementById('demo');
-      p.innerHTML = '';
+      var p = document.getElementById("demo");
+      p.innerHTML = "";
       var n = 0;
       var str =
-        '<ol><li>Risk Category: Reliance on Satellite Component Suppliers <ul> <li>Description: Starlink heavily relies on suppliers for satellite components such as antennas, solar panels, processors, and communication equipment.</li> <li>Impact: Disruptions in the supply chain, quality issues, or delays in component delivery can impact production timelines, satellite deployment, and overall network expansion.</li><li>Mitigation: Establish strong supplier relationships, maintain alternative supplier options, conduct regular quality audits, and implement robust inventory management systems.</li></ul></li><li>Opportunity: Rapid Expansion of Satellite Broadband Market<ul><li>Description: The increasing demand for broadband connectivity, especially in underserved areas, provides Starlink with a significant growth opportunity.</li><li>Impact: Market leadership, increased revenue, expansion of customer base, and potential partnerships with governments and telecommunication companies.</li><li>Action: Continuously improve and scale manufacturing processes, invest in research and development for improved satellite technology, and actively pursue partnerships and collaborations to enhance market reach.</li></ul></li><li>Threat: Regulatory Challenges and Spectrum Allocation<ul><li>Description: Regulatory hurdles, spectrum availability, and licensing requirements can impact Starlink operations and expansion plans.</li><li>Impact: Delays in market entry, limitations on coverage areas, potential legal battles, and increased compliance costs.</li><li>Mitigation: Engage in regulatory advocacy efforts, collaborate with governments and regulatory bodies, participate in spectrum allocation discussions, and ensure compliance with existing regulations.</li></ul></li></ol>';
+        "<ol><li>Risk Category: Reliance on Satellite Component Suppliers <ul> <li>Description: Starlink heavily relies on suppliers for satellite components such as antennas, solar panels, processors, and communication equipment.</li> <li>Impact: Disruptions in the supply chain, quality issues, or delays in component delivery can impact production timelines, satellite deployment, and overall network expansion.</li><li>Mitigation: Establish strong supplier relationships, maintain alternative supplier options, conduct regular quality audits, and implement robust inventory management systems.</li></ul></li><li>Opportunity: Rapid Expansion of Satellite Broadband Market<ul><li>Description: The increasing demand for broadband connectivity, especially in underserved areas, provides Starlink with a significant growth opportunity.</li><li>Impact: Market leadership, increased revenue, expansion of customer base, and potential partnerships with governments and telecommunication companies.</li><li>Action: Continuously improve and scale manufacturing processes, invest in research and development for improved satellite technology, and actively pursue partnerships and collaborations to enhance market reach.</li></ul></li><li>Threat: Regulatory Challenges and Spectrum Allocation<ul><li>Description: Regulatory hurdles, spectrum availability, and licensing requirements can impact Starlink operations and expansion plans.</li><li>Impact: Delays in market entry, limitations on coverage areas, potential legal battles, and increased compliance costs.</li><li>Mitigation: Engage in regulatory advocacy efforts, collaborate with governments and regulatory bodies, participate in spectrum allocation discussions, and ensure compliance with existing regulations.</li></ul></li></ol>";
 
       function typeWriter() {
         document.getElementById("demo").style.borderColor = "#D3D3D3";
-        var typeTimer = setInterval(function() {
+        var typeTimer = setInterval(function () {
           n = n + 1;
           p.innerHTML = " " + str.slice(0, n);
           if (n === str.length) {
             clearInterval(typeTimer);
             p.innerHTML = "> " + str;
             n = 0;
-            setInterval(function() {
-
+            setInterval(function () {
               if (n === 0) {
-                p.innerHTML = " " + str + "|"
+                p.innerHTML = " " + str + "|";
                 n = 1;
               } else {
-                p.innerHTML = " " + str
+                p.innerHTML = " " + str;
                 n = 0;
-              };
+              }
             }, 900);
-          };
-        }, 25)
+          }
+        }, 25);
       }
     </script>
     <style>
@@ -913,7 +2013,7 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
-      ul {
+      /* ul {
         list-style: none;
       }
 
@@ -924,8 +2024,7 @@
         display: inline-block;
         width: 1em;
         margin-left: -1em;
-
-      }
+      } */
 
       table {
         border-collapse: collapse;
@@ -943,10 +2042,10 @@
       }
 
       tr:nth-child(even) {
-        background-color: #f2f2f2
+        background-color: #f2f2f2;
       }
     </style>
 
+    <!-- End of Footer -->
   </body>
-
 </html>
