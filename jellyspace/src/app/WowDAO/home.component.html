@@ -157,7 +157,7 @@
           </form>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
-              <a
+              <!-- <a
                 class="nav-link dropdown-toggle"
                 href="#"
                 id="userDropdown"
@@ -166,7 +166,53 @@
                 aria-expanded="false"
               >
                 <i class="fas fa-user"></i>
-              </a>
+              </a> -->
+              <div
+                class="profile-card d-flex align-items-center"
+                style="margin-left: auto"
+              >
+                <img
+                  [src]="image"
+                  (error)="setDefault()"
+                  alt="user"
+                  class="rounded-circle"
+                  style="
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                  "
+                  (click)="viewProfile()"
+                />
+                <div
+                  class="d-flex flex-column"
+                  style="cursor: pointer"
+                  (click)="viewProfile()"
+                >
+                  <span
+                    class="font-medium mb-0"
+                    style="font-size: 14px; font-weight: bold"
+                  >
+                    {{ fname }} {{ lname }}
+                  </span>
+                  <span class="text-muted fs-6" style="font-size: 12px">
+                    {{ email }}
+                  </span>
+                </div>
+                <!-- <button
+                  class="btn btn-primary ms-2"
+                  id="pills-home-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-home"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-home"
+                  aria-selected="true"
+                  (click)="viewProfile1()"
+                >
+                  View Company Profile
+                </button> -->
+              </div>
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="userDropdown"
