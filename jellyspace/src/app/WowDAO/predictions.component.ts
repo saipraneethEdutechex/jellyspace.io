@@ -1147,12 +1147,9 @@ export class PredictionsComponent implements OnInit {
     this.searchIcon = false;
   }
 
-  viewProfile() {
+  viewProfileSCM() {
     let params = {};
-    this.router.navigate(['view-profile'], {
-      queryParams: params,
-      skipLocationChange: false,
-    });
+    this.router.navigate(['scm-profile']);
   }
   viewProfile1() {
     let params = {};

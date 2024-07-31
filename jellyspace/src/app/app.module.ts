@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
 import { MediumSizeCompanyComponent } from './medium-size-company/medium-size-company.component';
 import { LargeSizeCompanyComponent } from './large-size-company/large-size-company.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { ViewSCMProfileComponent } from './view-profile-scm-ai/view-profile-scm-ai.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.component';
 
@@ -77,6 +78,7 @@ import { environment } from 'src/environments/environment';
     MediumSizeCompanyComponent,
     LargeSizeCompanyComponent,
     ViewProfileComponent,
+    ViewSCMProfileComponent,
     CompanyProfileComponent,
   ],
   imports: [

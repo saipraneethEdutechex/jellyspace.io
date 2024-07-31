@@ -1134,7 +1134,7 @@ export class TablesComponent implements OnInit {
 
   viewProfile() {
     let params = {};
-    this.router.navigate(['view-profile'], {
+    this.router.navigate(['scm-profile'], {
       queryParams: params,
       skipLocationChange: false,
     });

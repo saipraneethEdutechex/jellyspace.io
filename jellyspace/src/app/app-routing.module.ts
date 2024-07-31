@@ -33,7 +33,7 @@ import { PlotComponent } from './WowDAO/plot.component';
 import { PredictionsComponent } from './WowDAO/predictions.component';
 import { ReportsComponent } from './WowDAO/reports.component';
 import { TablesComponent } from './WowDAO/tables.component';
-
+import { ViewSCMProfileComponent } from './view-profile-scm-ai/view-profile-scm-ai.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -43,37 +43,98 @@ const routes: Routes = [
   { path: 'navigation', component: NavgationComponent, pathMatch: 'full' },
   { path: 'account-type', component: AccountTypeComponent, pathMatch: 'full' },
   { path: 'user-details', component: UserDetailsComponent, pathMatch: 'full' },
-  { path: 'accounts-link', component: AccountsLinkComponent, pathMatch: 'full' },
-  { path: 'email-verification', component: EmailVerificationComponent, pathMatch: 'full' },
+  {
+    path: 'accounts-link',
+    component: AccountsLinkComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'email-verification',
+    component: EmailVerificationComponent,
+    pathMatch: 'full',
+  },
   { path: 'skills', component: SkillsComponent, pathMatch: 'full' },
-  { path: 'new-user-register', component: NewUserRegisterComponent, pathMatch: 'full' },
+  {
+    path: 'new-user-register',
+    component: NewUserRegisterComponent,
+    pathMatch: 'full',
+  },
   { path: 'projects', component: ProjectsComponent, pathMatch: 'full' },
   { path: 'community', component: CommunityComponent, pathMatch: 'full' },
   { path: 'ask-question', component: AskQuestionComponent, pathMatch: 'full' },
   { path: 'company-list', component: CompanyListComponent, pathMatch: 'full' },
-  { path: 'primary-business', component: PrimaryBusinessListComponent, pathMatch: 'full' },
-  { path: 'categories', component: CategoryBusinessListComponent, pathMatch: 'full' },
-  { path: 'product-category', component: ProductCategoryComponent, pathMatch: 'full' },
-  { path: 'service-category', component: ServiceCategoryComponent, pathMatch: 'full' },
-  { path: 'company-size', component: CompanySizeListComponent, pathMatch: 'full' },
-  { path: 'register-identification', component: RegistrationIdentificationComponent, pathMatch: 'full' },
-  { path: 'address-details', component: AddressDetailsComponent, pathMatch: 'full' },
-  { path: 'account-handler', component: AccountHandlerDetailsComponent, pathMatch: 'full' },
-  { path: 'medium-size', component: MediumSizeCompanyComponent, pathMatch: 'full' },
-  { path: 'large-size', component: LargeSizeCompanyComponent, pathMatch: 'full' },
+  {
+    path: 'primary-business',
+    component: PrimaryBusinessListComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'categories',
+    component: CategoryBusinessListComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'product-category',
+    component: ProductCategoryComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'service-category',
+    component: ServiceCategoryComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'company-size',
+    component: CompanySizeListComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'register-identification',
+    component: RegistrationIdentificationComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'address-details',
+    component: AddressDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'account-handler',
+    component: AccountHandlerDetailsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'medium-size',
+    component: MediumSizeCompanyComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'large-size',
+    component: LargeSizeCompanyComponent,
+    pathMatch: 'full',
+  },
   { path: 'view-profile', component: ViewProfileComponent, pathMatch: 'full' },
-  { path: 'company-profile', component: CompanyProfileComponent, pathMatch: 'full' },
+  {
+    path: 'company-profile',
+    component: CompanyProfileComponent,
+    pathMatch: 'full',
+  },
   { path: 'afterLogin', component: AfterLoginPageComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent, pathMatch: 'full' }, // Add this route
   { path: 'plot', component: PlotComponent, pathMatch: 'full' }, // Add this route
   { path: 'predictions', component: PredictionsComponent, pathMatch: 'full' }, // Add this route
   { path: 'reports', component: ReportsComponent, pathMatch: 'full' }, // Add this route
   { path: 'tables', component: TablesComponent, pathMatch: 'full' }, // Add this route
-  { path: '**', redirectTo: '/signin', pathMatch: 'full' } // If no matching route found, go back to home route
+  {
+    path: 'scm-profile',
+    component: ViewSCMProfileComponent,
+    pathMatch: 'full',
+  },
+  { path: '**', redirectTo: '/signin', pathMatch: 'full' }, // If no matching route found, go back to home route
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
