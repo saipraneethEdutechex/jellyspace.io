@@ -42,56 +42,56 @@
       }
 
       .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px; /* Adjust the width as needed */
         background-color: #343a40;
         color: white;
-        min-width: 250px;
+        overflow-y: auto;
+        z-index: 100;
       }
 
-      .sidebar-brand {
-        padding: 1rem;
-        text-align: center;
-      }
-
-      .sidebar-brand .sidebar-brand-icon {
-        font-size: 1.5rem;
-      }
-
-      .sidebar-brand .sidebar-brand-text {
-        font-size: 1.25rem;
-        margin-left: 0.5rem;
-      }
-
-      .sidebar .nav-item .nav-link {
-        color: white;
-      }
-
-      .sidebar .nav-item .nav-link.active {
-        background-color: #495057;
-      }
-
-      .sidebar .nav-item .nav-link i {
-        margin-right: 0.5rem;
-      }
-
-      .content-wrapper {
-        flex-grow: 1;
+      #content-wrapper {
+        margin-left: 250px; /* Adjust this based on the sidebar width */
+        margin-top: 56px; /* Adjust this based on the topbar height */
+        padding: 20px;
       }
 
       .topbar {
+        position: fixed;
+        top: 0;
+        left: 250px; /* Adjust this based on the sidebar width */
+        width: calc(100% - 250px); /* Adjust this based on the sidebar width */
         background-color: #f8f9fc;
+        border-bottom: 1px solid #e3e6f0;
+        z-index: 101;
       }
 
       .footer {
-        background-color: #f8f9fc;
+        background-color: #f8f9fc; /* Light background for the footer */
+        position: relative;
+        bottom: 0;
+        width: calc(100% - 250px); /* Adjust this based on the sidebar width */
+        margin-left: 250px; /* Align with the sidebar width */
       }
 
-      .table thead th {
-        background-color: #343a40;
-        color: white;
+      .footer .text-muted {
+        color: #6c757d; /* Muted text color */
       }
 
-      .table tfoot th {
-        background-color: #e9ecef;
+      .footer a {
+        color: #6c757d; /* Muted text color for links */
+      }
+
+      .footer a:hover {
+        color: #343a40; /* Darker color on hover for better visibility */
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #495057; /* Change the background for active tab */
+        color: #ffffff; /* Text color for active tab */
       }
     </style>
   </head>
@@ -100,13 +100,8 @@
     <!-- Page Wrapper -->
     <div id="wrapper" class="d-flex">
       <!-- Sidebar -->
-      <nav
-        class="sidebar bg-gradient-primary text-white d-flex flex-column vh-100 p-3"
-      >
-        <a
-          class="sidebar-brand d-flex align-items-center mb-4 text-white text-decoration-none"
-          href="home"
-        >
+      <nav id="sidebar" class="sidebar bg-gradient-primary text-white d-flex flex-column vh-100 p-3">
+        <a class="sidebar-brand d-flex align-items-center mb-4 text-white text-decoration-none" href="home">
           <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-space-shuttle"></i>
           </div>
@@ -631,11 +626,16 @@
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
-        <div class="d-flex justify-content-between small">
+        <div class="d-flex justify-content-between align-items-center">
           <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
           <div>
-            <a href="#">Privacy Policy</a> &middot;
-            <a href="#">Terms & Conditions</a>
+            <a href="#" class="text-decoration-none text-muted"
+              >Privacy Policy</a
+            >
+            &middot;
+            <a href="#" class="text-decoration-none text-muted"
+              >Terms & Conditions</a
+            >
           </div>
         </div>
       </div>
