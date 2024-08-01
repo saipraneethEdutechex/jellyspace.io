@@ -198,7 +198,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
           datasets: [
             {
-              label: 'Dataset 1',
+              label: 'Earnings',
               data: [5000, 20000, 20000, 40000, 30000, 50000],
               backgroundColor: 'rgba(75, 192, 192, 0.2)',
               borderColor: 'rgba(75, 192, 192, 1)',
@@ -285,8 +285,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 }px`;
 
                 let innerHtml = '<table>';
+                const month = context.tooltip.title[0];
                 context.tooltip.body.forEach((bodyItem: any) => {
-                  innerHtml += `<tr><td>${bodyItem.lines[0]}</td></tr>`;
+                  innerHtml += `
+                  <tr>
+                    <td>${month}</td>
+                  </tr>
+                  <tr>
+                    <td>${bodyItem.lines[0]}</td>
+                  </tr>
+                `;
                 });
                 innerHtml += '</table>';
 
