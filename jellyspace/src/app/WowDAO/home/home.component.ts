@@ -182,26 +182,149 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.canvas = this.mychart?.nativeElement;
     this.ctx = this.canvas?.getContext('2d');
     if (this.ctx) {
+      // new Chart(this.ctx, {
+      //   type: 'line',
+      //   data: {
+      //     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      //     datasets: [
+      //       {
+      //         label: 'Dataset 1',
+      //         data: [10000, 20000, 70000, 40000, 50000, 60000],
+      //         backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      //         borderColor: 'rgba(75, 192, 192, 1)',
+      //         borderWidth: 2,
+      //         pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+      //         pointBorderColor: '#fff',
+      //         pointBorderWidth: 1,
+      //         pointRadius: 5,
+      //         fill: true,
+      //       }
+      //     ],
+      //   },
+      //   options: {
+      //     responsive: true,
+      //     maintainAspectRatio: false,
+      //     plugins: {
+      //       tooltip: {
+      //         enabled: true, // Enable default tooltip
+      //       },
+      //     },
+      //   },
+      // });
       new Chart(this.ctx, {
         type: 'line',
         data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
           datasets: [
             {
-              label: 'Current Value',
-              data: [0, 20, 30, 40],
-              backgroundColor: 'orange',
-              borderColor: 'red',
+              label: 'Dataset 1',
+              data: [5000, 20000, 20000, 40000, 30000, 50000],
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 2,
+              pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+              pointBorderColor: '#fff',
+              pointBorderWidth: 1,
+              pointRadius: 5,
               fill: true,
             },
-            {
-              label: 'Current Value',
-              data: [0, 20, 30, 40, 50, 70],
-              backgroundColor: 'orange',
-              borderColor: 'red',
-              fill: true,
-            },
+            // {
+            //   label: 'Dataset 2',
+            //   data: [10000, 30000, 50000, 60000, 70000, 70000],
+            //   backgroundColor: 'rgba(153, 102, 255, 0.2)',
+            //   borderColor: 'rgba(153, 102, 255, 1)',
+            //   borderWidth: 2,
+            //   pointBackgroundColor: 'rgba(153, 102, 255, 1)',
+            //   pointBorderColor: '#fff',
+            //   pointBorderWidth: 1,
+            //   pointRadius: 5,
+            //   fill: true,
+            // },
           ],
-          labels: ['January 2019', 'February 2019', 'March', 'April'],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          elements: {
+            line: {
+              tension: 0.4,
+            },
+            point: {
+              radius: 5,
+            },
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              grid: {
+                display: false,
+              },
+              ticks: {
+                font: {
+                  size: 14,
+                },
+              },
+            },
+            y: {
+              beginAtZero: true,
+              grid: {},
+              ticks: {
+                callback: function (value: string | number) {
+                  return typeof value === 'number' ? `$${value} ` : value ;
+                },
+                font: {
+                  size: 14,
+                },
+              },
+            },
+          },
+          plugins: {
+            tooltip: {
+              enabled: false, // Disable default tooltip
+              external: function (context: any) {
+                let tooltipEl = document.getElementById('chartjs-tooltip');
+
+                if (!tooltipEl) {
+                  tooltipEl = document.createElement('div');
+                  tooltipEl.id = 'chartjs-tooltip';
+                  document.body.appendChild(tooltipEl);
+                }
+
+                if (context.tooltip.opacity === 0) {
+                  tooltipEl.style.opacity = '0';
+                  return;
+                }
+
+                tooltipEl.style.opacity = '1';
+                tooltipEl.style.position = 'absolute';
+                tooltipEl.style.background = 'rgba(0, 0, 0, 0.7)';
+                tooltipEl.style.color = '#fff';
+                tooltipEl.style.padding = '10px';
+                tooltipEl.style.borderRadius = '3px';
+                tooltipEl.style.pointerEvents = 'none';
+                tooltipEl.style.fontSize = '14px';
+                tooltipEl.style.fontFamily = 'Arial, sans-serif';
+                tooltipEl.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+
+                const chart = context.chart;
+                const position = chart.canvas.getBoundingClientRect();
+                tooltipEl.style.left = `${
+                  position.left + context.tooltip.caretX + window.scrollX
+                }px`;
+                tooltipEl.style.top = `${
+                  position.top + context.tooltip.caretY + window.scrollY
+                }px`;
+
+                let innerHtml = '<table>';
+                context.tooltip.body.forEach((bodyItem: any) => {
+                  innerHtml += `<tr><td>${bodyItem.lines[0]}</td></tr>`;
+                });
+                innerHtml += '</table>';
+
+                tooltipEl.innerHTML = innerHtml;
+              },
+            },
+          },
         },
       });
     }
@@ -235,7 +358,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getProjectsData() {
     this.service.getApiDataBinding().subscribe((res: any) => {
-      console.log(res);
       this.projectDataList = res['data'];
     });
   }
@@ -269,7 +391,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     };
     this.service.getBidInitDetails(params).subscribe((res: any) => {
       this.bidProjectDetailsList = res.data;
-      console.log(res);
     });
   }
 
@@ -285,7 +406,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.accepttBidProjectDetailsList = list.filter(
         (obj: any) => obj.status === 'accepted'
       );
-      console.log(res);
     });
   }
 
@@ -311,17 +431,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
       return `with: ${reason}`;
     }
   }
+
   viewProfileSCM() {
-    let params = {};
     this.router.navigate(['scm-profile']);
   }
+
   viewProfile1() {
-    let params = {};
     this.router.navigate(['company-profile'], {
-      queryParams: params,
+      queryParams: {},
       skipLocationChange: false,
     });
   }
+
   setDefault() {
     this.image = '/assets/img/avatar.png';
   }
@@ -331,7 +452,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
       email: this.loginEmail || '',
     };
     this.service.loginUserDetails(params).subscribe((data: any) => {
-      console.log(data);
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
         localStorage.setItem('userId', data.data._id);
