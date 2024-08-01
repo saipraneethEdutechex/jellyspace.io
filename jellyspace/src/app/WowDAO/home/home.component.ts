@@ -16,6 +16,9 @@ import {
   LinearScale,
   Title,
   CategoryScale,
+  ArcElement,
+  Tooltip,
+  Legend,
 } from 'chart.js';
 
 @Component({
@@ -24,6 +27,9 @@ import {
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild('mychart') mychart: ElementRef<HTMLCanvasElement> | undefined;
+  @ViewChild('myPieChart') myPieChart:
+    | ElementRef<HTMLCanvasElement>
+    | undefined;
   chatbox: boolean = false;
   public showSearch = false;
   sideNavBar: boolean = false;
@@ -164,7 +170,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       PointElement,
       LinearScale,
       Title,
-      CategoryScale
+      CategoryScale,
+      ArcElement,
+      Tooltip,
+      Legend
     );
   }
 
@@ -182,35 +191,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.canvas = this.mychart?.nativeElement;
     this.ctx = this.canvas?.getContext('2d');
     if (this.ctx) {
-      // new Chart(this.ctx, {
-      //   type: 'line',
-      //   data: {
-      //     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-      //     datasets: [
-      //       {
-      //         label: 'Dataset 1',
-      //         data: [10000, 20000, 70000, 40000, 50000, 60000],
-      //         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      //         borderColor: 'rgba(75, 192, 192, 1)',
-      //         borderWidth: 2,
-      //         pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-      //         pointBorderColor: '#fff',
-      //         pointBorderWidth: 1,
-      //         pointRadius: 5,
-      //         fill: true,
-      //       }
-      //     ],
-      //   },
-      //   options: {
-      //     responsive: true,
-      //     maintainAspectRatio: false,
-      //     plugins: {
-      //       tooltip: {
-      //         enabled: true, // Enable default tooltip
-      //       },
-      //     },
-      //   },
-      // });
+      // Initialize Line Chart
       new Chart(this.ctx, {
         type: 'line',
         data: {
@@ -228,18 +209,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
               pointRadius: 5,
               fill: true,
             },
-            // {
-            //   label: 'Dataset 2',
-            //   data: [10000, 30000, 50000, 60000, 70000, 70000],
-            //   backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            //   borderColor: 'rgba(153, 102, 255, 1)',
-            //   borderWidth: 2,
-            //   pointBackgroundColor: 'rgba(153, 102, 255, 1)',
-            //   pointBorderColor: '#fff',
-            //   pointBorderWidth: 1,
-            //   pointRadius: 5,
-            //   fill: true,
-            // },
           ],
         },
         options: {
@@ -270,7 +239,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
               grid: {},
               ticks: {
                 callback: function (value: string | number) {
-                  return typeof value === 'number' ? `$${value} ` : value ;
+                  return typeof value === 'number' ? `$${value} ` : value;
                 },
                 font: {
                   size: 14,
@@ -327,6 +296,54 @@ export class HomeComponent implements OnInit, AfterViewInit {
           },
         },
       });
+
+      // Initialize Pie Chart
+      this.canvas = this.myPieChart?.nativeElement;
+      this.ctx = this.canvas?.getContext('2d');
+      if (this.ctx) {
+        new Chart(this.ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+              {
+                label: 'Dataset 1',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)',
+                ],
+                borderColor: [
+                  'rgba(255, 99, 132, 1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                ],
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  label: function (tooltipItem: any) {
+                    return ` ${tooltipItem.label}: ${tooltipItem.raw} `;
+                  },
+                },
+              },
+            },
+          },
+        });
+      }
     }
   }
 
