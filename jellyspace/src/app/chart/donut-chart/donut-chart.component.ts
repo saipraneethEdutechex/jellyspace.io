@@ -24,7 +24,7 @@ export class DonutChartComponent implements OnInit {
 
     var options = {
       title: 'Revenue Sources',
-      pieHole: 0.4,
+      pieHole: .68,
       colors: ['#66BB6A', '#FFA726', '#EF5350', '#42A5F5', '#AB47BC'],
       pieSliceTextStyle: {
         color: 'white',
