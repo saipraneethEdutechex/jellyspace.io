@@ -44,6 +44,8 @@ import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.compo
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
+import { DonutChartComponent } from './chart/donut-chart/donut-chart.component';
+import { HomeComponent } from './WowDAO/home/home.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { environment } from 'src/environments/environment';
     ViewProfileComponent,
     ViewSCMProfileComponent,
     CompanyProfileComponent,
+    DonutChartComponent,
+    HomeComponent, // Ensure HomeComponent is declared here
   ],
   imports: [
     BrowserModule,
