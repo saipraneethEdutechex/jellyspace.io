@@ -29,10 +29,10 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.component';
 import { HomeComponent } from './WowDAO/home/home.component';
-import { PlotComponent } from './WowDAO/plot.component';
+import { PlotComponent } from './WowDAO/plot/plot.component';
 import { PredictionsComponent } from './WowDAO/predictions/predictions.component';
 import { ReportsComponent } from './WowDAO/reports/reports.component';
-import { TablesComponent } from './WowDAO/tables.component';
+import { TablesComponent } from './WowDAO/tables/tables.component';
 import { ViewSCMProfileComponent } from './view-profile-scm-ai/view-profile-scm-ai.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
