@@ -1,22 +1,7 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-reports',
-//   templateUrl: './reports.component.html'
-// })
-// export class ReportsComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from '../app.service';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-reports',
