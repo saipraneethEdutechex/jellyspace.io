@@ -102,6 +102,26 @@
         background-color: #34b354; /* Lighter green for hover state */
         color: #ffffff; /* White text for hover state */
       }
+
+      .tab {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f8f9fc;
+        border: 1px solid #e3e6f0;
+        margin-right: 5px;
+        border-radius: 5px;
+      }
+
+      .tab.active {
+        background-color: #e3e6f0;
+      }
+
+      .tab-content {
+        border: 1px solid #e3e6f0;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: #fff;
+      }
     </style>
   </head>
 
@@ -214,71 +234,52 @@
         <!-- End of Topbar -->
 
         <!-- Options Slide -->
-        <div id="options-slide" class="d-flex">
+        <div id="options-slide" class="d-flex mb-3">
           <div
             class="tab"
-            [class.active]="activeTab === 'option1'"
+            [ngClass]="{ active: activeTab === 'option1' }"
             (click)="selectTab('option1')"
           >
             Option 1
           </div>
           <div
             class="tab"
-            [class.active]="activeTab === 'option2'"
+            [ngClass]="{ active: activeTab === 'option2' }"
             (click)="selectTab('option2')"
           >
             Option 2
           </div>
           <div
             class="tab"
-            [class.active]="activeTab === 'option3'"
+            [ngClass]="{ active: activeTab === 'option3' }"
             (click)="selectTab('option3')"
           >
             Option 3
-          </div>
-          <div
-            class="tab"
-            [class.active]="activeTab === 'option4'"
-            (click)="selectTab('option4')"
-          >
-            Option 4
           </div>
         </div>
         <!-- End of Options Slide -->
 
         <!-- Main Content -->
-        <div id="content" class="p-4">
-          <!-- Page Heading -->
-          <div class="d-flex justify-content-between mb-4">
-            <h1 class="h3 mb-0">Reports</h1>
+        <div class="container-fluid flex-grow-1">
+          <div class="tab-content" *ngIf="activeTab === 'option1'">
+            Content for Option 1
           </div>
-
-          <!-- Tabs Section -->
-          <div class="container">
-            <!-- Tab Content -->
-            <div class="tab-content">
-              <div *ngIf="activeTab === 'option1'">
-                <p>Content for Option 1.</p>
-              </div>
-              <div *ngIf="activeTab === 'option2'">
-                <p>Content for Option 2.</p>
-              </div>
-              <div *ngIf="activeTab === 'option3'">
-                <p>Content for Option 3.</p>
-              </div>
-              <div *ngIf="activeTab === 'option4'">
-                <p>Content for Option 4.</p>
-              </div>
-            </div>
+          <div class="tab-content" *ngIf="activeTab === 'option2'">
+            Content for Option 2
+          </div>
+          <div class="tab-content" *ngIf="activeTab === 'option3'">
+            Content for Option 3
           </div>
         </div>
         <!-- End of Main Content -->
 
         <!-- Footer -->
-        <footer class="footer mt-auto py-3 bg-light">
+        <footer class="footer mt-auto py-3">
           <div class="container">
             <div class="d-flex justify-content-between small">
-              <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
+              <div class="text-muted">
+                &copy; Your Website 2023. All Rights Reserved.
+              </div>
               <div>
                 <a href="#">Privacy Policy</a> &middot;
                 <a href="#">Terms & Conditions</a>
@@ -294,11 +295,19 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
     <!-- Core plugin JavaScript -->
     <script src="/src/app/WowDAO/vendor/jquery-easing/jquery.easing.min.js"></script>
+
     <!-- Custom scripts for all pages -->
     <script src="/src/app/WowDAO/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/src/app/WowDAO/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/src/app/WowDAO/js/demo/chart-area-demo.js"></script>
+    <script src="/src/app/WowDAO/js/demo/chart-pie-demo.js"></script>
   </body>
 </html>
