@@ -31,8 +31,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from '../app.service';
-
+import { AppService } from 'src/app/app.service';
 @Component({
   selector: 'app-predictions',
   templateUrl: './predictions.component.html',
@@ -1186,5 +1185,10 @@ export class PredictionsComponent implements OnInit {
 
   _openCommunityTab() {
     window.open('http://localhost:4200/community', '_blank');
+  }
+  activeTab: string = 'option1';
+
+  selectTab(tab: string): void {
+    this.activeTab = tab;
   }
 }

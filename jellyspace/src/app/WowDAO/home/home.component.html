@@ -47,8 +47,8 @@
         left: 0;
         height: 100%;
         width: 250px; /* Adjust the width as needed */
-        background-color: #343a40;
-        color: white;
+        background-color: #28a745; /* Base green color */
+        color: #ffffff; /* White text color for readability */
         overflow-y: auto;
         z-index: 100;
       }
@@ -89,9 +89,18 @@
         color: #343a40; /* Darker color on hover for better visibility */
       }
 
+      .sidebar .nav-link {
+        color: #ffffff; /* White text color for normal state */
+      }
+
       .sidebar .nav-link.active {
-        background-color: #495057; /* Change the background for active tab */
-        color: #ffffff; /* Text color for active tab */
+        background-color: #1e7e34; /* Darker green for active tab */
+        color: #ffffff; /* White text for active tab */
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #34b354; /* Lighter green for hover state */
+        color: #ffffff; /* White text for hover state */
       }
     </style>
   </head>

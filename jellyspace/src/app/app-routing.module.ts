@@ -30,7 +30,7 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
 import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.component';
 import { HomeComponent } from './WowDAO/home/home.component';
 import { PlotComponent } from './WowDAO/plot.component';
-import { PredictionsComponent } from './WowDAO/predictions.component';
+import { PredictionsComponent } from './WowDAO/predictions/predictions.component';
 import { ReportsComponent } from './WowDAO/reports.component';
 import { TablesComponent } from './WowDAO/tables.component';
 import { ViewSCMProfileComponent } from './view-profile-scm-ai/view-profile-scm-ai.component';

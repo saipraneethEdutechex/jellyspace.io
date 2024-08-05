@@ -134,12 +134,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="predictions">
+            <a class="nav-link text-white active" href="predictions">
               <i class="bi bi-graph-up-arrow"></i> Demand
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white active" href="reports">
+            <a class="nav-link text-white" href="reports">
               <i class="bi bi-journals"></i> Reports
             </a>
           </li>
@@ -166,16 +166,6 @@
           </form>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
-              <!-- <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="userDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="fas fa-user"></i>
-              </a> -->
               <div
                 class="profile-card d-flex align-items-center"
                 style="margin-left: auto"
@@ -191,12 +181,12 @@
                     margin-right: 10px;
                     cursor: pointer;
                   "
-                  (click)="viewProfile()"
+                  (click)="viewProfileSCM()"
                 />
                 <div
                   class="d-flex flex-column"
                   style="cursor: pointer"
-                  (click)="viewProfile()"
+                  (click)="viewProfileSCM()"
                 >
                   <span
                     class="font-medium mb-0"
@@ -208,19 +198,6 @@
                     {{ email }}
                   </span>
                 </div>
-                <!-- <button
-                  class="btn btn-primary ms-2"
-                  id="pills-home-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-home"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-home"
-                  aria-selected="true"
-                  (click)="viewProfile1()"
-                >
-                  View Company Profile
-                </button> -->
               </div>
               <ul
                 class="dropdown-menu dropdown-menu-end"
@@ -236,6 +213,39 @@
         </nav>
         <!-- End of Topbar -->
 
+        <!-- Options Slide -->
+        <div id="options-slide" class="d-flex">
+          <div
+            class="tab"
+            [class.active]="activeTab === 'option1'"
+            (click)="selectTab('option1')"
+          >
+            Option 1
+          </div>
+          <div
+            class="tab"
+            [class.active]="activeTab === 'option2'"
+            (click)="selectTab('option2')"
+          >
+            Option 2
+          </div>
+          <div
+            class="tab"
+            [class.active]="activeTab === 'option3'"
+            (click)="selectTab('option3')"
+          >
+            Option 3
+          </div>
+          <div
+            class="tab"
+            [class.active]="activeTab === 'option4'"
+            (click)="selectTab('option4')"
+          >
+            Option 4
+          </div>
+        </div>
+        <!-- End of Options Slide -->
+
         <!-- Main Content -->
         <div id="content" class="p-4">
           <!-- Page Heading -->
@@ -243,151 +253,52 @@
             <h1 class="h3 mb-0">Reports</h1>
           </div>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-body">
-              <div class="table-responsive">
-                <table
-                  class="table table-bordered"
-                  id="dataTable"
-                  width="100%"
-                  cellspacing="0"
-                >
-                  <thead>
-                    <tr>
-                      <th>Company</th>
-                      <th>Production</th>
-                      <th>Location</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Company</th>
-                      <th>Production</th>
-                      <th>Location</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td><a href="predictions">Starlink</a></td>
-                      <td>Nano and Micro Satellite Buses</td>
-                      <td>USA</td>
-                    </tr>
-                    <tr>
-                      <td><a href="predictions">Orbital Machines AS</a></td>
-                      <td>
-                        Electric propellant pumps for launch vehicles and
-                        spacecraft
-                      </td>
-                      <td>Norway and Germany</td>
-                    </tr>
-                    <tr>
-                      <td><a href="predictions">Endurosat</a></td>
-                      <td>
-                        Supplier of Reaction wheels, Momentum wheels, Electric
-                        thrusters, Chemical thrusters, Solar sails,<br />
-                        Gyroscope, Star trackers, Sun sensors, Earth sensors,
-                        Magnetorquers, Trackers and sensors.
-                      </td>
-                      <td>USA, Itlay</td>
-                    </tr>
-                    <tr>
-                      <td><a href="predictions">Comat</a></td>
-                      <td>
-                        Space Equipment mechanism expert, from design to MAIT
-                        (Manufacturing, Assembly, Integration, Test).<br />
-                        SmallSat off-the-shelf solutions including ADCS
-                        (reaction wheels range), SADM, deployable structure and
-                        electric propulsion (Plasma Jet Pack)
-                      </td>
-                      <td>France</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a href="predictions"
-                          >Astro- und Feinwerktechnik Adlershof GmbH</a
-                        >
-                      </td>
-                      <td>
-                        Design, Manufacturing, Assembly, Integration and
-                        Verification of small satellite buses (TET-1, launched
-                        July 2012) and components.<br />
-                        Attitude control components (reaction wheels, gyro
-                        system, GPS receiver, magnetometer) Supplier of space
-                        systems and ISS payload NightPod
-                      </td>
-                      <td>Germany</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a href="predictions">Kongsberg Defence & Aerospace</a>
-                      </td>
-                      <td>
-                        Kongsberg Adaptive Rotational Mechanism Assembly [KARMA]
-                        in configuration as Solar Array Drive Mechanism (SADM),
-                        used on Rosetta (spacecraft), Mars Express, Venus
-                        Express, Sentinel 1, Sentinel 3 and BepiColombo MTM.<br />
-                        Drive electronics for Sentinel 1 and BepiColombo MTM.
-                        Booster attachment struts, including separation
-                        function, for Ariane 5.
-                      </td>
-                      <td>Norway</td>
-                    </tr>
-                    <tr>
-                      <td><a href="predictions">Clyde Space</a></td>
-                      <td>
-                        Power System Electronics, Batteries, Solar Panels,
-                        Attitude Control Systems
-                      </td>
-                      <td>UK</td>
-                    </tr>
-                    <tr>
-                      <td><a href="predictions">Solar MEMS Technologies</a></td>
-                      <td>Sun Sensors for Satellites</td>
-                      <td>Spain</td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <a href="predictions">Howco Additive Manufacturing</a>
-                      </td>
-                      <td>
-                        3D Printing Aerospace Components in In718 and Titanium
-                      </td>
-                      <td>Houston, Texas, United States</td>
-                    </tr>
-                  </tbody>
-                </table>
+          <!-- Tabs Section -->
+          <div class="container">
+            <!-- Tab Content -->
+            <div class="tab-content">
+              <div *ngIf="activeTab === 'option1'">
+                <p>Content for Option 1.</p>
+              </div>
+              <div *ngIf="activeTab === 'option2'">
+                <p>Content for Option 2.</p>
+              </div>
+              <div *ngIf="activeTab === 'option3'">
+                <p>Content for Option 3.</p>
+              </div>
+              <div *ngIf="activeTab === 'option4'">
+                <p>Content for Option 4.</p>
               </div>
             </div>
           </div>
-          <!-- End of DataTales Example -->
         </div>
         <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 bg-light">
+          <div class="container">
+            <div class="d-flex justify-content-between small">
+              <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
+              <div>
+                <a href="#">Privacy Policy</a> &middot;
+                <a href="#">Terms & Conditions</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
 
     <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
-
-    <!-- Custom scripts for this template -->
+    <!-- Core plugin JavaScript -->
+    <script src="/src/app/WowDAO/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages -->
     <script src="/src/app/WowDAO/js/sb-admin-2.min.js"></script>
-    <script src="/src/app/WowDAO/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/src/app/WowDAO/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container">
-        <div class="d-flex justify-content-between small">
-          <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
-          <div>
-            <a href="#">Privacy Policy</a> &middot;
-            <a href="#">Terms & Conditions</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- End of Footer -->
   </body>
 </html>
