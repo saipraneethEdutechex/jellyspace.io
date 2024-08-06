@@ -3,10 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from 'src/app/app.service';
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
+  selector: 'app-logistics',
+  templateUrl: './logistics.component.html',
 })
-export class TablesComponent implements OnInit {
+export class LogisticsComponent implements OnInit {
   chatbox: boolean = false;
   public showSearch = false;
   sideNavBar: boolean = false;

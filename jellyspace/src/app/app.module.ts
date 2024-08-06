@@ -46,8 +46,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { DonutChartComponent } from './chart/donut-chart/donut-chart.component';
 import { HomeComponent } from './WowDAO/home/home.component';
-import { PredictionsComponent } from './WowDAO/predictions/predictions.component';
-
+import { DemandComponent } from './WowDAO/demand/demand.component';
+import { InsightsComponent } from './WowDAO/insights/insights.component';
+import { ForecastingComponent } from './WowDAO/forecasting/forecasting.component';
+import { QualityComponent } from './WowDAO/quality/quality.component';
+import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
+import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,8 +88,13 @@ import { PredictionsComponent } from './WowDAO/predictions/predictions.component
     ViewSCMProfileComponent,
     CompanyProfileComponent,
     DonutChartComponent,
-    HomeComponent, // Ensure HomeComponent is declared here
-    PredictionsComponent,
+    HomeComponent,
+    DemandComponent,
+    InsightsComponent,
+    ForecastingComponent,
+    QualityComponent,
+    LogisticsComponent,
+    MaintenanceComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,9 +106,7 @@ import { PredictionsComponent } from './WowDAO/predictions/predictions.component
     FormsModule,
     CommonModule,
   ],
-  providers: [
-    // {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
