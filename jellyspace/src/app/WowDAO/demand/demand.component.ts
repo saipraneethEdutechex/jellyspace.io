@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -9,6 +7,85 @@ import { AppService } from 'src/app/app.service';
   templateUrl: './demand.component.html',
 })
 export class DemandComponent implements OnInit {
+  tableHeaders: string[] = [
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+  ];
+
+  tableData: { name: string; values: any[] }[] = [
+    {
+      name: 'Actual sales',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Statistical forecast',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 28560,
+        27528, 28560, 27528, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Final forecast override',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Average sales price',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Revenue',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+  ];
   chatbox: boolean = false;
   public showSearch = false;
   sideNavBar: boolean = false;

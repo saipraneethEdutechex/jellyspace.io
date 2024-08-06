@@ -123,7 +123,6 @@
         background-color: #ffffff; /* White background for the footer */
         position: relative;
         bottom: 0;
-        width: calc(100% - 250px); /* Adjust based on sidebar width */
         margin-left: 250px; /* Align with sidebar width */
         padding: 10px 20px;
         border-top: 1px solid #e3e6f0; /* Light gray border for separation */
@@ -236,6 +235,16 @@
           </form>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
+              <!-- <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="userDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user"></i>
+            </a> -->
               <div
                 class="profile-card d-flex align-items-center"
                 style="margin-left: auto"
@@ -268,6 +277,19 @@
                     {{ email }}
                   </span>
                 </div>
+                <!-- <button
+                class="btn btn-primary ms-2"
+                id="pills-home-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#pills-home"
+                type="button"
+                role="tab"
+                aria-controls="pills-home"
+                aria-selected="true"
+                (click)="viewProfile1()"
+              >
+                View Company Profile
+              </button> -->
               </div>
               <ul
                 class="dropdown-menu dropdown-menu-end"
@@ -283,81 +305,64 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Options Slide -->
-        <div id="options-slide" class="d-flex mb-3">
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option1' }"
-            (click)="selectTab('option1')"
-          >
-            Option 1
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option2' }"
-            (click)="selectTab('option2')"
-          >
-            Option 2
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option3' }"
-            (click)="selectTab('option3')"
-          >
-            Option 3
-          </div>
-        </div>
-        <!-- End of Options Slide -->
-
         <!-- Main Content -->
-        <div class="container-fluid flex-grow-1">
-          <div class="tab-content" *ngIf="activeTab === 'option1'">
-            Content for Option 1
+        <div id="content" class="p-4">
+          <!-- Page Heading -->
+          <div class="d-flex justify-content-between mb-4">
+            <h1 class="h3 mb-0">Inventory</h1>
           </div>
-          <div class="tab-content" *ngIf="activeTab === 'option2'">
-            Content for Option 2
-          </div>
-          <div class="tab-content" *ngIf="activeTab === 'option3'">
-            Content for Option 3
-          </div>
-        </div>
-        <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <!-- <footer class="footer mt-auto py-3">
-          <div class="container">
-            <div class="d-flex justify-content-between small">
-              <div class="text-muted">
-                &copy; Your Website 2023. All Rights Reserved.
-              </div>
-              <div>
-                <a href="#">Privacy Policy</a> &middot;
-                <a href="#">Terms & Conditions</a>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table
+                  class="table table-bordered"
+                  id="dataTable"
+                  width="100%"
+                  cellspacing="0"
+                >
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th *ngFor="let header of tableHeaders">{{ header }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let row of tableData">
+                      <td>
+                        <a href="predictions">{{ row.name }}</a>
+                      </td>
+                      <td *ngFor="let value of row.values">{{ value }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </footer> -->
-        <!-- End of Footer -->
+        </div>
+        <!-- End of Main Content -->
       </div>
       <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript -->
-    <script src="/src/app/WowDAO/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages -->
-    <script src="/src/app/WowDAO/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="/src/app/WowDAO/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="/src/app/WowDAO/js/demo/chart-area-demo.js"></script>
-    <script src="/src/app/WowDAO/js/demo/chart-pie-demo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <div class="d-flex justify-content-between small">
+          <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
+          <div>
+            <a href="#">Privacy Policy</a> &middot;
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
   </body>
 </html>
