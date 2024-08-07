@@ -10,7 +10,6 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>JELLYSPACE 2 - Home</title>
-
     <!-- Custom fonts and Bootstrap CSS -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -101,6 +100,7 @@
           </li>
         </ul>
       </nav>
+
       <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
@@ -170,12 +170,35 @@
 
         <!-- New Topbar -->
         <nav class="topbar-second">
-          <!-- Content for the new topbar -->
           <div>
-            <div>Tab 1</div>
-            <div>Tab 2</div>
-            <div>Tab 3</div>
-            <div>Tab 4</div>
+            <div
+              class="tab"
+              [class.active]="activateTab === 'tab1'"
+              (click)="setActiveTab('tab1')"
+            >
+              Tab 1
+            </div>
+            <div
+              class="tab"
+              [class.active]="activateTab === 'tab2'"
+              (click)="setActiveTab('tab2')"
+            >
+              Tab 2
+            </div>
+            <div
+              class="tab"
+              [class.active]="activateTab === 'tab3'"
+              (click)="setActiveTab('tab3')"
+            >
+              Tab 3
+            </div>
+            <div
+              class="tab"
+              [class.active]="activateTab === 'tab4'"
+              (click)="setActiveTab('tab4')"
+            >
+              Tab 4
+            </div>
           </div>
         </nav>
         <!-- End of New Topbar -->
@@ -186,46 +209,55 @@
             <div class="col-md-2 inner-sidebar">
               <!-- Inner Sidebar Content -->
               <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    href="#tab1"
-                    onclick="setActiveTab('tab1')"
-                    >Tab 1 Sub content 1</a
-                  >
+                <li class="nav-item" *ngIf="activateTab === 'tab1'">
+                  <a class="nav-link" href="#">Tab 1 Sub content 1</a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="#tab2"
-                    onclick="setActiveTab('tab2')"
-                    >Tab 1 Sub content 2</a
-                  >
+                <li class="nav-item" *ngIf="activateTab === 'tab1'">
+                  <a class="nav-link" href="#">Tab 1 Sub content 2</a>
                 </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="#tab3"
-                    onclick="setActiveTab('tab3')"
-                    >Tab 1 Sub content 3</a
-                  >
+                <li class="nav-item" *ngIf="activateTab === 'tab1'">
+                  <a class="nav-link" href="#">Tab 1 Sub content 3</a>
                 </li>
+                <li class="nav-item" *ngIf="activateTab === 'tab2'">
+                  <a class="nav-link" href="#">Tab 2 Sub content 1</a>
+                </li>
+                <!-- Add more sub-content items for other tabs as needed -->
               </ul>
             </div>
-            <div class="col-md inner-sidebar">
-              <div class="col-md-10 content-area">
+            <div class="col-md">
+              <div class="content-area">
                 <!-- Tab Content -->
-                <div id="tab1" class="tab-content active">
+                <div
+                  id="tab1"
+                  class="tab-content"
+                  [class.active]="activateTab === 'tab1'"
+                >
                   <h4>Content for Tab 1</h4>
                   <!-- Tab 1 specific content here -->
                 </div>
-                <div id="tab2" class="tab-content">
+                <div
+                  id="tab2"
+                  class="tab-content"
+                  [class.active]="activateTab === 'tab2'"
+                >
                   <h4>Content for Tab 2</h4>
                   <!-- Tab 2 specific content here -->
                 </div>
-                <div id="tab3" class="tab-content">
+                <div
+                  id="tab3"
+                  class="tab-content"
+                  [class.active]="activateTab === 'tab3'"
+                >
                   <h4>Content for Tab 3</h4>
                   <!-- Tab 3 specific content here -->
+                </div>
+                <div
+                  id="tab4"
+                  class="tab-content"
+                  [class.active]="activateTab === 'tab4'"
+                >
+                  <h4>Content for Tab 4</h4>
+                  <!-- Tab 4 specific content here -->
                 </div>
               </div>
             </div>
