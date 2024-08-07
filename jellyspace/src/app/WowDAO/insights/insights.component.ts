@@ -1161,4 +1161,10 @@ export class InsightsComponent implements OnInit {
   setActiveTab(tab: string) {
     this.activeTab = tab;
   }
+  currentTab: string = 'home'; // Default tab
+
+  // Method to change the active tab
+  showTab(tab: string): void {
+    this.currentTab = tab;
+  }
 }
