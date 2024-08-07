@@ -176,29 +176,36 @@
               [class.active]="activateTab === 'tab1'"
               (click)="setActiveTab('tab1')"
             >
-              Risk Assessment
+              Dashboard
             </div>
             <div
               class="tab"
               [class.active]="activateTab === 'tab2'"
               (click)="setActiveTab('tab2')"
             >
-              Opportunities
+              Integration
             </div>
             <div
               class="tab"
               [class.active]="activateTab === 'tab3'"
               (click)="setActiveTab('tab3')"
             >
-              Threats
+              AI-Prompt
             </div>
-            <!-- <div
+            <div
               class="tab"
               [class.active]="activateTab === 'tab4'"
               (click)="setActiveTab('tab4')"
             >
-              Tab 4
-            </div> -->
+              Notification Center
+            </div>
+            <div
+              class="tab"
+              [class.active]="activateTab === 'tab5'"
+              (click)="setActiveTab('tab5')"
+            >
+              Reports
+            </div>
           </div>
         </nav>
         <!-- End of New Topbar -->
@@ -210,17 +217,15 @@
               <!-- Inner Sidebar Content -->
               <ul class="nav mt-4 flex-column">
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Export Control</a>
+                  <a class="nav-link" href="#">Risk Assessment</a>
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Uploaded Files</a>
+                  <a class="nav-link" href="#">Opportunities</a>
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Funding Budget</a>
+                  <a class="nav-link" href="#">Threats</a>
                 </li>
-                <li class="nav-item" *ngIf="activateTab === 'tab2'">
-                  <a class="nav-link" href="#">Topics</a>
-                </li>
+
                 <!-- Add more sub-content items for other tabs as needed -->
               </ul>
             </div>
