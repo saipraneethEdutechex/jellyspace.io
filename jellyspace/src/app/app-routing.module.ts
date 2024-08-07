@@ -29,11 +29,18 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { AfterLoginPageComponent } from './afterLogin-page/afterLogin-page.component';
 import { HomeComponent } from './WowDAO/home/home.component';
-import { PlotComponent } from './WowDAO/plot.component';
-import { PredictionsComponent } from './WowDAO/predictions.component';
-import { ReportsComponent } from './WowDAO/reports.component';
-import { TablesComponent } from './WowDAO/tables.component';
+import { PlotComponent } from './WowDAO/plot/plot.component';
+import { DemandComponent } from './WowDAO/demand/demand.component';
+import { ReportsComponent } from './WowDAO/reports/reports.component';
 import { ViewSCMProfileComponent } from './view-profile-scm-ai/view-profile-scm-ai.component';
+import { InsightsComponent } from './WowDAO/insights/insights.component';
+import { InventoryComponent } from './WowDAO/inventory/inventory.component';
+import { ForecastingComponent } from './WowDAO/forecasting/forecasting.component';
+import { ManagementComponent } from './WowDAO/management/management.component';
+import { QualityComponent } from './WowDAO/quality/quality.component';
+import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
+import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
+import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -122,12 +129,47 @@ const routes: Routes = [
   { path: 'afterLogin', component: AfterLoginPageComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent, pathMatch: 'full' }, // Add this route
   { path: 'plot', component: PlotComponent, pathMatch: 'full' }, // Add this route
-  { path: 'predictions', component: PredictionsComponent, pathMatch: 'full' }, // Add this route
+  { path: 'demand', component: DemandComponent, pathMatch: 'full' }, // Add this route
   { path: 'reports', component: ReportsComponent, pathMatch: 'full' }, // Add this route
-  { path: 'tables', component: TablesComponent, pathMatch: 'full' }, // Add this route
+  { path: 'inventory', component: InventoryComponent, pathMatch: 'full' }, // Add this route
   {
     path: 'scm-profile',
     component: ViewSCMProfileComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'insights',
+    component: InsightsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'forecasting',
+    component: ForecastingComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'management',
+    component: ManagementComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'quality',
+    component: QualityComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'logistics',
+    component: LogisticsComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'maintenance',
+    component: MaintenanceComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'tab1',
+    component: Tab1Component,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: '/signin', pathMatch: 'full' }, // If no matching route found, go back to home route

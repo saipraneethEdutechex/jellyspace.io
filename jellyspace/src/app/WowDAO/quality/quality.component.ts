@@ -1,28 +1,12 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-tables',
-//   templateUrl: './tables.component.html'
-// })
-// export class TablesComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from '../app.service';
-
+import { AppService } from 'src/app/app.service';
 @Component({
-  selector: 'app-tables',
-  templateUrl: './tables.component.html',
+  selector: 'app-quality',
+  templateUrl: './quality.component.html',
 })
-export class TablesComponent implements OnInit {
+export class QualityComponent implements OnInit {
   chatbox: boolean = false;
   public showSearch = false;
   sideNavBar: boolean = false;

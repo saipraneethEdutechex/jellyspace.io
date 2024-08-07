@@ -39,59 +39,106 @@
     <style>
       body {
         font-family: "Nunito", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fc; /* Light background for the entire page */
       }
 
       .sidebar {
         position: fixed;
         top: 0;
         left: 0;
-        height: 100%;
-        width: 250px; /* Adjust the width as needed */
-        background-color: #343a40;
-        color: white;
+        height: 100vh; /* Full height of the viewport */
+        width: 250px; /* Sidebar width */
+        background-color: #ffffff; /* White background for the sidebar */
+        color: #333333; /* Dark gray text color for readability */
         overflow-y: auto;
         z-index: 100;
+        border-right: 1px solid #e3e6f0; /* Light gray border for separation */
+      }
+
+      .sidebar .nav-link {
+        color: #333333; /* Dark gray text color for normal state */
+        padding: 10px 15px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #e9ecef; /* Very light gray for active tab */
+        color: #333333; /* Dark gray text for active tab */
+        font-weight: bold;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #f1f3f5; /* Slightly lighter gray for hover state */
+        color: #333333; /* Dark gray text for hover state */
+      }
+
+      .sidebar .nav-link i {
+        margin-right: 10px; /* Space between icon and text */
+      }
+
+      .sidebar .sidebar-brand {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        font-size: 1.2rem;
+        color: #333333; /* Dark gray color for brand text */
+      }
+
+      .sidebar .sidebar-brand .sidebar-brand-icon {
+        font-size: 1.5rem;
+        color: #333333; /* Dark gray color for brand icon */
+        margin-right: 10px; /* Space between icon and text */
+      }
+
+      .sidebar .sidebar-divider {
+        border-color: #e3e6f0; /* Light gray for divider */
+      }
+
+      .sidebar .sidebar-brand-text {
+        font-weight: bold;
+        color: #333333; /* Dark gray color for brand text */
       }
 
       #content-wrapper {
-        margin-left: 250px; /* Adjust this based on the sidebar width */
-        margin-top: 56px; /* Adjust this based on the topbar height */
+        margin-left: 250px; /* Align with sidebar width */
+        margin-top: 56px; /* Adjust based on the topbar height */
         padding: 20px;
       }
 
       .topbar {
         position: fixed;
         top: 0;
-        left: 250px; /* Adjust this based on the sidebar width */
-        width: calc(100% - 250px); /* Adjust this based on the sidebar width */
-        background-color: #f8f9fc;
-        border-bottom: 1px solid #e3e6f0;
+        left: 250px; /* Align with sidebar width */
+        width: calc(100% - 250px); /* Adjust based on sidebar width */
+        background-color: #ffffff; /* White background for topbar */
+        border-bottom: 1px solid #e3e6f0; /* Light gray border for separation */
         z-index: 101;
       }
 
       .footer {
-        background-color: #f8f9fc; /* Light background for the footer */
+        background-color: #ffffff; /* White background for the footer */
         position: relative;
         bottom: 0;
-        width: calc(100% - 250px); /* Adjust this based on the sidebar width */
-        margin-left: 250px; /* Align with the sidebar width */
+        width: calc(100% - 250px); /* Adjust based on sidebar width */
+        margin-left: 250px; /* Align with sidebar width */
+        padding: 10px 20px;
+        border-top: 1px solid #e3e6f0; /* Light gray border for separation */
       }
 
       .footer .text-muted {
-        color: #6c757d; /* Muted text color */
+        color: #6c757d; /* Muted gray text color */
       }
 
       .footer a {
-        color: #6c757d; /* Muted text color for links */
+        color: #6c757d; /* Muted gray text color for links */
       }
 
       .footer a:hover {
-        color: #343a40; /* Darker color on hover for better visibility */
-      }
-
-      .sidebar .nav-link.active {
-        background-color: #495057; /* Change the background for active tab */
-        color: #ffffff; /* Text color for active tab */
+        color: #343a40; /* Darker gray on hover for better visibility */
       }
     </style>
   </head>
@@ -101,6 +148,7 @@
     <div id="wrapper" class="d-flex">
       <!-- Sidebar -->
       <nav
+        id="sidebar"
         class="sidebar bg-gradient-primary text-white d-flex flex-column vh-100 p-3"
       >
         <a
@@ -115,23 +163,53 @@
         <hr class="sidebar-divider my-2 text-white" />
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link text-white" href="home">
-              <i class="fas fa-tachometer-alt"></i> Home
+            <a class="nav-link text-black" href="home">
+              <i class="fas fa-home"></i> Home
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white active" href="tables">
-              <i class="bi bi-box"></i> Inventory
+            <a class="nav-link text-black" href="inventory">
+              <i class="fas fa-box"></i> Inventory
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="predictions">
-              <i class="bi bi-graph-up-arrow"></i> Demand
+            <a class="nav-link text-black" href="demand">
+              <i class="fas fa-chart-line"></i> Demand
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="reports">
-              <i class="bi bi-journals"></i> Reports
+            <a class="nav-link text-black" href="insights">
+              <i class="fas fa-chart-bar"></i> Insights
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="forecasting">
+              <i class="fas fa-chart-pie"></i> Forecasting
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="management">
+              <i class="fas fa-cogs"></i> Management
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black active" href="quality">
+              <i class="fas fa-tachometer-alt"></i> Quality
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="logistics">
+              <i class="fas fa-truck"></i> Logistics
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="maintenance">
+              <i class="fas fa-tools"></i> Maintenance
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-black" href="reports">
+              <i class="fas fa-file-alt"></i> Reports
             </a>
           </li>
         </ul>

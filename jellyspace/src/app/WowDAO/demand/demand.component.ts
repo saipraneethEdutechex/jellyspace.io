@@ -1,43 +1,91 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-predictions',
-//   templateUrl: './predictions.component.html'
-// })
-// export class PredictionsComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-tables',
-//   templateUrl: './tables.component.html'
-// })
-// export class TablesComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
-import { AppService } from '../app.service';
-
+import { AppService } from 'src/app/app.service';
 @Component({
-  selector: 'app-predictions',
-  templateUrl: './predictions.component.html',
+  selector: 'app-demand',
+  templateUrl: './demand.component.html',
 })
-export class PredictionsComponent implements OnInit {
+export class DemandComponent implements OnInit {
+  tableHeaders: string[] = [
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+    'Feb 2023',
+  ];
+
+  tableData: { name: string; values: any[] }[] = [
+    {
+      name: 'Actual sales',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Statistical forecast',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 28560,
+        27528, 28560, 27528, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Final forecast override',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Average sales price',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'Revenue',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+    {
+      name: 'On hand',
+      values: [
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+        28560, 27528, 28560, 27528, 28560, 27528, 28560, 27528,
+      ],
+    },
+  ];
   chatbox: boolean = false;
   public showSearch = false;
   sideNavBar: boolean = false;
@@ -1186,5 +1234,10 @@ export class PredictionsComponent implements OnInit {
 
   _openCommunityTab() {
     window.open('http://localhost:4200/community', '_blank');
+  }
+  activeTab: string = 'option1';
+
+  selectTab(tab: string): void {
+    this.activeTab = tab;
   }
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { QuillModule } from 'ngx-quill';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -46,7 +46,13 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { DonutChartComponent } from './chart/donut-chart/donut-chart.component';
 import { HomeComponent } from './WowDAO/home/home.component';
-
+import { DemandComponent } from './WowDAO/demand/demand.component';
+import { InsightsComponent } from './WowDAO/insights/insights.component';
+import { ForecastingComponent } from './WowDAO/forecasting/forecasting.component';
+import { QualityComponent } from './WowDAO/quality/quality.component';
+import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
+import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
+import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +89,14 @@ import { HomeComponent } from './WowDAO/home/home.component';
     ViewSCMProfileComponent,
     CompanyProfileComponent,
     DonutChartComponent,
-    HomeComponent, // Ensure HomeComponent is declared here
+    HomeComponent,
+    DemandComponent,
+    InsightsComponent,
+    ForecastingComponent,
+    QualityComponent,
+    LogisticsComponent,
+    MaintenanceComponent,
+    Tab1Component,
   ],
   imports: [
     BrowserModule,
@@ -93,10 +106,9 @@ import { HomeComponent } from './WowDAO/home/home.component';
     QuillModule.forRoot(),
     HttpClientModule,
     FormsModule,
+    CommonModule,
   ],
-  providers: [
-    // {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
