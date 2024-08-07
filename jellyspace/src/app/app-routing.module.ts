@@ -40,6 +40,7 @@ import { ManagementComponent } from './WowDAO/management/management.component';
 import { QualityComponent } from './WowDAO/quality/quality.component';
 import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
 import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
+import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -164,6 +165,11 @@ const routes: Routes = [
   {
     path: 'maintenance',
     component: MaintenanceComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'tab1',
+    component: Tab1Component,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: '/signin', pathMatch: 'full' }, // If no matching route found, go back to home route

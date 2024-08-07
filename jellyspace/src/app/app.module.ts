@@ -52,6 +52,7 @@ import { ForecastingComponent } from './WowDAO/forecasting/forecasting.component
 import { QualityComponent } from './WowDAO/quality/quality.component';
 import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
 import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
+import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +96,7 @@ import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component
     QualityComponent,
     LogisticsComponent,
     MaintenanceComponent,
+    Tab1Component,
   ],
   imports: [
     BrowserModule,

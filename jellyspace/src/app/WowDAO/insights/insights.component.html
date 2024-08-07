@@ -176,29 +176,29 @@
               [class.active]="activateTab === 'tab1'"
               (click)="setActiveTab('tab1')"
             >
-              Tab 1
+              Risk Assessment
             </div>
             <div
               class="tab"
               [class.active]="activateTab === 'tab2'"
               (click)="setActiveTab('tab2')"
             >
-              Tab 2
+              Opportunities
             </div>
             <div
               class="tab"
               [class.active]="activateTab === 'tab3'"
               (click)="setActiveTab('tab3')"
             >
-              Tab 3
+              Threats
             </div>
-            <div
+            <!-- <div
               class="tab"
               [class.active]="activateTab === 'tab4'"
               (click)="setActiveTab('tab4')"
             >
               Tab 4
-            </div>
+            </div> -->
           </div>
         </nav>
         <!-- End of New Topbar -->
@@ -210,16 +210,16 @@
               <!-- Inner Sidebar Content -->
               <ul class="nav mt-4 flex-column">
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Tab 1 Sub content 1</a>
+                  <a class="nav-link" href="#">Export Control</a>
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Tab 1 Sub content 2</a>
+                  <a class="nav-link" href="#">Uploaded Files</a>
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Tab 1 Sub content 3</a>
+                  <a class="nav-link" href="#">Funding Budget</a>
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab2'">
-                  <a class="nav-link" href="#">Tab 2 Sub content 1</a>
+                  <a class="nav-link" href="#">Topics</a>
                 </li>
                 <!-- Add more sub-content items for other tabs as needed -->
               </ul>
@@ -232,7 +232,7 @@
                   class="tab-content"
                   [class.active]="activateTab === 'tab1'"
                 >
-                  <h4>Content for Tab 1</h4>
+                  <tab1-insights></tab1-insights>
                   <!-- Tab 1 specific content here -->
                 </div>
                 <div
