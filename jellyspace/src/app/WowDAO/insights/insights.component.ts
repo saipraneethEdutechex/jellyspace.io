@@ -5,6 +5,7 @@ import { AppService } from 'src/app/app.service';
 @Component({
   selector: 'app-insights',
   templateUrl: './insights.component.html',
+  styleUrls: ['./insights.component.scss'],
 })
 export class InsightsComponent implements OnInit {
   chatbox: boolean = false;
