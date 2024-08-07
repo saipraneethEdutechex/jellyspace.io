@@ -1156,9 +1156,9 @@ export class InsightsComponent implements OnInit {
   _openCommunityTab() {
     window.open('http://localhost:4200/community', '_blank');
   }
-  activeTab: string = 'option1';
+  activeTab: string = 'overview';
 
-  selectTab(tab: string): void {
+  setActiveTab(tab: string) {
     this.activeTab = tab;
   }
 }

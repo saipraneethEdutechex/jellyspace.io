@@ -11,7 +11,7 @@
     <meta name="author" content="" />
     <title>JELLYSPACE 2 - Home</title>
 
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts and Bootstrap CSS -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -21,18 +21,11 @@
       rel="stylesheet"
     />
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
-    <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
       rel="stylesheet"
     />
-
-    <!-- Custom styles for this template -->
-    <link href="/src/app/WowDAO/css/sb-admin-2.min.css" rel="stylesheet" />
     <link
-      href="/src/app/WowDAO/vendor/datatables/dataTables.bootstrap4.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
       rel="stylesheet"
     />
 
@@ -41,24 +34,23 @@
         font-family: "Nunito", sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f8f9fc; /* Light background for the entire page */
+        background-color: #f8f9fc;
       }
 
       .sidebar {
         position: fixed;
         top: 0;
         left: 0;
-        height: 100vh; /* Full height of the viewport */
-        width: 250px; /* Sidebar width */
-        background-color: #ffffff; /* White background for the sidebar */
-        color: #333333; /* Dark gray text color for readability */
+        height: 100vh;
+        width: 250px;
+        background-color: #ffffff;
+        color: #333333;
         overflow-y: auto;
-        z-index: 100;
-        border-right: 1px solid #e3e6f0; /* Light gray border for separation */
+        border-right: 1px solid #e3e6f0;
       }
 
       .sidebar .nav-link {
-        color: #333333; /* Dark gray text color for normal state */
+        color: #333333;
         padding: 10px 15px;
         text-decoration: none;
         display: flex;
@@ -66,18 +58,18 @@
       }
 
       .sidebar .nav-link.active {
-        background-color: #e9ecef; /* Very light gray for active tab */
-        color: #333333; /* Dark gray text for active tab */
+        background-color: #e9ecef;
+        color: #333333;
         font-weight: bold;
       }
 
       .sidebar .nav-link:hover {
-        background-color: #f1f3f5; /* Slightly lighter gray for hover state */
-        color: #333333; /* Dark gray text for hover state */
+        background-color: #f1f3f5;
+        color: #333333;
       }
 
       .sidebar .nav-link i {
-        margin-right: 10px; /* Space between icon and text */
+        margin-right: 10px;
       }
 
       .sidebar .sidebar-brand {
@@ -85,66 +77,94 @@
         align-items: center;
         padding: 15px;
         font-size: 1.2rem;
-        color: #333333; /* Dark gray color for brand text */
+        color: #333333;
       }
 
       .sidebar .sidebar-brand .sidebar-brand-icon {
         font-size: 1.5rem;
-        color: #333333; /* Dark gray color for brand icon */
-        margin-right: 10px; /* Space between icon and text */
+        color: #333333;
+        margin-right: 10px;
       }
 
       .sidebar .sidebar-divider {
-        border-color: #e3e6f0; /* Light gray for divider */
+        border-color: #e3e6f0;
       }
 
       .sidebar .sidebar-brand-text {
         font-weight: bold;
-        color: #333333; /* Dark gray color for brand text */
+        color: #333333;
       }
 
       #content-wrapper {
-        margin-left: 250px; /* Align with sidebar width */
-        margin-top: 56px; /* Adjust based on the topbar height */
-        padding: 20px;
+        margin-left: 250px;
+        padding-top: 130px; /* Space for the topbars */
       }
 
       .topbar {
         position: fixed;
         top: 0;
-        left: 250px; /* Align with sidebar width */
-        width: calc(100% - 250px); /* Adjust based on sidebar width */
-        background-color: #ffffff; /* White background for topbar */
-        border-bottom: 1px solid #e3e6f0; /* Light gray border for separation */
+        left: 250px;
+        width: calc(100% - 250px);
+        background-color: #ffffff;
+        border-bottom: 1px solid #e3e6f0;
         z-index: 101;
+        padding: 10px;
+      }
+
+      .topbar-second {
+        position: fixed;
+        top: 70px; /* Adjust based on the height of the first topbar */
+        left: 250px;
+        width: calc(100% - 250px);
+        background-color: #f1f3f5;
+        border-bottom: 1px solid #e3e6f0;
+        z-index: 100;
+        padding: 10px;
       }
 
       .footer {
-        background-color: #ffffff; /* White background for the footer */
+        background-color: #ffffff;
         position: relative;
         bottom: 0;
-        width: calc(100% - 250px); /* Adjust based on sidebar width */
-        margin-left: 250px; /* Align with sidebar width */
+        width: calc(100% - 250px);
+        margin-left: 250px;
         padding: 10px 20px;
-        border-top: 1px solid #e3e6f0; /* Light gray border for separation */
+        border-top: 1px solid #e3e6f0;
       }
 
-      .footer .text-muted {
-        color: #6c757d; /* Muted gray text color */
+      .footer .text-center {
+        color: #6c757d;
       }
 
-      .footer a {
-        color: #6c757d; /* Muted gray text color for links */
+      .tab-content {
+        display: none;
       }
 
-      .footer a:hover {
-        color: #343a40; /* Darker gray on hover for better visibility */
+      .tab-content.active {
+        display: block;
+      }
+
+      .inner-sidebar {
+        width: 200px;
+        height: calc(100vh - 70px); /* Adjust based on topbar height */
+        background-color: #ffffff;
+        border-right: 1px solid #e3e6f0;
+        position: relative;
+        overflow-y: auto;
+      }
+
+      .content-area {
+        margin-left: 220px; /* Adjust based on inner-sidebar width */
+        padding: 20px;
+      }
+
+      .nav-link {
+        cursor: pointer;
       }
     </style>
   </head>
 
   <body id="page-top">
-    <!-- Page Wrapper -->
     <div id="wrapper" class="d-flex">
       <!-- Sidebar -->
       <nav
@@ -173,12 +193,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black" href="demand">
+            <a class="nav-link text-black active" href="demand">
               <i class="fas fa-chart-line"></i> Demand
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black active" href="insights">
+            <a class="nav-link text-black" href="insights">
               <i class="fas fa-chart-bar"></i> Insights
             </a>
           </li>
@@ -261,12 +281,11 @@
                   <span
                     class="font-medium mb-0"
                     style="font-size: 14px; font-weight: bold"
+                    >{{ fname }} {{ lname }}</span
                   >
-                    {{ fname }} {{ lname }}
-                  </span>
-                  <span class="text-muted fs-6" style="font-size: 12px">
-                    {{ email }}
-                  </span>
+                  <span class="text-muted fs-6" style="font-size: 12px">{{
+                    email
+                  }}</span>
                 </div>
               </div>
               <ul
@@ -283,81 +302,96 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Options Slide -->
-        <div id="options-slide" class="d-flex mb-3">
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option1' }"
-            (click)="selectTab('option1')"
-          >
-            Option 1
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option2' }"
-            (click)="selectTab('option2')"
-          >
-            Option 2
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option3' }"
-            (click)="selectTab('option3')"
-          >
-            Option 3
-          </div>
-        </div>
-        <!-- End of Options Slide -->
+        <!-- New Topbar -->
+        <nav class="topbar-second">
+          <!-- Content for the new topbar -->
+          <span>New Topbar Content</span>
+        </nav>
+        <!-- End of New Topbar -->
 
-        <!-- Main Content -->
-        <div class="container-fluid flex-grow-1">
-          <div class="tab-content" *ngIf="activeTab === 'option1'">
-            Content for Option 1
-          </div>
-          <div class="tab-content" *ngIf="activeTab === 'option2'">
-            Content for Option 2
-          </div>
-          <div class="tab-content" *ngIf="activeTab === 'option3'">
-            Content for Option 3
+        <!-- Begin Page Content -->
+        <div class="container-fluid mt-4">
+          <div class="row">
+            <div class="col-md-2 inner-sidebar">
+              <!-- Inner Sidebar Content -->
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    href="#tab1"
+                    onclick="setActiveTab('tab1')"
+                    >Tab 1</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#tab2"
+                    onclick="setActiveTab('tab2')"
+                    >Tab 2</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#tab3"
+                    onclick="setActiveTab('tab3')"
+                    >Tab 3</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-10 content-area">
+              <!-- Tab Content -->
+              <div id="tab1" class="tab-content active">
+                <h4>Content for Tab 1</h4>
+                <!-- Tab 1 specific content here -->
+              </div>
+              <div id="tab2" class="tab-content">
+                <h4>Content for Tab 2</h4>
+                <!-- Tab 2 specific content here -->
+              </div>
+              <div id="tab3" class="tab-content">
+                <h4>Content for Tab 3</h4>
+                <!-- Tab 3 specific content here -->
+              </div>
+            </div>
           </div>
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Page Content -->
 
         <!-- Footer -->
-        <!-- <footer class="footer mt-auto py-3">
+        <footer class="footer mt-auto py-3 bg-light">
           <div class="container">
             <div class="d-flex justify-content-between small">
-              <div class="text-muted">
-                &copy; Your Website 2023. All Rights Reserved.
-              </div>
+              <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
               <div>
                 <a href="#">Privacy Policy</a> &middot;
                 <a href="#">Terms & Conditions</a>
               </div>
             </div>
           </div>
-        </footer> -->
+        </footer>
         <!-- End of Footer -->
       </div>
       <!-- End of Content Wrapper -->
     </div>
-    <!-- End of Page Wrapper -->
+    <!-- End of Wrapper -->
 
     <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript -->
-    <script src="/src/app/WowDAO/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 
     <!-- Custom scripts for all pages -->
-    <script src="/src/app/WowDAO/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="/src/app/WowDAO/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="/src/app/WowDAO/js/demo/chart-area-demo.js"></script>
-    <script src="/src/app/WowDAO/js/demo/chart-pie-demo.js"></script>
+    <script>
+      function setActiveTab(tabId) {
+        const tabs = document.querySelectorAll(".tab-content");
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+        document.getElementById(tabId).classList.add("active");
+      }
+    </script>
   </body>
 </html>
