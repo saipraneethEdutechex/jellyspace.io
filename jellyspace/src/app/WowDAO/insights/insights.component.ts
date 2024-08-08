@@ -444,11 +444,27 @@ export class InsightsComponent implements OnInit {
 
   setActiveTab(tabId: string) {
     this.activateTab = tabId;
-    // Optionally reset inner tab when switching main tabs
-    if (tabId !== 'tab1') {
-      this.innerTab = ''; // or any default value
-    } else if (this.innerTab === '') {
-      this.innerTab = 'riskAssessment'; // Default inner tab for tab1
+
+    // Set default inner tab based on the active main tab
+    switch (tabId) {
+      case 'tab1':
+        this.innerTab = 'riskAssessment'; // Default inner tab for 'Dashboard'
+        break;
+      case 'tab2':
+        this.innerTab = 'integrationDetails'; // Default inner tab for 'Integration'
+        break;
+      case 'tab3':
+        this.innerTab = 'aiOverview'; // Default inner tab for 'AI-Prompt'
+        break;
+      case 'tab4':
+        this.innerTab = 'notifications'; // Default inner tab for 'Notification Center'
+        break;
+      case 'tab5':
+        this.innerTab = 'reportSummary'; // Default inner tab for 'Reports'
+        break;
+      default:
+        this.innerTab = ''; // Clear inner tab if no main tab matches
+        break;
     }
   }
 
