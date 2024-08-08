@@ -231,6 +231,14 @@
                     >Opportunities</a
                   >
                 </li>
+                <li class="nav-item" *ngIf="activateTab === 'tab1'">
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'threats' }"
+                    (click)="setInnerTab('threats')"
+                    >Threats</a
+                  >
+                </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab2'">
                   <a
                     class="nav-link"
@@ -270,15 +278,16 @@
             <div class="col-md">
               <div class="content-area mt-4">
                 <!-- Tab Content -->
-                <div
-                  id="tab1"
-                
-                  [ngClass]="{ active: activateTab === 'tab1' }"
-                >
+                <div id="tab1" [ngClass]="{ active: activateTab === 'tab1' }">
                   <div *ngIf="innerTab === 'riskAssessment'">
                     <risk-assessment></risk-assessment>
                   </div>
-                  <div *ngIf="innerTab === 'opportunities'">asdfasfd</div>
+                  <div *ngIf="innerTab === 'opportunities'">
+                    <opportunities></opportunities>
+                  </div>
+                  <div *ngIf="innerTab === 'threats'">
+                    <threats></threats>
+                  </div>
                 </div>
                 <div
                   id="tab2"

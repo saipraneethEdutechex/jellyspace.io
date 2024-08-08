@@ -42,6 +42,8 @@ import { LogisticsComponent } from './WowDAO/logistics/logistics.component';
 import { MaintenanceComponent } from './WowDAO/maintenance/maintenance.component';
 import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 import { RiskAssessmentComponent } from './WowDAO/insights/risk-assessment/risk-assessment.component';
+import { OpportunitiesComponent } from './WowDAO/insights/opportunities/opportunities.component';
+import { ThreatsComponent } from './WowDAO/insights/threats/threats.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -176,6 +178,11 @@ const routes: Routes = [
   {
     path: 'risk-assessment',
     component: RiskAssessmentComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'opportunities',
+    component: OpportunitiesComponent,
     pathMatch: 'full',
   },
   { path: '**', redirectTo: '/signin', pathMatch: 'full' }, // If no matching route found, go back to home route
