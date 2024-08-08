@@ -272,10 +272,12 @@
                 <!-- Tab Content -->
                 <div
                   id="tab1"
-                  class="tab-content"
+                
                   [ngClass]="{ active: activateTab === 'tab1' }"
                 >
-                  <div *ngIf="innerTab === 'riskAssessment'">asdfasdf</div>
+                  <div *ngIf="innerTab === 'riskAssessment'">
+                    <risk-assessment></risk-assessment>
+                  </div>
                   <div *ngIf="innerTab === 'opportunities'">asdfasfd</div>
                 </div>
                 <div

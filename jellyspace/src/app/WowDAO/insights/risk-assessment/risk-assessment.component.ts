@@ -1,0 +1,130 @@
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
+import {
+  Chart,
+  BarController,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+@Component({
+  selector: 'risk-assessment',
+  templateUrl: './risk-assessment.component.html',
+  styleUrls: ['./risk-assessment.component.scss'], // Add this line to include SCSS styles
+})
+export class RiskAssessmentComponent implements OnInit, AfterViewInit {
+  @ViewChild('riskChart') riskChart: ElementRef<HTMLCanvasElement> | undefined;
+
+  public barChartOptions: any = {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y', // Horizontal bar chart
+    scales: {
+      x: {
+        beginAtZero: true,
+        grid: {
+          display: true,
+        },
+        stacked: true, // Enable stacking
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
+        stacked: true, // Enable stacking
+        ticks: {
+          font: {
+            size: 14,
+          },
+        },
+      },
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function (tooltipItem: any) {
+            return ` ${tooltipItem.dataset.label}: ${tooltipItem.raw} `;
+          },
+        },
+      },
+    },
+  };
+
+  public barChartData = {
+    labels: [
+      'Risk Category 1',
+      'Risk Category 2',
+      'Risk Category 3',
+      'Risk Category 4',
+    ],
+    datasets: [
+      {
+        label: 'Low Risk',
+        data: [5, 6, 7, 8],
+        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+      },
+      {
+        label: 'Medium Risk',
+        data: [3, 4, 5, 6],
+        backgroundColor: 'rgba(255, 206, 86, 0.5)',
+      },
+      {
+        label: 'High Risk',
+        data: [2, 3, 4, 5],
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'Critical Risk',
+        data: [1, 2, 3, 4],
+        backgroundColor: 'rgba(153, 102, 255, 0.5)',
+      },
+    ],
+  };
+
+  public barChartType: 'bar' = 'bar';
+  public barChartLegend = true;
+
+  constructor() {
+    // Register Chart.js components
+    Chart.register(
+      BarController,
+      BarElement,
+      CategoryScale,
+      LinearScale,
+      Title,
+      Tooltip,
+      Legend
+    );
+  }
+
+  ngOnInit(): void {
+    // Initialization logic...
+  }
+
+  ngAfterViewInit(): void {
+    // Initialize Bar Chart
+    const canvas = this.riskChart?.nativeElement;
+    const ctx = canvas?.getContext('2d');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: this.barChartData,
+        options: this.barChartOptions,
+      });
+    }
+  }
+}

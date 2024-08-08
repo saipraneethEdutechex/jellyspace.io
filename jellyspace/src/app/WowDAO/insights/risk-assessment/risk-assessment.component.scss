@@ -1,0 +1,12 @@
+.chart-container {
+  position: relative;
+  width: 80%; // Adjust width as needed
+  max-width: 1000px; // Optional: set a maximum width
+  padding: 20px; // Optional: add some padding around the chart
+}
+
+canvas {
+  display: block; // Ensures the canvas is treated as a block element
+  width: 100% !important; // Make sure the canvas takes full width of its container
+  height: auto !important; // Adjust height automatically to maintain aspect ratio
+}
