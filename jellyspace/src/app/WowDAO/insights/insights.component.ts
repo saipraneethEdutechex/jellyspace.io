@@ -8,6 +8,7 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./insights.component.scss'],
 })
 export class InsightsComponent implements OnInit {
+  innerTab: string = 'riskAssessment'; // Default inner tab
   activateTab: string = 'tab1';
   chatbox: boolean = false;
   public showSearch = false;
@@ -441,7 +442,17 @@ export class InsightsComponent implements OnInit {
     window.open('http://localhost:4200/community', '_blank');
   }
 
-  setActiveTab(tab: string) {
-    this.activateTab = tab;
+  setActiveTab(tabId: string) {
+    this.activateTab = tabId;
+    // Optionally reset inner tab when switching main tabs
+    if (tabId !== 'tab1') {
+      this.innerTab = ''; // or any default value
+    } else if (this.innerTab === '') {
+      this.innerTab = 'riskAssessment'; // Default inner tab for tab1
+    }
+  }
+
+  setInnerTab(tabName: string) {
+    this.innerTab = tabName;
   }
 }
