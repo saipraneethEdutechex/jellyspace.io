@@ -236,22 +236,22 @@ export class ManagementComponent implements OnInit {
           {
             label: 'Synthetic',
             data: syntheticData, // Use custom data for Dataset 1
-            backgroundColor: 'violet',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(138, 43, 226, 0.2)', // Light violet background
+            borderColor: 'rgba(138, 43, 226, 1)', // Violet border
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgba(138, 43, 226, 1)', // Dark violet
+            pointBorderColor: 'rgba(138, 43, 226, 1)', // Dark violet
             pointBorderWidth: 2,
             pointRadius: 5,
           },
           {
             label: 'Predictions',
             data: predictionsData, // Use custom data for Dataset 2
-            backgroundColor: 'red',
-            borderColor: 'rgba(153, 102, 255, 1)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)', // Light red background
+            borderColor: 'rgba(255, 99, 132, 1)', // Red border
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(153, 102, 255, 1)',
-            pointBorderColor: '#fff',
+            pointBackgroundColor: 'rgba(255, 99, 132, 1)', // Dark red
+            pointBorderColor: 'rgba(255, 99, 132, 1)', // Dark red
             pointBorderWidth: 2,
             pointRadius: 5,
           },
