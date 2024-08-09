@@ -79,31 +79,27 @@ export class RiskAssessmentComponent implements OnInit, AfterViewInit {
 
   public barChartData = {
     labels: [
-      'Risk Category 1',
-      'Risk Category 2',
-      'Risk Category 3',
-      'Risk Category 4',
+      'Supply Disruptions',
+      'Demand Variability',
+      'Quality Issues',
+      'Cyber Security',
+      'Regulatory Compliance',
     ],
     datasets: [
       {
         label: 'Low Risk',
-        data: [5, 6, 7, 8],
+        data: [4, 3, 2, 1, 2],
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
       },
       {
         label: 'Medium Risk',
-        data: [3, 4, 5, 6],
+        data: [3, 4, 2, 2, 3],
         backgroundColor: 'rgba(255, 206, 86, 0.5)',
       },
       {
         label: 'High Risk',
-        data: [2, 3, 4, 5],
+        data: [2, 3, 4, 3, 4],
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Critical Risk',
-        data: [1, 2, 3, 4],
-        backgroundColor: 'rgba(153, 102, 255, 0.5)',
       },
     ],
   };
