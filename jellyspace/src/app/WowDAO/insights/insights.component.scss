@@ -1,4 +1,4 @@
-// Base styles
+/* Base styles */
 body {
   font-family: "Nunito", sans-serif;
   margin: 0;
@@ -6,7 +6,7 @@ body {
   background-color: #ffffff;
 }
 
-// Sidebar
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
@@ -17,61 +17,61 @@ body {
   color: #333333;
   overflow-y: auto;
   border-right: 1px solid #e3e6f0;
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    font-size: 1.2rem;
-    color: #333333;
-
-    .sidebar-brand-icon {
-      font-size: 1.5rem;
-      color: #333333;
-      margin-right: 10px;
-    }
-
-    .sidebar-brand-text {
-      font-weight: bold;
-      color: #333333;
-    }
-  }
-
-  .sidebar-divider {
-    border-color: #e3e6f0;
-  }
-
-  .nav-link {
-    color: #333333;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-
-    &:hover {
-      background-color: #f1f3f5;
-      color: #333333;
-    }
-
-    &.active {
-      background-color: #e9ecef;
-      color: #333333;
-      font-weight: bold;
-    }
-
-    i {
-      margin-right: 10px;
-    }
-  }
 }
 
-// Content Wrapper
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.2rem;
+  color: #333333;
+}
+
+.sidebar-brand-icon {
+  font-size: 1.5rem;
+  color: #333333;
+  margin-right: 10px;
+}
+
+.sidebar-brand-text {
+  font-weight: bold;
+  color: #333333;
+}
+
+.sidebar-divider {
+  border-color: #e3e6f0;
+}
+
+.nav-link {
+  color: #333333;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #f1f3f5;
+}
+
+.nav-link.active {
+  background-color: #e9ecef;
+  color: #333333;
+  font-weight: bold;
+}
+
+.nav-link i {
+  margin-right: 10px;
+}
+
+/* Content Wrapper */
 #content-wrapper {
   margin-left: 250px;
-  padding-top: 130px; // Space for the topbars
+  padding-top: 130px; /* Space for the topbars */
 }
 
-// Topbars
+/* Topbars */
 .topbar {
   position: fixed;
   top: 0;
@@ -88,7 +88,7 @@ body {
 
 .topbar-second {
   position: fixed;
-  top: 70px; // Adjust based on the height of the first topbar
+  top: 70px; /* Adjust based on the height of the first topbar */
   left: 250px;
   width: calc(100% - 250px);
   background-color: #ffffff;
@@ -96,16 +96,16 @@ body {
   z-index: 100;
   padding: 10px;
   display: flex;
-  align-items: center; // Center items vertically
+  align-items: center; /* Center items vertically */
 
   > div {
     flex: 1;
     display: flex;
-    justify-content: space-around; // Add space between items
+    justify-content: space-around; /* Add space between items */
   }
 
   .tab-item {
-    margin: 0 15px; // Add margin to create space between tabs
+    margin: 0 15px; /* Add margin to create space between tabs */
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
@@ -139,43 +139,48 @@ body {
 .footer a:hover {
   color: #343a40;
 }
-// Tab Content
+
+/* Tab Content */
 .tab-content {
   display: none;
-
-  &.active {
-    display: block;
-  }
 }
 
-// Inner Sidebar
+.tab-content.active {
+  display: block;
+}
+
+/* Ensure width is applied and not overridden */
 .inner-sidebar {
-  width: 200px;
-  height: calc(100vh - 70px); // Adjust based on topbar height
+  width: 80px !important; /* Change to desired width */
+  height: calc(100vh - 70px); /* Adjust based on topbar height */
   background-color: #ffffff;
-  border-right: 1px solid #e3e6f0;
-  position: relative;
+  border-right: 1px solid #dee2e6;
   overflow-y: auto;
-
-  .nav-link {
-    cursor: pointer;
-  }
 }
+
+.inner-sidebar .nav-link {
+  cursor: pointer;
+}
+
+/* Tabs */
 .tab {
   padding: 10px;
   cursor: pointer;
-  &.active {
-    border-bottom: 3px solid greenyellow; // Customize the width and color
-    color: black;
-    font-weight: bold;
-  }
 }
 
-// Content Area
+.tab.active {
+  border-bottom: 3px solid greenyellow; /* Customize the width and color */
+  color: black;
+  font-weight: bold;
+}
+
+/* Content Area */
 .content-area {
-  margin-left: 220px; // Adjust based on inner-sidebar width
+  margin-left: 250px; /* Adjust based on inner-sidebar width */
   padding: 20px;
 }
+
+/* Additional Styles */
 #sidebar {
   position: fixed;
   top: 0;
@@ -183,10 +188,6 @@ body {
   left: 0;
   width: 250px;
   z-index: 100;
-}
-
-#content-wrapper {
-  margin-left: 250px;
 }
 
 .topbar {
