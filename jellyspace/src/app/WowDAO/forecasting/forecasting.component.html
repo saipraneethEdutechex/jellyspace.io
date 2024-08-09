@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>JELLYSPACE 2 - Home</title>
+    <title>JELLYSPACE - Home</title>
 
     <!-- Custom fonts for this template -->
     <link
@@ -281,62 +281,42 @@
           </ul>
         </nav>
         <!-- End of Topbar -->
-
-        <!-- Options Slide -->
-        <div id="options-slide" class="d-flex mb-3">
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option1' }"
-            (click)="selectTab('option1')"
-          >
-            Option 1
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option2' }"
-            (click)="selectTab('option2')"
-          >
-            Option 2
-          </div>
-          <div
-            class="tab"
-            [ngClass]="{ active: activeTab === 'option3' }"
-            (click)="selectTab('option3')"
-          >
-            Option 3
+        <div class="container">
+          <!-- Chart.js Canvas -->
+          <div class="chart-container">
+            <canvas #stockChart></canvas>
           </div>
         </div>
-        <!-- End of Options Slide -->
 
-        <!-- Main Content -->
-        <div class="container-fluid flex-grow-1">
-          <div class="tab-content" *ngIf="activeTab === 'option1'">
-            Content for Option 1
-          </div>
-          <div class="tab-content" *ngIf="activeTab === 'option2'">
-            Content for Option 2
-          </div>
-          <div class="tab-content" *ngIf="activeTab === 'option3'">
-            Content for Option 3
-          </div>
-        </div>
-        <!-- End of Main Content -->
+        <!-- Additional CSS for chart container -->
+        <style>
+          .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+          }
 
-        <!-- Footer -->
-        <!-- <footer class="footer mt-auto py-3">
-          <div class="container">
-            <div class="d-flex justify-content-between small">
-              <div class="text-muted">
-                &copy; Your Website 2023. All Rights Reserved.
-              </div>
-              <div>
-                <a href="#">Privacy Policy</a> &middot;
-                <a href="#">Terms & Conditions</a>
-              </div>
-            </div>
-          </div>
-        </footer> -->
-        <!-- End of Footer -->
+          .modal-header,
+          .modal-body,
+          .modal-footer {
+            padding: 1rem;
+          }
+
+          .search-section,
+          .projects-section {
+            margin: 1rem 0;
+          }
+
+          .chatbox {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+        </style>
       </div>
       <!-- End of Content Wrapper -->
     </div>
@@ -358,5 +338,18 @@
     <!-- Page level custom scripts -->
     <script src="/src/app/WowDAO/js/demo/chart-area-demo.js"></script>
     <script src="/src/app/WowDAO/js/demo/chart-pie-demo.js"></script>
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <div class="d-flex justify-content-between small">
+          <div class="text-muted">Copyright &copy; JELLYSPACE 2024</div>
+          <div>
+            <a href="#">Privacy Policy</a> &middot;
+            <a href="#">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
   </body>
 </html>
