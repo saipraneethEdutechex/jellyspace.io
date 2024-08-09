@@ -13,18 +13,18 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
   ChartConfiguration,
 } from 'chart.js';
 
 @Component({
   selector: 'opportunities',
   templateUrl: './opportunities.component.html',
-  styleUrls: ['./opportunities.component.scss'], // Ensure this file has necessary styles
+  styleUrls: ['./opportunities.component.scss'],
 })
 export class OpportunitiesComponent implements OnInit, AfterViewInit {
   @ViewChild('riskChart') riskChart: ElementRef<HTMLCanvasElement> | undefined;
 
-  // Chart configuration
   public radarChartConfig: ChartConfiguration<'radar'> = {
     type: 'radar',
     data: {
@@ -42,7 +42,7 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           label: 'My First Dataset',
           data: [65, 59, 90, 81, 56, 55, 40],
           fill: true,
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          backgroundColor: 'rgba(255, 99, 132, 0.3)', // Slightly more transparent for a softer look
           borderColor: 'rgb(255, 99, 132)',
           pointBackgroundColor: 'rgb(255, 99, 132)',
           pointBorderColor: '#fff',
@@ -53,7 +53,7 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           label: 'My Second Dataset',
           data: [28, 48, 40, 19, 96, 27, 100],
           fill: true,
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          backgroundColor: 'rgba(54, 162, 235, 0.3)', // Slightly more transparent for a softer look
           borderColor: 'rgb(54, 162, 235)',
           pointBackgroundColor: 'rgb(54, 162, 235)',
           pointBorderColor: '#fff',
@@ -63,9 +63,11 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
       ],
     },
     options: {
+      responsive: true,
+      maintainAspectRatio: false, // Allows the chart to resize with its container
       elements: {
         line: {
-          borderWidth: 3,
+          borderWidth: 3, // Keep the lines bold for emphasis
         },
       },
       scales: {
@@ -75,6 +77,13 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           },
           suggestedMin: 50,
           suggestedMax: 100,
+          ticks: {
+            backdropColor: '#f8f9fa', // Match the background for a cleaner look
+            font: {
+              family: 'Poppins', // Smooth, modern font
+              size: 12,
+            },
+          },
         },
       },
       plugins: {
@@ -87,30 +96,32 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
         },
         legend: {
           position: 'top',
+          labels: {
+            font: {
+              family: 'Poppins', // Smooth, modern font
+              size: 14,
+            },
+          },
         },
       },
     },
   };
 
   constructor() {
-    // Register Chart.js components
     Chart.register(
       RadarController,
       PointElement,
       LinearScale,
       Title,
       Tooltip,
-      Legend
+      Legend,
+      Filler
     );
   }
 
-  ngOnInit(): void {
-    // Initialization logic...
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
-    console.log('ngAfterViewInit called');
-    // Initialize Radar Chart
     const canvas = this.riskChart?.nativeElement;
     const ctx = canvas?.getContext('2d');
     if (ctx) {

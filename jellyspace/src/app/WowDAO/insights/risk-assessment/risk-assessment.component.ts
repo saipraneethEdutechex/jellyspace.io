@@ -19,7 +19,7 @@ import {
 @Component({
   selector: 'risk-assessment',
   templateUrl: './risk-assessment.component.html',
-  styleUrls: ['./risk-assessment.component.scss'], // Add this line to include SCSS styles
+  styleUrls: ['./risk-assessment.component.scss'],
 })
 export class RiskAssessmentComponent implements OnInit, AfterViewInit {
   @ViewChild('riskChart') riskChart: ElementRef<HTMLCanvasElement> | undefined;
@@ -38,6 +38,8 @@ export class RiskAssessmentComponent implements OnInit, AfterViewInit {
         ticks: {
           font: {
             size: 14,
+            family: 'Poppins', // Custom font for smooth text
+            weight: '500',
           },
         },
       },
@@ -49,6 +51,8 @@ export class RiskAssessmentComponent implements OnInit, AfterViewInit {
         ticks: {
           font: {
             size: 14,
+            family: 'Poppins', // Custom font for smooth text
+            weight: '500',
           },
         },
       },
@@ -58,6 +62,15 @@ export class RiskAssessmentComponent implements OnInit, AfterViewInit {
         callbacks: {
           label: function (tooltipItem: any) {
             return ` ${tooltipItem.dataset.label}: ${tooltipItem.raw} `;
+          },
+        },
+      },
+      legend: {
+        position: 'top',
+        labels: {
+          font: {
+            family: 'Poppins', // Custom font for the legend
+            size: 14,
           },
         },
       },
@@ -121,7 +134,7 @@ export class RiskAssessmentComponent implements OnInit, AfterViewInit {
     const ctx = canvas?.getContext('2d');
     if (ctx) {
       new Chart(ctx, {
-        type: 'bar',
+        type: this.barChartType,
         data: this.barChartData,
         options: this.barChartOptions,
       });
