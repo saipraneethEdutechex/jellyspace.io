@@ -29,17 +29,17 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
     type: 'radar',
     data: {
       labels: [
-        'Eating',
-        'Drinking',
-        'Sleeping',
-        'Designing',
-        'Coding',
-        'Cycling',
-        'Running',
+        'International Market Expansion',
+        'Cost Savings',
+        'Customer Satisfaction',
+        'Innovation',
+        'Sustainability',
+        'Cost Cuttings',
+        'Expenditure',
       ],
       datasets: [
         {
-          label: 'My First Dataset',
+          label: 'Collaborative Partnerships',
           data: [65, 59, 90, 81, 56, 55, 40],
           fill: true,
           backgroundColor: 'rgba(255, 99, 132, 0.3)', // Slightly more transparent for a softer look
@@ -50,7 +50,7 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           pointHoverBorderColor: 'rgb(255, 99, 132)',
         },
         {
-          label: 'My Second Dataset',
+          label: 'Technology Advancements',
           data: [28, 48, 40, 19, 96, 27, 100],
           fill: true,
           backgroundColor: 'rgba(54, 162, 235, 0.3)', // Slightly more transparent for a softer look
@@ -59,6 +59,28 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: 'rgb(54, 162, 235)',
+        },
+        {
+          label: 'Sustainability Initiatives',
+          data: [35, 70, 45, 80, 56, 60, 35],
+          fill: true,
+          backgroundColor: 'rgba(75, 192, 192, 0.3)', // Greenish background
+          borderColor: 'rgb(75, 192, 192)',
+          pointBackgroundColor: 'rgb(75, 192, 192)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgb(75, 192, 192)',
+        },
+        {
+          label: 'International Market Expansion',
+          data: [45, 35, 60, 70, 50, 40, 75],
+          fill: true,
+          backgroundColor: 'rgba(153, 102, 255, 0.3)', // Purple background
+          borderColor: 'rgb(153, 102, 255)',
+          pointBackgroundColor: 'rgb(153, 102, 255)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgb(153, 102, 255)',
         },
       ],
     },
@@ -87,10 +109,25 @@ export class OpportunitiesComponent implements OnInit, AfterViewInit {
         },
       },
       plugins: {
+        title: {
+          display: true,
+          text: 'Opportunities Radar',
+          font: {
+            family: 'Poppins',
+            size: 16,
+          },
+          padding: {
+            top: 10,
+            bottom: 20,
+          },
+        },
         tooltip: {
           callbacks: {
             label: function (tooltipItem: any) {
-              return ` ${tooltipItem.dataset.label}: ${tooltipItem.raw} `;
+              return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+            },
+            afterLabel: function () {
+              return 'Hover to explore details';
             },
           },
         },

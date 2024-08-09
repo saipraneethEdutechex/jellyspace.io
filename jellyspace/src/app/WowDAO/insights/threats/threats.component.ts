@@ -40,8 +40,8 @@ export class ThreatsComponent implements OnInit, OnDestroy {
           ],
           datasets: [
             {
-              label: 'Threat Level',
-              data: [65, 59, 80, 81, 56, 55, 40],
+              label: 'Revenue',
+              data: [65000, 59000, 80000, 81000, 56000, 55000, 40000], // Adjusted data values for dollar representation
               backgroundColor: 'rgba(54, 162, 235, 0.6)', // Slightly more transparent for smoothness
               borderColor: 'rgba(54, 162, 235, 1)',
               borderWidth: 1,
@@ -75,6 +75,14 @@ export class ThreatsComponent implements OnInit, OnDestroy {
                   size: 14, // Larger font for readability
                   family: "'Poppins', sans-serif", // Smooth, modern font
                 },
+                callback: function (tickValue: string | number) {
+                  // Ensure tickValue is a number before formatting
+                  const value =
+                    typeof tickValue === 'number'
+                      ? tickValue
+                      : parseFloat(tickValue);
+                  return '$' + value.toLocaleString(); // Format y-axis values as dollars
+                },
               },
             },
           },
@@ -97,6 +105,13 @@ export class ThreatsComponent implements OnInit, OnDestroy {
               bodyFont: {
                 size: 14,
                 family: "'Poppins', sans-serif", // Smooth, modern font
+              },
+              callbacks: {
+                label: function (tooltipItem: any) {
+                  return `${
+                    tooltipItem.dataset.label
+                  }: $${tooltipItem.raw.toLocaleString()}`; // Format tooltip values as dollars
+                },
               },
             },
           },
