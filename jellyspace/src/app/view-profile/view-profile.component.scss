@@ -1,0 +1,226 @@
+.profile-container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff; /* Light background for the whole container */
+}
+
+.profile-main-content {
+  flex: 3;
+  background-color: #ffffff; /* White background for main content */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-sidebar {
+  flex: 1;
+  background-color: #ffffff; /* Light teal for sidebar background */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #ffffff; /* Light blue for card headers */
+  color: #00796b; /* Dark teal for text */
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #ffffff; /* White background for card body */
+}
+
+.profile-row {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-image-section {
+  text-align: center;
+}
+
+.profile-image img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.profile-status,
+.profile-rate,
+.profile-location,
+.profile-time,
+.profile-join-date,
+.profile-recommendations {
+  margin-top: 15px;
+}
+
+.profile-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-dot {
+  color: #4caf50; /* Light green for online status dot */
+  margin-right: 8px;
+}
+
+.rate-icon {
+  color: #ffeb3b; /* Light yellow for rate icon */
+  margin-right: 8px;
+}
+
+.profile-location img {
+  width: 28px;
+  margin-right: 10px;
+}
+
+.time-icon,
+.join-date-icon,
+.recommendations-icon {
+  margin-right: 8px;
+}
+
+.profile-info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-info-header h2 {
+  margin: 0;
+  color: #00796b; /* Dark teal for header text */
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-email {
+  display: block;
+  margin: 10px 0;
+  color: #ffffff; /* Light blue-gray for email text */
+}
+
+.profile-about {
+  margin-bottom: 20px;
+}
+
+.profile-about input,
+.profile-about h2 {
+  width: 100%;
+}
+
+.profile-ratings {
+  margin-bottom: 20px;
+}
+
+.ratings-stars {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.star-checked {
+  color: #ffeb3b; /* Light yellow for checked stars */
+}
+
+.review-score {
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+.review-count {
+  margin-left: 10px;
+  color: #ffffff; /* Light blue-gray for review count */
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.stats-col {
+  text-align: center;
+}
+
+.stats-value {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.stats-label {
+  margin-top: 5px;
+  color: #ffffff; /* Light blue-gray for stats labels */
+}
+
+.profile-about-text {
+  line-height: 1.6;
+}
+
+.empty-message {
+  color: #ffffff; /* Light blue-gray for empty messages */
+}
+
+.verification-item,
+.skill-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.verification-icon,
+.skill-icon {
+  font-size: 1.6em;
+  color: #4caf50; /* Light green for verification icon */
+  margin-right: 15px;
+}
+
+.verification-text,
+.skill-text {
+  font-size: 1.1em;
+}
+
+.btn-primary {
+  background-color: #ffffff; /* Light blue for primary button */
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #ffffff; /* Darker blue for hover effect */
+}
+
+.btn-secondary {
+  background-color: #ffffff; /* Light blue-gray for secondary button */
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff; /* Slightly darker blue-gray for hover effect */
+}
