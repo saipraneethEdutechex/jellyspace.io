@@ -100,7 +100,6 @@
           </li>
         </ul>
       </nav>
-
       <!-- End of Sidebar -->
 
       <!-- Content Wrapper -->
@@ -204,7 +203,7 @@
               [class.active]="activateTab === 'tab5'"
               (click)="setActiveTab('tab5')"
             >
-              Reports
+              Feedback | Iteration
             </div>
           </div>
         </nav>
@@ -217,53 +216,110 @@
               <!-- Inner Sidebar Content -->
               <ul class="nav mt-4 flex-column">
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Risk Assessment</a>
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'riskAssessment' }"
+                    (click)="setInnerTab('riskAssessment')"
+                    >Risk Assessment</a
+                  >
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Opportunities</a>
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'opportunities' }"
+                    (click)="setInnerTab('opportunities')"
+                    >Opportunities</a
+                  >
                 </li>
                 <li class="nav-item" *ngIf="activateTab === 'tab1'">
-                  <a class="nav-link" href="#">Threats</a>
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'threats' }"
+                    (click)="setInnerTab('threats')"
+                    >Threats</a
+                  >
                 </li>
-
-                <!-- Add more sub-content items for other tabs as needed -->
+                <li class="nav-item" *ngIf="activateTab === 'tab2'">
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'integrationDetails' }"
+                    (click)="setInnerTab('integrationDetails')"
+                    >Integration Details</a
+                  >
+                </li>
+                <li class="nav-item" *ngIf="activateTab === 'tab3'">
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'aiOverview' }"
+                    (click)="setInnerTab('aiOverview')"
+                    >AI Overview</a
+                  >
+                </li>
+                <li class="nav-item" *ngIf="activateTab === 'tab4'">
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'notifications' }"
+                    (click)="setInnerTab('notifications')"
+                    >Notifications</a
+                  >
+                </li>
+                <li class="nav-item" *ngIf="activateTab === 'tab5'">
+                  <a
+                    class="nav-link"
+                    [ngClass]="{ active: innerTab === 'reportSummary' }"
+                    (click)="setInnerTab('reportSummary')"
+                    >Report Summary</a
+                  >
+                </li>
+                <!-- Add more inner content items as needed -->
               </ul>
             </div>
+
             <div class="col-md">
               <div class="content-area mt-4">
                 <!-- Tab Content -->
-                <div
-                  id="tab1"
-                  class="tab-content"
-                  [class.active]="activateTab === 'tab1'"
-                >
-                  <tab1-insights></tab1-insights>
-                  <!-- Tab 1 specific content here -->
+                <div id="tab1" [ngClass]="{ active: activateTab === 'tab1' }">
+                  <div *ngIf="innerTab === 'riskAssessment'">
+                    <risk-assessment></risk-assessment>
+                  </div>
+                  <div *ngIf="innerTab === 'opportunities'">
+                    <opportunities></opportunities>
+                  </div>
+                  <div *ngIf="innerTab === 'threats'">
+                    <threats></threats>
+                  </div>
                 </div>
                 <div
                   id="tab2"
                   class="tab-content"
-                  [class.active]="activateTab === 'tab2'"
+                  [ngClass]="{ active: activateTab === 'tab2' }"
                 >
-                  <h4>Content for Tab 2</h4>
-                  <!-- Tab 2 specific content here -->
+                  <div *ngIf="innerTab === 'integrationDetails'">
+                    asdfasdfasdf
+                  </div>
                 </div>
                 <div
                   id="tab3"
                   class="tab-content"
-                  [class.active]="activateTab === 'tab3'"
+                  [ngClass]="{ active: activateTab === 'tab3' }"
                 >
-                  <h4>Content for Tab 3</h4>
-                  <!-- Tab 3 specific content here -->
+                  <div *ngIf="innerTab === 'aiOverview'">zfsasdfasdfasdf</div>
                 </div>
                 <div
                   id="tab4"
                   class="tab-content"
-                  [class.active]="activateTab === 'tab4'"
+                  [ngClass]="{ active: activateTab === 'tab4' }"
                 >
-                  <h4>Content for Tab 4</h4>
-                  <!-- Tab 4 specific content here -->
+                  <div *ngIf="innerTab === 'notifications'">asdfasdfasdf</div>
                 </div>
+                <div
+                  id="tab5"
+                  class="tab-content"
+                  [ngClass]="{ active: activateTab === 'tab5' }"
+                >
+                  <div *ngIf="innerTab === 'reportSummary'">asdfasdfasdf</div>
+                </div>
+                <!-- Add more tab contents as needed -->
               </div>
             </div>
           </div>
