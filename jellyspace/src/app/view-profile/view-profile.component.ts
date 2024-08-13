@@ -9,7 +9,7 @@ import { AppService } from '../app.service';
 })
 export class ViewProfileComponent implements OnInit {
   userProfile = {
-    name: 'John Do',
+    name: 'John Doe',
     position: 'Software Engineer',
     email: 'john.doe@example.com',
     phone: '123-456-7890',
@@ -30,6 +30,55 @@ export class ViewProfileComponent implements OnInit {
     technologyFocus: ['Advanced Aerospace Technologies'], // Changed to an array
   };
 
+  //MarketCustomerData
+  MarketCustomerData = {
+    keyMarkets: ['North America', 'Europe', 'Asia-Pacific'], // Example markets
+    customerSegments: ['OEMs', 'Governmental Agencies', 'Defense Contractors'], // Example segments
+    competitivePosition:
+      'Leading provider in aerospace technology with a strong foothold in defense and commercial aviation sectors.', // Example position
+    salesChannels: [
+      'Direct Sales',
+      'Online Distribution',
+      'Strategic Partnerships',
+    ], // Example channels
+  };
+  
+  // Strategic Information
+  strategicInformation = {
+    missionVision: {
+      mission:
+        'To innovate and provide advanced aerospace solutions that ensure safety, reliability, and excellence in every mission.',
+      vision:
+        'To be the world’s leading provider of aerospace technologies, revolutionizing the industry through innovation and customer satisfaction.',
+    },
+    swotAnalysis: {
+      strengths: [
+        'Industry-leading technology',
+        'Strong customer relationships',
+        'Highly skilled workforce',
+      ],
+      weaknesses: [
+        'High dependency on defense contracts',
+        'Limited geographic presence',
+      ],
+      opportunities: [
+        'Expansion into emerging markets',
+        'Increased demand for commercial space exploration',
+      ],
+      threats: [
+        'Economic downturns',
+        'Intense competition from other aerospace companies',
+      ],
+    },
+    kpis: [
+      'Revenue Growth',
+      'Market Share',
+      'Customer Satisfaction Score',
+      'Operational Efficiency',
+    ],
+    growthStrategy:
+      'Focus on expanding into new markets, investing in R&D for cutting-edge technology, and forming strategic partnerships to enhance market presence.',
+  };
   constructor(
     private router: Router,
     private route: ActivatedRoute,

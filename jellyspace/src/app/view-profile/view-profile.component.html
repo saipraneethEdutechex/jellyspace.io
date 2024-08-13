@@ -1,21 +1,20 @@
 <div class="profile-container">
   <div class="profile-main-content">
+    <!-- Profile Card -->
     <div class="card profile-card mb-4">
       <div class="card-body">
         <div class="profile-row">
+          <!-- Profile Image and Details -->
           <div class="profile-image-section">
             <div class="profile-image">
-              <img
-                [src]="image != null ? image : dummyImage"
-                alt="Profile Image"
-              />
+              <img [src]="image || dummyImage" alt="Profile Image" />
             </div>
             <div class="profile-status mt-3">
-              <span class="fa fa-circle status-dot"></span>
+              <span class="fa fa-circle"></span>
               <span class="status-text">I'm Online!</span>
             </div>
             <div class="profile-rate mt-1">
-              <span class="fa fa-usd rate-icon"></span>
+              <span class="fa fa-usd"></span>
               <span class="rate-text">$2 USD / hour</span>
             </div>
             <div class="profile-location mt-1">
@@ -23,18 +22,20 @@
               <span class="location-text">New York, USA</span>
             </div>
             <div class="profile-time mt-1">
-              <span class="fa fa-clock-o time-icon"></span>
+              <span class="fa fa-clock-o"></span>
               <span class="time-text">It's currently 2:15 PM here</span>
             </div>
             <div class="profile-join-date mt-1">
-              <span class="fa fa-compass join-date-icon"></span>
+              <span class="fa fa-compass"></span>
               <span class="join-date-text">Joined February 2, 2017</span>
             </div>
             <div class="profile-recommendations mt-1">
-              <span class="fa fa-thumbs-o-up recommendations-icon"></span>
+              <span class="fa fa-thumbs-o-up"></span>
               <span class="recommendations-text">0 Recommendations</span>
             </div>
           </div>
+
+          <!-- Profile Info Section -->
           <div class="profile-info-section">
             <div class="profile-info-header">
               <h2>{{ fname }} {{ lname }}</h2>
@@ -47,28 +48,26 @@
                 </a>
               </div>
             </div>
-
-            <span class="text-muted fs-6" style="font-size: 12px">
-              {{ email }}
-            </span>
+            <span class="text-muted fs-6" style="font-size: 12px">{{
+              email
+            }}</span>
             <div class="profile-about mt-3">
-              <input
-                type="text"
-                *ngIf="editData"
-                [(ngModel)]="descriptionData"
-                class="form-control"
-                placeholder="Describe yourself"
-              />
-              <h2 *ngIf="normalData">
-                I have good knowledge of HTML, CSS, AJAX, JavaScript, Bootstrap,
-                jQuery.
-              </h2>
+              <ng-container *ngIf="editData; else viewMode">
+                <input
+                  type="text"
+                  [(ngModel)]="descriptionData"
+                  placeholder="Describe yourself"
+                />
+              </ng-container>
+              <ng-template #viewMode>
+                <p class="profile-about-text">{{ descriptionData }}</p>
+              </ng-template>
             </div>
             <div class="profile-ratings mt-3">
               <div class="ratings-stars">
-                <span class="fa fa-star star-checked"></span>
-                <span class="fa fa-star star-checked"></span>
-                <span class="fa fa-star star-checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="fa fa-star"></span>
                 <span class="review-score">0.0</span>
@@ -100,26 +99,8 @@
                 </div>
               </div>
             </div>
-            <div class="profile-about-text mt-3">
-              <p>
-                I am Siva Krishna. I completed my B.Tech in 2016 from BVSR
-                Engineering College with 72%. I have good web designing skills.
-                My hobbies include playing cricket and video games.
-              </p>
-            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Profile Information</label>
-      </div>
-      <div class="card-body">
-        <p><strong>Name:</strong> {{ userProfile.name }}</p>
-        <p><strong>Position:</strong> {{ userProfile.position }}</p>
-        <p><strong>Email:</strong> {{ userProfile.email }}</p>
-        <p><strong>Phone:</strong> {{ userProfile.phone }}</p>
       </div>
     </div>
 
@@ -164,7 +145,82 @@
         </div>
       </div>
     </div>
-    <!-- Portfolio, Reviews, Experience, Education, Qualifications, Publications -->
+    <!-- Market and Customer Data Section -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Market and Customer Data</label>
+      </div>
+      <div class="card-body">
+        <div class="market-customer-info">
+          <div class="info-section">
+            <h5>Key Markets:</h5>
+            <p>{{ MarketCustomerData.keyMarkets.join(", ") }}</p>
+          </div>
+          <div class="info-section">
+            <h5>Customer Segments:</h5>
+            <p>{{ MarketCustomerData.customerSegments.join(", ") }}</p>
+          </div>
+          <div class="info-section">
+            <h5>Competitive Position:</h5>
+            <p>{{ MarketCustomerData.competitivePosition }}</p>
+          </div>
+          <div class="info-section">
+            <h5>Sales Channels:</h5>
+            <p>{{ MarketCustomerData.salesChannels.join(", ") }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Strategic Information Section -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Strategic Information</label>
+      </div>
+      <div class="card-body">
+        <div class="strategic-info">
+          <div class="info-section">
+            <h5>Mission and Vision:</h5>
+            <p>
+              <strong>Mission:</strong>
+              {{ strategicInformation.missionVision.mission }}
+            </p>
+            <p>
+              <strong>Vision:</strong>
+              {{ strategicInformation.missionVision.vision }}
+            </p>
+          </div>
+          <div class="info-section">
+            <h5>SWOT Analysis:</h5>
+            <p>
+              <strong>Strengths:</strong>
+              {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
+            </p>
+            <p>
+              <strong>Weaknesses:</strong>
+              {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
+            </p>
+            <p>
+              <strong>Opportunities:</strong>
+              {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
+            </p>
+            <p>
+              <strong>Threats:</strong>
+              {{ strategicInformation.swotAnalysis.threats.join(", ") }}
+            </p>
+          </div>
+          <div class="info-section">
+            <h5>Key Performance Indicators (KPIs):</h5>
+            <p>{{ strategicInformation.kpis.join(", ") }}</p>
+          </div>
+          <div class="info-section">
+            <h5>Growth Strategy:</h5>
+            <p>{{ strategicInformation.growthStrategy }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional Sections -->
     <div class="card mb-4">
       <div
         class="card-header d-flex justify-content-between align-items-center"
@@ -256,23 +312,26 @@
         <label class="section-title">Certifications</label>
       </div>
       <div class="card-body text-center">
-        <img src="../../assets/certifications.svg" alt="No Certifications" />
-        <p class="empty-message">You don't have any certifications yet.</p>
-        <a class="btn btn-primary mt-2">Get Certified</a>
+        <img src="../../assets/certifications.png" alt="No Certifications" />
+        <p class="empty-message">No certifications have been added.</p>
       </div>
     </div>
 
     <div class="card mb-4">
-      <div
-        class="card-header d-flex justify-content-between align-items-center"
-      >
-        <label class="section-title">Top Skills</label>
-        <a class="btn btn-primary">Edit Skills</a>
+      <div class="card-header">
+        <label class="section-title">Skills</label>
       </div>
       <div class="card-body">
-        <div *ngFor="let item of skillsList" class="skill-item">
-          <span class="skill-text">{{ item }}</span>
-        </div>
+        <p class="empty-message">No skills have been added.</p>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Languages</label>
+      </div>
+      <div class="card-body">
+        <p class="empty-message">No languages have been added.</p>
       </div>
     </div>
   </div>

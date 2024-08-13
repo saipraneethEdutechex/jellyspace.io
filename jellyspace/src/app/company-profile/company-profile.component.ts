@@ -5,65 +5,82 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-company-profile',
   templateUrl: './company-profile.component.html',
-  styleUrls: ['./company-profile.component.css']
+  styleUrls: ['./company-profile.component.scss'],
 })
 export class CompanyProfileComponent implements OnInit {
+  editData: boolean = false;
+  isEditing: boolean = false;
+  companySections: any[] = [];
+  loginEmail: any;
+  image: string = '/assets/img/avatar.png';
 
-  editData:boolean = false;
-  // overViewData: any;
-  normalData: boolean = true;
-  companyData = '1,001 - 5,000 employees';
-  headqutrData = 'Hawthorne, California';
-  foundedData = '2002';
-  specialData = 'Advance Rockets and Spacecraft , high performance heat shield material, and Satellite Development';
-  productData = 'Falcon 9 and Falcon Heavy Rockets, Dragon Cargo and Crew Spacecraft, Merlin Rocket Engines, Draco and SuperDraco Thrusters, PICA-X'
-  websiteData = 'http://www.spacex.com';
-  industryData = 'Aviation and Aerospace Component Manufacturing';
-  overViewData = 'Space)Sdesigns, manufactures and launches the worlds most advanced rockets and spacecraft. The company was founded A 2002 by Elon Musk to revolutionize space transportation'
-
-  loginEmail:any;
-  image:any
-  constructor( private service:AppService,  private router: Router) { }
+  constructor(private service: AppService, private router: Router) {}
 
   ngOnInit(): void {
+    this.initializeSections();
     this.loginEmail = localStorage.getItem('userEmail');
     this.companyDetails();
   }
 
-  setDefault(){
-    this.image="/assets/img/avatar.png";
+  initializeSections(): void {
+    this.companySections = [
+      { title: 'Company Data', data: '1,001 - 5,000 employees' },
+      { title: 'Headquarters', data: 'Hawthorne, California' },
+      { title: 'Founded', data: '2002' },
+      {
+        title: 'Specialties',
+        data: 'Advance Rockets and Spacecraft, high performance heat shield material, and Satellite Development',
+      },
+      {
+        title: 'Products',
+        data: 'Falcon 9 and Falcon Heavy Rockets, Dragon Cargo and Crew Spacecraft, Merlin Rocket Engines, Draco and SuperDraco Thrusters, PICA-X',
+      },
+      { title: 'Website', data: 'https://www.spacex.com' },
+      {
+        title: 'Industry',
+        data: 'Aviation and Aerospace Component Manufacturing',
+      },
+      {
+        title: 'Overview',
+        data: "SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation.",
+      },
+    ];
   }
 
-  companyDetails() {
-    const params ={
-      "email": this.loginEmail || '',
-    }
+  setDefault(): void {
+    this.image = '/assets/img/avatar.png';
+  }
+
+  companyDetails(): void {
+    const params = {
+      email: this.loginEmail || '',
+    };
     this.service.loginUserDetails(params).subscribe((data: any) => {
-      console.log(data)
-      if(data.status === true) {
+      if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
         localStorage.setItem('userId', data.data._id);
-        // this.accountType =  data.data.accountType;
-        // this.email =  data.data.email;
-        // this.fname =  data.data.firstName;
-        // this.lname =  data.data.lastName;
-        // this.skillList =  data.data.skills;
-        this.image = data.data.image;
+        this.image = data.data.image || this.image;
       } else {
         alert(data.message);
       }
-      // console.log(data);
-    })
+    });
   }
 
-  editProfile() {
-    // this.editData = true;
-    // this.normalData = false;
-    this.editData = !this.editData
-    this.normalData = !this.normalData;
+  editProfile(): void {
+    this.isEditing = !this.isEditing;
+    if (!this.isEditing) {
+      this.saveProfile();
+    }
   }
-  close(){
+
+  saveProfile(): void {
+    // Implement save logic here
+    console.log('Saving profile data:', this.companySections);
+    // Here you might call a service to save the changes
+    // this.service.saveCompanyDetails(this.companySections).subscribe(response => { ... });
+  }
+
+  close(): void {
     this.router.navigate(['dashboard']);
   }
-
 }
