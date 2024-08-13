@@ -11,16 +11,15 @@ $font-size-large: 16px;
 
 .profile-container {
   display: flex;
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%; // Ensure container takes full width of the viewport
+  margin: 0;
   padding: 20px;
   background-color: $background-light;
   font-family: "Poppins", sans-serif;
 }
 
 .profile-main-content {
-  flex: 3;
+  flex: 0 0 46%;
   background-color: $background-light;
   padding: 20px;
   border-radius: 12px;
@@ -28,11 +27,12 @@ $font-size-large: 16px;
 }
 
 .profile-sidebar {
-  flex: 1;
+  flex: 0 0 54%;
   background-color: $background-sidebar;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px $shadow-color;
+  margin-left: 0; // Ensure sidebar starts from the leftmost edge
 }
 
 .card {
