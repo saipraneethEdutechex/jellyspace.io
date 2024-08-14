@@ -2,9 +2,7 @@
   <!-- Header with Profile Actions (Fixed to Top Right) -->
   <header class="profile-header">
     <div class="profile-actions">
-      <button class="btn btn-primary" (click)="editProfile()">
-        Edit Profile
-      </button>
+      <button class="btn btn-primary">Edit Profile</button>
       <button class="btn btn-secondary" (click)="close()">
         <span class="fa fa-times"></span>
       </button>
@@ -14,33 +12,36 @@
   <!-- Main Content Section -->
   <main class="profile-main-content">
     <!-- Profile Card -->
-    <div class="profile-card">
-      <div class="profile-card-body">
-        <div class="profile-card-header">
-          <div class="profile-image">
-            <img [src]="image || dummyImage" alt="Profile Image" />
+    <div class="card my-4">
+      <div class="profile-card">
+        <div class="profile-card-body">
+          <div class="profile-card-header">
+            <div class="profile-image">
+              <img [src]="image || dummyImage" alt="Profile Image" />
+            </div>
+            <div class="profile-info">
+              <h2>{{ fname }} {{ lname }}</h2>
+              <span class="profile-email">{{ email }}</span>
+            </div>
           </div>
-          <div class="profile-info">
-            <h2>{{ fname }} {{ lname }}</h2>
-            <span class="profile-email">{{ email }}</span>
-          </div>
-        </div>
-        <div class="profile-details">
-          <div class="company-info">
-            <h3>companyName</h3>
-            <p>role</p>
-          </div>
-          <div class="profile-actions">
-            <button class="edit-profile">Edit My Profile</button>
-            <a href="/privacy-policy" class="policy-link">Privacy Policy</a>
-            <a href="/terms-conditions" class="policy-link"
-              >Terms and Conditions</a
-            >
+          <div class="profile-details">
+            <div class="company-info">
+              <h3>{{ companyInfo.name }}</h3>
+              <p>role</p>
+            </div>
+            <div class="profile-actions">
+              <button class="edit-profile" (click)="editProfile()">
+                Edit My Profile
+              </button>
+              <a href="/privacy-policy" class="policy-link">Privacy Policy</a>
+              <a href="/terms-conditions" class="policy-link"
+                >Terms and Conditions</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Company Information Section -->
     <div class="card my-4">
       <div class="card-header">

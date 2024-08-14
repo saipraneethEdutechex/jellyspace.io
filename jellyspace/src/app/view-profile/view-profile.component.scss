@@ -1,10 +1,7 @@
-/* Import Poppins font */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
-
 /* Global styles */
 body {
   font-family: "Poppins", sans-serif;
-  color: #333;
+  color: #222; /* Darker text color */
   background-color: #f8f9fa;
   margin: 0;
   padding: 0;
@@ -17,9 +14,9 @@ body {
   right: 0;
   width: 100%;
   background: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */ /* Removed box-shadow */
   z-index: 1000;
-  height: 60px;
+  height: 70px; /* Increased height */
   display: flex;
   align-items: center;
 
@@ -31,25 +28,30 @@ body {
 
     .btn {
       margin-left: 10px;
-      border-radius: 2px; /* Reduced border-radius */
+      border-radius: 4px; /* Increased border-radius */
       border: none;
-      padding: 10px 15px;
+      padding: 12px 18px; /* Increased padding */
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 0.9;
+        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */ /* Removed hover effect shadow */
       }
 
       &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+        /* box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); */ /* Removed focus effect shadow */
       }
     }
 
     .btn-primary {
-      background-color: #007bff;
+      background: linear-gradient(
+        45deg,
+        #007bff,
+        #0056b3
+      ); /* Gradient background */
       color: #ffffff;
     }
 
@@ -64,37 +66,38 @@ body {
 .profile-container {
   display: flex;
   flex-direction: row;
-  margin-top: 80px; /* Adjust margin top to account for the fixed header height */
+  margin-top: 100px; /* Adjust margin top to account for the fixed header height */
   padding: 0 20px;
   box-sizing: border-box;
 
   .profile-main-content {
-    flex: 0 0 35%; /* Flex property for 60% width */
-    padding: 20px;
+    flex: 0 0 38%;
+    padding: 24px; /* Slightly increased padding */
     background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 2px; /* Reduced border-radius */
-    margin-right: 20px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
+    border-radius: 4px; /* Increased border-radius */
+    margin-right: 24px; /* Increased spacing */
   }
 
   .profile-sidebar {
-    flex: 0 0 60%; /* Flex property for 35% width */
-    padding: 20px;
+    flex: 0 0 60%;
+    padding: 24px;
     background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 2px; /* Reduced border-radius */
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
+    border-radius: 4px; /* Increased border-radius */
   }
 }
 
 /* Profile Card Styles */
 .profile-card {
   background-color: #ffffff;
-  border-radius: 2px; /* Reduced border-radius */
+  border-radius: 4px; /* Keep the border-radius for a subtle rounded look */
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Remove the box shadow */
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   .profile-card-body {
-    padding: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,16 +106,19 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px; /* Increased margin */
 
       .profile-image {
-        margin-bottom: 20px;
+        margin-bottom: 24px; /* Increased margin */
 
         img {
-          width: 100px;
-          height: 100px;
+          width: 120px; /* Increased size */
+          height: 120px;
           border-radius: 50%;
+          border: 2px solid #fff; /* Added white border */
           object-fit: cover;
+          /* Remove the box shadow */
+          // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
       }
 
@@ -121,8 +127,8 @@ body {
 
         h2 {
           margin: 0;
-          font-size: 24px;
-          color: #333;
+          font-size: 26px; /* Increased font size */
+          color: #222;
         }
 
         .profile-email {
@@ -162,13 +168,16 @@ body {
           background-color: #007bff;
           color: #ffffff;
           border: none;
-          border-radius: 2px; /* Reduced border-radius */
-          padding: 10px 20px;
-          margin-bottom: 10px;
+          border-radius: 4px; /* Increased border-radius */
+          padding: 12px 24px; /* Increased padding */
+          margin-bottom: 12px; /* Adjusted margin */
           cursor: pointer;
+          transition: all 0.3s ease;
 
           &:hover {
             background-color: #0056b3;
+            /* Remove the hover effect shadow */
+            // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
           }
         }
 
@@ -188,57 +197,27 @@ body {
 
 /* Card Styles */
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 24px; /* Increased margin */
   background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 2px; /* Reduced border-radius */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
+  border-radius: 4px; /* Increased border-radius */
 
   .card-header {
     background-color: #f8f9fa;
     font-weight: bold;
     color: #333;
-    padding: 15px;
+    padding: 18px; /* Slightly increased padding */
   }
 
   .card-body {
-    padding: 20px;
-  }
-}
-
-/* Empty message styles */
-.empty-message {
-  color: #6c757d;
-  font-style: italic;
-}
-
-/* Profile sidebar styles */
-.profile-sidebar {
-  .card-header {
-    background-color: #f8f9fa;
-    font-weight: bold;
-    color: #333;
-  }
-
-  .verification-item {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-
-    .verification-icon {
-      margin-right: 10px;
-    }
-
-    .verification-text {
-      font-size: 16px;
-      color: #333;
-    }
+    padding: 24px; /* Slightly increased padding */
   }
 }
 
 /* Section titles */
 .section-title {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
   color: #333;
 }
 
@@ -254,7 +233,7 @@ body {
 
     .profile-sidebar {
       flex: 0 0 100%;
-      margin-top: 20px;
+      margin-top: 24px; /* Increased margin */
     }
   }
 
