@@ -66,20 +66,20 @@ body {
 .profile-container {
   display: flex;
   flex-direction: row;
-  margin-top: 100px; /* Adjust margin top to account for the fixed header height */
+  margin-top: 80px; /* Adjust margin top to account for the fixed header height */
   padding: 0 20px;
   box-sizing: border-box;
 
   .profile-main-content {
-    flex: 0 0 38%;
+    flex: 0 0 39%;
     background-color: #ffffff;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
     border-radius: 4px; /* Increased border-radius */
-    margin-right: 24px; /* Increased spacing */
+    margin-right: 10px; /* Increased spacing */
   }
 
   .profile-sidebar {
-    flex: 0 0 60%;
+    flex: 0 0 61%;
     padding: 24px;
     background-color: #ffffff;
     /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
