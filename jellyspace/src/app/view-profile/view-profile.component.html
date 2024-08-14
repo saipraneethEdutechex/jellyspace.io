@@ -1,15 +1,18 @@
 <div class="profile-container">
-  <!-- Profile Actions (Fixed to Top Right) -->
-  <div class="profile-actions">
-    <button class="btn btn-primary" (click)="editProfile()">
-      Edit Profile
-    </button>
-    <button class="btn btn-secondary" (click)="close()">
-      <span class="fa fa-times"></span>
-    </button>
-  </div>
+  <!-- Header with Profile Actions (Fixed to Top Right) -->
+  <header class="profile-header">
+    <div class="profile-actions">
+      <button class="btn btn-primary" (click)="editProfile()">
+        Edit Profile
+      </button>
+      <button class="btn btn-secondary" (click)="close()">
+        <span class="fa fa-times"></span>
+      </button>
+    </div>
+  </header>
 
-  <div class="profile-main-content">
+  <!-- Main Content Section -->
+  <main class="profile-main-content">
     <!-- Profile Card -->
     <div class="profile-card">
       <div class="profile-card-body">
@@ -211,10 +214,10 @@
         <p class="empty-message">No publications have been added.</p>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Sidebar -->
-  <div class="profile-sidebar">
+  <aside class="profile-sidebar">
     <div class="card mb-4">
       <div class="card-header">
         <label class="section-title">Verifications</label>
@@ -245,23 +248,5 @@
         <p class="empty-message">No skills have been added.</p>
       </div>
     </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Languages</label>
-      </div>
-      <div class="card-body">
-        <p class="empty-message">No languages have been added.</p>
-      </div>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Interests</label>
-      </div>
-      <div class="card-body">
-        <p class="empty-message">No interests have been added.</p>
-      </div>
-    </div>
-  </div>
+  </aside>
 </div>

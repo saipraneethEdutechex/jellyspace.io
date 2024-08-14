@@ -1,206 +1,205 @@
-// Color Variables
-$primary-color: #4caf50;
-$secondary-color: #ffffff;
-$background-light: #ffffff;
-$background-sidebar: #ffffff;
-$shadow-color: rgba(0, 0, 0, 0.1);
-$text-color: #555;
-$heading-color: #333;
-$font-size-small: 12px;
-$font-size-medium: 14px;
-$font-size-large: 16px;
-$font-family: "Poppins", sans-serif;
+/* Import Poppins font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
-// Container
-.profile-container {
+/* Global styles */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+.profile-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 60px;
   display: flex;
-  max-width: 100%;
-  margin: 0 auto; // Center container horizontally
-  padding: 20px;
-  background-color: $background-light;
-  font-family: $font-family;
-  flex-direction: row;
-  position: relative; // Make sure the profile-actions are positioned relative to this container
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 10px;
-  }
-}
-
-// Profile Actions
-.profile-actions {
-  position: absolute; // Changed to absolute for better alignment
-  top: 20px;
-  right: 20px;
-  z-index: 1000; // Ensure it appears above other content
-
-  .btn {
-    margin-left: 10px;
-    padding: 10px 15px;
-  }
-}
-
-// Main Content
-.profile-main-content {
-  flex: 0 0 43%;
-  background-color: $background-light;
-  padding: 20px;
-  margin-right: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px $shadow-color;
-
-  @media (max-width: 1024px) {
-    flex: 0 0 100%;
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 15px;
-  }
-}
-
-// Sidebar
-.profile-sidebar {
-  flex: 0 0 54%;
-  background-color: $background-sidebar;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px $shadow-color;
-
-  @media (max-width: 1024px) {
-    flex: 0 0 100%;
-  }
-
-  @media (max-width: 768px) {
-    padding: 15px;
-  }
-}
-
-// Profile Card
-.profile-card {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: $secondary-color;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: 0 auto;
-
-  .profile-card-body {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profile-card-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-
-    .profile-image {
-      margin-bottom: 15px;
-
-      img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-    }
-
-    .profile-info {
-      text-align: center;
-
-      h2 {
-        font-size: $font-size-large;
-        margin: 5px 0;
-        color: $heading-color;
-      }
-
-      .profile-email {
-        font-size: $font-size-medium;
-        color: $text-color;
-      }
-    }
-  }
-
-  .profile-status,
-  .profile-rate,
-  .profile-location,
-  .profile-time,
-  .profile-join-date,
-  .profile-recommendations,
-  .profile-ratings,
-  .profile-stats {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-
-    .status-icon,
-    .rate-icon,
-    .time-icon,
-    .join-date-icon,
-    .recommendations-icon {
-      margin-right: 10px;
-      font-size: $font-size-large;
-      color: $text-color;
-    }
-
-    .location-text,
-    .time-text,
-    .join-date-text,
-    .recommendations-text,
-    .rate-text {
-      font-size: $font-size-medium;
-      color: $heading-color;
-    }
-
-    img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-  }
-
-  .profile-stats {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    .stats-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 5px 0;
-
-      .stats-value {
-        font-size: $font-size-large;
-        color: $heading-color;
-      }
-
-      .stats-label {
-        font-size: $font-size-medium;
-        color: $text-color;
-      }
-    }
-  }
 
   .profile-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    padding: 0 20px;
     width: 100%;
-    margin-top: 20px;
 
     .btn {
-      flex: 1;
-      margin: 0 5px;
+      margin-left: 10px;
+      border-radius: 4px;
+      border: none;
       padding: 10px 15px;
-      font-size: $font-size-medium;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+      }
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: #ffffff;
+    }
+  }
+}
+
+/* Main container styles */
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px; /* Adjust margin top to account for the fixed header height */
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  .profile-main-content {
+    flex: 0 0 60%; /* Flex property for 60% width */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+
+  .profile-sidebar {
+    flex: 0 0 35%; /* Flex property for 35% width */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+}
+
+/* Profile Card Styles */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+
+  .profile-card-body {
+    padding: 20px;
+
+    .profile-card-header {
+      display: flex;
+      align-items: center;
+
+      .profile-image {
+        margin-right: 20px;
+
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .profile-info {
+        h2 {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+        }
+
+        .profile-email {
+          color: #6c757d;
+        }
+      }
+    }
+  }
+}
+
+/* Card Styles */
+.card {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  .card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+    padding: 15px;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+}
+
+/* Empty message styles */
+.empty-message {
+  color: #6c757d;
+  font-style: italic;
+}
+
+/* Profile sidebar styles */
+.profile-sidebar {
+  .card-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .verification-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+
+    .verification-icon {
+      margin-right: 10px;
+    }
+
+    .verification-text {
+      font-size: 16px;
+      color: #333;
+    }
+  }
+}
+
+/* Section titles */
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+
+    .profile-main-content {
+      flex: 0 0 100%;
+      margin-right: 0;
+    }
+
+    .profile-sidebar {
+      flex: 0 0 100%;
+      margin-top: 20px;
+    }
+  }
+
+  .profile-header {
+    .profile-actions {
+      padding: 0 10px;
     }
   }
 }
