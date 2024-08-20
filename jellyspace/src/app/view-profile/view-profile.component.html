@@ -113,55 +113,6 @@
       </div>
     </div>
 
-    <!-- Strategic Information Section -->
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Strategic Information</label>
-      </div>
-      <div class="card-body">
-        <div class="strategic-info">
-          <div class="info-section">
-            <h5>Mission and Vision:</h5>
-            <p>
-              <strong>Mission:</strong>
-              {{ strategicInformation.missionVision.mission }}
-            </p>
-            <p>
-              <strong>Vision:</strong>
-              {{ strategicInformation.missionVision.vision }}
-            </p>
-          </div>
-          <div class="info-section">
-            <h5>SWOT Analysis:</h5>
-            <p>
-              <strong>Strengths:</strong>
-              {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
-            </p>
-            <p>
-              <strong>Weaknesses:</strong>
-              {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
-            </p>
-            <p>
-              <strong>Opportunities:</strong>
-              {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
-            </p>
-            <p>
-              <strong>Threats:</strong>
-              {{ strategicInformation.swotAnalysis.threats.join(", ") }}
-            </p>
-          </div>
-          <div class="info-section">
-            <h5>Key Performance Indicators (KPIs):</h5>
-            <p>{{ strategicInformation.kpis.join(", ") }}</p>
-          </div>
-          <div class="info-section">
-            <h5>Growth Strategy:</h5>
-            <p>{{ strategicInformation.growthStrategy }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Additional Sections -->
     <div class="card mb-4">
       <div
@@ -258,82 +209,69 @@
           <h5>Delivery and Fulfillment:</h5>
           <p>{{ productServicesInfo.deliveryAndFulfillment }}</p>
         </div>
-        <div class="info-section">
-          <h5>Customer Support:</h5>
-          <p>{{ productServicesInfo.customerSupport }}</p>
-        </div>
-        <div class="info-section">
-          <h5>Pricing and Packages:</h5>
-          <p>{{ productServicesInfo.pricingAndPackages }}</p>
-        </div>
-      </div>
-    </div>
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Market and Customer Data</label>
-      </div>
-      <div class="card-body">
-        <div class="info-section">
-          <h5>Key Markets:</h5>
-          <p>{{ MarketCustomerData.keyMarkets.join(", ") }}</p>
-        </div>
-        <div class="info-section">
-          <h5>Customer Segments:</h5>
-          <p>{{ MarketCustomerData.customerSegments.join(", ") }}</p>
-        </div>
-        <div class="info-section">
-          <h5>Competitive Position:</h5>
-          <p>{{ MarketCustomerData.competitivePosition }}</p>
-        </div>
-        <div class="info-section">
-          <h5>Sales Channels:</h5>
-          <p>{{ MarketCustomerData.salesChannels.join(", ") }}</p>
-        </div>
       </div>
     </div>
 
+    <!-- Contact Information Section -->
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Contact Information</label>
+      </div>
+      <div class="card-body">
+        <p><strong>Address:</strong> {{ contactInfo.address }}</p>
+        <p><strong>Phone:</strong> {{ contactInfo.phone }}</p>
+        <p><strong>Email:</strong> {{ contactInfo.email }}</p>
+        <p>
+          <strong>Website:</strong>
+          <a [href]="contactInfo.website">{{ contactInfo.website }}</a>
+        </p>
+      </div>
+    </div>
+    <!-- Strategic Information Section -->
     <div class="card mb-4">
       <div class="card-header">
         <label class="section-title">Strategic Information</label>
       </div>
       <div class="card-body">
-        <div class="info-section">
-          <h5>Mission and Vision:</h5>
-          <p>
-            <strong>Mission:</strong>
-            {{ strategicInformation.missionVision.mission }}
-          </p>
-          <p>
-            <strong>Vision:</strong>
-            {{ strategicInformation.missionVision.vision }}
-          </p>
-        </div>
-        <div class="info-section">
-          <h5>SWOT Analysis:</h5>
-          <p>
-            <strong>Strengths:</strong>
-            {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
-          </p>
-          <p>
-            <strong>Weaknesses:</strong>
-            {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
-          </p>
-          <p>
-            <strong>Opportunities:</strong>
-            {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
-          </p>
-          <p>
-            <strong>Threats:</strong>
-            {{ strategicInformation.swotAnalysis.threats.join(", ") }}
-          </p>
-        </div>
-        <div class="info-section">
-          <h5>Key Performance Indicators (KPIs):</h5>
-          <p>{{ strategicInformation.kpis.join(", ") }}</p>
-        </div>
-        <div class="info-section">
-          <h5>Growth Strategy:</h5>
-          <p>{{ strategicInformation.growthStrategy }}</p>
+        <div class="strategic-info">
+          <div class="info-section">
+            <h5>Mission and Vision:</h5>
+            <p>
+              <strong>Mission:</strong>
+              {{ strategicInformation.missionVision.mission }}
+            </p>
+            <p>
+              <strong>Vision:</strong>
+              {{ strategicInformation.missionVision.vision }}
+            </p>
+          </div>
+          <div class="info-section">
+            <h5>SWOT Analysis:</h5>
+            <p>
+              <strong>Strengths:</strong>
+              {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
+            </p>
+            <p>
+              <strong>Weaknesses:</strong>
+              {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
+            </p>
+            <p>
+              <strong>Opportunities:</strong>
+              {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
+            </p>
+            <p>
+              <strong>Threats:</strong>
+              {{ strategicInformation.swotAnalysis.threats.join(", ") }}
+            </p>
+          </div>
+          <div class="info-section">
+            <h5>Key Performance Indicators (KPIs):</h5>
+            <p>{{ strategicInformation.kpis.join(", ") }}</p>
+          </div>
+          <div class="info-section">
+            <h5>Growth Strategy:</h5>
+            <p>{{ strategicInformation.growthStrategy }}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -28,6 +28,15 @@ export class ViewProfileComponent implements OnInit {
     partnerships: ['NASA', 'Boeing'],
     certifications: ['ISO 9001', 'AS9100'],
     technologyFocus: ['Advanced Aerospace Technologies'], // Changed to an array
+    website: 'https://www.techsolutions.com',
+  };
+
+  // Contact Information
+  contactInfo = {
+    address: '123 Tech Lane, Silicon Valley, CA',
+    phone: '123-456-7890',
+    email: 'contact@techsolutions.com',
+    website: 'https://www.techsolutions.com',
   };
 
   // MarketCustomerData
@@ -40,7 +49,7 @@ export class ViewProfileComponent implements OnInit {
       'Direct Sales',
       'Online Distribution',
       'Strategic Partnerships',
-    ], 
+    ],
   };
 
   // Product and Services Information
