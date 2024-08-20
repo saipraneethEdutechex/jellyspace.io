@@ -1,103 +1,43 @@
 <div class="profile-container">
-  <div class="profile-main-content">
+  <!-- Header with Profile Actions (Fixed to Top Right) -->
+  <header class="profile-header">
+    <div class="profile-actions">
+      <button class="btn btn-primary">Edit Profile</button>
+      <button class="btn btn-secondary" (click)="close()">
+        <span class="fa fa-times"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Section -->
+  <main class="profile-main-content">
     <!-- Profile Card -->
-    <div class="card profile-card mb-4">
-      <div class="card-body">
-        <div class="profile-row">
-          <!-- Profile Image and Details -->
-          <div class="profile-image-section">
+    <div class="card my-4">
+      <div class="profile-card">
+        <div class="profile-card-body">
+          <div class="profile-card-header">
             <div class="profile-image">
               <img [src]="image || dummyImage" alt="Profile Image" />
             </div>
-            <div class="profile-status mt-3">
-              <span class="fa fa-circle"></span>
-              <span class="status-text">I'm Online!</span>
-            </div>
-            <div class="profile-rate mt-1">
-              <span class="fa fa-usd"></span>
-              <span class="rate-text">$2 USD / hour</span>
-            </div>
-            <div class="profile-location mt-1">
-              <img src="../../assets/us.png" alt="Location Flag" />
-              <span class="location-text">New York, USA</span>
-            </div>
-            <div class="profile-time mt-1">
-              <span class="fa fa-clock-o"></span>
-              <span class="time-text">It's currently 2:15 PM here</span>
-            </div>
-            <div class="profile-join-date mt-1">
-              <span class="fa fa-compass"></span>
-              <span class="join-date-text">Joined February 2, 2017</span>
-            </div>
-            <div class="profile-recommendations mt-1">
-              <span class="fa fa-thumbs-o-up"></span>
-              <span class="recommendations-text">0 Recommendations</span>
+            <div class="profile-info">
+              <h2>{{ fname }} {{ lname }}</h2>
+              <span class="profile-email">{{ email }}</span>
             </div>
           </div>
-
-          <!-- Profile Info Section -->
-          <div class="profile-info-section">
-            <div class="profile-info-header">
-              <h2>{{ fname }} {{ lname }}</h2>
-              <div class="profile-actions">
-                <a class="btn btn-primary" (click)="editProfile()"
-                  >Edit Profile</a
-                >
-                <a class="btn btn-secondary ml-4" (click)="close()">
-                  <span class="fa fa-times"></span>
-                </a>
-              </div>
+          <div class="profile-details">
+            <div class="company-info">
+              <h3>name</h3>
+              <p>companyInfo.role</p>
+              <p><strong>Company Size:</strong> companyInfo.size</p>
             </div>
-            <span class="text-muted fs-6" style="font-size: 12px">{{
-              email
-            }}</span>
-            <div class="profile-about mt-3">
-              <ng-container *ngIf="editData; else viewMode">
-                <input
-                  type="text"
-                  [(ngModel)]="descriptionData"
-                  placeholder="Describe yourself"
-                />
-              </ng-container>
-              <ng-template #viewMode>
-                <p class="profile-about-text">{{ descriptionData }}</p>
-              </ng-template>
-            </div>
-            <div class="profile-ratings mt-3">
-              <div class="ratings-stars">
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="review-score">0.0</span>
-                <span class="review-count">(0 reviews)</span>
-              </div>
-              <div class="ratings-metrics mt-2">
-                <span class="metric-value">$0.0</span>
-              </div>
-            </div>
-            <div class="profile-stats mt-3">
-              <div class="stats-row">
-                <div class="stats-col">
-                  <span class="stats-value">N/A</span>
-                  <label class="stats-label">Jobs Completed</label>
-                </div>
-                <div class="stats-col">
-                  <span class="stats-value">N/A</span>
-                  <label class="stats-label">On Budget</label>
-                </div>
-              </div>
-              <div class="stats-row mt-2">
-                <div class="stats-col">
-                  <span class="stats-value">N/A</span>
-                  <label class="stats-label">On Time</label>
-                </div>
-                <div class="stats-col">
-                  <span class="stats-value">N/A</span>
-                  <label class="stats-label">Repeat Hire Rate</label>
-                </div>
-              </div>
+            <div class="profile-actions">
+              <button class="edit-profile" (click)="editProfile()">
+                Edit My Profile
+              </button>
+              <a href="/privacy-policy" class="policy-link">Privacy Policy</a>
+              <a href="/terms-conditions" class="policy-link"
+                >Terms and Conditions</a
+              >
             </div>
           </div>
         </div>
@@ -105,7 +45,7 @@
     </div>
 
     <!-- Company Information Section -->
-    <div class="card mb-4">
+    <div class="card my-4">
       <div class="card-header">
         <label class="section-title">Company Information</label>
       </div>
@@ -145,6 +85,7 @@
         </div>
       </div>
     </div>
+
     <!-- Market and Customer Data Section -->
     <div class="card mb-4">
       <div class="card-header">
@@ -171,6 +112,7 @@
         </div>
       </div>
     </div>
+
     <!-- Strategic Information Section -->
     <div class="card mb-4">
       <div class="card-header">
@@ -291,48 +233,109 @@
         <p class="empty-message">No publications have been added.</p>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Sidebar -->
-  <div class="profile-sidebar">
+  <aside class="profile-sidebar">
     <div class="card mb-4">
       <div class="card-header">
-        <label class="section-title">Verifications</label>
+        <label class="section-title">Product and Services Information</label>
       </div>
       <div class="card-body">
-        <div *ngFor="let item of verificationList" class="verification-item">
-          <span class="{{ item.icon }} verification-icon"></span>
-          <span class="verification-text">{{ item.title }}</span>
+        <div class="info-section">
+          <h5>Product Categories:</h5>
+          <p>{{ productServicesInfo.productCategories.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Product Specifications:</h5>
+          <p>{{ productServicesInfo.productSpecifications }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Service Offerings:</h5>
+          <p>{{ productServicesInfo.serviceOfferings.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Delivery and Fulfillment:</h5>
+          <p>{{ productServicesInfo.deliveryAndFulfillment }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Customer Support:</h5>
+          <p>{{ productServicesInfo.customerSupport }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Pricing and Packages:</h5>
+          <p>{{ productServicesInfo.pricingAndPackages }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Market and Customer Data</label>
+      </div>
+      <div class="card-body">
+        <div class="info-section">
+          <h5>Key Markets:</h5>
+          <p>{{ MarketCustomerData.keyMarkets.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Customer Segments:</h5>
+          <p>{{ MarketCustomerData.customerSegments.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Competitive Position:</h5>
+          <p>{{ MarketCustomerData.competitivePosition }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Sales Channels:</h5>
+          <p>{{ MarketCustomerData.salesChannels.join(", ") }}</p>
         </div>
       </div>
     </div>
 
     <div class="card mb-4">
       <div class="card-header">
-        <label class="section-title">Certifications</label>
-      </div>
-      <div class="card-body text-center">
-        <img src="../../assets/certifications.png" alt="No Certifications" />
-        <p class="empty-message">No certifications have been added.</p>
-      </div>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Skills</label>
+        <label class="section-title">Strategic Information</label>
       </div>
       <div class="card-body">
-        <p class="empty-message">No skills have been added.</p>
+        <div class="info-section">
+          <h5>Mission and Vision:</h5>
+          <p>
+            <strong>Mission:</strong>
+            {{ strategicInformation.missionVision.mission }}
+          </p>
+          <p>
+            <strong>Vision:</strong>
+            {{ strategicInformation.missionVision.vision }}
+          </p>
+        </div>
+        <div class="info-section">
+          <h5>SWOT Analysis:</h5>
+          <p>
+            <strong>Strengths:</strong>
+            {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
+          </p>
+          <p>
+            <strong>Weaknesses:</strong>
+            {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
+          </p>
+          <p>
+            <strong>Opportunities:</strong>
+            {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
+          </p>
+          <p>
+            <strong>Threats:</strong>
+            {{ strategicInformation.swotAnalysis.threats.join(", ") }}
+          </p>
+        </div>
+        <div class="info-section">
+          <h5>Key Performance Indicators (KPIs):</h5>
+          <p>{{ strategicInformation.kpis.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Growth Strategy:</h5>
+          <p>{{ strategicInformation.growthStrategy }}</p>
+        </div>
       </div>
     </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Languages</label>
-      </div>
-      <div class="card-body">
-        <p class="empty-message">No languages have been added.</p>
-      </div>
-    </div>
-  </div>
+  </aside>
 </div>

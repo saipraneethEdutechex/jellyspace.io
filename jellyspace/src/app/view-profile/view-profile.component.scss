@@ -14,7 +14,6 @@ body {
   right: 0;
   width: 100%;
   background: #ffffff;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */ /* Removed box-shadow */
   z-index: 1000;
   height: 70px; /* Increased height */
   display: flex;
@@ -28,21 +27,19 @@ body {
 
     .btn {
       margin-left: 10px;
-      border-radius: 4px; /* Increased border-radius */
+      border-radius: 4px;
       border: none;
-      padding: 12px 18px; /* Increased padding */
+      padding: 12px 18px;
       font-size: 16px;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
         opacity: 0.9;
-        /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */ /* Removed hover effect shadow */
       }
 
       &:focus {
         outline: none;
-        /* box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5); */ /* Removed focus effect shadow */
       }
     }
 
@@ -66,34 +63,30 @@ body {
 .profile-container {
   display: flex;
   flex-direction: row;
-  margin-top: 80px; /* Adjust margin top to account for the fixed header height */
+  margin-top: 80px;
   padding: 0 20px;
   box-sizing: border-box;
 
   .profile-main-content {
     flex: 0 0 39%;
     background-color: #ffffff;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
-    border-radius: 4px; /* Increased border-radius */
-    margin-right: 10px; /* Increased spacing */
+    border-radius: 4px;
+    margin-right: 10px;
   }
 
   .profile-sidebar {
     flex: 0 0 61%;
     padding: 24px;
     background-color: #ffffff;
-    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
-    border-radius: 4px; /* Increased border-radius */
+    border-radius: 4px;
   }
 }
 
 /* Profile Card Styles */
 .profile-card {
   background-color: #ffffff;
-  border-radius: 4px; /* Keep the border-radius for a subtle rounded look */
+  border-radius: 4px;
   overflow: hidden;
-  /* Remove the box shadow */
-  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   .profile-card-body {
     padding: 24px;
@@ -105,19 +98,17 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 24px; /* Increased margin */
+      margin-bottom: 24px;
 
       .profile-image {
-        margin-bottom: 24px; /* Increased margin */
+        margin-bottom: 24px;
 
         img {
-          width: 120px; /* Increased size */
+          width: 120px;
           height: 120px;
           border-radius: 50%;
-          border: 2px solid #fff; /* Added white border */
+          border: 2px solid #fff;
           object-fit: cover;
-          /* Remove the box shadow */
-          // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
       }
 
@@ -126,7 +117,7 @@ body {
 
         h2 {
           margin: 0;
-          font-size: 26px; /* Increased font size */
+          font-size: 26px;
           color: #222;
         }
 
@@ -164,19 +155,20 @@ body {
         align-items: center;
 
         .edit-profile {
-          background-color: #007bff;
-          color: #ffffff;
-          border: none;
-          border-radius: 4px; /* Increased border-radius */
-          padding: 12px 24px; /* Increased padding */
-          margin-bottom: 12px; /* Adjusted margin */
+          background-color: #ffffff; /* White background */
+          color: #222; /* Dark text */
+          border: 2px solid #007bff; /* Border color */
+          border-radius: 4px;
+          padding: 12px 24px;
+          margin-bottom: 12px;
           cursor: pointer;
+          font-family: "Poppins", sans-serif; /* Poppins font */
+          font-size: 16px;
           transition: all 0.3s ease;
 
           &:hover {
-            background-color: #0056b3;
-            /* Remove the hover effect shadow */
-            // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: #b7c0c2; /* Light color on hover */
+            color: #222; /* Dark text on hover */
           }
         }
 
@@ -196,20 +188,19 @@ body {
 
 /* Card Styles */
 .card {
-  margin-bottom: 24px; /* Increased margin */
+  margin-bottom: 24px;
   background-color: #ffffff;
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */ /* Removed box-shadow */
-  border-radius: 4px; /* Increased border-radius */
+  border-radius: 4px;
 
   .card-header {
     background-color: #f8f9fa;
     font-weight: bold;
     color: #333;
-    padding: 18px; /* Slightly increased padding */
+    padding: 18px;
   }
 
   .card-body {
-    padding: 24px; /* Slightly increased padding */
+    padding: 24px;
   }
 }
 
@@ -232,7 +223,7 @@ body {
 
     .profile-sidebar {
       flex: 0 0 100%;
-      margin-top: 24px; /* Increased margin */
+      margin-top: 24px;
     }
   }
 

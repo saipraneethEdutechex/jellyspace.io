@@ -26,8 +26,9 @@
           </div>
           <div class="profile-details">
             <div class="company-info">
-              <h3>{{ companyInfo.name }}</h3>
-              <p>role</p>
+              <h3>name</h3>
+              <p>companyInfo.role</p>
+              <p><strong>Company Size:</strong> companyInfo.size</p>
             </div>
             <div class="profile-actions">
               <button class="edit-profile" (click)="editProfile()">
@@ -42,6 +43,7 @@
         </div>
       </div>
     </div>
+
     <!-- Company Information Section -->
     <div class="card my-4">
       <div class="card-header">
@@ -83,6 +85,7 @@
         </div>
       </div>
     </div>
+
     <!-- Market and Customer Data Section -->
     <div class="card mb-4">
       <div class="card-header">
@@ -109,6 +112,7 @@
         </div>
       </div>
     </div>
+
     <!-- Strategic Information Section -->
     <div class="card mb-4">
       <div class="card-header">
@@ -235,32 +239,102 @@
   <aside class="profile-sidebar">
     <div class="card mb-4">
       <div class="card-header">
-        <label class="section-title">Verifications</label>
+        <label class="section-title">Product and Services Information</label>
       </div>
       <div class="card-body">
-        <div *ngFor="let item of verificationList" class="verification-item">
-          <span class="{{ item.icon }} verification-icon"></span>
-          <span class="verification-text">{{ item.title }}</span>
+        <div class="info-section">
+          <h5>Product Categories:</h5>
+          <p>{{ productServicesInfo.productCategories.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Product Specifications:</h5>
+          <p>{{ productServicesInfo.productSpecifications }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Service Offerings:</h5>
+          <p>{{ productServicesInfo.serviceOfferings.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Delivery and Fulfillment:</h5>
+          <p>{{ productServicesInfo.deliveryAndFulfillment }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Customer Support:</h5>
+          <p>{{ productServicesInfo.customerSupport }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Pricing and Packages:</h5>
+          <p>{{ productServicesInfo.pricingAndPackages }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-header">
+        <label class="section-title">Market and Customer Data</label>
+      </div>
+      <div class="card-body">
+        <div class="info-section">
+          <h5>Key Markets:</h5>
+          <p>{{ MarketCustomerData.keyMarkets.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Customer Segments:</h5>
+          <p>{{ MarketCustomerData.customerSegments.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Competitive Position:</h5>
+          <p>{{ MarketCustomerData.competitivePosition }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Sales Channels:</h5>
+          <p>{{ MarketCustomerData.salesChannels.join(", ") }}</p>
         </div>
       </div>
     </div>
 
     <div class="card mb-4">
       <div class="card-header">
-        <label class="section-title">Certifications</label>
-      </div>
-      <div class="card-body text-center">
-        <img src="../../assets/certifications.png" alt="No Certifications" />
-        <p class="empty-message">No certifications have been added.</p>
-      </div>
-    </div>
-
-    <div class="card mb-4">
-      <div class="card-header">
-        <label class="section-title">Skills</label>
+        <label class="section-title">Strategic Information</label>
       </div>
       <div class="card-body">
-        <p class="empty-message">No skills have been added.</p>
+        <div class="info-section">
+          <h5>Mission and Vision:</h5>
+          <p>
+            <strong>Mission:</strong>
+            {{ strategicInformation.missionVision.mission }}
+          </p>
+          <p>
+            <strong>Vision:</strong>
+            {{ strategicInformation.missionVision.vision }}
+          </p>
+        </div>
+        <div class="info-section">
+          <h5>SWOT Analysis:</h5>
+          <p>
+            <strong>Strengths:</strong>
+            {{ strategicInformation.swotAnalysis.strengths.join(", ") }}
+          </p>
+          <p>
+            <strong>Weaknesses:</strong>
+            {{ strategicInformation.swotAnalysis.weaknesses.join(", ") }}
+          </p>
+          <p>
+            <strong>Opportunities:</strong>
+            {{ strategicInformation.swotAnalysis.opportunities.join(", ") }}
+          </p>
+          <p>
+            <strong>Threats:</strong>
+            {{ strategicInformation.swotAnalysis.threats.join(", ") }}
+          </p>
+        </div>
+        <div class="info-section">
+          <h5>Key Performance Indicators (KPIs):</h5>
+          <p>{{ strategicInformation.kpis.join(", ") }}</p>
+        </div>
+        <div class="info-section">
+          <h5>Growth Strategy:</h5>
+          <p>{{ strategicInformation.growthStrategy }}</p>
+        </div>
       </div>
     </div>
   </aside>

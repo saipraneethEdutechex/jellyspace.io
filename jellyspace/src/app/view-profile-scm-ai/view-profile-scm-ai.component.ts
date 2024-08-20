@@ -30,7 +30,7 @@ export class ViewSCMProfileComponent implements OnInit {
     technologyFocus: ['Advanced Aerospace Technologies'], // Changed to an array
   };
 
-  //MarketCustomerData
+  // MarketCustomerData
   MarketCustomerData = {
     keyMarkets: ['North America', 'Europe', 'Asia-Pacific'], // Example markets
     customerSegments: ['OEMs', 'Governmental Agencies', 'Defense Contractors'], // Example segments
@@ -40,7 +40,19 @@ export class ViewSCMProfileComponent implements OnInit {
       'Direct Sales',
       'Online Distribution',
       'Strategic Partnerships',
-    ], // Example channels
+    ],
+  };
+
+  // Product and Services Information
+  productServicesInfo = {
+    productCategories: ['Aerospace Components', 'Defense Systems'], // Example categories
+    productSpecifications: 'High-performance materials, cutting-edge design', // Example specifications
+    serviceOfferings: ['Maintenance', 'Repair', 'Overhaul'], // Example services
+    deliveryAndFulfillment:
+      'Worldwide shipping with expedited options available for urgent needs.', // Example delivery
+    customerSupport: '24/7 customer support with dedicated account managers.', // Example support
+    pricingAndPackages:
+      'Custom pricing based on volume and service level agreements.', // Example pricing
   };
 
   // Strategic Information
@@ -79,6 +91,7 @@ export class ViewSCMProfileComponent implements OnInit {
     growthStrategy:
       'Focus on expanding into new markets, investing in R&D for cutting-edge technology, and forming strategic partnerships to enhance market presence.',
   };
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
