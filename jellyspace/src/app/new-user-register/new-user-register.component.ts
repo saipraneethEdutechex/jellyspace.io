@@ -41,10 +41,10 @@ export class NewUserRegisterComponent implements OnInit {
   }
 
   startFreeTrial(): void {
-    this.router.navigate(['company-list']);
+    this.router.navigate(['address-details']);
   }
 
-  completeRegistration(): void {
-    // Complete registration logic
+  CompleteRegistration(): void {
+    this.router.navigate(['company-list']);
   }
 }
