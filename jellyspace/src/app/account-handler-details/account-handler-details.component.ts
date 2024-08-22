@@ -22,7 +22,10 @@ export class AccountHandlerDetailsComponent implements OnInit {
     private storage: AngularFireStorage
   ) {}
 
-  public fieldTextType: boolean = false;
+  public fieldTextType1: boolean = false;
+  public fieldTextType2: boolean = false;
+  public pWord: string = ''; // For Password field
+  public confirmPWord: string = ''; // For Confirm Password field
   managerList: any = [];
   bidFlag: boolean = false;
   collabratorFlag: boolean = false;
@@ -32,11 +35,13 @@ export class AccountHandlerDetailsComponent implements OnInit {
   public eMail: any;
   public mobileNo: any;
   public title: any;
-  public pWord: any;
   public file: any;
 
-  toggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType;
+  toggleFieldTextType1() {
+    this.fieldTextType1 = !this.fieldTextType1;
+  }
+  toggleFieldTextType2() {
+    this.fieldTextType2 = !this.fieldTextType2;
   }
 
   ngOnInit(): void {
@@ -45,7 +50,6 @@ export class AccountHandlerDetailsComponent implements OnInit {
     this.eMail = localStorage.getItem('othereMail');
     this.mobileNo = localStorage.getItem('otherMobileNo');
     this.title = localStorage.getItem('otherTitle');
-    this.pWord = localStorage.getItem('otherPWord');
     this.file = localStorage.getItem('imagepath');
     this.managerList = [
       { label: 'Yes', value: '0' },

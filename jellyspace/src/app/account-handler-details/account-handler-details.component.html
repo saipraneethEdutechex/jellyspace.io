@@ -120,10 +120,11 @@
             <div class="col-6 m-0 p-0">
               <label class="control-label pl-3 font-style-family" for="password"
                 >Password</label
-              ><span style="color: red">*</span>
+              >
+              <span style="color: red">*</span>
               <div class="input-group">
                 <input
-                  [type]="fieldTextType ? 'text' : 'password'"
+                  [type]="fieldTextType1 ? 'text' : 'password'"
                   [ngModelOptions]="{ standalone: true }"
                   class="form-control font-style-family"
                   [(ngModel)]="pWord"
@@ -132,16 +133,65 @@
                 <span
                   class="input-group-text"
                   id="basic-addon1"
-                  (click)="toggleFieldTextType()"
+                  (click)="toggleFieldTextType1()"
                 >
                   <i
                     class="fa"
                     [ngClass]="{
-                      'fa-eye-slash': !fieldTextType,
-                      'fa-eye': fieldTextType
+                      'fa-eye-slash': !fieldTextType1,
+                      'fa-eye': fieldTextType1
                     }"
                   ></i>
                 </span>
+              </div>
+
+              <!-- Warning message for password length -->
+              <div
+                class="font-style-family"
+                *ngIf="pWord && pWord.length < 8"
+                style="color: red; font-size: 12px; margin-top: 5px"
+              >
+                Password should consist of at least 8 characters.
+              </div>
+            </div>
+
+            <div class="col-6 m-0 p-0">
+              <label
+                class="control-label pl-3 font-style-family"
+                for="confirmPassword"
+                >Confirm Password</label
+              >
+              <span style="color: red">*</span>
+              <div class="input-group">
+                <input
+                  [type]="fieldTextType2 ? 'text' : 'password'"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="form-control font-style-family"
+                  [(ngModel)]="confirmPWord"
+                  placeholder="Confirm Password"
+                />
+                <span
+                  class="input-group-text"
+                  id="basic-addon1"
+                  (click)="toggleFieldTextType2()"
+                >
+                  <i
+                    class="fa"
+                    [ngClass]="{
+                      'fa-eye-slash': !fieldTextType2,
+                      'fa-eye': fieldTextType2
+                    }"
+                  ></i>
+                </span>
+              </div>
+
+              <!-- Warning message for password mismatch -->
+              <div
+                class="font-style-family"
+                *ngIf="confirmPWord && pWord !== confirmPWord"
+                style="color: red; font-size: 12px; margin-top: 5px"
+              >
+                Password and Confirm Password do not match.
               </div>
             </div>
             <div class="col-6 m-0 p-0">
@@ -159,7 +209,7 @@
                 />
               </div>
             </div>
-            <div class="col-6 m-0 p-0">
+            <div class="col-6 mt-4 p-0">
               <label class="control-label pl-3 font-style-family"
                 >Is Bid Manager</label
               >
@@ -346,7 +396,13 @@
           <button
             type="submit"
             [disabled]="
-              !fName || !lName || !eMail || !mobileNo || !title || !pWord
+              !fName ||
+              !lName ||
+              !eMail ||
+              !mobileNo ||
+              !title ||
+              !pWord ||
+              pWord !== confirmPWord
             "
             class="btn btn-primary rounded-sm ms-3 font-style-family"
             (click)="nextClick()"
