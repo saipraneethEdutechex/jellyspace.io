@@ -11,5 +11,5 @@ export interface FirebaseConfig {
 
 export interface Environment {
   production: boolean;
-  firebase?: FirebaseConfig; // Optional because it may not be present in the production environment
+  firebase: FirebaseConfig; // Remove the optional chaining
 }
