@@ -16,6 +16,8 @@ export class AccountHandlerDetailsComponent implements OnInit {
   imgShow: boolean = true;
   uploading: boolean = false; // New flag to track upload status
   uploadSuccess: boolean = false; // Flag to indicate successful upload
+  emailError: string = ''; // Flag to store email error message
+
   constructor(
     private service: AppService,
     private router: Router,
@@ -32,7 +34,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
 
   public fName: any;
   public lName: any;
-  public eMail: any;
+  public eMail: string = '';
   public mobileNo: any;
   public title: any;
   public file: any;
@@ -45,16 +47,30 @@ export class AccountHandlerDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fName = localStorage.getItem('otherFName');
-    this.lName = localStorage.getItem('otherLName');
-    this.eMail = localStorage.getItem('othereMail');
-    this.mobileNo = localStorage.getItem('otherMobileNo');
-    this.title = localStorage.getItem('otherTitle');
-    this.file = localStorage.getItem('imagepath');
+    this.fName = localStorage.getItem('otherFName') || '';
+    this.lName = localStorage.getItem('otherLName') || '';
+    this.eMail = localStorage.getItem('othereMail') || ''; // Ensure eMail is always a string
+    this.mobileNo = localStorage.getItem('otherMobileNo') || '';
+    this.title = localStorage.getItem('otherTitle') || '';
+    this.file = localStorage.getItem('imagepath') || '';
     this.managerList = [
       { label: 'Yes', value: '0' },
       { label: 'No', value: '1' },
     ];
+  }
+
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  onEmailChange(event: any) {
+    this.eMail = event.target.value;
+    if (!this.validateEmail(this.eMail)) {
+      this.emailError = 'Invalid email address';
+    } else {
+      this.emailError = '';
+    }
   }
 
   selectBidManager(item: any) {
@@ -77,33 +93,29 @@ export class AccountHandlerDetailsComponent implements OnInit {
       // Monitor the upload process
       task.snapshotChanges().subscribe(
         (snapshot) => {
-          // Check if the upload is complete
           if (snapshot?.state === 'success') {
-            // Get the download URL once the upload is complete
             fileRef.getDownloadURL().subscribe(
               (downloadURL) => {
                 this.url = downloadURL;
-                console.log('Image URL after successful upload:', this.url); // Log the image URL
                 this.imgShow = false;
-                this.uploading = false; // Reset the flag after upload
-                this.uploadSuccess = true; // Set upload success flag
+                this.uploading = false;
+                this.uploadSuccess = true;
               },
               (error) => {
-                console.error('Error getting download URL:', error); // Log any error getting download URL
-                this.uploading = false; // Reset the flag on error
+                console.error('Error getting download URL:', error);
+                this.uploading = false;
                 this.uploadSuccess = false;
               }
             );
           }
         },
         (error) => {
-          console.error('Error uploading file:', error); // Log any error during upload
-          this.uploading = false; // Reset the flag on error
+          console.error('Error uploading file:', error);
+          this.uploading = false;
           this.uploadSuccess = false;
         }
       );
 
-      // For displaying image preview
       const reader = new FileReader();
       reader.onload = (_event) => {
         this.url = reader.result;
@@ -115,13 +127,17 @@ export class AccountHandlerDetailsComponent implements OnInit {
 
   nextClick() {
     if (this.uploading) {
-      // If uploading is still in progress, do not proceed
       alert('Please wait until the image upload is complete.');
       return;
     }
 
-    if (!this.fileData) {
-      console.error('No file selected');
+    if (!this.uploadSuccess) {
+      alert('Please upload a valid image.');
+      return;
+    }
+
+    if (!this.validateEmail(this.eMail)) {
+      alert('Please enter a valid email address.');
       return;
     }
 

@@ -102,21 +102,25 @@
           <div class="row m-0 p-0">
             <div class="col-6 m-0 p-0">
               <div class="form-group">
-                <label class="control-label pl-3 font-style-family" for="email"
-                  >Email <sup class="mandatory-color">*</sup></label
-                >
+                <label class="control-label pl-3 font-style-family" for="email">
+                  Email <sup class="mandatory-color">*</sup>
+                </label>
                 <div class="col-sm-12">
                   <input
                     type="email"
-                    [ngModelOptions]="{ standalone: true }"
-                    [(ngModel)]="eMail"
                     class="form-control font-style-family"
                     id="email"
                     placeholder="Enter Email"
+                    (input)="onEmailChange($event)"
+                    [value]="eMail"
                   />
+                  <div *ngIf="emailError" class="text-danger font-style-family">
+                    {{ emailError }}
+                  </div>
                 </div>
               </div>
             </div>
+
             <div class="col-6 m-0 p-0">
               <label class="control-label pl-3 font-style-family" for="password"
                 >Password</label
@@ -349,16 +353,25 @@
           <div class="row m-0 p-0">
             <div class="col-6 m-0 p-0">
               <div class="form-group">
-                <label class="control-label pl-3 font-style-family" for="email"
-                  >Email <sup class="mandatory-color">*</sup></label
-                >
+                <label class="control-label pl-3 font-style-family" for="email">
+                  Email <sup class="mandatory-color">*</sup>
+                </label>
                 <div class="col-sm-12">
                   <input
                     type="email"
                     class="form-control font-style-family"
                     id="email"
                     placeholder="Enter Email"
+                    (input)="onEmailChange($event)"
+                    [value]="eMail"
                   />
+                  <!-- Display email error message -->
+                  <div
+                    *ngIf="emailError"
+                    style="color: red; font-size: 0.875rem"
+                  >
+                    {{ emailError }}
+                  </div>
                 </div>
               </div>
             </div>
@@ -407,7 +420,8 @@
               !title ||
               !pWord ||
               pWord !== confirmPWord ||
-              !uploadSuccess
+              !uploadSuccess ||
+              !!emailError
             "
             class="btn btn-primary rounded-sm ms-3 font-style-family"
             (click)="nextClick()"
