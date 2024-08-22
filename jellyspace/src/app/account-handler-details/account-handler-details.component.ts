@@ -15,7 +15,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
   url: any;
   imgShow: boolean = true;
   uploading: boolean = false; // New flag to track upload status
-
+  uploadSuccess: boolean = false; // Flag to indicate successful upload
   constructor(
     private service: AppService,
     private router: Router,
@@ -69,6 +69,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
     const selectedFile = event.target.files[0];
     if (selectedFile) {
       this.uploading = true; // Set the flag to true while uploading
+      this.uploadSuccess = false; // Reset upload success flag
       const filePath = `companyImages/${selectedFile.name}`;
       const fileRef = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, selectedFile);
@@ -85,10 +86,12 @@ export class AccountHandlerDetailsComponent implements OnInit {
                 console.log('Image URL after successful upload:', this.url); // Log the image URL
                 this.imgShow = false;
                 this.uploading = false; // Reset the flag after upload
+                this.uploadSuccess = true; // Set upload success flag
               },
               (error) => {
                 console.error('Error getting download URL:', error); // Log any error getting download URL
                 this.uploading = false; // Reset the flag on error
+                this.uploadSuccess = false;
               }
             );
           }
@@ -96,6 +99,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
         (error) => {
           console.error('Error uploading file:', error); // Log any error during upload
           this.uploading = false; // Reset the flag on error
+          this.uploadSuccess = false;
         }
       );
 

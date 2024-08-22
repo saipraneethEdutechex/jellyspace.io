@@ -195,20 +195,24 @@
               </div>
             </div>
             <div class="col-6 m-0 p-0">
-              <label class="control-label pl-3 font-style-family" for="file"
-                >Upload Company Image / Profile Image</label
-              ><span style="color: red">*</span>
+              <label class="control-label pl-3 font-style-family" for="file">
+                Upload Company Image / Profile Image
+              </label>
+              <span style="color: red">*</span>
               <div class="input-group col-sm-12">
                 <input
                   type="file"
-                  [ngModelOptions]="{ standalone: true }"
                   (change)="selectImage($event)"
                   class="form-control font-style-family"
-                  [(ngModel)]="file"
                   placeholder="Upload File Here"
                 />
               </div>
+              <!-- Loader icon -->
+              <div *ngIf="uploading" class="spinner-border" role="status">
+                <span class="sr-only">Uploading...</span>
+              </div>
             </div>
+
             <div class="col-6 mt-4 p-0">
               <label class="control-label pl-3 font-style-family"
                 >Is Bid Manager</label
@@ -402,7 +406,8 @@
               !mobileNo ||
               !title ||
               !pWord ||
-              pWord !== confirmPWord
+              pWord !== confirmPWord ||
+              !uploadSuccess
             "
             class="btn btn-primary rounded-sm ms-3 font-style-family"
             (click)="nextClick()"
