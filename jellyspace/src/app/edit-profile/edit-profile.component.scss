@@ -1,0 +1,120 @@
+/* Ensure the container and html/body take the full height of the viewport */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif; /* Clean, readable font */
+  background-color: #f8f9fa; /* Light gray background for a softer look */
+  color: #212529; /* Darker text color for better readability */
+}
+
+.container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar {
+  width: 260px; /* Slightly wider sidebar for better spacing */
+  background-color: #ffffff; /* White background for a clean look */
+  padding: 20px;
+  border-right: 1px solid #dee2e6; /* Subtle border for separation */
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  position: fixed; /* Fix the sidebar in place */
+  top: 0;
+  left: 0; /* Align to the leftmost edge */
+  bottom: 0; /* Span the full height */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  color: #343a40; /* Darker color for the header */
+  font-size: 1.25rem; /* Slightly larger font size for emphasis */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li button {
+  background: none;
+  border: none;
+  text-align: left;
+  font: inherit;
+  color: #007bff; /* Primary color for text */
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.sidebar ul li button:hover {
+  background-color: #e9ecef; /* Light gray background on hover */
+  color: #0056b3; /* Darker shade for better visibility on hover */
+}
+
+.main-content {
+  margin-left: 260px; /* Offset for the sidebar width */
+  padding: 20px;
+  width: calc(100% - 260px); /* Ensure it takes up the remaining space */
+  background-color: #ffffff; /* White background for content area */
+}
+
+.close-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.close-button:hover {
+  background-color: #c82333;
+}
+
+.form-group {
+  margin-bottom: 20px; /* More space between form groups */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500; /* Slightly less bold for a cleaner look */
+  color: #495057; /* Darker gray for labels */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 16px; /* Consistent font size for input fields */
+}
+
+.save-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.save-button:hover {
+  background-color: #218838;
+}

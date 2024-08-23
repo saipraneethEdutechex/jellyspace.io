@@ -44,6 +44,7 @@ import { Tab1Component } from './WowDAO/insights/Tab1/tab1.component';
 import { RiskAssessmentComponent } from './WowDAO/insights/risk-assessment/risk-assessment.component';
 import { OpportunitiesComponent } from './WowDAO/insights/opportunities/opportunities.component';
 import { ThreatsComponent } from './WowDAO/insights/threats/threats.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
@@ -135,6 +136,7 @@ const routes: Routes = [
   { path: 'demand', component: DemandComponent, pathMatch: 'full' }, // Add this route
   { path: 'reports', component: ReportsComponent, pathMatch: 'full' }, // Add this route
   { path: 'inventory', component: InventoryComponent, pathMatch: 'full' }, // Add this route
+  { path: 'edit-profile', component: EditProfileComponent, pathMatch: 'full' },
   {
     path: 'scm-profile',
     component: ViewSCMProfileComponent,

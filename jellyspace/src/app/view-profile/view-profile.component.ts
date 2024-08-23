@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 @Component({
@@ -15,23 +15,21 @@ export class ViewProfileComponent implements OnInit {
     phone: '123-456-7890',
   };
 
-  // Company Information
   companyInfo = {
-    name: 'Tech Solutions Inc.',
-    logo: 'assets/images/company-logo.png', // Adjust path to your logo image
+    name: 'Tech Solutions Inc.', // Company name if needed elsewhere
+    logo: 'assets/images/company-logo.png',
     location: '123 Tech Lane, Silicon Valley, CA',
     contact: 'contact@techsolutions.com',
-    size: '500 employees',
-    established: '2005',
+    size: '500 employees', // Company size
+    established: '2005', // Year established
     revenue: '$50M',
     marketSegments: ['Commercial Aviation', 'Military', 'Space Exploration'],
     partnerships: ['NASA', 'Boeing'],
     certifications: ['ISO 9001', 'AS9100'],
-    technologyFocus: ['Advanced Aerospace Technologies'], // Changed to an array
-    website: 'https://www.techsolutions.com',
+    technologyFocus: ['Advanced Aerospace Technologies'],
+    position: 'Cofounder (CEO)', // Role if needed elsewhere
   };
 
-  // Contact Information
   contactInfo = {
     address: '123 Tech Lane, Silicon Valley, CA',
     phone: '123-456-7890',
@@ -39,12 +37,11 @@ export class ViewProfileComponent implements OnInit {
     website: 'https://www.techsolutions.com',
   };
 
-  // MarketCustomerData
   MarketCustomerData = {
-    keyMarkets: ['North America', 'Europe', 'Asia-Pacific'], // Example markets
-    customerSegments: ['OEMs', 'Governmental Agencies', 'Defense Contractors'], // Example segments
+    keyMarkets: ['North America', 'Europe', 'Asia-Pacific'],
+    customerSegments: ['OEMs', 'Governmental Agencies', 'Defense Contractors'],
     competitivePosition:
-      'Leading provider in aerospace technology with a strong foothold in defense and commercial aviation sectors.', // Example position
+      'Leading provider in aerospace technology with a strong foothold in defense and commercial aviation sectors.',
     salesChannels: [
       'Direct Sales',
       'Online Distribution',
@@ -52,19 +49,17 @@ export class ViewProfileComponent implements OnInit {
     ],
   };
 
-  // Product and Services Information
   productServicesInfo = {
-    productCategories: ['Aerospace Components', 'Defense Systems'], // Example categories
-    productSpecifications: 'High-performance materials, cutting-edge design', // Example specifications
-    serviceOfferings: ['Maintenance', 'Repair', 'Overhaul'], // Example services
+    productCategories: ['Aerospace Components', 'Defense Systems'],
+    productSpecifications: 'High-performance materials, cutting-edge design',
+    serviceOfferings: ['Maintenance', 'Repair', 'Overhaul'],
     deliveryAndFulfillment:
-      'Worldwide shipping with expedited options available for urgent needs.', // Example delivery
-    customerSupport: '24/7 customer support with dedicated account managers.', // Example support
+      'Worldwide shipping with expedited options available for urgent needs.',
+    customerSupport: '24/7 customer support with dedicated account managers.',
     pricingAndPackages:
-      'Custom pricing based on volume and service level agreements.', // Example pricing
+      'Custom pricing based on volume and service level agreements.',
   };
 
-  // Strategic Information
   strategicInformation = {
     missionVision: {
       mission:
@@ -101,25 +96,21 @@ export class ViewProfileComponent implements OnInit {
       'Focus on expanding into new markets, investing in R&D for cutting-edge technology, and forming strategic partnerships to enhance market presence.',
   };
 
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private service: AppService
-  ) {}
+  constructor(private router: Router, private service: AppService) {}
 
   verificationList: any = [];
   skillsList: any = [];
-  email: any;
-  fname: any;
-  lname: any;
-  image: any;
+  email: string = '';
+  fname: string = '';
+  lname: string = '';
+  image: string | undefined;
   dummyImage: string = 'https://jellyspace-public.s3.amazonaws.com/avatar.png';
-  loginEmail: any;
+  loginEmail: string | null = '';
   editData: boolean = false;
   normalData: boolean = true;
 
   descriptionData =
-    'I have good knowledge for html, css, ajax, javascript, bootstrap, jquery';
+    'I have good knowledge for HTML, CSS, AJAX, JavaScript, Bootstrap, jQuery';
 
   ngOnInit(): void {
     this.loginEmail = localStorage.getItem('userEmail');
@@ -158,6 +149,12 @@ export class ViewProfileComponent implements OnInit {
   editProfile() {
     this.editData = !this.editData;
     this.normalData = !this.normalData;
+    this.router.navigate(['edit-profile']);
+  }
+
+  manageSubscription() {
+    // Add your subscription management logic here
+    alert('Manage Subscription Clicked');
   }
 
   close() {
