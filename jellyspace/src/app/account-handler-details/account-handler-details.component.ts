@@ -147,6 +147,10 @@ export class AccountHandlerDetailsComponent implements OnInit {
       fileUrl: this.url,
     };
 
+    // Logging the information to console
+    console.log('Navigating to email verification with data:', params);
+
+    // Store information in localStorage for use in EmailVerificationComponent
     localStorage.setItem('nameOTP', `${this.fName} ${this.lName}`);
     localStorage.setItem('otherFName', this.fName);
     localStorage.setItem('otherLName', this.lName);
@@ -157,6 +161,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
     localStorage.setItem('otherMobileNo', this.mobileNo);
     localStorage.setItem('otherImage', this.url);
 
+    // Call sendOTP and navigate if successful
     this.service.sendOTP(params).subscribe((data: any) => {
       if (data.status === true) {
         this.router.navigate(['email-verification']);
