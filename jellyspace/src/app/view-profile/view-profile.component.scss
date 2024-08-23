@@ -1,0 +1,239 @@
+/* Global styles */
+body {
+  font-family: "Poppins", sans-serif;
+  color: #000; /* Black text color for better contrast on white background */
+  background-color: #fff; /* White background for the entire page */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+.profile-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #fff; /* White background for the header */
+  z-index: 1000;
+  height: 80px; /* Height of the header */
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+  .profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 30px; /* Padding for the actions */
+    width: 100%;
+
+    .btn {
+      margin-left: 15px; /* Margin between buttons */
+      border-radius: 8px; /* Rounded corners */
+      border: 1px solid #000; /* Black border */
+      padding: 14px 24px; /* Padding for buttons */
+      font-size: 16px; /* Font size for buttons */
+      font-weight: 500; /* Medium font weight */
+      background-color: #fff; /* White background for buttons */
+      color: #000; /* Black text color */
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.9;
+        transform: translateY(-2px); /* Lift effect on hover */
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .btn-primary {
+      border: 1px solid #000; /* Black border */
+    }
+
+    .btn-secondary {
+      border: 1px solid #000; /* Black border */
+    }
+  }
+}
+
+/* Main container styles */
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 80px; /* Margin to accommodate header height */
+  padding: 0 30px; /* Padding for container */
+  box-sizing: border-box;
+
+  .profile-main-content {
+    flex: 0 0 40%;
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    margin-right: 15px; /* Margin between main content and sidebar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+
+  .profile-sidebar {
+    flex: 0 0 60%;
+    padding: 30px; /* Padding for sidebar */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  }
+}
+
+/* Profile Card Styles */
+.profile-card {
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+
+  .profile-card-body {
+    padding: 30px; /* Padding for card body */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .profile-card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px; /* Margin below header */
+
+      .profile-image {
+        margin-bottom: 30px; /* Margin below image */
+
+        img {
+          width: 140px; /* Image width */
+          height: 140px; /* Image height */
+          border-radius: 50%; /* Circular image */
+          border: 3px solid #000; /* Black border */
+          object-fit: cover;
+        }
+      }
+
+      .profile-info {
+        text-align: center;
+
+        h2 {
+          margin: 0;
+          font-size: 26px; /* Font size for name */
+          color: #000; /* Black text color */
+        }
+
+        .profile-email {
+          color: #000; /* Black text color for email */
+          font-size: 16px; /* Font size for email */
+        }
+      }
+    }
+
+    .profile-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .company-info {
+        margin-bottom: 25px; /* Margin below company info */
+        text-align: center;
+
+        h3 {
+          margin: 0;
+          font-size: 20px; /* Font size for company name */
+          color: #000; /* Black text color */
+        }
+
+        p {
+          margin: 5px 0 0;
+          font-size: 16px; /* Font size for details */
+          color: #000; /* Black text color */
+        }
+      }
+
+      .profile-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .edit-profile {
+          background-color: #fff; /* White background */
+          color: #000; /* Black text color */
+          border: 1px solid #000; /* Black border */
+          border-radius: 8px; /* Rounded corners */
+          padding: 14px 30px; /* Padding for button */
+          margin-bottom: 15px; /* Margin below button */
+          cursor: pointer;
+          font-family: "Poppins", sans-serif; /* Font family */
+          font-size: 16px; /* Font size */
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: #f0f0f0; /* Light gray background on hover */
+            color: #000; /* Black text color */
+          }
+        }
+
+        .policy-link {
+          color: #000; /* Black text color */
+          text-decoration: none;
+          margin-bottom: 10px; /* Margin below link */
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Card Styles */
+.card {
+  margin-bottom: 30px; /* Margin below card */
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+
+  .card-header {
+    background-color: #fff; /* White background for header */
+    color: #000; /* Black text color */
+    font-weight: bold;
+    padding: 20px; /* Padding for header */
+  }
+
+  .card-body {
+    padding: 30px; /* Padding for body */
+  }
+}
+
+/* Section titles */
+.section-title {
+  font-size: 22px; /* Font size for section titles */
+  font-weight: 600; /* Semi-bold font weight */
+  color: #000; /* Black text color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+
+    .profile-main-content {
+      flex: 0 0 100%;
+      margin-right: 0;
+    }
+
+    .profile-sidebar {
+      flex: 0 0 100%;
+      margin-top: 30px; /* Margin above sidebar */
+    }
+  }
+
+  .profile-header {
+    .profile-actions {
+      padding: 0 15px; /* Padding for smaller screens */
+    }
+  }
+}

@@ -1,5 +1,5 @@
-<section class="w-100 m-0 p-0">
-  <div class="main" style="margin-top: 120px">
+<section class="w-100 m-0 p-0 font-style-family">
+  <div class="main" style="margin-top: 60px">
     <div class="container">
       <div class="row">
         <!-- Registration Header -->
@@ -100,7 +100,7 @@
               type="button"
               [disabled]="!radiocheck"
               class="btn btn-primary"
-              (click)="startFreeTrial()"
+              (click)="CompleteRegistration()"
             >
               Complete Registration
             </button>
@@ -108,25 +108,30 @@
 
           <!-- Sign-in Link -->
           <div class="signin text-center mb-4">
-            <p class="mb-0">
-              <span>Already have an account?</span>
-              <a href="signin" routerLink="/signin" class="sign-in-link">
+            <p class="font-style-family mb-0">
+              <span class="font-style-family">Already have an account?</span>
+              <a
+                class="font-style-family"
+                href="signin"
+                routerLink="/signin"
+                class="sign-in-link"
+              >
                 Sign In
               </a>
             </p>
           </div>
 
           <!-- Information Text -->
-          <div class="info-text text-start mb-4">
-            <p>
+          <div class="font-style-family info-text text-start mb-4">
+            <p class="font-style-family">
               <strong>Start Free Trial:</strong> Try our platform with basic
               features.
             </p>
-            <p>
+            <p class="font-style-family">
               <strong>Complete Registration:</strong> Get full access for 6
               months, then switch to the free version or opt for a paid plan.
             </p>
-            <p>
+            <p class="font-style-family">
               Upgrade to the premium plan for €5 to enjoy complete AI features
               for 12 months.
             </p>

@@ -15,6 +15,8 @@ export class AccountHandlerDetailsComponent implements OnInit {
   url: any;
   imgShow: boolean = true;
   uploading: boolean = false; // New flag to track upload status
+  uploadSuccess: boolean = false; // Flag to indicate successful upload
+  emailError: string = ''; // Flag to store email error message
 
   constructor(
     private service: AppService,
@@ -22,35 +24,53 @@ export class AccountHandlerDetailsComponent implements OnInit {
     private storage: AngularFireStorage
   ) {}
 
-  public fieldTextType: boolean = false;
+  public fieldTextType1: boolean = false;
+  public fieldTextType2: boolean = false;
+  public pWord: string = ''; // For Password field
+  public confirmPWord: string = ''; // For Confirm Password field
   managerList: any = [];
   bidFlag: boolean = false;
   collabratorFlag: boolean = false;
 
   public fName: any;
   public lName: any;
-  public eMail: any;
+  public eMail: string = '';
   public mobileNo: any;
   public title: any;
-  public pWord: any;
   public file: any;
 
-  toggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType;
+  toggleFieldTextType1() {
+    this.fieldTextType1 = !this.fieldTextType1;
+  }
+  toggleFieldTextType2() {
+    this.fieldTextType2 = !this.fieldTextType2;
   }
 
   ngOnInit(): void {
-    this.fName = localStorage.getItem('otherFName');
-    this.lName = localStorage.getItem('otherLName');
-    this.eMail = localStorage.getItem('othereMail');
-    this.mobileNo = localStorage.getItem('otherMobileNo');
-    this.title = localStorage.getItem('otherTitle');
-    this.pWord = localStorage.getItem('otherPWord');
-    this.file = localStorage.getItem('imagepath');
+    this.fName = localStorage.getItem('otherFName') || '';
+    this.lName = localStorage.getItem('otherLName') || '';
+    this.eMail = localStorage.getItem('othereMail') || ''; // Ensure eMail is always a string
+    this.mobileNo = localStorage.getItem('otherMobileNo') || '';
+    this.title = localStorage.getItem('otherTitle') || '';
+    this.file = localStorage.getItem('imagepath') || '';
     this.managerList = [
       { label: 'Yes', value: '0' },
       { label: 'No', value: '1' },
     ];
+  }
+
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  onEmailChange(event: any) {
+    this.eMail = event.target.value;
+    if (!this.validateEmail(this.eMail)) {
+      this.emailError = 'Invalid email address';
+    } else {
+      this.emailError = '';
+    }
   }
 
   selectBidManager(item: any) {
@@ -65,6 +85,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
     const selectedFile = event.target.files[0];
     if (selectedFile) {
       this.uploading = true; // Set the flag to true while uploading
+      this.uploadSuccess = false; // Reset upload success flag
       const filePath = `companyImages/${selectedFile.name}`;
       const fileRef = this.storage.ref(filePath);
       const task = this.storage.upload(filePath, selectedFile);
@@ -72,30 +93,29 @@ export class AccountHandlerDetailsComponent implements OnInit {
       // Monitor the upload process
       task.snapshotChanges().subscribe(
         (snapshot) => {
-          // Check if the upload is complete
           if (snapshot?.state === 'success') {
-            // Get the download URL once the upload is complete
             fileRef.getDownloadURL().subscribe(
               (downloadURL) => {
                 this.url = downloadURL;
-                console.log('Image URL after successful upload:', this.url); // Log the image URL
                 this.imgShow = false;
-                this.uploading = false; // Reset the flag after upload
+                this.uploading = false;
+                this.uploadSuccess = true;
               },
               (error) => {
-                console.error('Error getting download URL:', error); // Log any error getting download URL
-                this.uploading = false; // Reset the flag on error
+                console.error('Error getting download URL:', error);
+                this.uploading = false;
+                this.uploadSuccess = false;
               }
             );
           }
         },
         (error) => {
-          console.error('Error uploading file:', error); // Log any error during upload
-          this.uploading = false; // Reset the flag on error
+          console.error('Error uploading file:', error);
+          this.uploading = false;
+          this.uploadSuccess = false;
         }
       );
 
-      // For displaying image preview
       const reader = new FileReader();
       reader.onload = (_event) => {
         this.url = reader.result;
@@ -107,13 +127,17 @@ export class AccountHandlerDetailsComponent implements OnInit {
 
   nextClick() {
     if (this.uploading) {
-      // If uploading is still in progress, do not proceed
       alert('Please wait until the image upload is complete.');
       return;
     }
 
-    if (!this.fileData) {
-      console.error('No file selected');
+    if (!this.uploadSuccess) {
+      alert('Please upload a valid image.');
+      return;
+    }
+
+    if (!this.validateEmail(this.eMail)) {
+      alert('Please enter a valid email address.');
       return;
     }
 
@@ -123,6 +147,10 @@ export class AccountHandlerDetailsComponent implements OnInit {
       fileUrl: this.url,
     };
 
+    // Logging the information to console
+    console.log('Navigating to email verification with data:', params);
+
+    // Store information in localStorage for use in EmailVerificationComponent
     localStorage.setItem('nameOTP', `${this.fName} ${this.lName}`);
     localStorage.setItem('otherFName', this.fName);
     localStorage.setItem('otherLName', this.lName);
@@ -133,6 +161,7 @@ export class AccountHandlerDetailsComponent implements OnInit {
     localStorage.setItem('otherMobileNo', this.mobileNo);
     localStorage.setItem('otherImage', this.url);
 
+    // Call sendOTP and navigate if successful
     this.service.sendOTP(params).subscribe((data: any) => {
       if (data.status === true) {
         this.router.navigate(['email-verification']);
