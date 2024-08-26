@@ -184,6 +184,13 @@ section {
 .navbar {
     padding: 0;
 }
+.access-portal-button {
+    background-color: #d0f0c0; /* Light green color */
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+}
 
 .navbar h6 {
     font-family: 'Michroma', sans-serif;
