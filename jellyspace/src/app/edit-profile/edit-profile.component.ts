@@ -14,8 +14,36 @@ export class EditProfileComponent implements OnInit {
     email: '',
     companySize: '',
     yearEstablished: '',
-    // Add other fields as needed
+    phone: '',
+    position: '',
+    companyName: '',
+    location: '',
+    contact: '',
+    revenue: '',
+    marketSegments: [],
+    partnerships: [],
+    certifications: [],
+    technologyFocus: '',
+    keyMarkets: [],
+    customerSegments: [],
+    competitivePosition: '',
+    salesChannels: [],
+    productCategories: [],
+    productSpecifications: '',
+    serviceOfferings: '',
+    deliveryAndFulfillment: '',
+    customerSupport: '',
+    pricingAndPackages: '',
+    mission: '',
+    vision: '',
+    strengths: [],
+    weaknesses: [],
+    opportunities: [],
+    threats: [],
+    kpis: [],
+    growthStrategy: '',
   };
+
   selectedSection: string = 'personal-info'; // Default section
 
   constructor(private router: Router, private service: AppService) {}
@@ -25,18 +53,59 @@ export class EditProfileComponent implements OnInit {
   }
 
   loadProfileData() {
-    // Fetch profile data from the service or localStorage
     const email = localStorage.getItem('userEmail');
+    const fname = localStorage.getItem('userFirstName');
+    const lname = localStorage.getItem('userLastName');
+
     if (email) {
       this.service.loginUserDetails({ email }).subscribe((data: any) => {
         if (data.status === true) {
+          const userData = data.data;
           this.profileData = {
-            fname: data.data.firstName,
-            lname: data.data.lastName,
-            email: data.data.email,
-            companySize: data.data.companyInfo.size,
-            yearEstablished: data.data.companyInfo.established,
-            // Map other fields as needed
+            ...this.profileData,
+            fname: userData.firstName,
+            lname: userData.lastName,
+            email: userData.email,
+            companySize: userData.companyInfo.size || '',
+            yearEstablished: userData.companyInfo.established || '',
+            phone: userData.phone || '',
+            position: userData.position || '',
+            companyName: userData.companyInfo.name || '',
+            location: userData.companyInfo.location || '',
+            contact: userData.companyInfo.contact || '',
+            revenue: userData.companyInfo.revenue || '',
+            marketSegments: userData.companyInfo.marketSegments || [],
+            partnerships: userData.companyInfo.partnerships || [],
+            certifications: userData.companyInfo.certifications || [],
+            technologyFocus: userData.companyInfo.technologyFocus || '',
+            keyMarkets: userData.marketCustomerData.keyMarkets || [],
+            customerSegments:
+              userData.marketCustomerData.customerSegments || [],
+            competitivePosition:
+              userData.marketCustomerData.competitivePosition || '',
+            salesChannels: userData.marketCustomerData.salesChannels || [],
+            productCategories:
+              userData.productServicesInfo.productCategories || [],
+            productSpecifications:
+              userData.productServicesInfo.productSpecifications || '',
+            serviceOfferings:
+              userData.productServicesInfo.serviceOfferings || '',
+            deliveryAndFulfillment:
+              userData.productServicesInfo.deliveryAndFulfillment || '',
+            customerSupport: userData.productServicesInfo.customerSupport || '',
+            pricingAndPackages:
+              userData.productServicesInfo.pricingAndPackages || '',
+            mission: userData.strategicInformation.missionVision.mission || '',
+            vision: userData.strategicInformation.missionVision.vision || '',
+            strengths:
+              userData.strategicInformation.swotAnalysis.strengths || [],
+            weaknesses:
+              userData.strategicInformation.swotAnalysis.weaknesses || [],
+            opportunities:
+              userData.strategicInformation.swotAnalysis.opportunities || [],
+            threats: userData.strategicInformation.swotAnalysis.threats || [],
+            kpis: userData.strategicInformation.kpis || [],
+            growthStrategy: userData.strategicInformation.growthStrategy || '',
           };
         } else {
           alert(data.message);
@@ -49,18 +118,50 @@ export class EditProfileComponent implements OnInit {
     this.selectedSection = section;
   }
 
-  savePersonalInfo() {
-    // Implement save personal info logic here
-    console.log('Personal Info saved:', this.profileData);
-    // Optionally navigate back to view profile or show a success message
+  saveProfileData() {
+    // Implement the logic to save the profile data
+    // For now, we are just logging the profile data to the console
+    console.log('Profile data to be saved:', this.profileData);
     this.router.navigate(['view-profile']);
+  } // Add this for each method
+  savePersonalInfo() {
+    // Your logic to handle personal info saving
+    console.log('Personal Info saved!');
+  }
+
+  saveGeneralInfo() {
+    // Your logic to handle general info saving
+    console.log('General Info saved!');
+  }
+
+  saveAvailability() {
+    // Your logic to handle availability saving
+    console.log('Availability saved!');
+  }
+
+  saveProfileKeywords() {
+    // Your logic to handle profile keywords saving
+    console.log('Profile Keywords saved!');
   }
 
   saveCompanyInfo() {
-    // Implement save company info logic here
-    console.log('Company Info saved:', this.profileData);
-    // Optionally navigate back to view profile or show a success message
-    this.router.navigate(['view-profile']);
+    // Your logic to handle company info saving
+    console.log('Company Info saved!');
+  }
+
+  saveProductInfo() {
+    // Your logic to handle product info saving
+    console.log('Product Info saved!');
+  }
+
+  saveMarketData() {
+    // Your logic to handle market data saving
+    console.log('Market Data saved!');
+  }
+
+  saveStrategicInfo() {
+    // Your logic to handle strategic info saving
+    console.log('Strategic Info saved!');
   }
 
   close() {

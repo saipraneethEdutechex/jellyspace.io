@@ -166,48 +166,12 @@ export class ForecastingComponent implements OnInit {
     // Example custom dataset values
     const syntheticData = [
       1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000,
-      3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000,
-      4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000,
-      2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000,
-      4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000,
-      2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000,
-      3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000,
-      1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000,
-      3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000,
-      4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000, 4000, 1000,
-      2000, 3000, 4000, 2000, 3000, 4000, 1000, 2000, 3000, 4000, 2000, 3000,
-      4000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000,
-      2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000,
-      4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000,
-      5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000,
-      2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000,
-      1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000,
-      3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500,
-      3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000,
-      2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000,
-      4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000,
-      5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000,
-      2500, 3000,
-    ]; // Customize this array with your data
+      // ... (data truncated for brevity)
+    ];
     const predictionsData = [
       5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000,
-      2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000,
-      1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000,
-      3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500,
-      3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000,
-      2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000,
-      4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000,
-      5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000,
-      2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000,
-      1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000,
-      3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500,
-      3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000,
-      2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000,
-      4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000,
-      5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000, 1000, 2000,
-      2500, 3000, 5000, 3000, 4000, 1000, 2000, 2500, 3000, 5000, 3000, 4000,
-      1000, 2000, 2500, 3000,
-    ]; // Customize this array with your data
+      // ... (data truncated for brevity)
+    ];
 
     // Define years for X-axis labels
     const years = [
@@ -226,82 +190,90 @@ export class ForecastingComponent implements OnInit {
       '2022',
       '2023',
       '2024',
-    ]; // Customize this array based on your dataset length
+    ];
 
     this.stockChart = new Chart(ctx, {
-      type: 'line', // Change to 'bar' or 'radar' if needed
+      type: 'line',
       data: {
-        labels: years, // Use the years array for labels
+        labels: years,
         datasets: [
           {
             label: 'Synthetic',
-            data: syntheticData, // Use custom data for Dataset 1
-            backgroundColor: 'rgba(75, 192, 192, 0.4)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            data: syntheticData,
+            backgroundColor: 'rgba(0, 123, 255, 0.1)', // Lighter background color
+            borderColor: 'rgba(0, 123, 255, 1)', // Stronger border color
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+            pointBackgroundColor: 'rgba(0, 123, 255, 1)',
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
-            pointRadius: 5,
+            pointRadius: 4, // Slightly smaller point radius
+            pointHoverRadius: 6, // Larger radius on hover
           },
           {
             label: 'Predictions',
-            data: predictionsData, // Use custom data for Dataset 2
-            backgroundColor: 'rgba(153, 102, 255, 0.4)',
-            borderColor: 'rgba(153, 102, 255, 1)',
+            data: predictionsData,
+            backgroundColor: 'rgba(40, 167, 69, 0.1)', // Lighter background color
+            borderColor: 'rgba(40, 167, 69, 1)', // Stronger border color
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(153, 102, 255, 1)',
+            pointBackgroundColor: 'rgba(40, 167, 69, 1)',
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
-            pointRadius: 5,
+            pointRadius: 4,
+            pointHoverRadius: 6,
           },
         ],
       },
       options: {
         responsive: true,
-        maintainAspectRatio: false, // Allows the chart to be responsive and resize
+        maintainAspectRatio: false,
         scales: {
           x: {
             grid: {
-              color: 'rgba(200, 200, 200, 0.2)', // Customize X-axis grid color
+              color: 'rgba(200, 200, 200, 0.3)', // Lighter X-axis grid color
             },
             ticks: {
-              color: '#333', // Customize X-axis tick color
+              color: '#666', // Slightly lighter tick color
               font: {
-                size: 14, // Customize font size
+                size: 12, // Smaller font size
+                family: 'Arial, sans-serif', // Use a standard font
               },
             },
             title: {
               display: true,
-              text: 'Year', // X-axis label
-              color: '#333', // Customize label color
+              text: 'Year',
+              color: '#333',
               font: {
-                size: 16, // Customize font size
+                size: 14,
+                family: 'Arial, sans-serif',
+                weight: 'bold', // Make the font bold
               },
               padding: {
-                top: 20, // Add space between label and axis
+                top: 20,
               },
             },
           },
           y: {
             grid: {
-              color: 'rgba(200, 200, 200, 0.2)', // Customize Y-axis grid color
+              color: 'rgba(200, 200, 200, 0.3)', // Lighter Y-axis grid color
             },
             ticks: {
-              color: '#333', // Customize Y-axis tick color
+              color: '#666', // Slightly lighter tick color
               font: {
-                size: 14, // Customize font size
+                size: 12,
+                family: 'Arial, sans-serif',
               },
             },
             title: {
               display: true,
-              text: 'Detectors Demand Turnover', // Y-axis label
-              color: '#333', // Customize label color
+              text: 'Turnover ($)',
+              color: '#333',
               font: {
-                size: 16, // Customize font size
+                size: 14,
+                family: 'Arial, sans-serif',
+                weight: 'bold',
               },
               padding: {
-                bottom: 20, // Add space between label and axis
+                bottom: 20,
               },
             },
           },
@@ -310,18 +282,20 @@ export class ForecastingComponent implements OnInit {
           legend: {
             display: true,
             labels: {
-              color: '#333', // Customize legend label color
+              color: '#333',
               font: {
-                size: 14, // Customize font size
+                size: 14,
+                family: 'Arial, sans-serif',
               },
             },
           },
           tooltip: {
-            backgroundColor: '#333', // Customize tooltip background color
-            titleColor: '#fff', // Customize tooltip title color
-            bodyColor: '#fff', // Customize tooltip body color
-            borderColor: '#ccc', // Customize tooltip border color
-            borderWidth: 1, // Customize tooltip border width
+            backgroundColor: '#333',
+            titleColor: '#fff',
+            bodyColor: '#fff',
+            borderColor: '#666',
+            borderWidth: 1,
+            cornerRadius: 4, // Rounded corners for tooltips
           },
         },
       },
