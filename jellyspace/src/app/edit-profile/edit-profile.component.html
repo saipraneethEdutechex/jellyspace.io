@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="edit-profile.component.scss" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <h2 class="mb-4">Edit Profile</h2>
+        <ul>
+          <!-- Required Info -->
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'personal-info' }"
+              (click)="selectSection('personal-info')"
+            >
+              Personal Info <span class="required-asterisk">*</span>
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'general-info' }"
+              (click)="selectSection('general-info')"
+            >
+              General Info <span class="required-asterisk">*</span>
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'availability' }"
+              (click)="selectSection('availability')"
+            >
+              Availability <span class="required-asterisk">*</span>
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'profile-keywords' }"
+              (click)="selectSection('profile-keywords')"
+            >
+              Profile Keywords
+            </button>
+          </li>
+          <li class="separator"></li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'company-info' }"
+              (click)="selectSection('company-info')"
+            >
+              Company Info
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'product-info' }"
+              (click)="selectSection('product-info')"
+            >
+              Product and Services Info
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'market-data' }"
+              (click)="selectSection('market-data')"
+            >
+              Market and Customer Data
+            </button>
+          </li>
+          <li>
+            <button
+              [ngClass]="{ active: selectedSection === 'strategic-info' }"
+              (click)="selectSection('strategic-info')"
+            >
+              Strategic Info
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="main-content">
+        <!-- Header with Close Button -->
+        <div class="header">
+          <button class="close-button" (click)="close()">Close</button>
+        </div>
+
+        <!-- Display Content Based on Selected Section -->
+        <ng-container [ngSwitch]="selectedSection">
+          <!-- Personal Info Section -->
+          <div *ngSwitchCase="'personal-info'">
+            <form (ngSubmit)="savePersonalInfo()">
+              <div class="form-group">
+                <label for="fname">First Name:</label>
+                <input
+                  type="text"
+                  id="fname"
+                  [(ngModel)]="fname"
+                  name="fname"
+                  required
+                />
+               
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name:</label>
+                <input
+                  type="text"
+                  id="lname"
+                  [(ngModel)]="lname"
+                  name="lname"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  [(ngModel)]="email"
+                  name="email"
+                  required
+                />
+              </div>
+              <button type="submit" class="save-button">
+                Save Personal Info
+              </button>
+            </form>
+          </div>
+
+          <!-- General Info Section -->
+          <div *ngSwitchCase="'general-info'">
+            <form (ngSubmit)="saveGeneralInfo()">
+              <p>General information form will be added here.</p>
+            </form>
+          </div>
+
+          <!-- Availability Section -->
+          <div *ngSwitchCase="'availability'">
+            <form (ngSubmit)="saveAvailability()">
+              <p>Availability information form will be added here.</p>
+            </form>
+          </div>
+
+          <!-- Profile Keywords Section -->
+          <div *ngSwitchCase="'profile-keywords'">
+            <form (ngSubmit)="saveProfileKeywords()">
+              <p>Profile Keywords information form will be added here.</p>
+            </form>
+          </div>
+
+          <!-- Company Info Section -->
+          <div *ngSwitchCase="'company-info'">
+            <form (ngSubmit)="saveCompanyInfo()">
+              <div class="form-group">
+                <label for="companySize">Company Size:</label>
+                <input
+                  type="text"
+                  id="companySize"
+                  [(ngModel)]="profileData.companySize"
+                  name="companySize"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="yearEstablished">Year Established:</label>
+                <input
+                  type="text"
+                  id="yearEstablished"
+                  [(ngModel)]="profileData.yearEstablished"
+                  name="yearEstablished"
+                  required
+                />
+              </div>
+              <button type="submit" class="save-button">
+                Save Company Info
+              </button>
+            </form>
+          </div>
+
+          <!-- Product and Services Info Section -->
+          <div *ngSwitchCase="'product-info'">
+            <form (ngSubmit)="saveProductInfo()">
+              <p>Product and Services information form will be added here.</p>
+            </form>
+          </div>
+
+          <!-- Market and Customer Data Section -->
+          <div *ngSwitchCase="'market-data'">
+            <form (ngSubmit)="saveMarketData()">
+              <p>
+                Market and Customer Data information form will be added here.
+              </p>
+            </form>
+          </div>
+
+          <!-- Strategic Info Section -->
+          <div *ngSwitchCase="'strategic-info'">
+            <form (ngSubmit)="saveStrategicInfo()">
+              <p>Strategic Info form will be added here.</p>
+            </form>
+          </div>
+
+          <!-- Default Case for Unrecognized Sections -->
+          <div *ngSwitchDefault>
+            <p>Select a section from the sidebar to edit.</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </body>
+</html>

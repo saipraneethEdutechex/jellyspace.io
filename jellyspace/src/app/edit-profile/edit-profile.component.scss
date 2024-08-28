@@ -1,0 +1,124 @@
+/* Global Styles */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f7f6; /* Softer background color */
+  color: #333;
+}
+
+/* Container */
+.container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  flex-direction: column;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 20%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+}
+
+/* Main Content Area */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px);
+  background-color: #ffffff;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button.save-button {
+  background-color: #007bff; /* Primary button color */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button.save-button:hover {
+  background-color: #0056b3;
+}
+
+/* Close Button */
+.close-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.close-button:hover {
+  background-color: #c82333;
+}
+
+/* Sidebar Button Styles */
+.sidebar button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  color: #000000;
+}
+
+.sidebar button.active {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.sidebar li.separator {
+  margin: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
