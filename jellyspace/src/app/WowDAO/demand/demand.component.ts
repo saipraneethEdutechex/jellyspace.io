@@ -1233,7 +1233,7 @@ export class DemandComponent implements OnInit {
   }
 
   _openCommunityTab() {
-    window.open('http://localhost:4200/community', '_blank');
+    window.open('http://54.176.151.76:4200/community', '_blank');
   }
   activeTab: string = 'option1';
 

@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "proxy": "http://localhost:8080",
+  "proxy": "http://54.176.151.76:8080",
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",
