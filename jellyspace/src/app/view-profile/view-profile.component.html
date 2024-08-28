@@ -2,7 +2,6 @@
   <!-- Header with Profile Actions (Fixed to Top Right) -->
   <header class="profile-header">
     <div class="profile-actions">
-      <button class="btn btn-primary">Edit Profile</button>
       <button class="btn btn-secondary" (click)="close()">
         <span class="fa fa-times"></span>
       </button>
@@ -11,7 +10,7 @@
 
   <!-- Main Content Section -->
   <main class="profile-main-content">
-    <!-- Profile Card -->
+    <!-- Profile Section -->
     <div class="card my-4">
       <div class="profile-card">
         <div class="profile-card-body">
@@ -26,9 +25,10 @@
           </div>
           <div class="profile-details">
             <div class="company-info">
-              <h3>name</h3>
-              <p>companyInfo.role</p>
-              <p><strong>Company Size:</strong> companyInfo.size</p>
+              <p><strong>Company Size:</strong> {{ companyInfo.size }}</p>
+              <p>
+                <strong>Year Established:</strong> {{ companyInfo.established }}
+              </p>
             </div>
             <div class="profile-actions">
               <button class="edit-profile" (click)="editProfile()">
@@ -38,6 +38,28 @@
               <a href="/terms-conditions" class="policy-link"
                 >Terms and Conditions</a
               >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscription Details -->
+    <div class="card my-4">
+      <div class="card-header">
+        <label class="section-title">Subscription</label>
+      </div>
+      <div class="profile-card">
+        <div class="profile-card-body">
+          <div class="profile-details">
+            <div class="company-info">
+              <h3>Individual Subscription</h3>
+              <p><strong>Renews on:</strong> 2024-09-29</p>
+            </div>
+            <div class="profile-actions">
+              <button class="edit-profile" (click)="manageSubscription()">
+                Manage My Subscription
+              </button>
             </div>
           </div>
         </div>

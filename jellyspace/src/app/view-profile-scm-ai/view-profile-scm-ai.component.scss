@@ -1,8 +1,8 @@
 /* Global styles */
 body {
   font-family: "Poppins", sans-serif;
-  color: #000; /* Black text color for better contrast on white background */
-  background-color: #fff; /* White background for the entire page */
+  color: #333; /* Dark gray text color for better readability */
+  background-color: #f4f4f4; /* Slightly lighter gray background */
   margin: 0;
   padding: 0;
 }
@@ -11,36 +11,34 @@ body {
 .profile-header {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   background: #fff; /* White background for the header */
   z-index: 1000;
-  height: 80px; /* Height of the header */
+  height: 60px; /* Compact height for the header */
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  justify-content: flex-end;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the header */
+  padding: 0 20px; /* Increased padding for better spacing */
 
   .profile-actions {
     display: flex;
-    justify-content: flex-end;
-    padding: 0 30px; /* Padding for the actions */
-    width: 100%;
 
     .btn {
-      margin-left: 15px; /* Margin between buttons */
-      border-radius: 8px; /* Rounded corners */
-      border: 1px solid #000; /* Black border */
-      padding: 14px 24px; /* Padding for buttons */
-      font-size: 16px; /* Font size for buttons */
-      font-weight: 500; /* Medium font weight */
-      background-color: #fff; /* White background for buttons */
-      color: #000; /* Black text color */
+      margin-left: 10px; /* Increased margin for better spacing */
+      border-radius: 5px; /* Slightly rounded corners */
+      border: 1px solid #ddd; /* Light border */
+      padding: 10px 20px; /* Padding for buttons */
+      font-size: 14px; /* Slightly larger font size */
+      background-color: #f4f4f4; /* Light background for buttons */
+      color: #333; /* Dark text color */
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
 
       &:hover {
-        opacity: 0.9;
-        transform: translateY(-2px); /* Lift effect on hover */
+        background-color: #e2e2e2; /* Light gray background on hover */
+        transform: translateY(-2px); /* Subtle lift effect on hover */
       }
 
       &:focus {
@@ -49,11 +47,15 @@ body {
     }
 
     .btn-primary {
-      border: 1px solid #000; /* Black border */
+      border-color: #007bff; /* Blue border for primary button */
+      background-color: #007bff; /* Blue background for primary button */
+      color: #fff; /* White text color for primary button */
     }
 
     .btn-secondary {
-      border: 1px solid #000; /* Black border */
+      border-color: #6c757d; /* Gray border for secondary button */
+      background-color: #6c757d; /* Gray background for secondary button */
+      color: #fff; /* White text color for secondary button */
     }
   }
 }
@@ -62,36 +64,36 @@ body {
 .profile-container {
   display: flex;
   flex-direction: row;
-  margin-top: 80px; /* Margin to accommodate header height */
-  padding: 0 30px; /* Padding for container */
-  box-sizing: border-box;
+  margin-top: 60px; /* Margin to accommodate header height */
+  padding: 20px; /* Padding for main container */
 
   .profile-main-content {
-    flex: 0 0 40%;
+    flex: 0 0 65%; /* Adjusted flex-basis for balanced layout */
     background-color: #fff; /* White background */
-    border-radius: 8px; /* Rounded corners */
-    margin-right: 15px; /* Margin between main content and sidebar */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 12px; /* Slightly more rounded corners */
+    margin-right: 20px; /* Margin between main content and sidebar */
+    padding: 20px; /* Padding inside main content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for better depth */
   }
 
   .profile-sidebar {
-    flex: 0 0 60%;
-    padding: 30px; /* Padding for sidebar */
+    flex: 0 0 35%; /* Adjusted flex-basis for balanced layout */
     background-color: #fff; /* White background */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 20px; /* Padding inside sidebar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for better depth */
   }
 }
 
 /* Profile Card Styles */
 .profile-card {
   background-color: #fff; /* White background */
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 12px; /* Slightly more rounded corners */
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for better depth */
 
   .profile-card-body {
-    padding: 30px; /* Padding for card body */
+    padding: 20px; /* Padding for card body */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,16 +102,16 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 30px; /* Margin below header */
+      margin-bottom: 20px; /* Margin below header */
 
       .profile-image {
-        margin-bottom: 30px; /* Margin below image */
+        margin-bottom: 15px; /* Reduced margin below image */
 
         img {
-          width: 140px; /* Image width */
-          height: 140px; /* Image height */
+          width: 120px; /* Image width */
+          height: 120px; /* Image height */
           border-radius: 50%; /* Circular image */
-          border: 3px solid #000; /* Black border */
+          border: 2px solid #ddd; /* Light border */
           object-fit: cover;
         }
       }
@@ -119,13 +121,13 @@ body {
 
         h2 {
           margin: 0;
-          font-size: 26px; /* Font size for name */
-          color: #000; /* Black text color */
+          font-size: 26px; /* Larger font size for name */
+          color: #333; /* Dark text color */
         }
 
         .profile-email {
-          color: #000; /* Black text color for email */
-          font-size: 16px; /* Font size for email */
+          color: #555; /* Slightly lighter text color for email */
+          font-size: 16px; /* Slightly larger font size for email */
         }
       }
     }
@@ -136,19 +138,20 @@ body {
       align-items: center;
 
       .company-info {
-        margin-bottom: 25px; /* Margin below company info */
+        margin-bottom: 20px; /* Margin below company info */
         text-align: center;
 
         h3 {
           margin: 0;
-          font-size: 20px; /* Font size for company name */
-          color: #000; /* Black text color */
+          font-size: 22px; /* Slightly larger font size for company name */
+          font-weight: 600; /* Bold font weight for company name */
+          color: #333; /* Dark text color */
         }
 
         p {
           margin: 5px 0 0;
-          font-size: 16px; /* Font size for details */
-          color: #000; /* Black text color */
+          font-size: 16px; /* Slightly larger font size for details */
+          color: #555; /* Slightly lighter text color */
         }
       }
 
@@ -158,27 +161,25 @@ body {
         align-items: center;
 
         .edit-profile {
-          background-color: #fff; /* White background */
-          color: #000; /* Black text color */
-          border: 1px solid #000; /* Black border */
-          border-radius: 8px; /* Rounded corners */
-          padding: 14px 30px; /* Padding for button */
-          margin-bottom: 15px; /* Margin below button */
+          background-color: #007bff; /* Blue background */
+          color: #fff; /* White text color */
+          border: none; /* Remove border */
+          padding: 12px 24px; /* Padding for button */
+          margin-bottom: 10px; /* Margin below button */
           cursor: pointer;
-          font-family: "Poppins", sans-serif; /* Font family */
-          font-size: 16px; /* Font size */
-          transition: all 0.3s ease;
+          font-size: 16px; /* Slightly larger font size */
+          transition: background-color 0.3s ease;
 
           &:hover {
-            background-color: #f0f0f0; /* Light gray background on hover */
-            color: #000; /* Black text color */
+            background-color: #0056b3; /* Darker blue on hover */
           }
         }
 
         .policy-link {
-          color: #000; /* Black text color */
+          color: #007bff; /* Blue text color */
           text-decoration: none;
-          margin-bottom: 10px; /* Margin below link */
+          margin-bottom: 8px; /* Margin below link */
+          font-size: 16px; /* Slightly larger font size */
 
           &:hover {
             text-decoration: underline;
@@ -191,49 +192,37 @@ body {
 
 /* Card Styles */
 .card {
-  margin-bottom: 30px; /* Margin below card */
+  margin-bottom: 20px; /* Margin below card */
   background-color: #fff; /* White background */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-
-  .card-header {
-    background-color: #fff; /* White background for header */
-    color: #000; /* Black text color */
-    font-weight: bold;
-    padding: 20px; /* Padding for header */
-  }
-
-  .card-body {
-    padding: 30px; /* Padding for body */
-  }
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for better depth */
+  overflow: hidden; /* Ensure content does not overflow */
 }
 
-/* Section titles */
-.section-title {
-  font-size: 22px; /* Font size for section titles */
-  font-weight: 600; /* Semi-bold font weight */
-  color: #000; /* Black text color */
+/* Section Titles */
+section h1,
+section h2,
+section h3,
+section h4 {
+  font-weight: 700; /* Bold font weight */
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .profile-container {
-    flex-direction: column;
+section h1 {
+  font-size: 32px; /* Larger font size for main section titles */
+  margin-bottom: 20px; /* Margin below title */
+}
 
-    .profile-main-content {
-      flex: 0 0 100%;
-      margin-right: 0;
-    }
+section h2 {
+  font-size: 28px; /* Slightly smaller font size for sub-section titles */
+  margin-bottom: 18px; /* Margin below title */
+}
 
-    .profile-sidebar {
-      flex: 0 0 100%;
-      margin-top: 30px; /* Margin above sidebar */
-    }
-  }
+section h3 {
+  font-size: 24px; /* Slightly smaller font size for tertiary section titles */
+  margin-bottom: 16px; /* Margin below title */
+}
 
-  .profile-header {
-    .profile-actions {
-      padding: 0 15px; /* Padding for smaller screens */
-    }
-  }
+section h4 {
+  font-size: 20px; /* Slightly smaller font size for fourth-level section titles */
+  margin-bottom: 14px; /* Margin below title */
 }

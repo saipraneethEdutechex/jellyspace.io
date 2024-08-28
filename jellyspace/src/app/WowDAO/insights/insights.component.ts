@@ -8,7 +8,7 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./insights.component.scss'],
 })
 export class InsightsComponent implements OnInit {
-  innerTab: string = 'riskAssessment'; // Default inner tab
+  innerTab: string = 'riskAssessment'; 
   activateTab: string = 'tab1';
   chatbox: boolean = false;
   public showSearch = false;
