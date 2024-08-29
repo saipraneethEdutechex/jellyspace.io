@@ -8,7 +8,7 @@ import { AppService } from 'src/app/app.service';
   styleUrls: ['./insights.component.scss'],
 })
 export class InsightsComponent implements OnInit {
-  innerTab: string = 'riskAssessment'; 
+  innerTab: string = 'riskAssessment';
   activateTab: string = 'tab1';
   chatbox: boolean = false;
   public showSearch = false;
@@ -439,7 +439,7 @@ export class InsightsComponent implements OnInit {
   }
 
   _openCommunityTab() {
-    window.open('http://54.176.151.76:4200/community', '_blank');
+    window.open('http://54.153.56.98:4200/community', '_blank');
   }
 
   setActiveTab(tabId: string) {

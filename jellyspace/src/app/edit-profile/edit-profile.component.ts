@@ -45,6 +45,14 @@ export class EditProfileComponent implements OnInit {
   };
 
   selectedSection: string = 'personal-info'; // Default section
+  street: any;
+  hNumber: any;
+  city: any;
+  postalCode: any;
+  country: any;
+  title: any;
+  MobileNo: any;
+  url: any;
 
   constructor(private router: Router, private service: AppService) {}
   verificationList: any = [];
@@ -61,6 +69,7 @@ export class EditProfileComponent implements OnInit {
   descriptionData =
     'I have good knowledge for HTML, CSS, AJAX, JavaScript, Bootstrap, jQuery';
   ngOnInit(): void {
+    console.log(this.fname);
     this.loginEmail = localStorage.getItem('userEmail');
     this.loginUserDetails();
     this.verificationList = [
@@ -72,6 +81,15 @@ export class EditProfileComponent implements OnInit {
       { title: 'Facebook Connected', icon: 'fa fa-facebook' },
     ];
   }
+  // localStorage.setItem('nameOTP', `${this.fName} ${this.lName}`);
+  // localStorage.setItem('otherFName', this.fName);
+  // localStorage.setItem('otherLName', this.lName);
+  // localStorage.setItem('othereMail', this.eMail);
+  // localStorage.setItem('registerEmail', this.eMail);
+  // localStorage.setItem('otherPWord', this.pWord);
+  // localStorage.setItem('otherTitle', this.title);
+  // localStorage.setItem('otherMobileNo', this.mobileNo);
+  // localStorage.setItem('otherImage', this.url);
   loginUserDetails() {
     const params = {
       email: this.loginEmail || '',
@@ -86,6 +104,14 @@ export class EditProfileComponent implements OnInit {
         this.lname = data.data.lastName;
         this.skillsList = data.data.skills;
         this.image = data.data.image;
+        this.street = data.data.street;
+        this.hNumber = data.data.hNumber;
+        this.city = data.data.city;
+        this.postalCode = data.data.postalCode;
+        this.country = data.data.country;
+        this.title = data.data.title;
+        this.MobileNo = data.data.MobileNo;
+        this.url = data.data.url;
       } else {
         alert(data.message);
       }
