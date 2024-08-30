@@ -11,6 +11,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit(): void {}
 
   _openCommunityTab() {
-    window.open('http://54.176.151.76:4200/community', '_blank');
+    window.open('http://54.153.56.98:4200/community', '_blank');
   }
 }
