@@ -57,6 +57,7 @@ import { RiskAssessmentComponent } from './WowDAO/insights/risk-assessment/risk-
 import { OpportunitiesComponent } from './WowDAO/insights/opportunities/opportunities.component';
 import { ThreatsComponent } from './WowDAO/insights/threats/threats.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { SignOutModalComponent } from './sign-out-modal/sign-out-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +106,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     OpportunitiesComponent,
     ThreatsComponent,
     EditProfileComponent,
+    SignOutModalComponent,
   ],
   imports: [
     BrowserModule,

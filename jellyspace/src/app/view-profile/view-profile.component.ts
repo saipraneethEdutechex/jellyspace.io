@@ -108,7 +108,7 @@ export class ViewProfileComponent implements OnInit {
   loginEmail: string | null = '';
   editData: boolean = false;
   normalData: boolean = true;
-
+  isSignOutModalOpen = false;
   descriptionData =
     'I have good knowledge for HTML, CSS, AJAX, JavaScript, Bootstrap, jQuery';
 
@@ -123,6 +123,20 @@ export class ViewProfileComponent implements OnInit {
       { title: 'Email Verified', icon: 'fa fa-envelope' },
       { title: 'Facebook Connected', icon: 'fa fa-facebook' },
     ];
+  }
+
+  openSignOutModal() {
+    this.isSignOutModalOpen = true;
+  }
+
+  closeSignOutModal() {
+    this.isSignOutModalOpen = false;
+  }
+
+  confirmSignOut() {
+    localStorage.clear();
+    this.router.navigate(['signin']);
+    this.isSignOutModalOpen = false;
   }
 
   loginUserDetails() {

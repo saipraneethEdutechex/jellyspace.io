@@ -2,12 +2,33 @@
   <!-- Header with Profile Actions (Fixed to Top Right) -->
   <header class="profile-header">
     <div class="profile-actions">
+      <!-- Close Button -->
       <button class="btn btn-secondary" (click)="close()">
         <span class="fa fa-times"></span>
+      </button>
+
+      <!-- Sign Out Button -->
+      <button class="btn btn-primary" (click)="openSignOutModal()">
+        <span class="fa fa-sign-out"></span> Sign Out
       </button>
     </div>
   </header>
 
+  <!-- Sign Out Confirmation Modal -->
+  <div class="modal-overlay" *ngIf="isSignOutModalOpen">
+    <div class="modal-content">
+      <h2>Confirm Sign Out</h2>
+      <p>Are you sure you want to sign out?</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" (click)="closeSignOutModal()">
+          Cancel
+        </button>
+        <button class="btn btn-primary" (click)="confirmSignOut()">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- Main Content Section -->
   <main class="profile-main-content">
     <!-- Profile Section -->

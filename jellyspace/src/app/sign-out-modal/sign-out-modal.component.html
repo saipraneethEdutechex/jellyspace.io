@@ -1,0 +1,12 @@
+<div class="modal-overlay" *ngIf="isVisible">
+  <div class="modal-content">
+    <h2>Confirm Sign Out</h2>
+    <p>Are you sure you want to sign out?</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+      <button class="btn btn-primary" (click)="confirmSignOut()">
+        Sign Out
+      </button>
+    </div>
+  </div>
+</div>

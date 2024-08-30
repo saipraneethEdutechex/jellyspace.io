@@ -45,6 +45,7 @@ import { RiskAssessmentComponent } from './WowDAO/insights/risk-assessment/risk-
 import { OpportunitiesComponent } from './WowDAO/insights/opportunities/opportunities.component';
 import { ThreatsComponent } from './WowDAO/insights/threats/threats.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
