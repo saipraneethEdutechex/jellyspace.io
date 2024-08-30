@@ -2,205 +2,234 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-// export class User {
-//   id?: string;
-//   name?: string;
-//   email?: string;
-//   phone?: number;
-//   // status: Boolean,
-//   // message: String,
-//   // data: {}
-// }
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
   apiURL = 'http://54.176.151.76:8080/api';
+
   constructor(private http: HttpClient) {}
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
     }),
   };
 
-  sendOTP(paramss: any) {
+  // Update personal info method
+  updatePersonalInfo(updatedInfo: {
+    fname: string;
+    lname: string;
+    email: string;
+    newPassword: string;
+  }): Observable<any> {
     return this.http
-      .post(this.apiURL + '/sendOTP', JSON.stringify(paramss), this.httpOptions)
+      .post<any>(
+        `${this.apiURL}/updatePersonalInfo`,
+        JSON.stringify(updatedInfo),
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  verifyOTP(paramss: any) {
-    return (
-      this.http
-        .post(
-          this.apiURL + '/verifyOTP',
-          JSON.stringify(paramss),
-          this.httpOptions
-        )
-        // .get(this.apiURL + '/getProject')
-        .pipe(retry(1), catchError(this.handleError))
-    );
-  }
-
-  login(paramss: any) {
-    return (
-      this.http
-        .post(this.apiURL + '/login', JSON.stringify(paramss), this.httpOptions)
-        // .get(this.apiURL + '/getProject')
-        .pipe(retry(1), catchError(this.handleError))
-    );
-  }
-
-  // HttpClient API get() method => Fetch employees list
-  getEmployees() {
+  // Send OTP method
+  sendOTP(paramss: any): Observable<any> {
     return this.http
-      .get(this.apiURL + '/employees')
+      .post<any>(
+        `${this.apiURL}/sendOTP`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
-  // HttpClient API get() method => Fetch employee
-  getEmployee(id: any) {
+
+  // Verify OTP method
+  verifyOTP(paramss: any): Observable<any> {
     return this.http
-      .get(this.apiURL + '/employees/' + id)
+      .post<any>(
+        `${this.apiURL}/verifyOTP`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
-  // HttpClient API post() method => Create employee
-  createEmployee(employee: any) {
-    console.log('employee' + JSON.stringify(employee));
+
+  // Login method
+  login(paramss: any): Observable<any> {
     return this.http
-      .post(
-        this.apiURL + '/register',
+      .post<any>(
+        `${this.apiURL}/login`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Get employees method
+  getEmployees(): Observable<any> {
+    return this.http
+      .get<any>(`${this.apiURL}/employees`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Get employee by ID method
+  getEmployee(id: any): Observable<any> {
+    return this.http
+      .get<any>(`${this.apiURL}/employees/${id}`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Create employee method
+  createEmployee(employee: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/register`,
         JSON.stringify(employee),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
-  // HttpClient API put() method => Update employee
-  updateEmployee(id: any, employee: any) {
+
+  // Update employee method
+  updateEmployee(id: any, employee: any): Observable<any> {
     return this.http
-      .put(
-        this.apiURL + '/employees/' + id,
+      .put<any>(
+        `${this.apiURL}/employees/${id}`,
         JSON.stringify(employee),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
-  // HttpClient API delete() method => Delete employee
-  deleteEmployee(id: any) {
+
+  // Delete employee method
+  deleteEmployee(id: any): Observable<any> {
     return this.http
-      .delete(this.apiURL + '/employees/' + id, this.httpOptions)
+      .delete<any>(`${this.apiURL}/employees/${id}`, this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
-  // Error handling
-  handleError(error: any) {
+
+  // Error handling method
+  handleError(error: any): Observable<never> {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Get client-side error
+      // Client-side error
       errorMessage = error.error.message;
     } else {
-      // Get server-side error
+      // Server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     window.alert(errorMessage);
-    return throwError(() => {
-      return errorMessage;
-    });
+    return throwError(() => new Error(errorMessage));
   }
 
-  getProjectByEmail(paramss: any) {
-    return (
-      this.http
-        .post(
-          this.apiURL + '/getProjects',
-          JSON.stringify(paramss),
-          this.httpOptions
-        )
-        // .get(this.apiURL + '/getProject')
-        .pipe(retry(1), catchError(this.handleError))
-    );
-  }
-
-  savePostMethod(paramss: any) {
-    return (
-      this.http
-        .post(
-          this.apiURL + '/postAproject',
-          JSON.stringify(paramss),
-          this.httpOptions
-        )
-        // .get(this.apiURL + '/getProject')
-        .pipe(retry(1), catchError(this.handleError))
-    );
-  }
-  getApiDataBinding() {
+  // Get projects by email method
+  getProjectByEmail(paramss: any): Observable<any> {
     return this.http
-      .get(this.apiURL + '/projects')
-      .pipe(retry(1), catchError(this.handleError));
-  }
-  getUsersData() {
-    return this.http
-      .get(this.apiURL + '/users')
-      .pipe(retry(1), catchError(this.handleError));
-  }
-  getBidInitDetails(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/getProjectBids',
+      .post<any>(
+        `${this.apiURL}/getProjects`,
         JSON.stringify(paramss),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  getCurrentBidDetailsList(paramss: any) {
+  // Save post method
+  savePostMethod(paramss: any): Observable<any> {
     return this.http
-      .post(this.apiURL + '/getbids', JSON.stringify(paramss), this.httpOptions)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-
-  postBid(paramss: any) {
-    return this.http
-      .post(this.apiURL + '/postBid', JSON.stringify(paramss), this.httpOptions)
-      .pipe(retry(1), catchError(this.handleError));
-  }
-  acceptedAndRejected(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/acceptBid',
+      .post<any>(
+        `${this.apiURL}/postAproject`,
         JSON.stringify(paramss),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  deleteData(id: any) {
+  // Get API data binding method
+  getApiDataBinding(): Observable<any> {
     return this.http
-      .post(
-        this.apiURL + '/deleteProject',
+      .get<any>(`${this.apiURL}/projects`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Get users data method
+  getUsersData(): Observable<any> {
+    return this.http
+      .get<any>(`${this.apiURL}/users`)
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Get bid initialization details method
+  getBidInitDetails(paramss: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/getProjectBids`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Get current bid details list method
+  getCurrentBidDetailsList(paramss: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/getbids`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Post bid method
+  postBid(paramss: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/postBid`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Accepted and rejected bids method
+  acceptedAndRejected(paramss: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/acceptBid`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
+  }
+
+  // Delete data method
+  deleteData(id: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/deleteProject`,
         JSON.stringify(id),
         this.httpOptions
       )
       .pipe(retry(1), catchError(this.handleError));
   }
 
-  loginUserDetails(paramss: any) {
-    return (
-      this.http
-        .post(
-          this.apiURL + '/loginUser',
-          JSON.stringify(paramss),
-          this.httpOptions
-        )
-        // .get(this.apiURL + '/getProject')
-        .pipe(retry(1), catchError(this.handleError))
-    );
+  // Login user details method
+  loginUserDetails(paramss: any): Observable<any> {
+    return this.http
+      .post<any>(
+        `${this.apiURL}/loginUser`,
+        JSON.stringify(paramss),
+        this.httpOptions
+      )
+      .pipe(retry(1), catchError(this.handleError));
   }
 
-  // HttpClient API delete() method => Delete employee
-  deleteUser(paramss: any) {
+  // Delete user method
+  deleteUser(paramss: any): Observable<any> {
     return this.http
-      .post(
-        this.apiURL + '/deleteUser',
+      .post<any>(
+        `${this.apiURL}/deleteUser`,
         JSON.stringify(paramss),
         this.httpOptions
       )

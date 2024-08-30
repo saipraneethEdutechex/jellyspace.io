@@ -89,42 +89,7 @@
         <ng-container [ngSwitch]="selectedSection">
           <!-- Personal Info Section -->
           <div *ngSwitchCase="'personal-info'">
-            <form (ngSubmit)="savePersonalInfo()">
-              <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input
-                  type="text"
-                  id="fname"
-                  [(ngModel)]="fname"
-                  name="fname"
-                  required
-                />
-               
-              </div>
-              <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input
-                  type="text"
-                  id="lname"
-                  [(ngModel)]="lname"
-                  name="lname"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input
-                  type="email"
-                  id="email"
-                  [(ngModel)]="email"
-                  name="email"
-                  required
-                />
-              </div>
-              <button type="submit" class="save-button">
-                Save Personal Info
-              </button>
-            </form>
+            <app-personal-info></app-personal-info>
           </div>
 
           <!-- General Info Section -->

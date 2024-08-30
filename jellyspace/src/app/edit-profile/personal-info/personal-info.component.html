@@ -1,0 +1,155 @@
+<form (ngSubmit)="savePersonalInfo()" class="form-container">
+  <!-- Personal Information -->
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        id="fname"
+        [(ngModel)]="fname"
+        name="fname"
+        placeholder="John"
+        required
+        [readonly]="!isEditing"
+      />
+      <button
+        type="button"
+        (click)="editField('fname')"
+        class="icon-btn btn btn-sm"
+        [disabled]="!otpVerified"
+      >
+        <i class="fa fa-pencil"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        id="lname"
+        [(ngModel)]="lname"
+        name="lname"
+        placeholder="Doe"
+        required
+        [readonly]="!isEditing"
+      />
+      <button
+        type="button"
+        (click)="editField('lname')"
+        class="icon-btn btn btn-sm"
+        [disabled]="!otpVerified"
+      >
+        <i class="fa fa-pencil"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <div class="input-wrapper">
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="example@example.com"
+        [disabled]="!emailEditable"
+        required
+      />
+      <button
+        type="button"
+        (click)="editField('email')"
+        class="icon-btn btn btn-sm"
+        [disabled]="!otpVerified"
+      >
+        <i class="fa fa-pencil"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- OTP Section -->
+  <div class="otp-section">
+    <div class="form-group">
+      <label for="otp">OTP</label>
+      <input
+        type="text"
+        id="otp"
+        [(ngModel)]="otp"
+        name="otp"
+        placeholder="123456"
+      />
+    </div>
+    <div class="otp-actions">
+      <button
+        type="button"
+        (click)="sendOtp()"
+        class="btn btn-primary btn-sm"
+        [disabled]="otpSent"
+      >
+        Send OTP
+      </button>
+      <button
+        type="button"
+        (click)="verifyOtp()"
+        class="btn btn-primary btn-sm"
+        [disabled]="!otpSent"
+      >
+        Verify OTP
+      </button>
+      <button
+        type="button"
+        (click)="resendOtp()"
+        class="btn btn-secondary btn-sm"
+        [disabled]="!otpSent"
+      >
+        Resend OTP
+      </button>
+    </div>
+  </div>
+
+  <!-- Password Section -->
+  <div class="password-section" *ngIf="otpVerified">
+    <div class="form-group">
+      <label for="password">New Password</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="newPassword"
+        name="password"
+        placeholder="********"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        placeholder="********"
+      />
+    </div>
+  </div>
+
+  <!-- Submit and Discard Buttons -->
+  <div class="form-buttons">
+    <button
+      type="submit"
+      class="btn btn-success btn-sm"
+      [disabled]="!isEditing || !otpVerified"
+    >
+      Save Changes
+    </button>
+
+    <button
+      type="button"
+      (click)="discardChanges()"
+      class="btn btn-danger btn-sm"
+    >
+      Discard
+    </button>
+  </div>
+</form>
