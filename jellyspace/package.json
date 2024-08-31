@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "proxy": "http://18.144.156.141:8080",
+  "proxy": "https://useronboard.jellyspace.io",
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.1.0",

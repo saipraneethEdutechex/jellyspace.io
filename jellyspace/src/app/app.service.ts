@@ -16,7 +16,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AppService {
-  apiURL = 'http://18.144.156.141:8080/api';
+  apiURL = 'https://useronboard.jellyspace.io/api';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({

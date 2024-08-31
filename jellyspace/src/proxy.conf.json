@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://18.144.156.141:8080",
+    "target": "https://useronboard.jellyspace.io",
     "secure": false
   }
 }

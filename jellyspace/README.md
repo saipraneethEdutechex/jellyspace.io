@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://18.144.156.141:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `https://useronboard.jellyspace.io/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 

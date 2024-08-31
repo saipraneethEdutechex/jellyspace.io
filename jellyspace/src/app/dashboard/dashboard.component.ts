@@ -1159,6 +1159,6 @@ export class DashboardComponent implements OnInit {
   }
 
   _openCommunityTab() {
-    window.open('http://18.144.156.141:4200/community', '_blank');
+    window.open('https://useronboard.jellyspace.io/community', '_blank');
   }
 }
