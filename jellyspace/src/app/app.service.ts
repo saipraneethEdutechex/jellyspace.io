@@ -13,12 +13,11 @@ import { retry, catchError } from 'rxjs/operators';
 // }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppService {
-
-  apiURL = 'http://localhost:8080/api';
-  constructor(private http: HttpClient) { }
+  apiURL = 'http://18.144.156.141:8080/api';
+  constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -27,34 +26,30 @@ export class AppService {
 
   sendOTP(paramss: any) {
     return this.http
-      .post(
-        this.apiURL + '/sendOTP',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
+      .post(this.apiURL + '/sendOTP', JSON.stringify(paramss), this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 
   verifyOTP(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/verifyOTP',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
-      // .get(this.apiURL + '/getProject')
-      .pipe(retry(1), catchError(this.handleError));
+    return (
+      this.http
+        .post(
+          this.apiURL + '/verifyOTP',
+          JSON.stringify(paramss),
+          this.httpOptions
+        )
+        // .get(this.apiURL + '/getProject')
+        .pipe(retry(1), catchError(this.handleError))
+    );
   }
 
   login(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/login',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
-      // .get(this.apiURL + '/getProject')
-      .pipe(retry(1), catchError(this.handleError));
+    return (
+      this.http
+        .post(this.apiURL + '/login', JSON.stringify(paramss), this.httpOptions)
+        // .get(this.apiURL + '/getProject')
+        .pipe(retry(1), catchError(this.handleError))
+    );
   }
 
   // HttpClient API get() method => Fetch employees list
@@ -113,25 +108,29 @@ export class AppService {
   }
 
   getProjectByEmail(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/getProjects',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
-      // .get(this.apiURL + '/getProject')
-      .pipe(retry(1), catchError(this.handleError));
+    return (
+      this.http
+        .post(
+          this.apiURL + '/getProjects',
+          JSON.stringify(paramss),
+          this.httpOptions
+        )
+        // .get(this.apiURL + '/getProject')
+        .pipe(retry(1), catchError(this.handleError))
+    );
   }
 
   savePostMethod(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/postAproject',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
-      // .get(this.apiURL + '/getProject')
-      .pipe(retry(1), catchError(this.handleError));
+    return (
+      this.http
+        .post(
+          this.apiURL + '/postAproject',
+          JSON.stringify(paramss),
+          this.httpOptions
+        )
+        // .get(this.apiURL + '/getProject')
+        .pipe(retry(1), catchError(this.handleError))
+    );
   }
   getApiDataBinding() {
     return this.http
@@ -155,22 +154,13 @@ export class AppService {
 
   getCurrentBidDetailsList(paramss: any) {
     return this.http
-      .post(
-        this.apiURL + '/getbids',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
+      .post(this.apiURL + '/getbids', JSON.stringify(paramss), this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
 
-
   postBid(paramss: any) {
     return this.http
-      .post(
-        this.apiURL + '/postBid',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
+      .post(this.apiURL + '/postBid', JSON.stringify(paramss), this.httpOptions)
       .pipe(retry(1), catchError(this.handleError));
   }
   acceptedAndRejected(paramss: any) {
@@ -185,27 +175,35 @@ export class AppService {
 
   deleteData(id: any) {
     return this.http
-      .post(this.apiURL + '/deleteProject', JSON.stringify(id), this.httpOptions)
+      .post(
+        this.apiURL + '/deleteProject',
+        JSON.stringify(id),
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
 
   loginUserDetails(paramss: any) {
-    return this.http
-      .post(
-        this.apiURL + '/loginUser',
-        JSON.stringify(paramss),
-        this.httpOptions
-      )
-      // .get(this.apiURL + '/getProject')
-      .pipe(retry(1), catchError(this.handleError));
+    return (
+      this.http
+        .post(
+          this.apiURL + '/loginUser',
+          JSON.stringify(paramss),
+          this.httpOptions
+        )
+        // .get(this.apiURL + '/getProject')
+        .pipe(retry(1), catchError(this.handleError))
+    );
   }
 
   // HttpClient API delete() method => Delete employee
   deleteUser(paramss: any) {
     return this.http
-      .post(this.apiURL + '/deleteUser',
+      .post(
+        this.apiURL + '/deleteUser',
         JSON.stringify(paramss),
-        this.httpOptions)
+        this.httpOptions
+      )
       .pipe(retry(1), catchError(this.handleError));
   }
 }

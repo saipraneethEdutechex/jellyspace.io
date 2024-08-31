@@ -1158,6 +1158,6 @@ export class ReportsComponent implements OnInit {
   }
 
   _openCommunityTab() {
-    window.open('http://localhost:4200/community', '_blank');
+    window.open('http://18.144.156.141:4200/community', '_blank');
   }
 }
