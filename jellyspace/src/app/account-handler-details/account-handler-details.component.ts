@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { AppService } from '../app.service';
 
@@ -17,8 +17,11 @@ export class AccountHandlerDetailsComponent implements OnInit {
   uploading: boolean = false; // New flag to track upload status
   uploadSuccess: boolean = false; // Flag to indicate successful upload
   emailError: string = ''; // Flag to store email error message
+  isFreeTrial: boolean = false;
+  companyName: any;
 
   constructor(
+    private route: ActivatedRoute,
     private service: AppService,
     private router: Router,
     private storage: AngularFireStorage
@@ -57,6 +60,15 @@ export class AccountHandlerDetailsComponent implements OnInit {
       { label: 'Yes', value: '0' },
       { label: 'No', value: '1' },
     ];
+    this.route.queryParams.subscribe((params) => {
+      console.log('params ', params['q']);
+      if (!this.companyName) {
+        this.companyName = params['q'];
+      }
+    });
+
+    // Check if the user started a free trial
+    this.isFreeTrial = localStorage.getItem('startFreeTrial') === 'true';
   }
 
   validateEmail(email: string): boolean {
@@ -169,5 +181,14 @@ export class AccountHandlerDetailsComponent implements OnInit {
         alert(data.message);
       }
     });
+  }
+  previousRoute() {
+    if (!this.isFreeTrial) {
+      let params = { q: this.companyName };
+      this.router.navigate(['register-identification'], {
+        queryParams: params,
+        skipLocationChange: false,
+      });
+    }
   }
 }

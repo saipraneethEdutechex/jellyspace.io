@@ -397,13 +397,22 @@
       <div class="row mb-3 m-0 p-0">
         <div class="col" style="text-align: left">
           <button
+            *ngIf="!isFreeTrial"
             type="button"
             class="btn btn-dark font-style-family"
-            routerLink="/address-details"
             style="color: white !important"
           >
             Previous
           </button>
+          <!-- <button
+          *ngIf="!isFreeTrial"
+          type="button"
+          class="btn btn-dark font-style-family"
+          (click)="previousRoute()"
+          style="color: white !important"
+        >
+          Previous
+        </button> -->
           <!-- <button type="submit" class="btn btn-danger rounded-sm" routerLink="/address-details">
                         Previous
                     </button> -->

@@ -42,7 +42,7 @@ export class NewUserRegisterComponent implements OnInit {
 
   startFreeTrial(): void {
     localStorage.setItem('startFreeTrial', 'true');
-    this.router.navigate(['address-details']);
+    this.router.navigate(['account-handler']);
   }
 
   CompleteRegistration(): void {
