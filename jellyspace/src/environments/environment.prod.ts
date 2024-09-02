@@ -1,4 +1,3 @@
-// src/environments/environment.prod.ts
 import { Environment } from './environment.interface';
 
 export const environment: Environment = {
@@ -11,4 +10,7 @@ export const environment: Environment = {
     messagingSenderId: '241779132384',
     appId: '1:241779132384:web:0d93c77f18221eb8d38d85',
   },
+  frontendUrl: 'https://onboarding.jellyspace.io',
+  backendUrl: 'https://onboarding.jellyspace.io',
+  domainUrl: 'https://onboarding.jellyspace.io',
 };

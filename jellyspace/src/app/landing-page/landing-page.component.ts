@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css']
+  styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   _openCommunityTab() {
-    window.open('http://localhost:4200/community', "_blank");
+    const communityUrl = `${environment.frontendUrl}/community`; 
+    window.open(communityUrl, '_blank');
   }
-
 }

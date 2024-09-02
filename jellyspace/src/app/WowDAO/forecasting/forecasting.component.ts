@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from 'src/app/app.service';
 import { Chart, registerables } from 'chart.js';
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-forecasting',
   templateUrl: './forecasting.component.html',
@@ -588,7 +590,8 @@ export class ForecastingComponent implements OnInit {
   }
 
   _openCommunityTab() {
-    window.open('http://localhost:4200/community', '_blank');
+    const communityUrl = `${environment.frontendUrl}/community`;
+    window.open(communityUrl, '_blank');
   }
 
   setInnerTab(tabName: string) {

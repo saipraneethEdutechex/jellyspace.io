@@ -1,4 +1,3 @@
-// src/environments/environment.ts
 import { Environment } from './environment.interface';
 
 export const environment: Environment = {
@@ -11,4 +10,7 @@ export const environment: Environment = {
     messagingSenderId: '241779132384',
     appId: '1:241779132384:web:0d93c77f18221eb8d38d85',
   },
+  frontendUrl: 'http://localhost:4200', // Frontend base URL for development
+  backendUrl: 'http://localhost:3000', // Backend base URL for development
+  domainUrl: '', // Not used in development
 };

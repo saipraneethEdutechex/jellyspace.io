@@ -1,5 +1,3 @@
-// src/environments/environment.interface.ts
-
 export interface FirebaseConfig {
   apiKey: string;
   authDomain: string;
@@ -11,5 +9,8 @@ export interface FirebaseConfig {
 
 export interface Environment {
   production: boolean;
-  firebase: FirebaseConfig; // Remove the optional chaining
+  firebase: FirebaseConfig;
+  frontendUrl: string;
+  backendUrl: string;
+  domainUrl: string;
 }
