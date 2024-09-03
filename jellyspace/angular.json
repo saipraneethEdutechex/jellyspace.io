@@ -20,10 +20,14 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css", "node_modules/ngx-toastr/toastr.css"],
+            "styles": [
+              "src/styles.css",
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
+            ],
             "scripts": [
-              "./node_modules/@popperjs/core/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "allowedCommonJsDependencies": [
               "ngx-quill",
@@ -31,7 +35,6 @@
               "aws-sdk"
             ]
           },
-
           "configurations": {
             "production": {
               "budgets": [
@@ -52,7 +55,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             },
             "development": {
               "buildOptimizer": false,
@@ -67,6 +77,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "jellyspace:build:production"
@@ -75,11 +88,7 @@
               "browserTarget": "jellyspace:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "disableHostCheck": true,
-            "proxyConfig": "src/proxy.conf.json"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
