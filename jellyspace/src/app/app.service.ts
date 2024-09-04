@@ -16,10 +16,10 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AppService {
-  apiURL = 'http://54.189.27.176:8080/api';
+  apiURL = 'http://35.166.32.174:8080/api';
 
   //apiURL = 'https://onboard.jellyspace.io/api';
-  
+
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({

@@ -53,11 +53,13 @@ export class ViewProfileComponent implements OnInit {
     productCategories: ['Aerospace Components', 'Defense Systems'],
     productSpecifications: 'High-performance materials, cutting-edge design',
     serviceOfferings: ['Maintenance', 'Repair', 'Overhaul'],
+    applications: ['End-user Applications for product or services'],
     deliveryAndFulfillment:
       'Worldwide shipping with expedited options available for urgent needs.',
-    customerSupport: '24/7 customer support with dedicated account managers.',
-    pricingAndPackages:
-      'Custom pricing based on volume and service level agreements.',
+    productionCapabilities: 'Manufacturing capabilities and capacity',
+    rAndDFocus:
+      'Areas of research and development interest or current projects',
+    supplyChainFocus: 'Information about suppliers and logistics partners',
   };
 
   strategicInformation = {
