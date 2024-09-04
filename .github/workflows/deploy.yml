@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v3      
         
       - name: Set up SSH key        
-        uses: webfactory/ssh-agent@v0.6.0        
+        uses: webfactory/ssh-agent@v0.7.0       
         with:          
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}      
           
       - name: Deploy to server        
         run: |          
-          ssh -o StrictHostKeyChecking=no ubuntu@35.166.32.174 'bash -s' < /home/ubuntu/jellyspace.io/deploy.sh
+          ssh -o StrictHostKeyChecking=no ubuntu@35.166.32.174 'bash /home/ubuntu/jellyspace.io/deploy.sh'
