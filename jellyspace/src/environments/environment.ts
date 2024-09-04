@@ -1,7 +1,7 @@
 import { Environment } from './environment.interface';
 
 export const environment: Environment = {
-  production: false,
+  production: true,
   firebase: {
     apiKey: 'AIzaSyB0pTn_JbmqqMvuFLYDwWuPQNzCw_nWvdA',
     authDomain: 'jelly-space-ab5e0.firebaseapp.com',
@@ -13,4 +13,7 @@ export const environment: Environment = {
   frontendUrl: 'http://54.189.27.176:4200', // Frontend base URL for development
   backendUrl: 'http://54.189.27.176:3000', // Backend base URL for development
   domainUrl: '', // Not used in development
+  // frontendUrl: 'https://onboarding.jellyspace.io',
+  // backendUrl: 'https://onboarding.jellyspace.io',
+  // domainUrl: 'https://onboarding.jellyspace.io',
 };
