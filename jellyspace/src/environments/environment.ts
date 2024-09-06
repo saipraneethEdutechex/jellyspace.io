@@ -10,10 +10,10 @@ export const environment: Environment = {
     messagingSenderId: '241779132384',
     appId: '1:241779132384:web:0d93c77f18221eb8d38d85',
   },
-  frontendUrl: 'http://35.166.32.174:4200', // Frontend base URL for development
-  backendUrl: 'http://35.166.32.174:3000', // Backend base URL for development
-  domainUrl: '', // Not used in development
-  // frontendUrl: 'https://onboarding.jellyspace.io',
-  // backendUrl: 'https://onboarding.jellyspace.io',
-  // domainUrl: 'https://onboarding.jellyspace.io',
+  // frontendUrl: 'http://35.166.32.174:4200', // Frontend base URL for development
+  // backendUrl: 'http://35.166.32.174:3000', // Backend base URL for development
+  // domainUrl: '', // Not used in development
+  frontendUrl: 'https://useronboard.jellyspace.io',
+  backendUrl: 'https://useronboard.jellyspace.io/api',
+  domainUrl: 'https://useronboard.jellyspace.io',
 };
