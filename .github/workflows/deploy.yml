@@ -21,4 +21,4 @@ jobs:
           
       - name: Deploy to server        
         run: |          
-          ssh -o StrictHostKeyChecking=no ubuntu@35.166.32.174 'bash /home/ubuntu/jellyspace.io/deploy.sh'
+          ssh -o StrictHostKeyChecking=no ubuntu@useronboard.jellyspace.io 'bash /home/ubuntu/jellyspace.io/deploy.sh'
