@@ -3,12 +3,11 @@ name: Deploy
 on:  
   push:    
     branches:
-      - CI/CD03-09
-
+      - main
 
 jobs:  
   deploy:    
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     
     steps:      
       - name: Checkout code        
@@ -19,6 +18,15 @@ jobs:
         with:          
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}      
           
+      - name: Build React app
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
       - name: Deploy to server        
         run: |          
-          ssh -o StrictHostKeyChecking=no ubuntu@useronboard.jellyspace.io 'bash /home/ubuntu/jellyspace.io/deploy.sh'
+          # Copy the build to the server
+          scp -r frontend/build/* ubuntu@test.skillnaav.com:/home/ubuntu/skillnaav-fullstack/frontend/build
+          
+          
