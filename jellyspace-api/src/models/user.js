@@ -1,69 +1,68 @@
-const mongoose = require("mongoose");
+// models/user.js
 
-// We will define a schema(database) as shown below
-const CommpanySchema = new mongoose.Schema({
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../config/database"); // Adjust the path to your database config
+
+const User = sequelize.define(
+  "User",
+  {
     firstName: {
-        type:String,
-        required:true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     lastName: {
-        type:String,
-        required:true
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
-        type:String,
-        required:true,
-        unique:true
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     password: {
-        type:String,
-        required:true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     accountType: {
-        type:String,
+      type: DataTypes.STRING,
     },
     entityName: {
-        type:String,
+      type: DataTypes.STRING,
     },
     dateOfInCorporation: {
-        type:String,
+      type: DataTypes.STRING,
     },
     title: {
-        type:String,
+      type: DataTypes.STRING,
     },
     mobileNo: {
-        type:String,
+      type: DataTypes.STRING,
     },
     skills: {
-        type: Array,
+      type: DataTypes.ARRAY(DataTypes.STRING),
     },
-    image:{
-        type:String,
+    image: {
+      type: DataTypes.STRING,
     },
-    street:{
-        type:String,
+    street: {
+      type: DataTypes.STRING,
     },
-    h_number:{
-        type:String,
+    h_number: {
+      type: DataTypes.STRING,
     },
-    city:{
-        type:String,
+    city: {
+      type: DataTypes.STRING,
     },
-    postalCode:{
-        type:String,
+    postalCode: {
+      type: DataTypes.STRING,
     },
-    country:{
-        type:String,
+    country: {
+      type: DataTypes.STRING,
     },
-    createdAt:{
-        type:Date,
-        default:Date.now
-       }
-})
-
-// Let us now create a collection
-// first create a model
-const Register = new mongoose.model("Register", CommpanySchema);
-
-// Now let us export this model
-module.exports = Register;
+  },
+  {
+    timestamps: true, // This will add `createdAt` and `updatedAt` fields
+    tableName: "Users",
+  }
+);
+module.exports = User;

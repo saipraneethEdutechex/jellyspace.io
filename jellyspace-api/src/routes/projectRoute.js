@@ -1,32 +1,36 @@
 const express = require("express");
 const router = express.Router();
 const Project = require("../models/project");
-const { emailSending } = require('../common/common');
+const { emailSending } = require("../common/common");
 const User = require("../models/user");
+const { sequelize } = require("../config/database");
 
 router.post("/getProjects", async (req, res) => {
   //const projects = await Project.find();
   const projects = await Project.aggregate([
     {
       $lookup: {
-        from: 'bids',
-        localField: '_id',
-        foreignField: 'projectId',
-        as: 'bids'
-      }
-    }]);
-  const projectsbyEmail = projects.filter((item) => item.userEmail == req.body.email);
+        from: "bids",
+        localField: "_id",
+        foreignField: "projectId",
+        as: "bids",
+      },
+    },
+  ]);
+  const projectsbyEmail = projects.filter(
+    (item) => item.userEmail == req.body.email
+  );
   if (projectsbyEmail) {
     return res.json({
       status: true,
-      message: 'Projects list by email',
-      data: projectsbyEmail
+      message: "Projects list by email",
+      data: projectsbyEmail,
     });
   } else {
     return res.json({
       status: false,
-      message: 'Data not available',
-      data: ''
+      message: "Data not available",
+      data: "",
     });
   }
 });
@@ -37,25 +41,25 @@ router.get("/projects", async (req, res) => {
   const projects = await Project.aggregate([
     {
       $lookup: {
-        from: 'bids',
-        localField: '_id',
-        foreignField: 'projectId',
-        as: 'bids'
-      }
-    }]);
-
+        from: "bids",
+        localField: "_id",
+        foreignField: "projectId",
+        as: "bids",
+      },
+    },
+  ]);
 
   if (projects) {
     return res.json({
       status: true,
-      message: 'Projects List',
-      data: projects
+      message: "Projects List",
+      data: projects,
     });
   } else {
     return res.json({
       status: false,
-      message: 'Data not available',
-      data: ''
+      message: "Data not available",
+      data: "",
     });
   }
 });
@@ -69,36 +73,46 @@ router.post("/postAProject", async (req, res) => {
       billingProcess: req.body.billingProcess,
       budget: req.body.budget,
       projectType: req.body.projectType,
-      userEmail: req.body.userEmail
+      userEmail: req.body.userEmail,
     });
 
-    const user = await User.findOne({ "email": req.body.userEmail });
+    const user = await User.findOne({ email: req.body.userEmail });
 
     await projectPosting.save();
 
-
-    const htmlbodyForpostedProject = '<!DOCTYPE html><html lang="en" style="font-family: Agency FB;"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Template 2</title></head>' +
+    const htmlbodyForpostedProject =
+      '<!DOCTYPE html><html lang="en" style="font-family: Agency FB;"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Template 2</title></head>' +
       '<body style="font-family:Agency FB"><header><img style="padding: 20px;margin-left: 25%;width:250px;position: absolute;top: 44px;height: 50px;" src="https://jellyspace-public.s3.amazonaws.com/email-head-image.jpeg" alt="logo"></header>' +
-      '<section class="container-fluid" style="margin: 20px;"><div><p>Hi ' + user.firstName + ' ' + user.lastName + ', </p></div><div><p>You have successfully posted your project!</p></div><div class="article" style="margin-top:45px ;"><p> Your project details for  <strong> ' + projectPosting.projectName + ' </strong> have now been notified to hundreds of companies and<br> professionals across the globe.</p></div>' +
+      '<section class="container-fluid" style="margin: 20px;"><div><p>Hi ' +
+      user.firstName +
+      " " +
+      user.lastName +
+      ', </p></div><div><p>You have successfully posted your project!</p></div><div class="article" style="margin-top:45px ;"><p> Your project details for  <strong> ' +
+      projectPosting.projectName +
+      " </strong> have now been notified to hundreds of companies and<br> professionals across the globe.</p></div>" +
       '<div class="list"><p>What you can do now?</p><ul><li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image4.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Receive Bids –</strong> You can view their bids by visiting the project page</span> </li>' +
       '<li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image5.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Compare –</strong> Bid-Proposals, Profiles, Background, Pricing etc. and chat with them to discuss you project.</span> </li>' +
       '<li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image6.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Finalize and Contract –</strong> Your preferred Company or Professional</span> </li>' +
       '</ul></div><div><p style="position: absolute;margin: 36px 0 0 25%;">Get Your Project Started!</p></div>' +
       '<button style="background-color: #92d051;font-size: 15px;color: white;margin: 30px 0px 30px 65%;border: 1px solid #5d8b9b;">  &nbsp; &nbsp; &nbsp; Check bids on your project &nbsp; <span style="width: 20px; color: blue;">&#8680;</span></button>' +
-      '<div><p>Regards,<br>The JELLYSPACE Team</p></div></section></body> </html>';
+      "<div><p>Regards,<br>The JELLYSPACE Team</p></div></section></body> </html>";
 
-    emailSending(projectPosting.userEmail, projectPosting.projectName, htmlbodyForpostedProject);
+    emailSending(
+      projectPosting.userEmail,
+      projectPosting.projectName,
+      htmlbodyForpostedProject
+    );
     return res.json({
       status: true,
-      message: 'Successfully Project Posted',
-      data: projectPosting
+      message: "Successfully Project Posted",
+      data: projectPosting,
     });
   } catch (err) {
-    console.log('error' + JSON.stringify(err));
+    console.log("error" + JSON.stringify(err));
     return res.json({
       status: false,
-      message: 'Project Posting failed',
-      data: ''
+      message: "Project Posting failed",
+      data: "",
     });
   }
 });
@@ -108,15 +122,15 @@ router.post("/deleteProject", async (req, res) => {
     await Project.deleteOne({ _id: req.body.id });
     return res.json({
       status: true,
-      message: 'Successfully Project Deleted',
-      data: ''
+      message: "Successfully Project Deleted",
+      data: "",
     });
   } catch (err) {
-    console.log('error' + JSON.stringify(err));
+    console.log("error" + JSON.stringify(err));
     return res.json({
       status: false,
-      message: 'Project deletion failed',
-      data: ''
+      message: "Project deletion failed",
+      data: "",
     });
   }
 });

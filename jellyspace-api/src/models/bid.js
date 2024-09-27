@@ -1,44 +1,75 @@
-const mongoose = require("mongoose");
+module.exports = (sequelize, DataTypes) => {
+  const Bid = sequelize.define(
+    "Bid",
+    {
+      projectId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "Projects", // Ensure this matches your actual table name
+          key: "id",
+        },
+        allowNull: false, // Ensure projectId is always required
+      },
+      projectName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: true,
+        },
+      },
+      projectEmail: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isEmail: true,
+        },
+      },
+      rupeesId: {
+        type: DataTypes.STRING,
+        allowNull: true, // Adjust this based on your business logic
+      },
+      bidAmount: {
+        type: DataTypes.DECIMAL(10, 2), // Better precision for monetary values
+        allowNull: false,
+        validate: {
+          isDecimal: true,
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "pending", // Default status, adjust based on your use case
+        validate: {
+          isIn: [["pending", "approved", "rejected"]], // Set allowed statuses
+        },
+      },
+      bidDescription: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      userEmail: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          isEmail: true,
+        },
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+      },
+    },
+    {
+      paranoid: true, // Enable soft deletes
+      timestamps: true, // Automatically manage createdAt and updatedAt
+      tableName: "bids",
+    }
+  );
 
-// We will define a schema(database) as shown below
-const BidSchema = new mongoose.Schema({
-    projectId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Project'
-    },
-    // projectId: {
-    //     type: String
-    // },
-    projectName: {
-        type: String
-    },
-    projectEmail: {
-        type: String
-    },
-    rupeesId: {
-        type:String
-    },
-    bidAmount: {
-        type:Number
-    },
-    status: {
-        type:String,
-    },
-    bidDescription: {
-        type:String
-    },
-    userEmail: {
-        type:String
-    },
-    createdAt:{
-        type:Date,
-        default:Date.now
-       }
-})
+  // Define relationships
+  Bid.associate = function (models) {
+    Bid.belongsTo(models.Project, { foreignKey: "projectId" });
+  };
 
-// Let us now create a collection
-// first create a model
-const Bid = new mongoose.model("Bid", BidSchema);
-
-// Now let us export this model
-module.exports = Bid;
+  return Bid;
+};
