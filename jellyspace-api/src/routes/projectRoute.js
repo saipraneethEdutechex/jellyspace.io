@@ -3,7 +3,6 @@ const router = express.Router();
 const Project = require("../models/project");
 const { emailSending } = require("../common/common");
 const User = require("../models/user");
-const { sequelize } = require("../config/database");
 
 router.post("/getProjects", async (req, res) => {
   //const projects = await Project.find();

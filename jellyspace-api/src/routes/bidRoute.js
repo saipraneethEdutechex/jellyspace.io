@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const Bid = require("../models/bid"); // Import Bid model
-const User = require("../models/user"); // Import User model
+const Bid = require("../models/bid");
+const User = require("../models/user");
 const { emailSending } = require("../common/common");
-const sequelize = require("../config/database");
 
 router.post("/getbids", async (req, res) => {
   const bids = await Bid.find();
