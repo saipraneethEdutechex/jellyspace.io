@@ -10,7 +10,7 @@ export const environment: Environment = {
     messagingSenderId: '241779132384',
     appId: '1:241779132384:web:0d93c77f18221eb8d38d85',
   },
-  frontendUrl: 'https://onboarding.jellyspace.io',
-  backendUrl: 'https://onboarding.jellyspace.io',
-  domainUrl: 'https://onboarding.jellyspace.io',
+  frontendUrl: 'https://test.jellyspace.io',
+  backendUrl: 'https://test.jellyspace.io/api',
+  domainUrl: 'https://test.jellyspace.io',
 };

@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://useronboard.jellyspace.io",
+    "target": "https://test.jellyspace.io",
     "secure": true,
     "changeOrigin": true
   }
