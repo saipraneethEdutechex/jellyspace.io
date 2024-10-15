@@ -31,6 +31,7 @@
             ],
             "allowedCommonJsDependencies": [
               "ngx-quill",
+              "quill",
               "sweetalert2",
               "aws-sdk"
             ]

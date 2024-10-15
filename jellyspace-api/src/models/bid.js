@@ -1,44 +1,53 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/db'); // Assumes your Sequelize instance is in config/db
 
-// We will define a schema(database) as shown below
-const BidSchema = new mongoose.Schema({
-    projectId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Project'
-    },
-    // projectId: {
-    //     type: String
-    // },
-    projectName: {
-        type: String
-    },
-    projectEmail: {
-        type: String
-    },
-    rupeesId: {
-        type:String
-    },
-    bidAmount: {
-        type:Number
-    },
-    status: {
-        type:String,
-    },
-    bidDescription: {
-        type:String
-    },
-    userEmail: {
-        type:String
-    },
-    createdAt:{
-        type:Date,
-        default:Date.now
-       }
-})
+// Define the Bid model
+const Bid = sequelize.define('Bid', {
+  projectId: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'projects', // Reference to the Project table
+      key: 'projectId'
+    }
+  },
+  projectName: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  projectEmail: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    validate: {
+      isEmail: true
+    }
+  },
+  rupeesId: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  bidAmount: {
+    type: DataTypes.DECIMAL(10, 2),
+    allowNull: true
+  },
+  status: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  bidDescription: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  userEmail: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    validate: {
+      isEmail: true
+    }
+  }
+}, {
+  timestamps: true,
+  tableName: 'bids'
+});
 
-// Let us now create a collection
-// first create a model
-const Bid = new mongoose.model("Bid", BidSchema);
-
-// Now let us export this model
+// Export the model
 module.exports = Bid;

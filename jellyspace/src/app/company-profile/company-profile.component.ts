@@ -55,7 +55,7 @@ export class CompanyProfileComponent implements OnInit {
     const params = {
       email: this.loginEmail || '',
     };
-    this.service.loginUserDetails(params).subscribe((data: any) => {
+    this.service.Details(params).subscribe((data: any) => {
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
         localStorage.setItem('userId', data.data._id);

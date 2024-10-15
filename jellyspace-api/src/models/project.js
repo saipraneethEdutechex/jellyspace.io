@@ -1,39 +1,53 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/db'); // Assumes your Sequelize instance is in config/db
 
-// We will define a schema(database) as shown below
-const ProjectSchema = new mongoose.Schema({
-    projectName: {
-        type:String,
-        required:true
-    },
-    projectDescription: {
-        type:String,
-        required:true
-    },
-    skills: {
-        type:Array,
-    },
-    billingProcess: {
-        type:String,
-    },
-    budget: {
-        type:String,
-    },
-    projectType: {
-        type:String,
-    },
-    userEmail: {
-        type:String
-    },
-    createdAt:{
-        type:Date,
-        default:Date.now
-       }
-})
+const Project = sequelize.define('Project', {
+  projectId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  projectName: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
+  projectDescription: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    }
+  },
+  skills: {
+    type: DataTypes.ARRAY(DataTypes.STRING),
+    allowNull: true
+  },
+  billingProcess: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  budget: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  projectType: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  userEmail: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    validate: {
+      isEmail: true,
+    }
+  }
+}, {
+  timestamps: false, // Disable automatic timestamps
+  tableName: 'projects'
+});
 
-// Let us now create a collection
-// first create a model
-const Project = new mongoose.model("Project", ProjectSchema);
-
-// Now let us export this model
+// Export the model
 module.exports = Project;
