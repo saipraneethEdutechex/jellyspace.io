@@ -479,7 +479,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.service.loginUserDetails(params).subscribe((data: any) => {
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
-        localStorage.setItem('userId', data.data._id);
+        localStorage.setItem('userId', data.data.id);
         this.accountType = data.data.accountType;
         this.email = data.data.email;
         this.fname = data.data.firstName;

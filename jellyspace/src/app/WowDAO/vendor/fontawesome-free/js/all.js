@@ -23,7 +23,7 @@
   var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
   var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var NAMESPACEidENTIFIER = '___FONT_AWESOME___';
   var PRODUCTION = function () {
     try {
       return "production" === 'production';
@@ -77,11 +77,11 @@
   }
 
   var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  if (!w[NAMESPACEidENTIFIER]) w[NAMESPACEidENTIFIER] = {};
+  if (!w[NAMESPACEidENTIFIER].styles) w[NAMESPACEidENTIFIER].styles = {};
+  if (!w[NAMESPACEidENTIFIER].hooks) w[NAMESPACEidENTIFIER].hooks = {};
+  if (!w[NAMESPACEidENTIFIER].shims) w[NAMESPACEidENTIFIER].shims = [];
+  var namespace = w[NAMESPACEidENTIFIER];
 
   function defineIcons(prefix, icons) {
     var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -605,7 +605,7 @@
   var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
   var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var NAMESPACEidENTIFIER = '___FONT_AWESOME___';
   var PRODUCTION = function () {
     try {
       return "production" === 'production';
@@ -659,11 +659,11 @@
   }
 
   var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  if (!w[NAMESPACEidENTIFIER]) w[NAMESPACEidENTIFIER] = {};
+  if (!w[NAMESPACEidENTIFIER].styles) w[NAMESPACEidENTIFIER].styles = {};
+  if (!w[NAMESPACEidENTIFIER].hooks) w[NAMESPACEidENTIFIER].hooks = {};
+  if (!w[NAMESPACEidENTIFIER].shims) w[NAMESPACEidENTIFIER].shims = [];
+  var namespace = w[NAMESPACEidENTIFIER];
 
   function defineIcons(prefix, icons) {
     var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -881,7 +881,7 @@
   var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
   var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var NAMESPACEidENTIFIER = '___FONT_AWESOME___';
   var PRODUCTION = function () {
     try {
       return "production" === 'production';
@@ -935,11 +935,11 @@
   }
 
   var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  if (!w[NAMESPACEidENTIFIER]) w[NAMESPACEidENTIFIER] = {};
+  if (!w[NAMESPACEidENTIFIER].styles) w[NAMESPACEidENTIFIER].styles = {};
+  if (!w[NAMESPACEidENTIFIER].hooks) w[NAMESPACEidENTIFIER].hooks = {};
+  if (!w[NAMESPACEidENTIFIER].shims) w[NAMESPACEidENTIFIER].shims = [];
+  var namespace = w[NAMESPACEidENTIFIER];
 
   function defineIcons(prefix, icons) {
     var params = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -2146,7 +2146,7 @@
   var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
   var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var NAMESPACEidENTIFIER = '___FONT_AWESOME___';
   var UNITS_IN_GRID = 16;
   var DEFAULT_FAMILY_PREFIX = 'fa';
   var DEFAULT_REPLACEMENT_CLASS = 'svg-inline--fa';
@@ -2264,11 +2264,11 @@
   WINDOW.FontAwesomeConfig = config;
 
   var w = WINDOW || {};
-  if (!w[NAMESPACE_IDENTIFIER]) w[NAMESPACE_IDENTIFIER] = {};
-  if (!w[NAMESPACE_IDENTIFIER].styles) w[NAMESPACE_IDENTIFIER].styles = {};
-  if (!w[NAMESPACE_IDENTIFIER].hooks) w[NAMESPACE_IDENTIFIER].hooks = {};
-  if (!w[NAMESPACE_IDENTIFIER].shims) w[NAMESPACE_IDENTIFIER].shims = [];
-  var namespace = w[NAMESPACE_IDENTIFIER];
+  if (!w[NAMESPACEidENTIFIER]) w[NAMESPACEidENTIFIER] = {};
+  if (!w[NAMESPACEidENTIFIER].styles) w[NAMESPACEidENTIFIER].styles = {};
+  if (!w[NAMESPACEidENTIFIER].hooks) w[NAMESPACEidENTIFIER].hooks = {};
+  if (!w[NAMESPACEidENTIFIER].shims) w[NAMESPACEidENTIFIER].shims = [];
+  var namespace = w[NAMESPACEidENTIFIER];
 
   var functions = [];
 

@@ -3,18 +3,17 @@ const router = express.Router();
 const Project = require("../models/project");
 const { emailSending } = require('../common/common');
 const User = require("../models/user");
-const Bid = require("../models/bid"); 
+const Bid = require("../models/bid");
 const { sequelize } = require('../config/db'); // Adjust path as needed
 
 // Get projects by user email
 router.post("/getProjects", async (req, res) => {
   try {
-    console.log(Project);
     const projects = await Project.findAll({
       where: { userEmail: req.body.email }, // Filter by user email
       include: [
         {
-          model: Bid, // Make sure Bid is defined in your models
+          model: Bid,
           as: 'bids' // The alias you have set for the association
         }
       ]
@@ -49,8 +48,8 @@ router.get("/projects", async (req, res) => {
     const projects = await Project.findAll({
       include: [
         {
-          model: Bid, // Make sure Bid is defined in your models
-          as: 'bids' // The alias you have set for the association
+          model: Bid,
+          as: 'bids'
         }
       ]
     });
@@ -78,13 +77,48 @@ router.get("/projects", async (req, res) => {
   }
 });
 
+// Get project by projectId
+router.get('/projects/:projectId', async (req, res) => {
+    const projectId = req.body.id; // Ensure this line exists
+    try {
+        const project = await Project.findOne({
+            where: { id }, // Assuming the primary key in the Project model is 'id'
+            include: [
+                {
+                    model: Bid,
+                    as: 'bids' // Include associated bids if necessary
+                }
+            ]
+        });
+
+        if (project) {
+            return res.json({
+                status: true,
+                message: 'Project found',
+                data: project
+            });
+        } else {
+            return res.json({
+                status: false,
+                message: 'Project not found',
+                data: ''
+            });
+        }
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            status: false,
+            message: 'An error occurred while retrieving the project',
+            data: err.message
+        });
+    }
+});
+
 // Post a new project
 router.post("/postAProject", async (req, res) => {
-  const transaction = await sequelize.transaction(); // Start a transaction
-
   try {
     const projectPosting = await Project.create({
-      projectId: req.body.projectId, 
+      projectId: req.body.id, 
       projectName: req.body.projectName,
       projectDescription: req.body.projectDescription,
       skills: req.body.skills,
@@ -92,22 +126,54 @@ router.post("/postAProject", async (req, res) => {
       budget: req.body.budget,
       projectType: req.body.projectType,
       userEmail: req.body.userEmail
-    }, { transaction });
+    });
 
-    const user = await User.findOne({ where: { email: req.body.userEmail } }, { transaction }); // Include transaction
+    const user = await User.findOne({ where: { email: req.body.userEmail } });
 
-    const htmlbodyForpostedProject = '<!DOCTYPE html><html lang="en" style="font-family: Agency FB;"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Template 2</title></head>' +
-      '<body style="font-family:Agency FB"><header><img style="padding: 20px;margin-left: 25%;width:250px;position: absolute;top: 44px;height: 50px;" src="https://jellyspace-public.s3.amazonaws.com/email-head-image.jpeg" alt="logo"></header>' +
-      '<section class="container-fluid" style="margin: 20px;"><div><p>Hi ' + user.firstName + ' ' + user.lastName + ', </p></div><div><p>You have successfully posted your project!</p></div><div class="article" style="margin-top:45px ;"><p> Your project details for <strong>' + projectPosting.projectName + '</strong> have now been notified to hundreds of companies and<br> professionals across the globe.</p></div>' +
-      '<div class="list"><p>What you can do now?</p><ul><li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image4.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Receive Bids –</strong> You can view their bids by visiting the project page</span> </li>' +
-      '<li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image5.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Compare –</strong> Bid-Proposals, Profiles, Background, Pricing etc. and chat with them to discuss your project.</span> </li>' +
-      '<li style="list-style-type: none;margin-left: 35px; margin-bottom: 20px;"><img style="width: 50px;" src="https://jellyspace-public.s3.amazonaws.com/image6.png" alt="bids"> <span style="margin-left: 20px;position: absolute;margin-top: 20px;"><strong> Finalize and Contract –</strong> Your preferred Company or Professional</span> </li>' +
-      '</ul></div><div><p style="position: absolute;margin-top:-10%;">Get Your Project Started!</p></div>' +
-      '<button style="background-color:#92d051;font-size:15px;color:white;margin-top:-10%;border:none;">Check bids on your project <span style="color:#5d8b9b;">&#8680;</span></button>' +
-      '<div><p>Regards,<br>The JELLYSPACE Team</p></div></section></body></html>';
+    const htmlbodyForpostedProject = `
+      <!DOCTYPE html>
+      <html lang="en" style="font-family: Agency FB;">
+      <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Template 2</title>
+      </head>
+      <body style="font-family:Agency FB">
+          <header>
+              <img style="padding: 20px;margin-left: 25%;width:250px;position:absolute;top:44px;height:50px;" src="https://jellyspace-public.s3.amazonaws.com/email-head-image.jpeg" alt="logo">
+          </header>
+          <section class="container-fluid" style="margin: 20px;">
+              <div><p>Hi ${user.firstName} ${user.lastName}, </p></div>
+              <div><p>You have successfully posted your project!</p></div>
+              <div class="article" style="margin-top:45px;">
+                  <p>Your project details for <strong>${projectPosting.projectName}</strong> have now been notified to hundreds of companies and professionals across the globe.</p>
+              </div>
+              <div class="list">
+                  <p>What you can do now?</p>
+                  <ul>
+                      <li style="list-style-type:none;margin-left:35px;margin-bottom:20px;">
+                          <img style="width:50px;" src="https://jellyspace-public.s3.amazonaws.com/image4.png" alt="bids"> 
+                          <span style="margin-left:20px;position:absolute;margin-top:20px;"><strong>Receive Bids –</strong> You can view their bids by visiting the project page</span> 
+                      </li>
+                      <li style="list-style-type:none;margin-left:35px;margin-bottom:20px;">
+                          <img style="width:50px;" src="https://jellyspace-public.s3.amazonaws.com/image5.png" alt="bids"> 
+                          <span style="margin-left:20px;position:absolute;margin-top:20px;"><strong>Compare –</strong> Bid-Proposals, Profiles, Background, Pricing etc. and chat with them to discuss your project.</span> 
+                      </li>
+                      <li style="list-style-type:none;margin-left:35px;margin-bottom:20px;">
+                          <img style="width:50px;" src="https://jellyspace-public.s3.amazonaws.com/image6.png" alt="bids"> 
+                          <span style="margin-left:20px;position:absolute;margin-top:20px;"><strong>Finalize and Contract –</strong> Your preferred Company or Professional</span> 
+                      </li>
+                  </ul>
+              </div>
+              <div><p style="position:absolute;margin-top:-10%;">Get Your Project Started!</p></div>
+              <button style="background-color:#92d051;font-size:15px;color:white;margin-top:-10%;border:none;">Check bids on your project <span style="color:#5d8b9b;">&#8680;</span></button>
+              <div><p>Regards,<br>The JELLYSPACE Team</p></div>
+          </section>
+      </body>
+      </html>`;
+    
     emailSending(projectPosting.userEmail, projectPosting.projectName, htmlbodyForpostedProject);
-
-    await transaction.commit(); // Commit the transaction
 
     return res.json({
       status: true,
@@ -117,52 +183,51 @@ router.post("/postAProject", async (req, res) => {
 
   } catch (err) {
     console.log('error' + JSON.stringify(err));
-    await transaction.rollback(); // Rollback the transaction on error
-
+    
     return res.status(500).json({
       status: false,
       message: 'Project Posting failed',
-      data: ''
+      data: err.message
     });
   }
 });
 
-// Delete a project
 router.post("/deleteProject", async (req, res) => {
-  const transaction = await sequelize.transaction(); // Start a transaction
+  console.log('Incoming request body:', req.body); // Log the incoming request body
+
+  const id = req.body; // Access the project ID directly from the body
+
+  if (!id) {
+      return res.status(400).json({
+          status: false,
+          message: 'Project ID is required',
+      });
+  }
 
   try {
-    const deletedCount = await Project.destroy({
-      where: { id: req.body.id }, // Assuming id is the primary key
-      transaction // Include transaction in delete operation
-    });
-
-    if (deletedCount === 0) {
-      return res.status(404).json({
-        status: false,
-        message: 'Project not found',
-        data: ''
+      const deletedProject = await Project.destroy({
+          where: { id } // Use id directly in the condition
       });
-    }
 
-    await transaction.commit(); // Commit the transaction
-
-    return res.json({
-      status: true,
-      message: 'Successfully Project Deleted',
-      data: ''
-    });
-
+      if (deletedProject) {
+          return res.json({
+              status: true,
+              message: 'Project deleted successfully',
+          });
+      } else {
+          return res.json({
+              status: false,
+              message: 'Project not found',
+          });
+      }
   } catch (err) {
-    console.log('error' + JSON.stringify(err));
-    await transaction.rollback(); // Rollback the transaction on error
-
-    return res.status(500).json({
-      status: false,
-      message: 'Project deletion failed',
-      data: ''
-    });
+      console.error(err);
+      return res.status(500).json({
+          status: false,
+          message: 'An error occurred while deleting the project',
+          data: err.message
+      });
   }
 });
 
-module.exports = router;
+module.exports = router; 

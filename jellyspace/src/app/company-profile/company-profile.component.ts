@@ -58,7 +58,7 @@ export class CompanyProfileComponent implements OnInit {
     this.service.Details(params).subscribe((data: any) => {
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
-        localStorage.setItem('userId', data.data._id);
+        localStorage.setItem('userId', data.data.id);
         this.image = data.data.image || this.image;
       } else {
         alert(data.message);

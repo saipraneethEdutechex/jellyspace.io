@@ -1,59 +1,91 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
-const { sequelize } = require('../config/db'); // Adjust path as needed
-const bcrypt = require("bcrypt");
-const saltRounds = 10;
 
-// User Registration
-router.post("/register", async (req, res) => {
-  const transaction = await sequelize.transaction(); // Start a transaction
+router.post("/user", async (req, res) => {
+  const user = await User.findOne({ "email": req.body.email });
+  if (user) {
+    return res.json({
+      status: false,
+      message: 'User already registered',
+      data: ''
+    });
+  } else {
+    return res.json({
+      status: true,
+      message: '',
+      data: ''
+    });
+  }
+});
 
+router.post("/login", async (req, res) => {
   try {
-    const existingUser = await User.findAll({ where: { email: req.body.email }, transaction });
+    const user = await User.findOne({ "email": req.body.email, "password": req.body.password });
+    if (user) {
+      return res.json({
+        status: true,
+        message: 'User loggedIn Successfully',
+        data: user
+      });
+    } else {
+      return res.json({
+        status: false,
+        message: 'login failed',
+        data: ''
+      });
+    }
+  } catch (error) {
+    console.log('error' + JSON.stringify(err));
+    return res.json({
+      status: false,
+      message: 'login failed',
+      data: ''
+    });
+  }
 
-    // Check if user already exists
-    if (existingUser.length > 0) {
+});
+
+router.post("/register", async (req, res) => {
+  try {
+    const user = await User.findOne({ "email": req.body.email });
+    if (user) {
       return res.json({
         status: false,
         message: 'User already registered',
         data: ''
       });
     }
-    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    else {
+      const userRegistration = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
+        accountType: req.body.accountType,
+        entityName: req.body.entityName,
+        dateOfInCorporation: req.body.dateOfInCorporation,
+        title: req.body.title,
+        mobileNo: req.body.mobileNo,
+        skills: req.body.skills,
+        image: req.body.image,
+        street: req.body.street,
+        h_number: req.body.h_number,
+        city: req.body.city,
+        postalCode: req.body.postalCode,
+        country: req.body.country
+      });
 
-    // Create new user
-    const newUser = await User.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password, // Make sure this is hashed before saving
-      accountType: req.body.accountType,
-      entityName: req.body.entityName,
-      dateOfInCorporation: req.body.dateOfInCorporation,
-      title: req.body.title,
-      mobileNo: req.body.mobileNo,
-      skills: req.body.skills,  // Make sure the model accepts an array
-      image: req.body.image,
-      street: req.body.street,
-      h_number: req.body.h_number,
-      city: req.body.city,
-      postalCode: req.body.postalCode,
-      country: req.body.country
-    }, { transaction }); // Include transaction
+      await userRegistration.save();
 
-    await transaction.commit(); // Commit the transaction
-
-    return res.json({
-      status: true,
-      message: 'Successfully registered',
-      data: newUser
-    });
-  } catch (error) {
-    console.error(error);
-    
-    await transaction.rollback(); // Rollback the transaction on error
-
+      return res.json({
+        status: true,
+        message: 'Successfully registered',
+        data: userRegistration
+      });
+    }
+  } catch (err) {
+    console.log('error' + JSON.stringify(err));
     return res.json({
       status: false,
       message: 'Registration failed',
@@ -62,92 +94,132 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// User Login
-router.post("/login", async (req, res) => {
-  try {
-    // Find user by email
-    const user = await User.findOne({ 
-      where: { email: req.body.email } 
-    });
-
-    // Check if user exists and verify password (consider hashing)
-    if (user && user.password === req.body.password) {
-      return res.json({
-        status: true,
-        message: 'User logged in successfully',
-        data: user
-      });
-    } else {
-      return res.json({
-        status: false,
-        message: 'Login failed',
-        data: ''
-      });
-    }
-  } catch (error) {
-    console.error(error);
-    return res.json({
-      status: false,
-      message: 'Login failed',
-      data: ''
-    });
-  }
-});
-
-
-// Get All Users
 router.get("/users", async (req, res) => {
-  try {
-    const users = await User.findAll();
+  const users = await User.findOne();
+  if (users) {
     return res.json({
       status: true,
-      message: 'Users list',
+      message: 'Users List',
       data: users
     });
-  } catch (error) {
-    console.error(error);
+  } else {
     return res.json({
       status: false,
-      message: 'Failed to fetch users',
+      message: 'Data not available',
       data: ''
     });
   }
 });
 
-// Delete User
-router.post("/deleteUser", async (req, res) => {
-  const transaction = await sequelize.transaction(); // Start a transaction
-
-  try {
-    const user = await User.findOne({ where: { email: req.body.email }, transaction }); // Include transaction
-
-    if (user) {
-      await User.destroy({ where: { id: user.id }, transaction }); // Include transaction in delete operation
-      await transaction.commit(); // Commit the transaction
-
-      return res.json({
-        status: true,
-        message: 'User deleted successfully',
-        data: ''
-      });
-    } else {
-      return res.json({
-        status: false,
-        message: 'User not found',
-        data: ''
-      });
-    }
-  } catch (error) {
-    console.error(error);
+router.post("/loginUser", async (req, res) => {
+  const user = await User.findOne({ "email": req.body.email });
+  if (user) {
+    return res.json({
+      status: true,
+      message: '',
+      data:user
+    });
     
-    await transaction.rollback(); // Rollback the transaction on error
-
+  } else {
     return res.json({
       status: false,
-      message: 'Failed to delete user',
+      message: 'User not available',
       data: ''
     });
   }
 });
+
+router.post("/deleteUser", async (req, res) => {
+  const user = await User.findOne({ "email": req.body.email });
+  if (user) {
+    await User.deleteOne(user.id);
+    return res.json({
+      status: true,
+      message: 'User deleted',
+      data:''
+    });
+    
+  } else {
+    return res.json({
+      status: false,
+      message: 'User not available',
+      data: ''
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.get("/posts", async (req, res) => {
+//   const posts = await Post.find();
+//   res.send(posts);
+// });
+
+
+
+
+
+// router.get("/posts/:id", async (req, res) => {
+//   try {
+//     const post = await Post.findOne({ id: req.params.id });
+//     res.send(post);
+//   } catch {
+//     res.status(404);
+//     res.send({ error: "Post doesn't exist!" });
+//   }
+// });
+
+
+
+// router.patch("/posts/:id", async (req, res) => {
+//   try {
+//     const post = await Post.findOne({ id: req.params.id });
+
+
+
+//     if (req.body.title) {
+//       post.title = req.body.title;
+//     }
+
+
+
+//     if (req.body.content) {
+//       post.content = req.body.content;
+//     }
+
+
+
+//     await post.save();
+//     res.send(post);
+//   } catch {
+//     res.status(404);
+//     res.send({ error: "Post doesn't exist!" });
+//   }
+// });
+
+
 
 module.exports = router;

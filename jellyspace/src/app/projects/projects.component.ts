@@ -1149,7 +1149,7 @@ export class ProjectsComponent implements OnInit {
   openProjectDetails(content: any, data: any) {
     this.modalBudget = data.budget
     this.modalHeaderName = data.projectName
-    this.modalProjectId = data._id
+    this.modalProjectId = data.id
     this.modalProjectEmail = data.userEmail
     this.modalDescription = data.projectDescription
     //this.projectsBidsList = data.bids;
@@ -1165,7 +1165,7 @@ export class ProjectsComponent implements OnInit {
     console.log(data)
     this.modalBudget = data.budget
     this.modalHeaderName = data.projectName
-    this.modalProjectId = data._id
+    this.modalProjectId = data.id
     this.modalProjectEmail = data.userEmail
     this.modalDescription = data.projectDescription
     this.modalSkills = data.skills
@@ -1177,7 +1177,7 @@ export class ProjectsComponent implements OnInit {
   openOnGoingProjectDetails(data: any) {
     this.modalBudget = data.budget
     this.modalHeaderName = data.projectName
-    this.modalProjectId = data._id
+    this.modalProjectId = data.id
     this.modalProjectEmail = data.userEmail
     this.modalDescription = data.projectDescription
     this.modalSkills = data.skills
@@ -1236,40 +1236,43 @@ export class ProjectsComponent implements OnInit {
   }
 
   deleteData() {
+    // Check if projectId is provided
+    
+    // Show confirmation dialog
     Swal.fire({
-      text: 'Do you want delete your project?',
-      icon: 'error',
-      showCancelButton: true,
-      focusConfirm: false,
-      confirmButtonText:
-        'Yes',
-      cancelButtonText:
-        'No',
-      confirmButtonColor: '#4CAF50',
-      cancelButtonColor: 'black',
-    }).then((result:any) => {
-      if (result.isConfirmed) {
-        const params = {
-          id: this.modalProjectId || '',
-        }
-        this.service.deleteData(params).subscribe((res: any) => {
-          if (res.status === true) {
-            Swal.fire({
-              text: res.message,
-              icon: 'success',
-              confirmButtonText:
-                'Yes',
-              confirmButtonColor: '#4CAF50',
+        text: 'Do you want to delete your project?',
+        icon: 'error',
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No',
+        confirmButtonColor: '#4CAF50',
+        cancelButtonColor: 'black',
+    }).then((result: any) => {
+        if (result.isConfirmed) {
+            // Set up parameters for deletion
+            const params = {
+                id: this.modalProjectId, // Use the provided project ID
+            };
+
+            // Call the delete service
+            this.service.deleteData(params).subscribe((res: any) => {
+                if (res.status === true) {
+                    Swal.fire({
+                        text: res.message,
+                        icon: 'success',
+                        confirmButtonText: 'Ok',
+                        confirmButtonColor: '#4CAF50',
+                    });
+                    this.getProjectsByEmail(); // Refresh project list
+                } else {
+                    alert(res.message); // Handle error response
+                }
             });
-            this.backToClose();
-            this.getProjectsByEmail();
-          } else {
-            alert(res.message)
-          }
-        })
-      }
-    })
-  }
+        }
+    });
+}
+
   acceptData(status: any, id: any) {
     const params = {
       id: id || '',

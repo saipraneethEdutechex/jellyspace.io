@@ -631,7 +631,7 @@ export class DemandComponent implements OnInit {
     console.log(data);
     this.modalBudget = data.budget;
     this.modalHeaderName = data.projectName;
-    this.modalProjectId = data._id;
+    this.modalProjectId = data.id;
     this.modalProjectEmail = data.userEmail;
     this.modalDescription = data.projectDescription;
     this.modalSkills = JSON.parse(data.skills);
@@ -1220,7 +1220,7 @@ export class DemandComponent implements OnInit {
       console.log(data);
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
-        localStorage.setItem('userId', data.data._id);
+        localStorage.setItem('userId', data.data.id);
         this.accountType = data.data.accountType;
         this.email = data.data.email;
         this.fname = data.data.firstName;

@@ -143,10 +143,10 @@ export class AppService {
 
   deleteData(id: any) {
     return this.http
-      .post(this.apiURL + '/deleteProject', JSON.stringify(id), this.httpOptions)
+      .post(this.apiURL + '/deleteProject', { id }, this.httpOptions) // Send id as an object
       .pipe(retry(1), catchError(this.handleError));
   }
-
+  
   loginUserDetails(paramss: any) {
     return this.http
       .post(this.apiURL + '/login', JSON.stringify(paramss), this.httpOptions)

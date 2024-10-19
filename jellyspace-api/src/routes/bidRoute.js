@@ -144,7 +144,7 @@ router.post('/postBid', async (req, res) => {
 
     const newBid = await Bid.create(
       {
-        projectId: req.body.projectId,
+        projectId: req.body.id,
         projectName: req.body.projectName,
         projectEmail: req.body.projectEmail,
         bidAmount: req.body.bidAmount,

@@ -17,7 +17,6 @@ body {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 320px;
     /*width: 240px;*/
-    z-index: 600;
 }
 
 @media (max-width: 991.98px) {
@@ -90,7 +89,6 @@ body {
 }
 
 .list-group-item.active {
-    z-index: 2;
     color: #fff;
     /* background-color: #85FFAD;
     border-right-color: 1px solid #4CAF50; */

@@ -3,8 +3,8 @@ const Bid = require('./bid');
 const Project = require('./project');
 
 // Define relationships
-Project.hasMany(Bid, { foreignKey: 'projectId', as: 'bids' }); // Adding alias 'bids'
-Bid.belongsTo(Project, { foreignKey: 'projectId' });
+Project.hasMany(Bid, { foreignKey: 'id', as: 'bids' }); // Adding alias 'bids'
+Bid.belongsTo(Project, { foreignKey: 'id' });
 
 
 module.exports = { Bid, Project };

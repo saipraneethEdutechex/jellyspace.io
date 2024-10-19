@@ -7,7 +7,7 @@ const Bid = sequelize.define('Bid', {
     type: DataTypes.INTEGER,
     references: {
       model: 'projects', // Reference to the Project table
-      key: 'projectId'
+      key: 'id'
     }
   },
   projectName: {

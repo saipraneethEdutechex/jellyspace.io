@@ -9669,7 +9669,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		// Do this before render so that any plugins that need final scale updates can use it
 		core_plugins.notify(me, 'afterUpdate');
 
-		me._layers.sort(compare2Level('z', '_idx'));
+		me._layers.sort(compare2Level('z', 'idx'));
 
 		if (me._bufferedRender) {
 			me._bufferedRequest = {
@@ -9707,7 +9707,7 @@ helpers$1.extend(Chart.prototype, /** @lends Chart */ {
 		}, me);
 
 		me._layers.forEach(function(item, index) {
-			item._idx = index;
+			item.idx = index;
 		});
 
 		/**
@@ -14720,7 +14720,7 @@ var FORMATS = {
 };
 
 core_adapters._date.override(typeof moment === 'function' ? {
-	_id: 'moment', // DEBUG ONLY
+	id: 'moment', // DEBUG ONLY
 
 	formats: function() {
 		return FORMATS;

@@ -1,3 +1,5 @@
+import { integer } from "aws-sdk/clients/cloudfront";
+
 export interface FirebaseConfig {
   apiKey: string;
   authDomain: string;

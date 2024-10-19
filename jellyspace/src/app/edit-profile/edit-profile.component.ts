@@ -80,7 +80,7 @@ export class EditProfileComponent implements OnInit {
       console.log(data);
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
-        localStorage.setItem('userId', data.data._id);
+        localStorage.setItem('userId', data.data.id);
         this.email = data.data.email;
         this.fname = data.data.firstName;
         this.lname = data.data.lastName;

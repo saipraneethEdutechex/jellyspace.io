@@ -26,7 +26,7 @@ export class SignInComponent implements OnInit {
       console.log(data);
       if (data.status === true) {
         localStorage.setItem('userEmail', data.data.email);
-        localStorage.setItem('userId', data.data._id);
+        localStorage.setItem('userId', data.data.id);
         localStorage.setItem('loginType', data.data.accountType);
         let params = {
           accountType: data.data.accountType,

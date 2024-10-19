@@ -41,7 +41,7 @@ export class SideNavComponent implements OnInit {
   }
   deleteUser() {
     Swal.fire({
-      text: 'Do you want delete your account?',
+      text: 'Do you  delete your account?',
       icon: 'error',
       showCancelButton: true,
       focusConfirm: false,

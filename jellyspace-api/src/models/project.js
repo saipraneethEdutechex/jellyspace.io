@@ -49,5 +49,7 @@ const Project = sequelize.define('Project', {
   tableName: 'projects'
 });
 
+
+
 // Export the model
 module.exports = Project;

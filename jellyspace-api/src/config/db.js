@@ -10,6 +10,8 @@ const sequelize = new Sequelize(process.env.PG_DATABASE, process.env.PG_USER, pr
   dialect: 'postgres',
 });
 
+
+
 // Sync the database and log success or failure
 const syncDatabase = async () => {
   try {
@@ -19,6 +21,8 @@ const syncDatabase = async () => {
     console.error('Error syncing database:', err);
   }
 };
+
+
 
 // Export both sequelize and DataTypes
 module.exports = { sequelize, DataTypes, syncDatabase };

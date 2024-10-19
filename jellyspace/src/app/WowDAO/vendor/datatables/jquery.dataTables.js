@@ -733,7 +733,7 @@
 		 *      var oSettings = oTable.fnSettings();
 		 *
 		 *      // Show an example parameter from the settings
-		 *      alert( oSettings._iDisplayStart );
+		 *      alert( oSettings.idisplayStart );
 		 *    } );
 		 */
 		this.fnSettings = function()
@@ -1022,7 +1022,7 @@
 				[ "iCookieDuration", "iStateDuration" ], // backwards compat
 				[ "oSearch", "oPreviousSearch" ],
 				[ "aoSearchCols", "aoPreSearchCols" ],
-				[ "iDisplayLength", "_iDisplayLength" ]
+				[ "iDisplayLength", "idisplayLength" ]
 			] );
 			_fnMap( oSettings.oScroll, oInit, [
 				[ "sScrollX", "sX" ],
@@ -1060,7 +1060,7 @@
 			{
 				/* Display start point, taking into account the save saving */
 				oSettings.iInitDisplayStart = oInit.iDisplayStart;
-				oSettings._iDisplayStart = oInit.iDisplayStart;
+				oSettings.idisplayStart = oInit.iDisplayStart;
 			}
 			
 			if ( oInit.iDeferLoading !== null )
@@ -3442,7 +3442,7 @@
 		/* Check and see if we have an initial draw position from state saving */
 		if ( iInitDisplayStart !== undefined && iInitDisplayStart !== -1 )
 		{
-			oSettings._iDisplayStart = bServerSide ?
+			oSettings.idisplayStart = bServerSide ?
 				iInitDisplayStart :
 				iInitDisplayStart >= oSettings.fnRecordsDisplay() ?
 					0 :
@@ -3451,7 +3451,7 @@
 			oSettings.iInitDisplayStart = -1;
 		}
 	
-		var iDisplayStart = oSettings._iDisplayStart;
+		var iDisplayStart = oSettings.idisplayStart;
 		var iDisplayEnd = oSettings.fnDisplayEnd();
 	
 		/* Server-side processing draw intercept */
@@ -3577,7 +3577,7 @@
 		}
 	
 		if ( holdPosition !== true ) {
-			settings._iDisplayStart = 0;
+			settings.idisplayStart = 0;
 		}
 	
 		// Let any modules know about the draw hold position state (used by
@@ -4037,9 +4037,9 @@
 			preColSearch = settings.aoPreSearchCols,
 			i, data = [], dataProp, column, columnSearch,
 			sort = _fnSortFlatten( settings ),
-			displayStart = settings._iDisplayStart,
+			displayStart = settings.idisplayStart,
 			displayLength = features.bPaginate !== false ?
-				settings._iDisplayLength :
+				settings.idisplayLength :
 				-1;
 	
 		var param = function ( name, value ) {
@@ -4243,7 +4243,7 @@
 				} );
 	
 				// Need to redraw, without resorting
-				settings._iDisplayStart = 0;
+				settings.idisplayStart = 0;
 				_fnDraw( settings );
 			}
 		};
@@ -4677,7 +4677,7 @@
 	
 		var
 			lang  = settings.oLanguage,
-			start = settings._iDisplayStart+1,
+			start = settings.idisplayStart+1,
 			end   = settings.fnDisplayEnd(),
 			max   = settings.fnRecordsTotal(),
 			total = settings.fnRecordsDisplay(),
@@ -4707,12 +4707,12 @@
 	
 	function _fnInfoMacros ( settings, str )
 	{
-		// When infinite scrolling, we are always starting at 1. _iDisplayStart is used only
+		// When infinite scrolling, we are always starting at 1. idisplayStart is used only
 		// internally
 		var
 			formatter  = settings.fnFormatNumber,
-			start      = settings._iDisplayStart+1,
-			len        = settings._iDisplayLength,
+			start      = settings.idisplayStart+1,
+			len        = settings.idisplayLength,
 			vis        = settings.fnRecordsDisplay(),
 			all        = len === -1;
 	
@@ -4834,7 +4834,7 @@
 	function _fnLengthChange ( settings, val )
 	{
 		var len = parseInt( val, 10 );
-		settings._iDisplayLength = len;
+		settings.idisplayLength = len;
 	
 		_fnLengthOverflow( settings );
 	
@@ -4886,7 +4886,7 @@
 		// Can't use `select` variable as user might provide their own and the
 		// reference is broken by the use of outerHTML
 		$('select', div)
-			.val( settings._iDisplayLength )
+			.val( settings.idisplayLength )
 			.on( 'change.DT', function(e) {
 				_fnLengthChange( settings, $(this).val() );
 				_fnDraw( settings );
@@ -4940,8 +4940,8 @@
 				"fn": function( settings ) {
 					if ( modern ) {
 						var
-							start      = settings._iDisplayStart,
-							len        = settings._iDisplayLength,
+							start      = settings.idisplayStart,
+							len        = settings.idisplayLength,
 							visRecords = settings.fnRecordsDisplay(),
 							all        = len === -1,
 							page = all ? 0 : Math.ceil( start / len ),
@@ -4979,8 +4979,8 @@
 	function _fnPageChange ( settings, action, redraw )
 	{
 		var
-			start     = settings._iDisplayStart,
-			len       = settings._iDisplayLength,
+			start     = settings.idisplayStart,
+			len       = settings.idisplayLength,
 			records   = settings.fnRecordsDisplay();
 	
 		if ( records === 0 || len === -1 )
@@ -5027,8 +5027,8 @@
 			_fnLog( settings, 0, "Unknown paging action: "+action, 5 );
 		}
 	
-		var changed = settings._iDisplayStart !== start;
-		settings._iDisplayStart = start;
+		var changed = settings.idisplayStart !== start;
+		settings.idisplayStart = start;
 	
 		if ( changed ) {
 			_fnCallbackFire( settings, null, 'page', [settings] );
@@ -5937,15 +5937,15 @@
 				iCol = aDataSort[k];
 				sType = aoColumns[ iCol ].sType || 'string';
 	
-				if ( nestedSort[i]._idx === undefined ) {
-					nestedSort[i]._idx = $.inArray( nestedSort[i][1], aoColumns[iCol].asSorting );
+				if ( nestedSort[i].idx === undefined ) {
+					nestedSort[i].idx = $.inArray( nestedSort[i][1], aoColumns[iCol].asSorting );
 				}
 	
 				aSort.push( {
 					src:       srcCol,
 					col:       iCol,
 					dir:       nestedSort[i][1],
-					index:     nestedSort[i]._idx,
+					index:     nestedSort[i].idx,
 					type:      sType,
 					formatter: DataTable.ext.type.order[ sType+"-pre" ]
 				} );
@@ -6149,7 +6149,7 @@
 		var asSorting = col.asSorting;
 		var nextSortIdx;
 		var next = function ( a, overflow ) {
-			var idx = a._idx;
+			var idx = a.idx;
 			if ( idx === undefined ) {
 				idx = $.inArray( a[1], asSorting );
 			}
@@ -6184,13 +6184,13 @@
 				}
 				else {
 					sorting[sortIdx][1] = asSorting[ nextSortIdx ];
-					sorting[sortIdx]._idx = nextSortIdx;
+					sorting[sortIdx].idx = nextSortIdx;
 				}
 			}
 			else {
 				// No sort on this column yet
 				sorting.push( [ colIdx, asSorting[0], 0 ] );
-				sorting[sorting.length-1]._idx = 0;
+				sorting[sorting.length-1].idx = 0;
 			}
 		}
 		else if ( sorting.length && sorting[0][0] == colIdx ) {
@@ -6199,13 +6199,13 @@
 	
 			sorting.length = 1;
 			sorting[0][1] = asSorting[ nextSortIdx ];
-			sorting[0]._idx = nextSortIdx;
+			sorting[0].idx = nextSortIdx;
 		}
 		else {
 			// Single column - sort only on this column
 			sorting.length = 0;
 			sorting.push( [ colIdx, asSorting[0] ] );
-			sorting[0]._idx = 0;
+			sorting[0].idx = 0;
 		}
 	
 		// Run the sort by calling a full redraw
@@ -6350,8 +6350,8 @@
 		/* Store the interesting variables */
 		var state = {
 			time:    +new Date(),
-			start:   settings._iDisplayStart,
-			length:  settings._iDisplayLength,
+			start:   settings.idisplayStart,
+			length:  settings.idisplayLength,
 			order:   $.extend( true, [], settings.aaSorting ),
 			search:  _fnSearchToCamel( settings.oPreviousSearch ),
 			columns: $.map( settings.aoColumns, function ( col, i ) {
@@ -6413,11 +6413,11 @@
 			// Restore key features - todo - for 1.11 this needs to be done by
 			// subscribed events
 			if ( s.start !== undefined ) {
-				settings._iDisplayStart    = s.start;
+				settings.idisplayStart    = s.start;
 				settings.iInitDisplayStart = s.start;
 			}
 			if ( s.length !== undefined ) {
-				settings._iDisplayLength   = s.length;
+				settings.idisplayLength   = s.length;
 			}
 	
 			// Order
@@ -6698,9 +6698,9 @@
 	function _fnLengthOverflow ( settings )
 	{
 		var
-			start = settings._iDisplayStart,
+			start = settings.idisplayStart,
 			end = settings.fnDisplayEnd(),
-			len = settings._iDisplayLength;
+			len = settings.idisplayLength;
 	
 		/* If we have space to show extra rows (backing up from the end point - then do so */
 		if ( start >= end )
@@ -6716,7 +6716,7 @@
 			start = 0;
 		}
 	
-		settings._iDisplayStart = start;
+		settings.idisplayStart = start;
 	}
 	
 	
@@ -7563,8 +7563,8 @@
 	
 		var
 			settings   = this.context[0],
-			start      = settings._iDisplayStart,
-			len        = settings.oFeatures.bPaginate ? settings._iDisplayLength : -1,
+			start      = settings.idisplayStart,
+			len        = settings.oFeatures.bPaginate ? settings.idisplayLength : -1,
 			visRecords = settings.fnRecordsDisplay(),
 			all        = len === -1;
 	
@@ -7598,7 +7598,7 @@
 		// the function expects.
 		if ( len === undefined ) {
 			return this.context.length !== 0 ?
-				this.context[0]._iDisplayLength :
+				this.context[0].idisplayLength :
 				undefined;
 		}
 	
@@ -7867,7 +7867,7 @@
 			// Current page implies that order=current and fitler=applied, since it is
 			// fairly senseless otherwise, regardless of what order and search actually
 			// are
-			for ( i=settings._iDisplayStart, ien=settings.fnDisplayEnd() ; i<ien ; i++ ) {
+			for ( i=settings.idisplayStart, ien=settings.fnDisplayEnd() ; i<ien ; i++ ) {
 				a.push( displayFiltered[i] );
 			}
 		}
@@ -13715,14 +13715,14 @@
 		 *  @type int
 		 *  @default 10
 		 */
-		"_iDisplayLength": 10,
+		"idisplayLength": 10,
 	
 		/**
 		 * Paging start point - aiDisplay index
 		 *  @type int
 		 *  @default 0
 		 */
-		"_iDisplayStart": 0,
+		"idisplayStart": 0,
 	
 		/**
 		 * Server-side processing - number of records in the result set
@@ -13828,8 +13828,8 @@
 		"fnDisplayEnd": function ()
 		{
 			var
-				len      = this._iDisplayLength,
-				start    = this._iDisplayStart,
+				len      = this.idisplayLength,
+				start    = this.idisplayStart,
 				calc     = start + len,
 				records  = this.aiDisplay.length,
 				features = this.oFeatures,
